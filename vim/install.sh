@@ -8,5 +8,5 @@ test -e ~/.vim    && mkdir -p backup && cp -r ~/.vim    backup
 test -e ~/.vimrc  && mkdir -p backup && cp -r ~/.vimrc  backup
 
 
-ln -s $PWD/.vim   ~/.vim
-ln -s $PWD/.vimrc ~/.vimrc
+rm -rf ~/.vim   && ln -s $PWD/.vim   ~/.vim
+rm -rf ~/.vimrc && ln -s $PWD/.vimrc ~/.vimrc

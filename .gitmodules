@@ -94,9 +94,3 @@
 [submodule "vim/.vim/bundle/vim-fugitive"]
 	path = vim/.vim/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/.vim/bundle/vim-misc"]
-	path = vim/.vim/bundle/vim-misc
-	url = git://github.com/xolox/vim-misc.git
-[submodule "vim/.vim/bundle/vim-easytags"]
-	path = vim/.vim/bundle/vim-easytags
-	url = git://github.com/xolox/vim-easytags.git

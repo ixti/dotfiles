@@ -177,18 +177,16 @@ map <C-k> <C-W>k
 map <C-l> <C-W>l
 
 " resize area with
-map <C-S-j> <C-W>5-
-map <C-S-k> <C-W>5+
+map <Leader>j <C-W>5-
+map <Leader>k <C-W>5+
 
 " visual shifting (does not exit Visual mode)
 vnoremap > >gv
 vnoremap < <gv
 
 " copy/paste to/from X buffer
-noremap <C-S-y> "+Y
-noremap <C-y>   "+y
-noremap <C-S-p> "+P
-noremap <C-p>   "+p
+noremap <C-y> "+y
+noremap <C-p> "+p
 
 " tabs management
 nmap t :tabnew

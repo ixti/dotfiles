@@ -176,10 +176,6 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
 
-" resize area with
-map <Leader>j <C-W>5-
-map <Leader>k <C-W>5+
-
 " visual shifting (does not exit Visual mode)
 vnoremap > >gv
 vnoremap < <gv

@@ -6,3 +6,6 @@ Command-T plugin requires compilation:
     cd .vim/bundle/Command-T/ruby/command-t
     ruby extconf.rb
     make
+
+I use Command-T in favor of [CtrlP](https://github.com/kien/ctrlp.vim) as it
+seems way much faster on my projects.

@@ -100,3 +100,6 @@
 [submodule "vim/.vim/bundle/undotree"]
 	path = vim/.vim/bundle/undotree
 	url = git://github.com/mbbill/undotree.git
+[submodule "vim/.vim/bundle/vim-airline"]
+	path = vim/.vim/bundle/vim-airline
+	url = git://github.com/bling/vim-airline.git

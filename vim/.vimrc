@@ -196,11 +196,5 @@ noremap <Right> <Nop>
 imap <F7> <C-o>:setlocal spell! spelllang=en,ru<CR>
 nmap <F7> :setlocal spell! spelllang=en,ru<CR>
 
-" Init powerline.
-" Requires powerline python module installed:
-"   sudo pip install https://github.com/Lokaltog/powerline/tarball/develop
-" See details: https://github.com/Lokaltog/powerline
-python from powerline.ext.vim import source_plugin; source_plugin()
-
 " Set awesome colorscheme :))
 colorscheme herald

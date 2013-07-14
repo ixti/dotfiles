@@ -197,4 +197,4 @@ imap <F7> <C-o>:setlocal spell! spelllang=en,ru<CR>
 nmap <F7> :setlocal spell! spelllang=en,ru<CR>
 
 " Set awesome colorscheme :))
-colorscheme herald
+colorscheme jellybeans

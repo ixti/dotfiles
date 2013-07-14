@@ -103,3 +103,6 @@
 [submodule "vim/.vim/bundle/vim-airline"]
 	path = vim/.vim/bundle/vim-airline
 	url = git://github.com/bling/vim-airline.git
+[submodule "vim/.vim/bundle/jellybeans.vim"]
+	path = vim/.vim/bundle/jellybeans.vim
+	url = git://github.com/nanotech/jellybeans.vim.git

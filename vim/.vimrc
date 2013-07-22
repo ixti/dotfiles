@@ -180,9 +180,11 @@ map <C-l> <C-W>l
 vnoremap > >gv
 vnoremap < <gv
 
-" copy/paste to/from X buffer
-noremap <C-y> "+y
-noremap <C-p> "+p
+" Shorthand syntax to work with X clipboard
+nmap <Leader>y "+y
+nmap <Leader>Y "+Y
+nmap <Leader>p "+p
+nmap <Leader>P "+P
 
 " tabs management
 nmap t :tabnew

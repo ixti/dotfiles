@@ -106,3 +106,6 @@
 [submodule "vim/.vim/bundle/emmet-vim"]
 	path = vim/.vim/bundle/emmet-vim
 	url = git://github.com/mattn/emmet-vim.git
+[submodule "vim/.vim/bundle/vim-rspec"]
+	path = vim/.vim/bundle/vim-rspec
+	url = git://github.com/thoughtbot/vim-rspec.git

@@ -2,3 +2,4 @@
 .xmonad/*.o
 .xmonad/*.errors
 .xmonad/xmonad-*
+.xmonad/history

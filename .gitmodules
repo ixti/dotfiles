@@ -112,3 +112,6 @@
 [submodule "vim/.vim/bundle/unite.vim"]
 	path = vim/.vim/bundle/unite.vim
 	url = git://github.com/Shougo/unite.vim.git
+[submodule "vim/.vim/bundle/vim-pasta"]
+	path = vim/.vim/bundle/vim-pasta
+	url = git://github.com/sickill/vim-pasta.git

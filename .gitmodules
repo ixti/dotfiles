@@ -115,3 +115,9 @@
 [submodule "vim/.vim/bundle/vim-pasta"]
 	path = vim/.vim/bundle/vim-pasta
 	url = git://github.com/sickill/vim-pasta.git
+[submodule "vim/.vim/bundle/vim-misc"]
+	path = vim/.vim/bundle/vim-misc
+	url = https://github.com/xolox/vim-misc.git
+[submodule "vim/.vim/bundle/vim-notes"]
+	path = vim/.vim/bundle/vim-notes
+	url = https://github.com/xolox/vim-notes.git

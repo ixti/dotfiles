@@ -1,9 +1,6 @@
 [submodule "tmux/.tmux/themes/solarized"]
 	path = tmux/.tmux/themes/solarized
 	url = git://github.com/seebi/tmux-colors-solarized.git
-[submodule "vim/.vim/bundle/ack.vim"]
-	path = vim/.vim/bundle/ack.vim
-	url = git://github.com/mileszs/ack.vim.git
 [submodule "vim/.vim/bundle/change-inside-surroundings.vim"]
 	path = vim/.vim/bundle/change-inside-surroundings.vim
 	url = git://github.com/briandoll/change-inside-surroundings.vim.git
@@ -115,3 +112,6 @@
 [submodule "vim/.vim/bundle/ctrlp.vim"]
 	path = vim/.vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/.vim/bundle/ag.vim"]
+	path = vim/.vim/bundle/ag.vim
+	url = https://github.com/rking/ag.vim.git

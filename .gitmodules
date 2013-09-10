@@ -10,9 +10,6 @@
 [submodule "vim/.vim/bundle/clam.vim"]
 	path = vim/.vim/bundle/clam.vim
 	url = git://github.com/sjl/clam.vim.git
-[submodule "vim/.vim/bundle/Command-T"]
-	path = vim/.vim/bundle/Command-T
-	url = git://github.com/wincent/Command-T.git
 [submodule "vim/.vim/bundle/editorconfig-vim"]
 	path = vim/.vim/bundle/editorconfig-vim
 	url = git://github.com/editorconfig/editorconfig-vim.git
@@ -115,3 +112,6 @@
 [submodule "vim/.vim/bundle/vim-notes"]
 	path = vim/.vim/bundle/vim-notes
 	url = https://github.com/xolox/vim-notes.git
+[submodule "vim/.vim/bundle/ctrlp.vim"]
+	path = vim/.vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git

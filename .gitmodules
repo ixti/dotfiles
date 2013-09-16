@@ -118,3 +118,6 @@
 [submodule "vim/.vim/bundle/mcabber.vim"]
 	path = vim/.vim/bundle/mcabber.vim
 	url = https://github.com/ixti/mcabber.vim
+[submodule "vim/.vim/bundle/vim-bundler"]
+	path = vim/.vim/bundle/vim-bundler
+	url = https://github.com/tpope/vim-bundler.git

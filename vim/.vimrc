@@ -190,10 +190,15 @@ nmap <Leader>P "+P
 nmap t :tabnew
 
 " disable up/down/left/right
-noremap <Up>    <Nop>
-noremap <Down>  <Nop>
-noremap <Left>  <Nop>
-noremap <Right> <Nop>
+map <Up>    <Nop>
+map <Down>  <Nop>
+map <Left>  <Nop>
+map <Right> <Nop>
+
+imap <Up>    <Nop>
+imap <Down>  <Nop>
+imap <Left>  <Nop>
+imap <Right> <Nop>
 
 imap <F7> <C-o>:setlocal spell! spelllang=en,ru<CR>
 nmap <F7> :setlocal spell! spelllang=en,ru<CR>

@@ -126,6 +126,10 @@ set colorcolumn=+1
 set list
 set listchars=tab:~>,trail:~,nbsp:#
 
+" Highlight current row/col
+set cursorline
+set cursorcolumn
+
 
 "
 " TERM HACKS

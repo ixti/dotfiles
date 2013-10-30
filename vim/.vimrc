@@ -1,9 +1,5 @@
-"
-" INIT PATHOGEN
-"
-
-
-call pathogen#infect()
+runtime init/pathogen.vim
+runtime init/neocomplete.vim
 
 
 "
@@ -209,6 +205,3 @@ nmap <F7> :setlocal spell! spelllang=en,ru<CR>
 
 " Set awesome colorscheme :))
 colorscheme jellybeans
-
-
-runtime init/neocomplete.vim

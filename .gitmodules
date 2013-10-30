@@ -22,9 +22,6 @@
 [submodule "vim/.vim/bundle/rbenv-aliases"]
 	path = vim/.vim/bundle/rbenv-aliases
 	url = git://github.com/tpope/rbenv-aliases.git
-[submodule "vim/.vim/bundle/supertab"]
-	path = vim/.vim/bundle/supertab
-	url = git://github.com/ervandew/supertab.git
 [submodule "vim/.vim/bundle/syntastic"]
 	path = vim/.vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
@@ -118,3 +115,6 @@
 [submodule "vim/.vim/bundle/vim-textobj-rubyblock"]
 	path = vim/.vim/bundle/vim-textobj-rubyblock
 	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule "vim/.vim/bundle/neocomplete"]
+	path = vim/.vim/bundle/neocomplete
+	url = https://github.com/Shougo/neocomplete.vim.git

@@ -209,3 +209,6 @@ nmap <F7> :setlocal spell! spelllang=en,ru<CR>
 
 " Set awesome colorscheme :))
 colorscheme jellybeans
+
+
+runtime init/neocomplete.vim

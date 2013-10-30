@@ -103,12 +103,6 @@
 [submodule "vim/.vim/bundle/vim-pasta"]
 	path = vim/.vim/bundle/vim-pasta
 	url = git://github.com/sickill/vim-pasta.git
-[submodule "vim/.vim/bundle/vim-misc"]
-	path = vim/.vim/bundle/vim-misc
-	url = https://github.com/xolox/vim-misc.git
-[submodule "vim/.vim/bundle/vim-notes"]
-	path = vim/.vim/bundle/vim-notes
-	url = https://github.com/xolox/vim-notes.git
 [submodule "vim/.vim/bundle/ctrlp.vim"]
 	path = vim/.vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git

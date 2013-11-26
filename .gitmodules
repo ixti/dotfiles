@@ -121,3 +121,6 @@
 [submodule "vim/.vim/bundle/vim-pathogen"]
 	path = vim/.vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule "vim/.vim/bundle/vim-lucius"]
+	path = vim/.vim/bundle/vim-lucius
+	url = https://github.com/jonathanfilip/vim-lucius.git

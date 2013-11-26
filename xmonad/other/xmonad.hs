@@ -15,7 +15,6 @@ import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 
-import XMonad.Layout
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Grid
 import XMonad.Layout.Gaps
@@ -23,7 +22,6 @@ import XMonad.Layout.ResizableTile
 import XMonad.Layout.IM
 import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Layout.Renamed
-import XMonad.Layout.Tabbed
 
 import XMonad.Prompt
 import XMonad.Prompt.Shell
@@ -52,12 +50,9 @@ import Data.Ratio ((%))
 -- http://www.haskell.org/haskellwiki/Xmonad/Config_archive/Nnoell's_xmonad.hs
 
 myComposeAllHook = (composeAll . concat $
-  [ [className =? c --> doShift "9"   | c <- myCommunicators ]
-  , [appName   =? c --> doShift "8"   | c <- ["weechat"] ]
-  , [className =? c --> doShift "7"   | c <- ["hipchat", "HipChat"] ]
-  , [className =? c --> doShift "1"   | c <- myBrowsers ]
-  -- , [className =? c --> doFullFloat | c <- myFloatWCs ]
-  , [className =? c --> (doRectFloat $ W.RationalRect 0.05 0.05 0.9 0.9) | c <- myFloatWCs ]
+  [ [className =? c --> doShift "9:chat" | c <- myCommunicators ]
+  , [className =? c --> doShift "1:web"  | c <- myBrowsers ]
+  , [className =? c --> doCenterFloat    | c <- myFloatWCs ]
   ])
   where
     myCommunicators = ["Pidgin", "Buddy List", "aleksey.zapparov - Skype™"]
@@ -66,34 +61,17 @@ myComposeAllHook = (composeAll . concat $
 
 myComposeOneHook = (composeOne [isFullscreen -?> doFullFloat])
 
-
 myManageHook = manageDocks <+> myComposeAllHook <+> myComposeOneHook
 
-
 myTerminal    = "x-terminal-emulator"
-myWorkspaces  = ["1","2","3","4","5","6","7","8","9","0"]
+myWorkspaces  = ["1:web","2:dev","3:net","4","5","6","7","8","9:chat","0"]
 
 
 myResizableTall = (renamed [Replace "Tall"] $ ResizableTall 1 (3/100) (1/2) [])
 
 
-myTabbed = renamed [Replace "Tabbed"] $ tabbedBottom shrinkText defaultTheme
-    { decoHeight = 16
-    , activeColor = "#880000"
-    , activeBorderColor = "#880000"
-    , activeTextColor = "#ffdddd"
-    , inactiveColor = "#000000"
-    , inactiveBorderColor = "#000000"
-    , inactiveTextColor = "#aaaaaa"
-    , urgentColor = "#333333"
-    , urgentBorderColor = "#333333"
-    , urgentTextColor = "#dddddd"
-    , fontName = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
-    }
-
-
 defaultLayouts = smartBorders . avoidStruts
-  $ myTabbed ||| myResizableTall ||| Mirror myResizableTall
+  $ myResizableTall ||| Mirror myResizableTall ||| noBorders Full
 
 
 chatLayout = smartBorders(avoidStruts(withIM (1%7) (roster) Grid))
@@ -103,7 +81,7 @@ chatLayout = smartBorders(avoidStruts(withIM (1%7) (roster) Grid))
 
 
 layoutHook' =
-  ( onWorkspace "9" chatLayout
+  ( onWorkspace "9:chat" chatLayout
   $ defaultLayouts
   )
 
@@ -112,12 +90,7 @@ layoutHook' =
 
 
 myStartupHook = do
-  spawn $ concat
-    [ "killall trayer ; trayer "
-    , "--width 20 --height 16 --expand true --edge top --align right "
-    , "--transparent true --alpha 0 --tint 0x000000 "
-    , "--SetDockType true --SetPartialStrut true"
-    ]
+  spawn "killall trayer ; trayer --width 15 --height 16 --edge top --align right --transparent true --alpha 0 --tint 0x000000 --SetDockType true --SetPartialStrut true"
 
 
 logHook' xmproc = do
@@ -132,16 +105,8 @@ logHook' xmproc = do
     }
 
 
-menu conf list = gridselect conf list >>= flip whenJust spawn
-
-myMenu = menu defaultGSConfig
-    [ ("WeeChat",   "urxvt -name weechat -e dmux weechat-curses")
-    , ("Psi+",      "psi-plus")
-    , ("deadbeef",  "deadbeef")
-    ]
-
 main = do
-  xmproc <- spawnPipe "killall xmobar ; HOME=~ xmobar ~/.xmonad/xmobar.hs"
+  xmproc <- spawnPipe "killall xmobar ; xmobar ~/.xmobar/xmobar.hs"
   xmonad $ ewmh desktopConfig
     { modMask           = mod4Mask
     , focusFollowsMouse = True
@@ -152,8 +117,7 @@ main = do
     , handleEventHook   = fullscreenEventHook <+> docksEventHook <+> focusOnMouseMove <+> handleEventHook defaultConfig
     , manageHook        = myManageHook <+> manageHook desktopConfig
     , layoutHook        = layoutHook'
-    --, logHook           = fadeInactiveCurrentWSLogHook 0.60 >> logHook' xmproc
-    , logHook           = logHook' xmproc
+    , logHook           = fadeInactiveCurrentWSLogHook 0.75 >> logHook' xmproc
     }
 
 
@@ -176,7 +140,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
       promptBorderWidth = 0
     })
 
-  , ((modm,               xK_r     ), myMenu)
+  , ((modm,               xK_r     ), spawnSelected defaultGSConfig ["smplayer","gvim"])
 
   -- change wallpaper
   , ((modm,               xK_w     ), spawn "~/.local/bin/random-wallpaper.sh safe")
@@ -253,13 +217,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   , ((modm .|. shiftMask, xK_period), nextWS)
   , ((modm .|. shiftMask, xK_comma ), prevWS)
-  , ((modm,               xK_slash),  toggleWS)
 
   -- Restart xmonad
   , ((modm              , xK_q     ), restart "xmonad" True)
-
-  -- Reset screen configureation
-  , ((modm .|. shiftMask, xK_BackSpace), spawn "~/.screenlayout/reset.sh")
   ]
 
   ++

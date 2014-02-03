@@ -124,3 +124,6 @@
 [submodule "vim/.vim/bundle/vim-lucius"]
 	path = vim/.vim/bundle/vim-lucius
 	url = https://github.com/jonathanfilip/vim-lucius.git
+[submodule "vim/.vim/bundle/molokai"]
+	path = vim/.vim/bundle/molokai
+	url = https://github.com/tomasr/molokai.git

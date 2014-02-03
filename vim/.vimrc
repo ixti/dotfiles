@@ -205,3 +205,14 @@ nmap <F7> :setlocal spell! spelllang=en,ru<CR>
 
 " Set awesome colorscheme :))
 colorscheme jellybeans
+
+
+" Enable transparency for term colors
+function TransparencifyColorscheme()
+  hi Normal  ctermbg=none
+  hi NonText ctermbg=none
+endfunction
+
+if &term =~ "rxvt"
+  call TransparencifyColorscheme()
+endif

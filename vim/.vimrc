@@ -213,6 +213,6 @@ function TransparencifyColorscheme()
   hi NonText ctermbg=none
 endfunction
 
-if &term =~ "rxvt"
+if !empty($TERMINATOR_UUID) || &term =~ "rxvt"
   call TransparencifyColorscheme()
 endif

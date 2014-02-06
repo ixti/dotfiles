@@ -154,7 +154,7 @@ if has('gui_running')
     " Fix window height of gui
     set lines=52
     set guioptions=
-    set guifont=DejaVu\ Sans\ Mono\ 11
+    set guifont=Terminus\ 13
 endif
 
 

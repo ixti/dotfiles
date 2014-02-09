@@ -127,3 +127,6 @@
 [submodule "vim/.vim/bundle/molokai"]
 	path = vim/.vim/bundle/molokai
 	url = https://github.com/tomasr/molokai.git
+[submodule "vim/.vim/bundle/vim-colors-gihub"]
+	path = vim/.vim/bundle/vim-colors-gihub
+	url = https://github.com/croaky/vim-colors-github.git

@@ -61,6 +61,14 @@ TrivialAccessors:
 Lambda:
   Enabled: false
 
+# Ridiculous (and IMHO useless) restriction, that makes impossible aligning
+# code like this:
+#
+#   redis.hset    :k1, now
+#   redis.hincrby :k2, 123
+SingleSpaceBeforeFirstArg:
+  Enabled: false
+
 AllCops:
-  Includes:
+  Include:
     - Gemfile

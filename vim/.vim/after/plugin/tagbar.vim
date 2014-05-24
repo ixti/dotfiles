@@ -1,5 +1,4 @@
-nmap <silent> 8 :TagbarToggle<CR>
-imap <silent> 8 <Esc>:TagbarToggle<CR>
+nmap <silent> <Leader>8 :TagbarToggle<CR>
 
 
 let g:tagbar_type_ruby = {

@@ -60,7 +60,7 @@ myComposeAllHook = (composeAll . concat $
   , [className =? c --> (doRectFloat $ W.RationalRect 0.05 0.05 0.9 0.9) | c <- myFloatWCs ]
   ])
   where
-    myCommunicators = ["Pidgin", "Buddy List", "aleksey.zapparov - Skype™"]
+    myCommunicators = ["Pidgin", "Buddy List", "aleksey.zapparov - Skype™", "Psi-plus"]
     myBrowsers      = ["Chromium", "Goofle-chrome", "Iceweasel", "Firefox"]
     myFloatWCs      = ["feh"]
 

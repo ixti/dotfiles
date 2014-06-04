@@ -130,3 +130,6 @@
 [submodule "vim/.vim/bundle/vim-colors-gihub"]
 	path = vim/.vim/bundle/vim-colors-gihub
 	url = https://github.com/croaky/vim-colors-github.git
+[submodule "vim/.vim/bundle/dockerfile.vim"]
+	path = vim/.vim/bundle/dockerfile.vim
+	url = https://github.com/honza/dockerfile.vim.git

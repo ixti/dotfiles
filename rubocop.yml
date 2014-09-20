@@ -60,3 +60,4 @@ SingleSpaceBeforeFirstArg:
 AllCops:
   Include:
     - Gemfile
+    - "**/*.jbuilder"

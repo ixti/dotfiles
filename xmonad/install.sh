@@ -1,13 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
+source "${0%/*}/../share/functions.sh"
 
-rm -rf backup
-
-
-test -e ~/.xmonad && mkdir -p backup  && cp -r ~/.xmonad backup
-
-
-rm -rf ~/.xmonad && ln -s $PWD/.xmonad ~/.xmonad
-
-
-test -e backup && mv backup backup-$(date +%s)
+install .xmonad

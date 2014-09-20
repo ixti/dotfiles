@@ -2,5 +2,4 @@
 
 source "${0%/*}/../share/functions.sh"
 
-install .tmux
-install .tmux.conf
+install .ctags

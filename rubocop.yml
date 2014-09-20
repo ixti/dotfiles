@@ -32,18 +32,6 @@ AlignParameters:
 IndentHash:
   EnforcedStyle: consistent
 
-PercentLiteralDelimiters:
-  PreferredDelimiters:
-    '%':  ()
-    '%i': ()
-    '%q': ()
-    '%Q': ()
-    '%r': '{}'
-    '%s': ()
-    '%w': '[]'
-    '%W': '[]'
-    '%x': ()
-
 Encoding:
   Enabled: false
 

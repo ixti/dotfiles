@@ -107,6 +107,7 @@ layoutHook' =
   $ defaultLayouts
   )
 
+
 -- get current layout:
 -- gets (description . layout . current . windowset) :: X String
 
@@ -135,7 +136,7 @@ logHook' xmproc = do
 menu conf list = gridselect conf list >>= flip whenJust spawn
 
 myMenu = menu defaultGSConfig
-    [ ("WeeChat",   "urxvt -name weechat -e dmux weechat-curses")
+    [ ("WeeChat",   "urxvt -name weechat -e dtach -A /tmp/dtach.weechat-curses.sock -r winch weechat-curses")
     , ("Psi+",      "psi-plus")
     , ("deadbeef",  "deadbeef")
     ]

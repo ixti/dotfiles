@@ -29,6 +29,7 @@ import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.Cursor
 
 import System.IO
 
@@ -149,7 +150,7 @@ main = do
     , keys              = myKeys
     , terminal          = myTerminal
     , workspaces        = myWorkspaces
-    , startupHook       = myStartupHook <+> adjustEventInput <+> startupHook defaultConfig
+    , startupHook       = myStartupHook <+> adjustEventInput <+> setDefaultCursor xC_left_ptr <+> startupHook defaultConfig
     , handleEventHook   = fullscreenEventHook <+> docksEventHook <+> focusOnMouseMove <+> handleEventHook defaultConfig
     , manageHook        = myManageHook <+> manageHook desktopConfig
     , layoutHook        = layoutHook'

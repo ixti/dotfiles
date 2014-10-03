@@ -267,10 +267,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   ++
 
   -- multimedia keys
-  [ ((0, xF86XK_Tools),             spawn "setsid deadbeef")
-  , ((0, xF86XK_AudioPlay),         spawn "setsid deadbeef --play-pause")
-  , ((0, xF86XK_AudioNext),         spawn "setsid deadbeef --next")
-  , ((0, xF86XK_AudioPrev),         spawn "setsid deadbeef --prev")
+  [ ((0, xF86XK_Tools),             spawn "setsid xterm mocp")
+  , ((0, xF86XK_AudioPlay),         spawn "setsid mocp --toggle-pause")
+  , ((0, xF86XK_AudioNext),         spawn "setsid mocp --next")
+  , ((0, xF86XK_AudioPrev),         spawn "setsid mocp --previous")
   , ((0, xF86XK_AudioMute),         spawn "~/.local/bin/pavolume.rb toggle")
   , ((0, xF86XK_AudioRaiseVolume),  spawn "~/.local/bin/pavolume.rb up")
   , ((0, xF86XK_AudioLowerVolume),  spawn "~/.local/bin/pavolume.rb down")

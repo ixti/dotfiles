@@ -142,6 +142,14 @@ myMenu = menu defaultGSConfig
     , ("deadbeef",  "deadbeef")
     ]
 
+mocMenu = menu defaultGSConfig
+    [ ("||>", "setsid mocp --toggle-pause")
+    , (">>>", "setsid mocp --seek +15")
+    , (">>|", "setsid mocp --next")
+    , ("<<<", "setsid mocp --seek -15")
+    , ("|<<", "setsid mocp --previous")
+    ]
+
 main = do
   xmproc <- spawnPipe "killall xmobar ; HOME=~ xmobar ~/.xmonad/xmobar.hs"
   xmonad $ ewmh desktopConfig
@@ -179,6 +187,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     })
 
   , ((modm,               xK_r     ), myMenu)
+  , ((modm,               xK_p     ), mocMenu)
 
   -- change wallpaper
   , ((modm,               xK_w     ), spawn "~/.local/bin/random-wallpaper.sh safe")

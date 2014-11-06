@@ -38,6 +38,20 @@ SingleSpaceBeforeFirstArg:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
+# Not all trivial readers/writers can be defined with attr_* methods
+#
+#   class Example < SimpleDelegator
+#     def __getobj__
+#       @obj
+#     end
+#
+#     def __setobj__(obj)
+#       @obj = obj
+#     end
+#   end
+Style/TrivialAccessors:
+  Enabled: false
+
 ## Metrics #####################################################################
 
 Metrics/MethodLength:

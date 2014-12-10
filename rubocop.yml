@@ -26,6 +26,9 @@ Style/IndentHash:
 Style/Lambda:
   Enabled: false
 
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
 # A bit useless restriction, that makes impossible aligning code like this:
 #
 #   redis do |conn|

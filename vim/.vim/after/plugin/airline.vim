@@ -1,7 +1,3 @@
-let g:airline_left_sep          = ''
-let g:airline_right_sep         = ''
-let g:airline_theme_patch_func  = 'AirlineThemePatch'
-
 function! AirlineThemePatch(palette)
   if g:airline_theme == 'jellybeans'
     for colors in values(a:palette.inactive)

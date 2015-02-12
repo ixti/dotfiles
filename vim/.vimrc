@@ -1,5 +1,6 @@
 runtime init/pathogen.vim
 runtime init/neocomplete.vim
+runtime init/variables.vim
 
 
 "

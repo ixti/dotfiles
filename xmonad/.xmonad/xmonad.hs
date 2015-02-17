@@ -93,6 +93,9 @@ myTabbed = renamed [Replace "Tabbed"] $ tabbedBottom shrinkText defaultTheme
     }
 
 
+screenLocker = spawn "i3lock --color=111111 --ignore-empty-password"
+
+
 defaultLayouts = smartBorders . avoidStruts
   $ myTabbed ||| myResizableTall ||| Mirror myResizableTall
 
@@ -188,6 +191,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   , ((modm,               xK_r     ), myMenu)
   , ((modm,               xK_p     ), mocMenu)
+  , ((modm .|. shiftMask, xK_l     ), screenLocker)
 
   -- change wallpaper
   , ((modm,               xK_w     ), spawn "~/.local/bin/random-wallpaper.sh safe")

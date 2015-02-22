@@ -16,6 +16,7 @@ let g:notes_directories = ["~/Documents/Notes"]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_javascript_checkers = ['eslint']
 
 
 "" taglist """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

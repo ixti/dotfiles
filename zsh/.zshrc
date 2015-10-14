@@ -5,8 +5,6 @@ if ! zgen saved; then
 
   zgen oh-my-zsh
 
-  zgen load Tarrasch/zsh-autoenv
-
   zgen oh-my-zsh plugins/aws
   zgen oh-my-zsh plugins/bundler
   zgen oh-my-zsh plugins/chruby
@@ -22,6 +20,8 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/pass
 
   zgen oh-my-zsh themes/kphoen
+
+  zgen load Tarrasch/zsh-autoenv
 
   zgen save
 fi

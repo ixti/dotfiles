@@ -133,3 +133,6 @@
 [submodule "vim/.vim/bundle/vim-yaml"]
 	path = vim/.vim/bundle/vim-yaml
 	url = https://github.com/stephpy/vim-yaml.git
+[submodule "vim/.vim/bundle/command-t"]
+	path = vim/.vim/bundle/command-t
+	url = https://github.com/wincent/command-t.git

@@ -1,6 +1,7 @@
 map <Leader>t :CtrlP<CR>
+map <Leader>b :CtrlPBuffer<CR>
+map <Leader>m :CtrlPMRUFiles<CR>
 map <Leader>T :CtrlPClearCache<CR><Esc>:CtrlP<CR>
-map <Leader>b :CtrlPMRU<CR>
 
 " Set delay to prevent extra search
 let g:ctrlp_lazy_update = 350

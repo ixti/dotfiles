@@ -3,6 +3,9 @@ map <Leader>b :CtrlPBuffer<CR>
 map <Leader>m :CtrlPMRUFiles<CR>
 map <Leader>T :CtrlPClearCache<CR><Esc>:CtrlP<CR>
 
+" Set a faster fuzzy matcher
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
 " Set delay to prevent extra search
 let g:ctrlp_lazy_update = 350
 

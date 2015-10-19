@@ -133,3 +133,6 @@
 [submodule "vim/.vim/bundle/vim-yaml"]
 	path = vim/.vim/bundle/vim-yaml
 	url = https://github.com/stephpy/vim-yaml.git
+[submodule "vim/.vim/bundle/ctrlp-py-matcher"]
+	path = vim/.vim/bundle/ctrlp-py-matcher
+	url = https://github.com/FelikZ/ctrlp-py-matcher

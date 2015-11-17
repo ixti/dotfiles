@@ -1,3 +1,5 @@
+DISABLE_AUTO_UPDATE="true"
+
 source "${HOME}/.zgen/zgen.zsh"
 
 if ! zgen saved; then
@@ -6,7 +8,6 @@ if ! zgen saved; then
   zgen oh-my-zsh
 
   zgen oh-my-zsh plugins/aws
-  zgen oh-my-zsh plugins/bundler
   zgen oh-my-zsh plugins/chruby
   zgen oh-my-zsh plugins/docker
   zgen oh-my-zsh plugins/gem

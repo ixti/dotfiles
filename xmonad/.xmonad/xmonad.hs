@@ -93,7 +93,7 @@ myTabbed = renamed [Replace "Tabbed"] $ tabbedBottom shrinkText defaultTheme
     }
 
 
-screenLocker = spawn "i3lock --color=111111 --ignore-empty-password"
+screenLocker = spawn "i3lock --dpms --color=111111 --ignore-empty-password"
 
 
 defaultLayouts = smartBorders . avoidStruts

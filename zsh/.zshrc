@@ -32,7 +32,4 @@ fi
 
 setopt nocorrectall
 
-# bindkey "^[[1;5C" forward-word
-# bindkey "^[[1;5D" backward-word
-
 alias tmux="tmux -2"

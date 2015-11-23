@@ -7,6 +7,10 @@ if ! zgen saved; then
 
   # prezto options
   zgen prezto editor key-bindings "vi"
+  zgen prezto utility:ls color "yes"
+  zgen prezto ruby auto-switch "yes"
+  zgen prezto syntax-highlighting color "yes"
+  zgen prezto history-substring-search color "yes"
   zgen prezto prompt theme "pure"
 
   # prezto and it's modules
@@ -16,21 +20,19 @@ if ! zgen saved; then
   zgen prezto editor
   zgen prezto history
   zgen prezto directory
-  zgen prezto spectrum
   zgen prezto utility
   zgen prezto completion
-  zgen prezto git
-  zgen prezto helper
-  zgen prezto history-substring-search
   zgen prezto ruby
+  zgen prezto syntax-highlighting
+  zgen prezto history-substring-search
+  zgen prezto prompt
 
   zgen save
 fi
 
 setopt nocorrectall
 
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
+# bindkey "^[[1;5C" forward-word
+# bindkey "^[[1;5D" backward-word
 
 alias tmux="tmux -2"
-alias ls="ls --color=auto"

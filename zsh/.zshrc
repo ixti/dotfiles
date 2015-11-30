@@ -8,7 +8,7 @@ if ! zgen saved; then
   # prezto options
   zgen prezto editor key-bindings "vi"
   zgen prezto utility:ls color "yes"
-  zgen prezto ruby auto-switch "yes"
+  zgen prezto ruby:chruby auto-switch "yes"
   zgen prezto syntax-highlighting color "yes"
   zgen prezto history-substring-search color "yes"
   zgen prezto prompt theme "pure"

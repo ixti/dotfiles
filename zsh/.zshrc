@@ -16,13 +16,13 @@ if ! zgen saved; then
   # prezto and it's modules
   zgen prezto
   zgen prezto environment
-  zgen prezto terminal
   zgen prezto editor
   zgen prezto history
   zgen prezto directory
   zgen prezto utility
   zgen prezto completion
   zgen prezto ruby
+  zgen prezto gpg
   zgen prezto syntax-highlighting
   zgen prezto history-substring-search
   zgen prezto prompt

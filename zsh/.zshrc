@@ -21,8 +21,9 @@ if ! zgen saved; then
   zgen prezto directory
   zgen prezto utility
   zgen prezto completion
-  zgen prezto ruby
   zgen prezto gpg
+  zgen prezto ruby
+  zgen prezto rails
   zgen prezto syntax-highlighting
   zgen prezto history-substring-search
   zgen prezto prompt

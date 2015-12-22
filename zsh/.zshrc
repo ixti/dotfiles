@@ -34,3 +34,4 @@ fi
 setopt nocorrectall
 
 alias tmux="tmux -2"
+alias gpg="gpg2"

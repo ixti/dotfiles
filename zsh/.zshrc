@@ -1,5 +1,8 @@
 source "${HOME}/.zgen/zgen.zsh"
 
+# pure prompt settings
+PURE_GIT_PULL=0
+
 if ! zgen saved; then
   echo "Creating a zgen save..."
 

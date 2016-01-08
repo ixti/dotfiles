@@ -1,0 +1,12 @@
+! Most of the time I use Logitech K810 keyboard. Insert key is a secondary role
+! of Delete (FN+Del). But on the left side of this butten there's absolutely
+! useless key for me: <Print / Scroll_Lock>. I don't need neither of them, so
+! replacing them both to be a bit more useful...
+!
+! ### Original Mapping ###
+!
+! keycode 78  = Scroll_Lock
+! keycode 107 = Print
+
+keycode 78  = Insert
+keycode 107 = Insert

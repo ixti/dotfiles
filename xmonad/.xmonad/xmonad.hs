@@ -53,9 +53,8 @@ import Data.Ratio ((%))
 -- http://www.haskell.org/haskellwiki/Xmonad/Config_archive/Nnoell's_xmonad.hs
 
 myComposeAllHook = (composeAll . concat $
-  [ [className =? c --> doShift "9"   | c <- myCommunicators ]
-  , [appName   =? c --> doShift "8"   | c <- ["weechat"] ]
-  , [className =? c --> doShift "7"   | c <- ["hipchat", "HipChat"] ]
+  [ [className =? c --> doShift "0"   | c <- myCommunicators ]
+  , [appName   =? c --> doShift "9"   | c <- ["weechat"] ]
   , [className =? c --> doShift "1"   | c <- myBrowsers ]
   -- , [className =? c --> doFullFloat | c <- myFloatWCs ]
   , [className =? c --> (doRectFloat $ W.RationalRect 0.05 0.05 0.9 0.9) | c <- myFloatWCs ]
@@ -71,7 +70,7 @@ myComposeOneHook = (composeOne [isFullscreen -?> doFullFloat])
 myManageHook = manageDocks <+> myComposeAllHook <+> myComposeOneHook
 
 
-myTerminal    = "x-terminal-emulator"
+myTerminal    = "terminator"
 myWorkspaces  = ["1","2","3","4","5","6","7","8","9","0"]
 
 
@@ -100,16 +99,19 @@ defaultLayouts = smartBorders . avoidStruts
   $ myTabbed ||| myResizableTall ||| Mirror myResizableTall
 
 
+{-
 chatLayout = smartBorders(avoidStruts(withIM (1%7) (roster) Grid))
   where
     roster        = pidginRoster
     pidginRoster  = Title "Buddy List"
-
-
-layoutHook' =
+myLayoutHook =
   ( onWorkspace "9" chatLayout
   $ defaultLayouts
   )
+-}
+
+
+myLayoutHook = defaultLayouts
 
 
 -- get current layout:
@@ -118,10 +120,11 @@ layoutHook' =
 
 myStartupHook = do
   spawn $ concat
-    [ "killall trayer ; trayer "
+    [ "killall trayer-srg ; trayer-srg "
     , "--width 20 --height 16 --expand true --edge top --align right "
     , "--transparent true --alpha 0 --tint 0x000000 "
-    , "--SetDockType true --SetPartialStrut true"
+    , "--SetDockType true --SetPartialStrut true "
+    , "--monitor primary"
     ]
 
 
@@ -140,7 +143,7 @@ logHook' xmproc = do
 menu conf list = gridselect conf list >>= flip whenJust spawn
 
 myMenu = menu defaultGSConfig
-    [ ("WeeChat",   "urxvt -name weechat -e dtach -A /tmp/dtach.weechat-curses.sock -r winch weechat-curses")
+    [ ("WeeChat",   "urxvt -name weechat -e dtach -A /tmp/dtach.weechat-curses.sock -r winch weechat")
     , ("Psi+",      "psi-plus")
     , ("deadbeef",  "deadbeef")
     ]
@@ -164,7 +167,7 @@ main = do
     , startupHook       = myStartupHook <+> adjustEventInput <+> setDefaultCursor xC_left_ptr <+> startupHook defaultConfig
     , handleEventHook   = fullscreenEventHook <+> docksEventHook <+> focusOnMouseMove <+> handleEventHook defaultConfig
     , manageHook        = myManageHook <+> manageHook desktopConfig
-    , layoutHook        = layoutHook'
+    , layoutHook        = myLayoutHook
     --, logHook           = fadeInactiveCurrentWSLogHook 0.60 >> logHook' xmproc
     , logHook           = logHook' xmproc
     }

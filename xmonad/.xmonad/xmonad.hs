@@ -76,7 +76,6 @@ myWorkspaces  = ["1","2","3","4","5","6","7","8","9","0"]
 
 myResizableTall = (renamed [Replace "Tall"] $ ResizableTall 1 (3/100) (1/2) [])
 
-
 myTabbed = renamed [Replace "Tabbed"] $ tabbedBottom shrinkText defaultTheme
     { decoHeight = 16
     , activeColor = "#880000"
@@ -88,11 +87,12 @@ myTabbed = renamed [Replace "Tabbed"] $ tabbedBottom shrinkText defaultTheme
     , urgentColor = "#333333"
     , urgentBorderColor = "#333333"
     , urgentTextColor = "#dddddd"
-    , fontName = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
+    , fontName = "xft:Terminus:pixelsize=12"
     }
 
 
-screenLocker = spawn "i3lock --dpms --color=111111 --ignore-empty-password"
+{- screenLocker = spawn "i3lock --dpms --color=111111 --ignore-empty-password" -}
+screenLocker = spawn "slock"
 
 
 defaultLayouts = smartBorders . avoidStruts
@@ -179,18 +179,19 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
 
   -- launch dmenu
-  , ((modm,               xK_x     ), spawn "dmenu_run -p '>' -nb '#000000' -nf '#ffffff' -sb '#335588' -fn '-*-fixed-medium-r-normal-*-14-*-*-*-*-*-iso10646-1'")
+  , ((modm,               xK_x     ), spawn "dmenu_run -p '>' -nb '#000000' -nf '#ffffff' -sb '#aa3333' -fn 'Terminus-10'")
 
   -- Xonad native shell prompt
-  , ((modm .|. shiftMask, xK_x     ), shellPrompt defaultXPConfig {
-      font      = "-*-fixed-medium-r-normal-*-14-*-*-*-*-*-iso10646-1",
-      bgColor   = "black",
-      fgColor   = "white",
-      bgHLight  = "grey",
-      position  = Top,
-      height    = 16,
-      promptBorderWidth = 0
-    })
+  , ((modm .|. shiftMask, xK_x     ), shellPrompt defaultXPConfig
+      { font              = "xft:Terminus:pixelsize=14"
+      , bgColor           = "#000000"
+      , fgColor           = "#ffffff"
+      , bgHLight          = "#aa3333"
+      , position          = Top
+      , height            = 16
+      , promptBorderWidth = 0
+      }
+    )
 
   , ((modm,               xK_r     ), myMenu)
   , ((modm,               xK_p     ), mocMenu)
@@ -201,8 +202,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm .|. shiftMask, xK_w     ), spawn "~/.local/bin/random-wallpaper.sh")
 
   -- list all windows
-  , ((modm,               xK_g     ), goToSelected defaultGSConfig { gs_font = "-*-fixed-medium-r-normal-*-10-*-*-*-*-*-iso10646-1" })
-  , ((modm .|. shiftMask, xK_g     ), goToSelected defaultGSConfig { gs_font = "-*-fixed-medium-r-normal-*-10-*-*-*-*-*-iso10646-1" })
+  , ((modm,               xK_g     ), goToSelected defaultGSConfig { gs_font = "xft:Terminus:pixelsize=14" })
 
   -- calendar
   , ((modm,               xK_c     ), spawn "gsimplecal")

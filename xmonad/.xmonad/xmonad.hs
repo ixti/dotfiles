@@ -142,18 +142,10 @@ logHook' xmproc = do
 
 menu conf list = gridselect conf list >>= flip whenJust spawn
 
-myMenu = menu defaultGSConfig
-    [ ("WeeChat",   "urxvt -name weechat -e dtach -A /tmp/dtach.weechat-curses.sock -r winch weechat")
-    , ("Psi+",      "psi-plus")
-    , ("deadbeef",  "deadbeef")
-    ]
 
-mocMenu = menu defaultGSConfig
-    [ ("||>", "setsid mocp --toggle-pause")
-    , (">>>", "setsid mocp --seek +15")
-    , (">>|", "setsid mocp --next")
-    , ("<<<", "setsid mocp --seek -15")
-    , ("|<<", "setsid mocp --previous")
+myMenu = menu defaultGSConfig { gs_font = "xft:Terminus:pixelsize=14" }
+    [ ("weechat",   "urxvt -name weechat -e dtach -A /tmp/dtach.weechat-curses.sock -r winch weechat")
+    , ("passmenu",  "passmenu -p '>' -nb '#000000' -nf '#ffffff' -sb '#aa3333' -fn 'Terminus-10'")
     ]
 
 main = do
@@ -194,7 +186,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     )
 
   , ((modm,               xK_r     ), myMenu)
-  , ((modm,               xK_p     ), mocMenu)
   , ((modm .|. shiftMask, xK_l     ), screenLocker)
 
   -- change wallpaper

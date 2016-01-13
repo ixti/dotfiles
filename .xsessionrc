@@ -1,0 +1,20 @@
+#!/bin/sh
+
+test -f /etc/X11/xinit/Xresources && xrdb -merge /etc/X11/xinit/Xresources
+test -f /etc/X11/xinit/Xmodmap && xmodmap /etc/X11/xinit/Xmodmap
+
+test -f ~/.Xresources && xrdb -merge ~/.Xresources
+test -f ~/.Xmodmap && xmodmap ~/.Xmodmap
+
+setxkbmap -layout "us,ru" -option "grp:shifts_toggle,ctrl:nocaps,terminate:ctrl_alt_bksp"
+
+# reset xrandr settings, start compoziting manager and sets random wallpaper
+(~/.screenlayout/reset.sh && ~/.local/bin/random-wallpaper.sh safe) &
+
+# start notification daemon
+dunst &
+
+# start dropbox
+(sleep 1 && dropbox start) &
+
+xmonad

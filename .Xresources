@@ -56,30 +56,30 @@ xterm.keysym.Control-Right:  \033[1;5C
 ! $ sudo apt-get install xcolors
 
 ! Black + DarkGrey
-*color0:  #3b3b3b
-*color8:  #787878
-! DarkRed + Red
-*color1:  #9c5039
-*color9:  #cf6a4c
-! DarkGreen + Green
-*color2:  #6c7a4b
-*color10: #99ad6a
-! DarkYellow + Yellow
-*color3:  #a6853a
-*color11: #d8ad4c
-! DarkBlue + Blue
-!*color4:  #0000fc
-*color4:  #425b91
-*color12: #597bc5
-! DarkMagenta + Magenta
-*color5:  #72277d
-*color13: #a037b0
-!DarkCyan + Cyan
-*color6:  #5992c4
-*color14: #71b9f8
-! LightGrey + White
-*color7:  #adadad
-*color15: #bcbcbc
+! *color0:  #3b3b3b
+! *color8:  #787878
+! ! DarkRed + Red
+! *color1:  #9c5039
+! *color9:  #cf6a4c
+! ! DarkGreen + Green
+! *color2:  #6c7a4b
+! *color10: #99ad6a
+! ! DarkYellow + Yellow
+! *color3:  #a6853a
+! *color11: #d8ad4c
+! ! DarkBlue + Blue
+! !*color4:  #0000fc
+! *color4:  #425b91
+! *color12: #597bc5
+! ! DarkMagenta + Magenta
+! *color5:  #72277d
+! *color13: #a037b0
+! !DarkCyan + Cyan
+! *color6:  #5992c4
+! *color14: #71b9f8
+! ! LightGrey + White
+! *color7:  #adadad
+! *color15: #bcbcbc
 
 *foreground: LightGrey
 *background: Black

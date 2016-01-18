@@ -70,7 +70,7 @@ myComposeOneHook = (composeOne [isFullscreen -?> doFullFloat])
 myManageHook = manageDocks <+> myComposeAllHook <+> myComposeOneHook
 
 
-myTerminal    = "terminator"
+myTerminal    = "urxvt"
 myWorkspaces  = ["1","2","3","4","5","6","7","8","9","0"]
 
 

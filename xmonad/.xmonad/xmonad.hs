@@ -54,7 +54,7 @@ import Data.Ratio ((%))
 
 myComposeAllHook = (composeAll . concat $
   [ [className =? c --> doShift "0"   | c <- myCommunicators ]
-  , [appName   =? c --> doShift "9"   | c <- ["weechat"] ]
+  , [appName   =? c --> doShift "9"   | c <- ["weechat", "mcabber"] ]
   , [className =? c --> doShift "1"   | c <- myBrowsers ]
   -- , [className =? c --> doFullFloat | c <- myFloatWCs ]
   , [className =? c --> (doRectFloat $ W.RationalRect 0.05 0.05 0.9 0.9) | c <- myFloatWCs ]
@@ -144,7 +144,8 @@ menu conf list = gridselect conf list >>= flip whenJust spawn
 
 
 myMenu = menu defaultGSConfig { gs_font = "xft:Terminus:pixelsize=14" }
-    [ ("weechat",   "urxvt -name weechat -e dtach -A /tmp/dtach.weechat-curses.sock -r winch weechat")
+    [ ("weechat",   "urxvt -name weechat -e dtach -A /tmp/dtach.weechat.sock -r winch weechat")
+    , ("mcabber",   "urxvt -name mcabber -e dtach -A /tmp/dtach.mcabber.sock -r winch mcabber")
     , ("passmenu",  "passmenu -p '>' -nb '#000000' -nf '#ffffff' -sb '#aa3333' -fn 'Terminus-10'")
     ]
 

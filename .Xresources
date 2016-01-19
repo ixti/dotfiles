@@ -52,35 +52,25 @@ xterm.keysym.Control-Right:  \033[1;5C
 ! background                            = White
 !
 ! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-!
-! $ sudo apt-get install xcolors
 
-! Black + DarkGrey
-! *color0:  #3b3b3b
-! *color8:  #787878
-! ! DarkRed + Red
-! *color1:  #9c5039
-! *color9:  #cf6a4c
-! ! DarkGreen + Green
-! *color2:  #6c7a4b
-! *color10: #99ad6a
-! ! DarkYellow + Yellow
-! *color3:  #a6853a
-! *color11: #d8ad4c
-! ! DarkBlue + Blue
-! !*color4:  #0000fc
-! *color4:  #425b91
-! *color12: #597bc5
-! ! DarkMagenta + Magenta
-! *color5:  #72277d
-! *color13: #a037b0
-! !DarkCyan + Cyan
-! *color6:  #5992c4
-! *color14: #71b9f8
-! ! LightGrey + White
-! *color7:  #adadad
-! *color15: #bcbcbc
+*color0:      #2e3436
+*color1:      #cc0000
+*color2:      #4e9a06
+*color3:      #c4a000
+*color4:      #3465a4
+*color5:      #75507b
+*color6:      #06989a
+*color7:      #d3d7cf
+*color8:      #555753
+*color9:      #ef2929
+*color10:     #8ae234
+*color11:     #fce94f
+*color12:     #729fcf
+*color13:     #ad7fa8
+*color14:     #34e2e2
+*color15:     #eeeeec
 
-*foreground: LightGrey
-*background: Black
+*background:  #000000
+*foreground:  #babdb6
+
 *cursorColor: White

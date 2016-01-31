@@ -9,7 +9,6 @@ Rxvt.scrollBar:             false
 
 Rxvt.perl-ext-common:       default,matcher
 
-Rxvt.matcher.button:        1
 Rxvt.url-launcher:          firefox
 
 Rxvt.keysym.Control-Up:     \033[1;5A

@@ -18,18 +18,11 @@ if ! zgen saved; then
 
   # prezto and it's modules
   zgen prezto
-  zgen prezto environment
-  zgen prezto editor
-  zgen prezto history
-  zgen prezto directory
-  zgen prezto utility
-  zgen prezto completion
   zgen prezto gpg
   zgen prezto ruby
   zgen prezto rails
   zgen prezto syntax-highlighting
   zgen prezto history-substring-search
-  zgen prezto prompt
 
   zgen save
 fi

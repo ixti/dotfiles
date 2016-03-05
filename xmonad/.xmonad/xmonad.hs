@@ -91,10 +91,6 @@ myTabbed = renamed [Replace "Tabbed"] $ tabbedBottom shrinkText defaultTheme
     }
 
 
-{- screenLocker = spawn "i3lock --dpms --color=111111 --ignore-empty-password" -}
-screenLocker = spawn "slock"
-
-
 defaultLayouts = smartBorders . avoidStruts
   $ myTabbed ||| myResizableTall ||| Mirror myResizableTall
 
@@ -138,6 +134,10 @@ logHook' xmproc = do
     , ppOutput = hPutStrLn xmproc
     , ppTitle  = xmobarColor "green" "" . shorten 50
     }
+
+
+screenLock  = spawn "slock"
+screenLock' = screenLock >> spawn "sudo pm-suspend"
 
 
 menu conf list = gridselect conf list >>= flip whenJust spawn
@@ -187,7 +187,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     )
 
   , ((modm,               xK_r     ), myMenu)
-  , ((modm .|. shiftMask, xK_l     ), screenLocker)
+
+  , ((modm .|. shiftMask, xK_l     ), screenLock)
+  , ((modm .|. shiftMask .|. mod1Mask, xK_l), screenLock')
 
   -- change wallpaper
   , ((modm,               xK_w     ), spawn "~/.local/bin/random-wallpaper.sh safe")

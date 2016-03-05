@@ -1,6 +1,8 @@
+runtime init/variables.vim
+
 runtime init/pathogen.vim
 runtime init/neocomplete.vim
-runtime init/variables.vim
+runtime init/mappings.vim
 
 
 "
@@ -159,29 +161,5 @@ if has('gui_running')
 endif
 
 
-runtime init/mappings.vim
-
-
 " Set awesome colorscheme :))
 colorscheme jellybeans
-
-" Enable transparency for term colors
-function TransparencifyColorscheme()
-  hi Normal  ctermbg=none
-  hi NonText ctermbg=none
-endfunction
-
-if !empty($TERMINATOR_UUID) || &term =~ "rxvt"
-  call TransparencifyColorscheme()
-endif
-
-
-function! s:RubyHashSyntaxToggle() range
-  if join(getline(a:firstline, a:lastline)) =~# '=>'
-    silent! execute a:firstline . ',' . a:lastline . 's/[^{,]*[{,]\?\zs:\([^: ]\+\)\s*=>/\1:/g'
-  else
-    silent! execute a:firstline . ',' . a:lastline . 's/[^{,]*[{,]\?\zs\([^: ]\+\):/:\1 =>/g'
-  endif
-endfunction
-
-command! -bar -range RubyHashSyntaxToggle <line1>,<line2>call s:RubyHashSyntaxToggle()

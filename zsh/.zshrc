@@ -19,6 +19,7 @@ if ! zgen saved; then
   # prezto and it's modules
   zgen prezto
   zgen prezto gpg
+  zgen prezto ssh
   zgen prezto ruby
   zgen prezto rails
   zgen prezto syntax-highlighting

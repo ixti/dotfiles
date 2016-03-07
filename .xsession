@@ -11,4 +11,7 @@ test -f ~/.env && source ~/.env
 # start notification daemon
 dunst &
 
+# start ALSA tray mixer
+volti &
+
 xmonad

@@ -190,6 +190,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   , ((modm .|. shiftMask, xK_l     ), screenLock)
   , ((modm .|. shiftMask .|. mod1Mask, xK_l), screenLock')
+  , ((modm .|. mod1Mask, xK_m), spawn "amixer sset Master toggle")
 
   -- change wallpaper
   , ((modm,               xK_w     ), spawn "~/.local/bin/random-wallpaper.sh safe")

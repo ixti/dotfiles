@@ -6,7 +6,7 @@ test -f ~/.env && source ~/.env
 (~/.screenlayout/reset.sh && ~/.local/bin/random-wallpaper.sh safe) &
 
 # start dropbox
-(sleep 1 && pkill dropbox && dropbox) &
+(pkill dropbox && sleep 1 && dropbox) &
 
 # start notification daemon
 dunst &

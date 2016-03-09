@@ -32,3 +32,7 @@ setopt nocorrectall
 setopt interactivecomments
 
 alias tmux="tmux -2"
+
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'

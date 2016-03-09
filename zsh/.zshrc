@@ -29,5 +29,6 @@ if ! zgen saved; then
 fi
 
 setopt nocorrectall
+setopt interactivecomments
 
 alias tmux="tmux -2"

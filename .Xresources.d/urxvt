@@ -1,0 +1,23 @@
+! https://wiki.archlinux.org/index.php/Man_page#Colored_man_pages_on_xterm_or_rxvt-unicode
+URxvt.colorIT:      #87af5f
+URxvt.colorBD:      #d7d7d7
+URxvt.colorUL:      #87afd7
+
+! LEGACY
+! RXVT settings --------------------------------------------------------------
+
+! Rxvt.shading: 0 to 99 darkens, 101 to 200 lightens
+Rxvt.shading:               10
+Rxvt.transparent:           true
+
+Rxvt.font:                  xft:Terminus:size=14
+Rxvt.scrollBar:             false
+
+Rxvt.perl-ext-common:       default,matcher
+
+Rxvt.url-launcher:          firefox
+
+Rxvt.keysym.Control-Up:     \033[1;5A
+Rxvt.keysym.Control-Down:   \033[1;5B
+Rxvt.keysym.Control-Left:   \033[1;5D
+Rxvt.keysym.Control-Right:  \033[1;5C

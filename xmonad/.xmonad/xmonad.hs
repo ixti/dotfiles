@@ -248,11 +248,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   -- Push window back into tiling
   , ((modm,               xK_t     ), withFocused $ windows . W.sink)
 
-  -- Increment the number of windows in the master area
-  , ((modm              , xK_comma ), sendMessage $ IncMasterN 1)
-
-  -- Deincrement the number of windows in the master area
-  , ((modm              , xK_period), sendMessage $ IncMasterN (-1))
+  -- Increment/Deincrement the number of windows in the master area
+  , ((modm .|. mod1Mask , xK_period), sendMessage $ IncMasterN (-1))
+  , ((modm .|. mod1Mask , xK_comma ), sendMessage $ IncMasterN 1)
 
   -- toggle the status bar gap (used with avoidStruts from Hooks.ManageDocks)
   , ((modm,               xK_b     ), sendMessage ToggleStruts)

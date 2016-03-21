@@ -10,7 +10,7 @@ URxvt.colorUL:      #87afd7
 Rxvt.shading:               10
 Rxvt.transparent:           true
 
-Rxvt.font:                  xft:Terminus:size=14
+Rxvt.font:                  xft:Terminus:size=16
 Rxvt.scrollBar:             false
 
 Rxvt.perl-ext-common:       default,matcher

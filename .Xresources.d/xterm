@@ -11,7 +11,7 @@
 ! XTerm settings -------------------------------------------------------------
 
 xterm*faceName:         Terminus
-xterm*faceSize:         14
+xterm*faceSize:         16
 
 xterm.keysym.Control-Up:     \033[1;5A
 xterm.keysym.Control-Down:   \033[1;5B

@@ -1,0 +1,9 @@
+setkey column_left    "h"
+setkey down           "j"
+setkey up             "k"
+setkey column_right   "l"
+
+setkey page_left      "H"
+setkey page_down      "J"
+setkey page_up        "K"
+setkey page_right     "L"

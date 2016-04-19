@@ -34,4 +34,4 @@ let Tlist_Use_Right_Window        = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:jellybeans_use_lowcolor_black = 0
-let g:jellybeans_use_term_italics = 1
+let g:jellybeans_use_term_italics = 0

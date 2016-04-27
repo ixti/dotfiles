@@ -65,9 +65,6 @@ set showcmd
 " When a bracket is inserted, briefly jump to a matching one
 set showmatch
 
-" Don't request terminal version string (for xterm)
-set t_RV=
-
 " Use 4 spaces for <Tab> and :retab
 set tabstop=2
 

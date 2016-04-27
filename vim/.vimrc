@@ -3,24 +3,16 @@ runtime init/variables.vim
 runtime init/pathogen.vim
 runtime init/neocomplete.vim
 runtime init/mappings.vim
+runtime init/termhacks.vim
+runtime init/styling.vim
 
-
-"
-" MAIN CUSTOMIZATION FILE
-"
-
+" ############################################################################ "
 
 " Enable loading filetype and indentation plugins
 filetype plugin indent on
 
 " Turn syntax highlighting on
 syntax on
-
-
-"
-" GLOBAL SETTINGS
-"
-
 
 " Allow set config per-file with special modelines
 set modeline
@@ -128,38 +120,3 @@ set listchars=tab:~>,trail:~,nbsp:#
 " Highlight current row/col
 set cursorline
 set cursorcolumn
-
-
-"
-" TERM HACKS
-"
-
-
-if &term =~ "xterm" || &term =~ "screen"
-  if has("terminfo")
-    set t_Co=256
-    set t_Sf=<Esc>[3%p1%dm
-    set t_Sb=<Esc>[4%p1%dm
-  else
-    set t_Co=8
-    set t_Sf=<Esc>[3%dm
-    set t_Sb=<Esc>[4%dm
-  endif
-endif
-
-
-"
-" GUI CONFIG
-"
-
-
-if has('gui_running')
-    " Fix window height of gui
-    set lines=52
-    set guioptions=
-    set guifont=Terminus\ 16
-endif
-
-
-" Set awesome colorscheme :))
-colorscheme jellybeans

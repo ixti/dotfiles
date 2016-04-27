@@ -2,14 +2,28 @@
 Rxvt.shading:               10
 Rxvt.transparent:           true
 
-Rxvt.font:                  xft:Terminus:size=16
-Rxvt.scrollBar:             false
+! Set font
+URxvt.font:                 xft:Terminus:size=16
 
-Rxvt.perl-ext-common:       default,matcher
+! Disable the scrollbar
+URxvt.scrollBar:            false
 
-Rxvt.url-launcher:          firefox
+! Disable printing
+URxvt.print-pipe:           "cat > /dev/null"
 
-Rxvt.keysym.Control-Up:     \033[1;5A
-Rxvt.keysym.Control-Down:   \033[1;5B
-Rxvt.keysym.Control-Left:   \033[1;5D
-Rxvt.keysym.Control-Right:  \033[1;5C
+URxvt.perl-ext-common:      default,clipboard,matcher,keyboard-select
+URxvt.url-launcher:         /usr/bin/firefox
+URxvt.underlineURLs:        true
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-c:           perl:clipboard:copy
+URxvt.keysym.M-v:           perl:clipboard:paste
+URxvt.keysym.M-C-v:         perl:clipboard:paste_escaped
+URxvt.copyCommand:          xsel -ib
+URxvt.pasteCommand:         xsel -ob
+URxvt.clipboard.autocopy:   true
+
+URxvt.keysym.Control-Up:    \033[1;5A
+URxvt.keysym.Control-Down:  \033[1;5B
+URxvt.keysym.Control-Left:  \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C

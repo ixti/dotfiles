@@ -12,6 +12,9 @@ URxvt.scrollBar:            false
 ! Disable printing
 URxvt.print-pipe:           "cat > /dev/null"
 
+! Enable support for mouse wheel in secondary screens
+URxvt.secondaryWheel:       true
+
 URxvt.perl-ext-common:      default,clipboard,matcher,keyboard-select
 URxvt.url-launcher:         /usr/bin/firefox
 URxvt.underlineURLs:        true

@@ -139,3 +139,6 @@
 [submodule "vim/.vim/bundle/vim-sensible"]
 	path = vim/.vim/bundle/vim-sensible
 	url = https://github.com/tpope/vim-sensible
+[submodule "vim/.vim/bundle/vim-airline-themes"]
+	path = vim/.vim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes

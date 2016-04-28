@@ -17,3 +17,5 @@ xterm.keysym.Control-Up:     \033[1;5A
 xterm.keysym.Control-Down:   \033[1;5B
 xterm.keysym.Control-Left:   \033[1;5D
 xterm.keysym.Control-Right:  \033[1;5C
+
+! vim: set filetype=xdefaults :

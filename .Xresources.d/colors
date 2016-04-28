@@ -1,0 +1,46 @@
+! ### RXVT Colors and Graphics ###############################################
+!
+! color0          (black)               = Black
+! color1          (red)                 = Red3
+! color2          (green)               = Green3
+! color3          (yellow)              = Yellow3
+! color4          (blue)                = Blue3
+! color5          (magenta)             = Magenta3
+! color6          (cyan)                = Cyan3
+! color7          (white)               = AntiqueWhite
+! color8          (bright black)        = Grey25
+! color9          (bright red)          = Red
+! color10         (bright green)        = Green
+! color11         (bright yellow)       = Yellow
+! color12         (bright blue)         = Blue
+! color13         (bright magenta)      = Magenta
+! color14         (bright cyan)         = Cyan
+! color15         (bright white)        = White
+! foreground                            = Black
+! background                            = White
+!
+! ############################################################################
+
+*color0:      #2e3436
+*color1:      #cc0000
+*color2:      #4e9a06
+*color3:      #c4a000
+*color4:      #3465a4
+*color5:      #75507b
+*color6:      #06989a
+*color7:      #d3d7cf
+*color8:      #555753
+*color9:      #ef2929
+*color10:     #8ae234
+*color11:     #fce94f
+*color12:     #729fcf
+*color13:     #ad7fa8
+*color14:     #34e2e2
+*color15:     #eeeeec
+
+*background:  #000000
+*foreground:  #babdb6
+
+*cursorColor: White
+
+! vim: set filetype=xdefaults :

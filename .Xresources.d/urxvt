@@ -15,14 +15,12 @@ URxvt.print-pipe:           "cat > /dev/null"
 ! Enable support for mouse wheel in secondary screens
 URxvt.secondaryWheel:       true
 
-URxvt.perl-ext-common:      default,clipboard,matcher,keyboard-select
+URxvt.perl-ext-common:      default,matcher,clipboard
 URxvt.url-launcher:         /usr/bin/firefox
 URxvt.underlineURLs:        true
-URxvt.keysym.M-u:           perl:url-select:select_next
-URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-Delete:      matcher:list
 URxvt.keysym.M-c:           perl:clipboard:copy
 URxvt.keysym.M-v:           perl:clipboard:paste
-URxvt.keysym.M-C-v:         perl:clipboard:paste_escaped
 URxvt.copyCommand:          xsel -ib
 URxvt.pasteCommand:         xsel -ob
 URxvt.clipboard.autocopy:   true

@@ -8,23 +8,11 @@ runtime init/styling.vim
 
 " ############################################################################ "
 
-" Enable loading filetype and indentation plugins
-filetype plugin indent on
-
-" Turn syntax highlighting on
-syntax on
-
 " Allow set config per-file with special modelines
 set modeline
 
-" Allow backspacing over everything
-set backspace=indent,eol,start
-
 " Insert mode completion options
 set completeopt=menu,longest,preview
-
-" Use UTF-8 as the default buffer encoding
-set enc=utf-8
 
 " Remember up to 32 'colon' commmands and search patterns
 set history=32
@@ -46,12 +34,6 @@ set nrformats=octal,hex,alpha
 
 " Use F10 to toggle 'paste' mode
 set pastetoggle=<F10>
-
-" Show line, column number, and relative position within a file in the status line
-set ruler
-
-" Scroll when cursor gets within 3 characters of top/bottom edge
-set scrolloff=3
 
 " Round indent to multiple of 'shiftwidth' for > and < commands
 set shiftround
@@ -80,9 +62,6 @@ set updatecount=50
 " n    - set name of viminfo file
 set viminfo='20,\"50,:20,%,n~/.viminfo
 
-" Use menu to show command-line completion (in 'full' case)
-set wildmenu
-
 " Set command-line completion mode:
 "   - on first <Tab>, when more than one match, list all matches and complete
 "     the longest common  string
@@ -91,9 +70,6 @@ set wildmode=list:longest,full
 
 " Disable vi-compatibiliness
 set nocompatible
-
-" Copy indent from current line when starting a new line
-set autoindent
 
 " Use the appropriate number of spaces to insert a <Tab>
 set expandtab
@@ -109,10 +85,6 @@ set textwidth=80
 
 " Highlight textwidth+1 char column
 set colorcolumn=+1
-
-" Highlight special chars
-set list
-set listchars=tab:~>,trail:~,nbsp:#
 
 " Highlight current row/col
 set cursorline

@@ -14,7 +14,4 @@ fi
 # start notification daemon
 dunst &
 
-# start ALSA tray mixer
-volti &
-
 xmonad

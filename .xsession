@@ -1,6 +1,9 @@
 #!/bin/sh
 
-test -f ~/.env && source ~/.env
+if [ -f "${HOME}/.env" ]; then
+  # shellcheck source=.xsession
+  . "${HOME}/.env"
+fi
 
 # reset xrandr settings and sets random wallpaper
 (~/.screenlayout/reset.sh && ~/.local/bin/random-wallpaper.sh safe) &

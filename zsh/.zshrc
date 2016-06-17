@@ -32,6 +32,9 @@ setopt nocorrectall
 setopt interactivecomments
 
 alias tmux="tmux -2"
+alias service="sudo service"
+alias shutdown="sudo shutdown"
+alias pm-suspend="sudo pm-suspend"
 
 alias -g ...="../.."
 alias -g ....="../../.."

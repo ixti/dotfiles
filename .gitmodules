@@ -145,3 +145,6 @@
 [submodule "vim/.vim/bundle/vim-speeddating"]
 	path = vim/.vim/bundle/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
+[submodule "vim/.vim/bundle/vim-git"]
+	path = vim/.vim/bundle/vim-git
+	url = https://github.com/tpope/vim-git

@@ -148,3 +148,6 @@
 [submodule "vim/.vim/bundle/vim-git"]
 	path = vim/.vim/bundle/vim-git
 	url = https://github.com/tpope/vim-git
+[submodule "vim/.vim/bundle/vim-action-ag"]
+	path = vim/.vim/bundle/vim-action-ag
+	url = https://github.com/Chun-Yang/vim-action-ag.git

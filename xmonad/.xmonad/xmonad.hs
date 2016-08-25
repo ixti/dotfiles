@@ -146,6 +146,7 @@ menu conf list = gridselect conf list >>= flip whenJust spawn
 myMenu = menu defaultGSConfig { gs_font = "xft:Terminus:pixelsize=14" }
     [ ("weechat",   "urxvt -title weechat -name weechat -e dtach -A /tmp/dtach.weechat.sock -r winch weechat")
     , ("mcabber",   "urxvt -title mcabber -name mcabber -e dtach -A /tmp/dtach.mcabber.sock -r winch mcabber")
+    , ("mc",        "urxvt -title mc -name mc -e mc")
     , ("passmenu",  "passmenu -p '>' -nb '#000000' -nf '#ffffff' -sb '#aa3333' -fn 'Terminus-10'")
     ]
 

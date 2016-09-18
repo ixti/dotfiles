@@ -1,7 +1,8 @@
-source "${HOME}/.zgen/zgen.zsh"
-
 # pure prompt settings
 PURE_GIT_PULL=0
+PURE_PROMPT_SYMBOL=">>="
+
+source "${HOME}/.zgen/zgen.zsh"
 
 if ! zgen saved; then
   echo "Creating a zgen save..."

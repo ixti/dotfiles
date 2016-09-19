@@ -114,6 +114,7 @@ myLayoutHook = defaultLayouts
 -- gets (description . layout . current . windowset) :: X String
 
 
+{-
 myStartupHook = do
   spawn $ concat
     [ "killall trayer-srg ; trayer-srg "
@@ -122,6 +123,7 @@ myStartupHook = do
     , "--SetDockType true --SetPartialStrut true "
     , "--monitor primary"
     ]
+-}
 
 
 logHook' xmproc = do
@@ -158,7 +160,7 @@ main = do
     , keys              = myKeys
     , terminal          = myTerminal
     , workspaces        = myWorkspaces
-    , startupHook       = myStartupHook <+> adjustEventInput <+> setDefaultCursor xC_left_ptr <+> startupHook defaultConfig
+    , startupHook       = adjustEventInput <+> setDefaultCursor xC_left_ptr <+> startupHook defaultConfig
     , handleEventHook   = fullscreenEventHook <+> docksEventHook <+> focusOnMouseMove <+> handleEventHook defaultConfig
     , manageHook        = myManageHook <+> manageHook desktopConfig
     , layoutHook        = myLayoutHook

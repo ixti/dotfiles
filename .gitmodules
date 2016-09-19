@@ -112,15 +112,6 @@
 [submodule "vim/.vim/bundle/vim-pathogen"]
 	path = vim/.vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim/.vim/bundle/vim-lucius"]
-	path = vim/.vim/bundle/vim-lucius
-	url = https://github.com/jonathanfilip/vim-lucius.git
-[submodule "vim/.vim/bundle/molokai"]
-	path = vim/.vim/bundle/molokai
-	url = https://github.com/tomasr/molokai.git
-[submodule "vim/.vim/bundle/vim-colors-gihub"]
-	path = vim/.vim/bundle/vim-colors-gihub
-	url = https://github.com/croaky/vim-colors-github.git
 [submodule "vim/.vim/bundle/dockerfile.vim"]
 	path = vim/.vim/bundle/dockerfile.vim
 	url = https://github.com/honza/dockerfile.vim.git

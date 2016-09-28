@@ -11,8 +11,12 @@ let g:ctrlp_lazy_update = 350
 
 " If ag is available use it as filename list generator instead of 'find'
 if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+  " set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = {
+    \ 'types': {
+    \ 1: ['.git', 'cd %s && git ls-files'],
+    \ },
+    \ 'fallback': 'ag %s -i --nocolor --nogroup --hidden
     \ --ignore .git
     \ --ignore .svn
     \ --ignore .hg
@@ -20,4 +24,5 @@ if executable('ag')
     \ --ignore node_modules
     \ --ignore "**/*.pyc"
     \ -g ""'
+    \ }
 endif

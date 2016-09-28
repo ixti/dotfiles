@@ -63,7 +63,7 @@
 	url = https://github.com/vim-ruby/vim-ruby.git
 [submodule "vim/.vim/bundle/vim-slim"]
 	path = vim/.vim/bundle/vim-slim
-	url = https://github.com/ixti/vim-slim.git
+	url = https://github.com/slim-template/vim-slim.git
 [submodule "vim/.vim/bundle/vim-stylus"]
 	path = vim/.vim/bundle/vim-stylus
 	url = https://github.com/wavded/vim-stylus.git

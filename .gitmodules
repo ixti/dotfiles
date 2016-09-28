@@ -93,7 +93,7 @@
 	url = https://github.com/sickill/vim-pasta.git
 [submodule "vim/.vim/bundle/ctrlp.vim"]
 	path = vim/.vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "vim/.vim/bundle/ag.vim"]
 	path = vim/.vim/bundle/ag.vim
 	url = https://github.com/rking/ag.vim.git

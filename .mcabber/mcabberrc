@@ -45,7 +45,7 @@ set ignore_self_presence = 1
 # You can require TLS by setting tls to 1.  If your jabber server
 # still doesn't support TLS, you can use the old-style SSL by setting
 # ssl to 1.  It's not possible to use old-style SSL and TLS together.
-#set ssl = 0
+set ssl = 0
 set tls = 1
 # Moreover, it's possible to check whether the fingerprint of the
 # ssl certificate matches ssl_fingerprint.
@@ -53,10 +53,10 @@ set tls = 1
 # 1. gnutls-cli -p 5223 $your_server
 # 2. openssl s_client -connect $your_server:5223 | \
 #    openssl x509 -fingerprint -md5 -noout
-#set ssl_fingerprint = 97:5C:00:3F:1D:77:45:25:E2:C5:70:EC:83:C8:87:EE
+set ssl_fingerprint = SHA256:fe159cc22b3861264f823f7cc5bfb51ba805d4891a96ffeb6cfac9b58e4ea387
 # Set ssl_ignore_checks to 1 to disable all certificate checks except the
 # fingerprint check.
-#set ssl_ignore_checks = 0
+set ssl_ignore_checks = 1
 
 # PGP support
 # Set pgp to 1 to enable OpenPGP.

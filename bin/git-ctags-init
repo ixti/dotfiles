@@ -1,0 +1,48 @@
+#!/bin/sh
+
+# Inspiration: http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
+
+set -e
+
+git_dir="$(git rev-parse --git-dir)"
+
+install_hook() {
+  hook="${git_dir}/hooks/${1}"
+
+  if [ -f "$hook" ]; then
+    echo "[WARN] '$hook' exists, not gonna override it."
+    return 1
+  fi
+
+  echo "#!/bin/sh" > "$hook"
+  cat >> "$hook"
+  chmod +x "$hook"
+}
+
+cat <<ctags | install_hook "ctags"
+set -e
+dir="\$(git rev-parse --git-dir)"
+trap 'rm -f "\$dir/\$\$.tags"' EXIT
+git ls-files | ctags --tag-relative -L - -f"\$dir/\$$.tags"
+mv "\$dir/\$$.tags" "\$dir/tags"
+ctags
+
+cat <<post-commit | install_hook "post-commit"
+.git/hooks/ctags >/dev/null 2>&1 &
+post-commit
+
+cat <<post-merge | install_hook "post-merge"
+.git/hooks/ctags >/dev/null 2>&1 &
+post-merge
+
+cat <<post-checkout | install_hook "post-checkout"
+.git/hooks/ctags >/dev/null 2>&1 &
+post-checkout
+
+cat <<post-rewrite | install_hook "post-rewrite"
+case "\$1" in
+  rebase) exec .git/hooks/post-merge ;;
+esac
+post-rewrite
+
+git config --local alias.ctags '!.git/hooks/ctags'

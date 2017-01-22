@@ -1,0 +1,4 @@
+Xautolock.time:   10
+Xautolock.locker: /usr/bin/slock
+
+! vim: set filetype=xdefaults :

@@ -11,6 +11,9 @@ fi
 # start dropbox
 (pkill dropbox && sleep 1 && dropbox) &
 
+# start X autolocker
+xautolock -detectsleep &
+
 # start notification daemon
 dunst &
 

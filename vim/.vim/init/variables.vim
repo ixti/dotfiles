@@ -7,8 +7,15 @@ let g:markdown_fenced_languages = [ 'html', 'css', 'scss', 'sass', 'ruby', 'pyth
 "" airline """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:airline_theme           = "jellybeans"
+let g:airline_theme           = 'jellybeans'
 let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.notexists = '*'
 
 
 "" syntastic """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -26,7 +33,7 @@ let Tlist_Display_Prototype       = 1
 let Tlist_Exit_OnlyWindow         = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Show_One_File           = 1
-let Tlist_Sort_Type               = "name"
+let Tlist_Sort_Type               = 'name'
 let Tlist_Use_Right_Window        = 1
 
 

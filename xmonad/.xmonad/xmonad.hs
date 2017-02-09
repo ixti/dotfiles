@@ -94,6 +94,12 @@ myTabbed = renamed [Replace "Tabbed"] $ tabbedBottom shrinkText defaultTheme
 defaultLayouts = smartBorders . avoidStruts
   $ myTabbed ||| myResizableTall ||| Mirror myResizableTall
 
+audioPlay         = spawn "setsid deadbeef --toggle-pause"
+audioNext         = spawn "setsid deadbeef --next"
+audioPrev         = spawn "setsid deadbeef --prev"
+audioMute         = spawn "setsid amixer sset Master toggle"
+audioRaiseVolume  = spawn "setsid amixer sset Master playback 5dB+"
+audioLowerVolume  = spawn "setsid amixer sset Master playback 5dB-"
 
 {-
 chatLayout = smartBorders(avoidStruts(withIM (1%7) (roster) Grid))
@@ -191,9 +197,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   , ((modm,               xK_r     ), myMenu)
 
-  , ((modm .|. shiftMask, xK_l     ), screenLock)
+  , ((modm .|. shiftMask, xK_l             ), screenLock)
   , ((modm .|. shiftMask .|. mod1Mask, xK_l), screenLock')
-  , ((modm .|. mod1Mask, xK_m), spawn "amixer sset Master toggle")
+  , ((modm .|. mod1Mask, xK_m              ), audioMute)
 
   -- change wallpaper
   , ((modm,               xK_w     ), spawn "~/.local/bin/random-wallpaper.sh safe")
@@ -280,12 +286,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   -- multimedia keys
   [ ((0, xF86XK_Tools),             spawn "setsid xterm mocp")
-  , ((0, xF86XK_AudioPlay),         spawn "setsid mocp --toggle-pause")
-  , ((0, xF86XK_AudioNext),         spawn "setsid mocp --next")
-  , ((0, xF86XK_AudioPrev),         spawn "setsid mocp --previous")
-  , ((0, xF86XK_AudioMute),         spawn "~/.local/bin/pavolume.rb toggle")
-  , ((0, xF86XK_AudioRaiseVolume),  spawn "~/.local/bin/pavolume.rb up")
-  , ((0, xF86XK_AudioLowerVolume),  spawn "~/.local/bin/pavolume.rb down")
+  , ((0, xF86XK_AudioPlay),         audioPlay)
+  , ((0, xF86XK_AudioNext),         audioNext)
+  , ((0, xF86XK_AudioPrev),         audioPrev)
+  , ((0, xF86XK_AudioMute),         audioMute)
+  , ((0, xF86XK_AudioRaiseVolume),  audioRaiseVolume)
+  , ((0, xF86XK_AudioLowerVolume),  audioLowerVolume)
   , ((0, xF86XK_Calculator),        spawn "urxvt -e python")
   , ((0, xF86XK_Search),            promptSearch defaultXPConfig google)
   ]

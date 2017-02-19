@@ -3,3 +3,5 @@
 .xmonad/*.errors
 .xmonad/xmonad-*
 .xmonad/history
+.xmonad/prompt-history
+.xmonad/xmonad.state

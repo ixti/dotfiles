@@ -12,9 +12,9 @@ fi
 (pkill dropbox && sleep 1 && dropbox) &
 
 # start X autolocker
-xautolock -detectsleep &
+command -v xautolock >/dev/null 2>&1 && xautolock -detectsleep &
 
 # start notification daemon
-dunst &
+command -v dunst >/dev/null 2>&1 && dunst &
 
 xmonad

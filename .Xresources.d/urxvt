@@ -1,6 +1,6 @@
 ! Rxvt.shading: 0 to 99 darkens, 101 to 200 lightens
 Rxvt.fading:                40
-Rxvt.shading:               10
+Rxvt.shading:               13
 Rxvt.transparent:           true
 
 ! Set font

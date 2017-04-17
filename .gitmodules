@@ -148,3 +148,6 @@
 [submodule "vim/.vim/bundle/apiblueprint"]
 	path = vim/.vim/bundle/apiblueprint
 	url = https://github.com/kylef/apiblueprint.vim.git
+[submodule "vim/.vim/bundle/vim-rhubarb"]
+	path = vim/.vim/bundle/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb

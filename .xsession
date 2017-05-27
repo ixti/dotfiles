@@ -5,16 +5,28 @@ if [ -f "${HOME}/.env" ]; then
   . "${HOME}/.env"
 fi
 
-# reset xrandr settings and sets random wallpaper
-(~/.screenlayout/reset.sh && ~/.local/bin/random-wallpaper.sh safe) &
+reset_screen_and_wallpaper() {
+  ~/.screenlayout/reset.sh
+  ~/.local/bin/random-wallpaper.sh safe
+}
 
-# start dropbox
-(pkill dropbox && sleep 1 && dropbox) &
+start_dropbox() {
+  pkill dropbox >/dev/null 2>&1
+  sleep 1
+  command -v dropbox >/dev/null 2>&1 && dropbox
+}
 
-# start X autolocker
-command -v xautolock >/dev/null 2>&1 && xautolock -detectsleep &
+start_xautolock() {
+  command -v xautolock >/dev/null 2>&1 && xautolock -detectsleep
+}
 
-# start notification daemon
-command -v dunst >/dev/null 2>&1 && dunst &
+start_notification_daemon() {
+  command -v dunst >/dev/null 2>&1 && dunst
+}
 
-xmonad
+start_notification_daemon &
+reset_screen_and_wallpaper &
+start_xautolock &
+start_dropbox &
+
+exec xmonad

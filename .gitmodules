@@ -94,9 +94,6 @@
 [submodule "vim/.vim/bundle/ctrlp.vim"]
 	path = vim/.vim/bundle/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule "vim/.vim/bundle/ag.vim"]
-	path = vim/.vim/bundle/ag.vim
-	url = https://github.com/rking/ag.vim.git
 [submodule "vim/.vim/bundle/vim-bundler"]
 	path = vim/.vim/bundle/vim-bundler
 	url = https://github.com/tpope/vim-bundler.git
@@ -139,9 +136,6 @@
 [submodule "vim/.vim/bundle/vim-git"]
 	path = vim/.vim/bundle/vim-git
 	url = https://github.com/tpope/vim-git
-[submodule "vim/.vim/bundle/vim-action-ag"]
-	path = vim/.vim/bundle/vim-action-ag
-	url = https://github.com/Chun-Yang/vim-action-ag.git
 [submodule "vim/.vim/bundle/vim-elixir"]
 	path = vim/.vim/bundle/vim-elixir
 	url = https://github.com/elixir-lang/vim-elixir.git
@@ -151,3 +145,6 @@
 [submodule "vim/.vim/bundle/vim-rhubarb"]
 	path = vim/.vim/bundle/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb
+[submodule "vim/.vim/bundle/ack.vim"]
+	path = vim/.vim/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim

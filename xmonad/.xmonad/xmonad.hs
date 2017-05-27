@@ -1,6 +1,11 @@
-import Graphics.X11.ExtraTypes.XF86
-
 import XMonad
+
+import Data.Monoid
+
+import System.Exit
+import System.IO
+
+import Graphics.X11.ExtraTypes.XF86
 
 import XMonad.Actions.GridSelect
 import XMonad.Actions.CopyWindow
@@ -31,7 +36,6 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.Cursor
 
-import System.IO
 
 import qualified XMonad.StackSet  as W
 import qualified Data.Map         as M
@@ -66,33 +70,34 @@ myComposeAllHook = (composeAll . concat $
 
 myComposeOneHook = (composeOne [isFullscreen -?> doFullFloat])
 
-
 myManageHook = manageDocks <+> myComposeAllHook <+> myComposeOneHook
-
 
 myTerminal    = "urxvt"
 myWorkspaces  = ["1","2","3","4","5","6","7","8","9","0"]
 
-
-myResizableTall = (renamed [Replace "Tall"] $ ResizableTall 1 (3/100) (1/2) [])
-
-myTabbed = renamed [Replace "Tabbed"] $ tabbedBottom shrinkText defaultTheme
-    { decoHeight = 16
-    , activeColor = "#880000"
-    , activeBorderColor = "#880000"
-    , activeTextColor = "#ffdddd"
-    , inactiveColor = "#000000"
+myLayouts = tabbed ||| vtiled ||| htiled
+  where
+  vtiled  = renamed [Replace "|"] $ ResizableTall nmaster delta ratio []
+  htiled  = renamed [Replace "-"] $ Mirror vtiled
+  nmaster = 1
+  ratio   = 1/2
+  delta   = 3/100
+  tabbed  = renamed [Replace "+"] $ tabbedBottom shrinkText defaultTheme
+    { decoHeight          = 16
+    , activeColor         = "#880000"
+    , activeBorderColor   = "#880000"
+    , activeTextColor     = "#ffdddd"
+    , inactiveColor       = "#000000"
     , inactiveBorderColor = "#000000"
-    , inactiveTextColor = "#aaaaaa"
-    , urgentColor = "#333333"
-    , urgentBorderColor = "#333333"
-    , urgentTextColor = "#dddddd"
-    , fontName = "xft:Terminus:pixelsize=12"
+    , inactiveTextColor   = "#aaaaaa"
+    , urgentColor         = "#333333"
+    , urgentBorderColor   = "#333333"
+    , urgentTextColor     = "#dddddd"
+    , fontName            = "xft:Terminus:pixelsize = 12"
     }
 
+myLayoutHook = smartBorders . avoidStruts $ myLayouts
 
-defaultLayouts = smartBorders . avoidStruts
-  $ myTabbed ||| myResizableTall ||| Mirror myResizableTall
 
 audioPlay         = spawn "setsid deadbeef --toggle-pause"
 audioNext         = spawn "setsid deadbeef --next"
@@ -100,36 +105,6 @@ audioPrev         = spawn "setsid deadbeef --prev"
 audioMute         = spawn "setsid amixer sset Master toggle"
 audioRaiseVolume  = spawn "setsid amixer sset Master playback 5dB+"
 audioLowerVolume  = spawn "setsid amixer sset Master playback 5dB-"
-
-{-
-chatLayout = smartBorders(avoidStruts(withIM (1%7) (roster) Grid))
-  where
-    roster        = pidginRoster
-    pidginRoster  = Title "Buddy List"
-myLayoutHook =
-  ( onWorkspace "9" chatLayout
-  $ defaultLayouts
-  )
--}
-
-
-myLayoutHook = defaultLayouts
-
-
--- get current layout:
--- gets (description . layout . current . windowset) :: X String
-
-
-{-
-myStartupHook = do
-  spawn $ concat
-    [ "killall trayer-srg ; trayer-srg "
-    , "--width 20 --height 16 --expand true --edge top --align right "
-    , "--transparent true --alpha 0 --tint 0x000000 "
-    , "--SetDockType true --SetPartialStrut true "
-    , "--monitor primary"
-    ]
--}
 
 
 logHook' xmproc = do
@@ -156,6 +131,7 @@ myMenu = menu defaultGSConfig { gs_font = "xft:Terminus:pixelsize=14" }
     , ("mcabber",   "urxvt -title mcabber -name mcabber -e dtach -A /tmp/dtach.mcabber.sock -r winch mcabber")
     , ("mc",        "urxvt -title mc -name mc -e mc")
     , ("passmenu",  "passmenu -p '>' -nb '#000000' -nf '#ffffff' -sb '#aa3333' -fn 'Terminus-10'")
+    , ("homesetup", "~/.screenlayout/home.sh && xmonad --restart")
     ]
 
 main = do
@@ -203,7 +179,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   -- change wallpaper
   , ((modm,               xK_w     ), spawn "~/.local/bin/random-wallpaper.sh safe")
-  , ((modm .|. shiftMask, xK_w     ), spawn "~/.local/bin/random-wallpaper.sh")
+  , ((modm .|. shiftMask, xK_w     ), spawn "~/.local/bin/random-wallpaper.sh unsafe")
 
   -- list all windows
   , ((modm,               xK_g     ), goToSelected defaultGSConfig { gs_font = "xft:Terminus:pixelsize=14" })
@@ -275,8 +251,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm .|. shiftMask, xK_comma ), prevWS)
   , ((modm,               xK_slash),  toggleWS)
 
+  -- Quit xmonad
+  , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
+
   -- Restart xmonad
-  , ((modm              , xK_q     ), restart "xmonad" True)
+  , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
   -- Reset screen configureation
   , ((modm .|. shiftMask, xK_BackSpace), spawn "~/.screenlayout/reset.sh")

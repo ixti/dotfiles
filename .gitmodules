@@ -115,9 +115,6 @@
 [submodule "vim/.vim/bundle/rust.vim"]
 	path = vim/.vim/bundle/rust.vim
 	url = https://github.com/wting/rust.vim.git
-[submodule "vim/.vim/bundle/ultisnips"]
-	path = vim/.vim/bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
 [submodule "vim/.vim/bundle/vim-yaml"]
 	path = vim/.vim/bundle/vim-yaml
 	url = https://github.com/stephpy/vim-yaml.git

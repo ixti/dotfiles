@@ -1,0 +1,16 @@
+[user]
+	name = Alexey Zapparov
+	email = ixti@member.fsf.org
+[push]
+	default = current
+[diff]
+	color = auto
+	tool = vimdiff
+[rerere]
+	enabled = true
+[core]
+	excludesfile = ~/.config/git/ignore
+[merge]
+	tool = vimdiff
+[commit]
+	gpgsign = true

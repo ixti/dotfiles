@@ -123,6 +123,10 @@ screenLock  = spawn "slock"
 screenLock' = screenLock >> spawn "sudo pm-suspend"
 
 
+resetScreenLayout = spawn "~/.screenlayout/reset.sh"
+resetWallpaper    = spawn "test -e ~/.fehbg && ~/.fehbg"
+
+
 menu conf list = gridselect conf list >>= flip whenJust spawn
 
 
@@ -131,7 +135,7 @@ myMenu = menu defaultGSConfig { gs_font = "xft:Terminus:pixelsize=14" }
     , ("mcabber",   "urxvt -title mcabber -name mcabber -e dtach -A /tmp/dtach.mcabber.sock -r winch mcabber")
     , ("mc",        "urxvt -title mc -name mc -e mc")
     , ("passmenu",  "passmenu -p '>' -nb '#000000' -nf '#ffffff' -sb '#aa3333' -fn 'Terminus-10'")
-    , ("homesetup", "~/.screenlayout/home.sh && xmonad --restart")
+    , ("homesetup", "~/.screenlayout/home.sh && xmonad --restart && test -e ~/.fehbg && ~/.fehbg")
     ]
 
 main = do
@@ -258,7 +262,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
   -- Reset screen configureation
-  , ((modm .|. shiftMask, xK_BackSpace), spawn "~/.screenlayout/reset.sh")
+  , ((modm .|. shiftMask, xK_BackSpace), resetScreenLayout >> resetWallpaper)
   ]
 
   ++

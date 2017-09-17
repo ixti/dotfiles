@@ -5,9 +5,6 @@ PURE_PROMPT_SYMBOL=">>="
 
 zplug "Tarrasch/zsh-autoenv"
 
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-completions"
-
 # zplug "mafredri/zsh-async"
 # zplug "sindresorhus/pure"
 
@@ -29,9 +26,19 @@ zplug "modules/gpg", from:prezto
 zplug "modules/ssh", from:prezto
 zplug "modules/rails", from:prezto
 
+# zplug "zsh-users/zsh-history-substring-search"
+zstyle ":prezto:module:history-substring-search" case-sensitive "yes"
+zstyle ":prezto:module:history-substring-search" color "yes"
+zplug "modules/history-substring-search", from:prezto
+
+# zplug "zsh-users/zsh-completions"
+zplug "modules/completion", from:prezto
+
 # zsh-syntax-highlighting must be loaded after executing compinit command
 # and sourcing other plugins
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
+# zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zstyle ":prezto:module:syntax-highlighting" color "yes"
+zplug "modules/syntax-highlighting", from:prezto
 
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 

@@ -8,8 +8,8 @@ zplug "Tarrasch/zsh-autoenv"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-completions"
 
-zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure"
+# zplug "mafredri/zsh-async"
+# zplug "sindresorhus/pure"
 
 zstyle ":prezto:module:editor" key-bindings "vi"
 zplug "modules/editor", from:prezto
@@ -19,6 +19,9 @@ zplug "modules/utility", from:prezto
 
 zstyle ":prezto:module:ruby:chruby" auto-switch "yes"
 zplug "modules/ruby", from:prezto
+
+zstyle ":prezto:module:prompt" theme "pure"
+zplug "modules/prompt", from:prezto
 
 zplug "modules/directory", from:prezto
 zplug "modules/history", from:prezto

@@ -9,12 +9,16 @@ if ! zgen saved; then
 
   zgen load Tarrasch/zsh-autoenv
 
+  zgen load mafredri/zsh-async
+  zgen load sindresorhus/pure
+
+  zgen load zsh-users/zsh-syntax-highlighting
+  zgen load zsh-users/zsh-history-substring-search
+
   # prezto options
   zgen prezto editor key-bindings "vi"
   zgen prezto utility:ls color "yes"
   zgen prezto ruby:chruby auto-switch "yes"
-  zgen prezto syntax-highlighting color "yes"
-  zgen prezto history-substring-search color "yes"
   zgen prezto prompt theme "pure"
 
   # prezto and it's modules
@@ -23,8 +27,8 @@ if ! zgen saved; then
   zgen prezto ssh
   zgen prezto ruby
   zgen prezto rails
-  zgen prezto syntax-highlighting
-  zgen prezto history-substring-search
+
+  zgen load zsh-users/zsh-completions
 
   zgen save
 fi

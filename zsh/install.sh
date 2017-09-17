@@ -2,5 +2,5 @@
 
 source "${0%/*}/../share/functions.sh"
 
-git clone https://github.com/tarjoilija/zgen.git ${HOME}/.zgen
+git clone https://github.com/zplug/zplug "${HOME}/.zplug"
 install .zshrc

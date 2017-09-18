@@ -1,55 +1,5 @@
-source ~/.zplug/init.zsh
-
-PURE_GIT_PULL=0
-PURE_PROMPT_SYMBOL=">>="
-
-zplug "Tarrasch/zsh-autoenv"
-
-# zplug "mafredri/zsh-async"
-# zplug "sindresorhus/pure"
-
-zstyle ":prezto:module:editor" key-bindings "vi"
-zplug "modules/editor", from:prezto
-
-zstyle ":prezto:module:utility:ls" color "yes"
-zplug "modules/utility", from:prezto
-
-zstyle ":prezto:module:ruby:chruby" auto-switch "yes"
-zplug "modules/ruby", from:prezto
-
-zstyle ":prezto:module:prompt" theme "pure"
-zplug "modules/prompt", from:prezto
-
-zplug "modules/directory", from:prezto
-zplug "modules/history", from:prezto
-zplug "modules/gpg", from:prezto
-zplug "modules/ssh", from:prezto
-zplug "modules/rails", from:prezto
-
-# zplug "zsh-users/zsh-history-substring-search"
-zstyle ":prezto:module:history-substring-search" case-sensitive "yes"
-zstyle ":prezto:module:history-substring-search" color "yes"
-zplug "modules/history-substring-search", from:prezto
-
-# zplug "zsh-users/zsh-completions"
-zplug "modules/completion", from:prezto
-
-# zsh-syntax-highlighting must be loaded after executing compinit command
-# and sourcing other plugins
-# zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zstyle ":prezto:module:syntax-highlighting" color "yes"
-zplug "modules/syntax-highlighting", from:prezto
-
-zplug "zplug/zplug", hook-build:"zplug --self-manage"
-
-if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -q; then
-    echo; zplug install
-  fi
-fi
-
-zplug load
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+source "${ZDOTDIR:-$HOME}/.zsh/lib/zsh-autoenv/autoenv.zsh"
 
 setopt nocorrectall
 setopt interactivecomments
@@ -62,3 +12,7 @@ alias pm-suspend="sudo pm-suspend"
 alias -g ...="../.."
 alias -g ....="../../.."
 alias -g .....="../../../.."
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"
+fi

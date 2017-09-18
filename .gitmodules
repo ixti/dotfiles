@@ -151,3 +151,6 @@
 [submodule "vim/.vim/bundle/vim-crystal"]
 	path = vim/.vim/bundle/vim-crystal
 	url = https://github.com/rhysd/vim-crystal
+[submodule "zsh/.zsh/lib/zsh-autoenv"]
+	path = zsh/.zsh/lib/zsh-autoenv
+	url = https://github.com/Tarrasch/zsh-autoenv

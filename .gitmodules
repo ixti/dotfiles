@@ -148,3 +148,6 @@
 [submodule "zsh/.zsh/lib/zsh-autoenv"]
 	path = zsh/.zsh/lib/zsh-autoenv
 	url = https://github.com/Tarrasch/zsh-autoenv
+[submodule "vim/.vim/bundle/tagbar"]
+	path = vim/.vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar

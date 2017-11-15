@@ -1,6 +1,6 @@
 if has('gui_running')
     set guioptions=""
-    set guifont=Terminus\ 16
+    set guifont=Monospace\ 12
 endif
 
 

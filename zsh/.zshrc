@@ -9,6 +9,11 @@ alias service="sudo service"
 alias shutdown="sudo shutdown"
 alias pm-suspend="sudo pm-suspend"
 
+alias be="bundle exec"
+alias bi="bundle install"
+alias bu="bundle update"
+alias ror="bundle exec rails"
+
 alias -g ...="../.."
 alias -g ....="../../.."
 alias -g .....="../../../.."

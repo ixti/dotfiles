@@ -4,7 +4,7 @@ Rxvt.shading:               13
 Rxvt.transparent:           true
 
 ! Set font
-URxvt.font:                 xft:Terminus:size=16
+URxvt.font:                 xft:Ubuntu Mono:size=12
 
 ! Disable the scrollbar
 URxvt.scrollBar:            false

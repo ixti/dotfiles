@@ -37,7 +37,8 @@ set password_eval = "pass jabber.ru/zapparov"
 #set priority_away = 0
 
 # Set 'ignore_self_presence' to 1 if you do not want to see your own
-# presence in your roster (default: 0).
+# presence in your roster (default: 0).  Other resources will still be
+# displayed.
 set ignore_self_presence = 1
 
 # SSL/TLS options:
@@ -47,13 +48,22 @@ set ignore_self_presence = 1
 # ssl to 1.  It's not possible to use old-style SSL and TLS together.
 set ssl = 0
 set tls = 1
+# It is possible to set the allowed ciphers which openssl/gnutls can use for
+# the encrypted connection.
+# openssl (get the name of the available ciphers via 'openssl ciphers'):
+#set ssl_ciphers = ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384
+# gnutls (check the priorities option of 'man gnutls_priority_init'):
+#set ssl_ciphers = PFS
+# If you'd like to explicitly specify trusted certificates, set the ssl_ca
+# option to a certificate file or path.
+#set ssl_ca = ~/.mcabber/trusted_cert.pem
 # Moreover, it's possible to check whether the fingerprint of the
 # ssl certificate matches ssl_fingerprint.
 # You can get the fingerprint of your server either with gnutls or openssl:
 # 1. gnutls-cli -p 5223 $your_server
-# 2. openssl s_client -connect $your_server:5223 | \
-#    openssl x509 -fingerprint -md5 -noout
-set ssl_fingerprint = SHA256:fe159cc22b3861264f823f7cc5bfb51ba805d4891a96ffeb6cfac9b58e4ea387
+# 2. openssl s_client -starttls xmpp -connect $yourserver:5222 | \
+#    openssl x509 -fingerprint -sha256 -noout
+set ssl_fingerprint = SHA256:75f8aabaa69eb7eff605975fe04d8429f6a9a0b4e8044d45e9fae1a43c924a4e
 # Set ssl_ignore_checks to 1 to disable all certificate checks except the
 # fingerprint check.
 set ssl_ignore_checks = 1
@@ -74,6 +84,14 @@ set pgp_private_key = "AFBF6FD0DC380A8D"
 # can change it here.  If this number is < 0, mcabber will keep asking
 # until the passphrase is good.
 #set pgp_passphrase_retries = 2
+#
+# You can specify the path to the gpg binary, e.g. to force the use of
+# GnuPG version 1 on systems which have both versions installed.
+#set gpg_path = /usr/bin/gpg
+#
+# If GnuPG should use a custom configuration directory, you can set
+# 'gpg_home' to the desired path.
+#set gpg_home = ~/.mcabber/gpg
 
 # Conference nickname
 # This nickname is used when joining a room, when no nick is explicitly
@@ -116,12 +134,17 @@ set nickname = ixti
 # running).
 set spell_enable = 1
 set spell_lang = en_US ru_RU
+#set spell_encoding = iso8859-1
 set spell_encoding = UTF-8
 
 # History
 # Number of lines to remember for the command line history
 # (default: 0, unlimited).
 set cmdhistory_lines = 250
+
+# Let MCabber accept some vi(1)-like "normal mode" commands by setting the
+# option 'vi_mode' to 1 (default: 0).
+#set vi_mode = 1
 
 # You can set up a mask to filter buddies and display them according to
 # their status.  The mask should contain the shortcut letters of the
@@ -146,6 +169,11 @@ set cmdhistory_lines = 250
 # supports them), set the 'carbons' option to 1.  Default is 0.
 #set carbons = 1
 
+# Set the 'clear_unread_on_carbon' option to 1 if the unread messages flag
+# should be cleared when an outgoing copy of a message sent to that contact
+# is received from another client. Default is 0.
+#set clear_unread_on_carbon = 1
+
 # Typing notifications, Chat States, Events (XEP-22/85)
 # Set disable_chatstates to 1 if you don't want to use typing notifications.
 # Note: changing this option once mcabber is running has no effect.
@@ -157,10 +185,10 @@ set cmdhistory_lines = 250
 # (and status messages) to the log files (default: 0).
 # You can load (read) the messages history: set load_logs = 1
 # If you enable load_logs, you can use the 'max_history_age' setting below.
-# Default logging directory (logging_dir) is $HOME/.mcabber/histo/
+# The default logging directory (logging_dir) is $HOME/.mcabber/histo/
+# (or $XDG_CONFIG_HOME/mcabber/histo/).
 # Defaults for logging, load_logs are 0 (disabled)
-# Note: the logging directory must exist if you enable logging, mcabber
-#       will not create it.
+# Note: the logging directory path is created if absent.
 # Note: these options, except 'max_history_age' and 'max_history_blocks',
 # are used at startup time.
 set logging = 1
@@ -170,7 +198,6 @@ set logging_ignore_status = 1
 
 # Set log_muc_conf to 1 to enable MUC chatrooms logging (default = 0)
 set log_muc_conf = 1
-
 # Set load_muc_logs to 1 to read MUC chatrooms logs (default = 0).  These
 # logs will be displayed in the buffer window _before_ any history received
 # from the server.
@@ -418,39 +445,33 @@ set escdelay = 50
 # readmark:   text color of the "read mark" line in buffers
 # timestamp:  text color in the chat window for delayed timestamps
 #
-# * NOTE: Your terminal MUST have 256 color support
+#set color_background   = black
+#set color_general      = white
+#set color_info         = white
+#set color_msgin        = white
+#set color_msgout       = cyan
+#set color_msghl        = yellow
+#set color_bgstatus     = blue
+#set color_status       = white
+#set color_log          = white
+#set color_roster       = green
+#set color_bgrostersel  = cyan
+#set color_rostersel    = blue
+#set color_rosterselmsg = red
+#set color_rosternewmsg = red
+#set color_readmark     = red
+#set color_timestamp    = brightblue
 
-set color_background   = default
-set color_general      = white
-set color_info         = magenta
-set color_msgin        = 85
-set color_msgout       = 69
-set color_msghl        = yellow
-set color_bgstatus     = blue
-set color_status       = 82
-set color_log          = 244
-set color_roster       = 185
-set color_bgrostersel  = cyan
-set color_rostersel    = blue
-set color_rosterselmsg = red
-set color_rosternewmsg = red
-set color_readmark     = red
+# You can color roster items by their status and JID.  For example, to have
+# all roster items white, just all contacts from jabber.org that are away,
+# not available or do not disturb yellow, you do this:
+#
+#color roster * * white
+#color roster adn *@jabber.org yellow
 
-
-# Reset dynamic colors
-color roster clear
-
-# Dynamic roster colors
-color roster f * yellow
-color roster o * green
-color roster d * 166
-color roster a * 140
-color roster n * 144
-color roster _ * 18
-
-
+# You can let mcabber color nicks in MUC.
 # These colors will by used automatically:
-set nick_colors = green yellow white
+#set nick_colors = red green blue
 # This turns coloring of all mucs on:
 color muc * on
 
@@ -464,7 +485,6 @@ color muc * on
 #
 # Log window height (minimum 1, default 5)
 #set log_win_height = 5
-#
 # Buddylist window width (minimum 2, default 24)
 #set roster_width=24
 #
@@ -576,22 +596,16 @@ alias notavail = status notavail
 
 # Key bindings
 # Ctrl-q (17) bound to /roster unread_next
-#bind 17 = roster unread_next
+bind 17 = roster unread_next
 # Ctrl-x (24) bound to /roster alternate
-#bind 24 = roster alternate
+bind 24 = roster alternate
 # F5 (269) bound to /roster toggle_offline  (centericq-like, IIRC)
-#bind 269 = roster toggle_offline
+bind 269 = roster toggle_offline
 # F12 (276) bound to /roster toggle
-#bind 276 = roster toggle
+bind 276 = roster toggle
 # Ctrl-Up/Ctrl-Down bound to /buffer up/down  (like Ctrl-p/Ctrl-n)
-#bind 339 = buffer up
-#bind 338 = buffer down
-
-bind M259 = roster up
-bind M258 = roster down
-
-bind 339 = buffer up
-bind 338 = buffer down
+bind 521 = buffer up
+bind 514 = buffer down
 
 # Sample alias to join mcabber channel with "/jmc"
 #alias jmc = room join mcabber@conf.lilotux.net

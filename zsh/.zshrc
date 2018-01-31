@@ -5,7 +5,7 @@ setopt nocorrectall
 setopt interactivecomments
 
 alias tmux="tmux -2"
-alias service="sudo service"
+alias service="sudo rc-service"
 alias shutdown="sudo shutdown"
 alias pm-suspend="sudo pm-suspend"
 

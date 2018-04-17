@@ -12,6 +12,7 @@ alias pm-suspend="sudo pm-suspend"
 alias be="bundle exec"
 alias bi="bundle install"
 alias bu="bundle update"
+alias bo="bundle open"
 alias ror="bundle exec rails"
 
 alias -g ...="../.."

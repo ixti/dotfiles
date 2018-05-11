@@ -9,6 +9,12 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 " Set delay to prevent extra search
 let g:ctrlp_lazy_update = 350
 
+" Sane Ignore For ctrlp
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$\|node_modules\|vendor',
+  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ }
+
 " If ag is available use it as filename list generator instead of 'find'
 if executable('ag')
   " set grepprg=ag\ --nogroup\ --nocolor

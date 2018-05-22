@@ -48,6 +48,9 @@ let Tlist_Use_Right_Window        = 1
 "" jellybeans """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:jellybeans_use_term_background_color = 1
 let g:jellybeans_use_lowcolor_black = 0
-let g:jellybeans_use_term_italics = 0
+let g:jellybeans_use_term_italics = 1
+
+let g:jellybeans_overrides = {
+  \ 'background': { 'ctermbg': 'NONE', '256ctermbg': 'NONE' },
+  \ }

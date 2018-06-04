@@ -76,9 +76,6 @@
 [submodule "vim/.vim/bundle/jellybeans.vim"]
 	path = vim/.vim/bundle/jellybeans.vim
 	url = https://github.com/nanotech/jellybeans.vim.git
-[submodule "vim/.vim/bundle/emmet-vim"]
-	path = vim/.vim/bundle/emmet-vim
-	url = https://github.com/mattn/emmet-vim.git
 [submodule "vim/.vim/bundle/vim-rspec"]
 	path = vim/.vim/bundle/vim-rspec
 	url = https://github.com/thoughtbot/vim-rspec.git

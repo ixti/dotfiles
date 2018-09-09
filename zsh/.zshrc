@@ -1,4 +1,5 @@
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+source "${ZDOTDIR:-$HOME}/.zsh/lib/zsh-autoenv/autoenv.zsh"
 
 setopt nocorrectall
 setopt interactivecomments

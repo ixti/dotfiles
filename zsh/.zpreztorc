@@ -32,6 +32,7 @@ zstyle ':prezto:load' pmodule \
   'editor' \
   'history' \
   'directory' \
+  'spectrum' \
   'utility' \
   'git' \
   'ruby' \
@@ -65,7 +66,7 @@ zstyle ':prezto:module:completion:*:hosts' etc-host-ignores \
 zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Auto convert .... to ../..
-zstyle ':prezto:module:editor' dot-expansion 'yes'
+# zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 # Allow the zsh prompt context to be shown.
 zstyle ':prezto:module:editor' ps-context 'yes'
@@ -132,13 +133,6 @@ zstyle ':prezto:module:prompt' theme 'pure'
 zstyle ':prezto:module:prompt' show-return-val 'yes'
 
 #
-# Ruby
-#
-
-# Auto switch the Ruby version on directory change.
-zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
-
-#
 # Python
 #
 
@@ -147,6 +141,13 @@ zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 
 # Automatically initialize virtualenvwrapper if pre-requisites are met.
 # zstyle ':prezto:module:python:virtualenv' initialize 'yes'
+
+#
+# Ruby
+#
+
+# Auto switch the Ruby version on directory change.
+zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 
 #
 # Screen
@@ -171,18 +172,12 @@ zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
-# zstyle ':prezto:module:syntax-highlighting' highlighters \
-#   'main' \
-#   'brackets' \
-#   'pattern' \
-#   'line' \
-#   'cursor' \
-#   'root'
 zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
   'brackets' \
   'pattern' \
   'line' \
+  'cursor' \
   'root'
 
 # Set syntax highlighting styles.

@@ -1,5 +1,3 @@
-IDIOTS_ARE_TAKING_OVER="\xe2\xa7\xb8"
-
 # Replace slashes in given string with Unicode BIG+SOLIDUS.
 #
 # RATIONALE:
@@ -13,5 +11,5 @@ IDIOTS_ARE_TAKING_OVER="\xe2\xa7\xb8"
 #
 #   git checkout -b $(idiots_are_taking_over ixti/kiss-my-shiny-metal-ass)
 function idiots_are_taking_over() {
-  echo "$1" | sed "s/\//${IDIOTS_ARE_TAKING_OVER}/g"
+  echo "$1" | sed "s/\//${IDIOTS_ARE_TAKING_OVER:-"\xe2\xa7\xb8"}/g"
 }

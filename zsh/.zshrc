@@ -1,6 +1,7 @@
+export VIRTUAL_ENV_DISABLE_PROMPT=0
+
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/zsh-autoenv/autoenv.zsh"
-source "${ZDOTDIR:-$HOME}/.zsh/lib/idiots-are-taking-over.zsh"
 
 setopt nocorrectall
 setopt interactivecomments

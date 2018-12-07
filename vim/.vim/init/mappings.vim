@@ -22,7 +22,7 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 
 " tabs management
-nmap t :tabnew
+nmap t :tabnew<Space>
 nmap T :tabnew<CR>:CtrlPMRUFiles<CR>
 
 " disable up/down/left/right

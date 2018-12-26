@@ -32,6 +32,20 @@ let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.notexists = '*'
 
 
+"" fzf.vim (https://github.com/junegunn/fzf.vim) """""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Prefix commands with `Fzf`, e.g. `FzfFiles`, `FzfHistory`, etc.
+let g:fzf_command_prefix = 'Fzf'
+
+
+"" fzf-mru (https://github.com/pbogut/fzf-mru.vim) """""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Only list files within current directory.
+let g:fzf_mru_relative = 1
+
+
 "" syntastic """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

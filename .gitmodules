@@ -82,9 +82,6 @@
 [submodule "vim/.vim/bundle/vim-pasta"]
 	path = vim/.vim/bundle/vim-pasta
 	url = https://github.com/sickill/vim-pasta.git
-[submodule "vim/.vim/bundle/ctrlp.vim"]
-	path = vim/.vim/bundle/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "vim/.vim/bundle/vim-bundler"]
 	path = vim/.vim/bundle/vim-bundler
 	url = https://github.com/tpope/vim-bundler.git
@@ -109,9 +106,6 @@
 [submodule "vim/.vim/bundle/vim-yaml"]
 	path = vim/.vim/bundle/vim-yaml
 	url = https://github.com/stephpy/vim-yaml.git
-[submodule "vim/.vim/bundle/ctrlp-py-matcher"]
-	path = vim/.vim/bundle/ctrlp-py-matcher
-	url = https://github.com/FelikZ/ctrlp-py-matcher
 [submodule "vim/.vim/bundle/vim-sensible"]
 	path = vim/.vim/bundle/vim-sensible
 	url = https://github.com/tpope/vim-sensible
@@ -148,3 +142,9 @@
 [submodule "vim/.vim/bundle/tagbar"]
 	path = vim/.vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar
+[submodule "vim/.vim/bundle/fzf.vim"]
+	path = vim/.vim/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "vim/.vim/bundle/fzf-mru.vim"]
+	path = vim/.vim/bundle/fzf-mru.vim
+	url = https://github.com/pbogut/fzf-mru.vim.git

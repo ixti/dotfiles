@@ -78,3 +78,11 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
+
+#
+# Keychain
+#
+
+if (( $#commands[keychain] )); then
+  eval $(keychain --agents gpg,ssh --quiet --quick --noask --eval id_ed25519 id_rsa)
+fi

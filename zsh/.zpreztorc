@@ -121,6 +121,7 @@ zstyle ':prezto:module:editor' ps-context 'yes'
 # Auto set to 'off' on dumb terminals.
 PURE_GIT_PULL=0
 PURE_PROMPT_SYMBOL=">>="
+PURE_PROMPT_VICMD_SYMBOL="<$>"
 zstyle ':prezto:module:prompt' theme 'pure'
 
 # Set the working directory prompt display length.

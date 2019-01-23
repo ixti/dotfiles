@@ -4,9 +4,6 @@
 [submodule "vim/.vim/bundle/change-inside-surroundings.vim"]
 	path = vim/.vim/bundle/change-inside-surroundings.vim
 	url = https://github.com/briandoll/change-inside-surroundings.vim.git
-[submodule "vim/.vim/bundle/clam.vim"]
-	path = vim/.vim/bundle/clam.vim
-	url = https://github.com/sjl/clam.vim.git
 [submodule "vim/.vim/bundle/editorconfig-vim"]
 	path = vim/.vim/bundle/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
@@ -25,12 +22,6 @@
 [submodule "vim/.vim/bundle/tabular"]
 	path = vim/.vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule "vim/.vim/bundle/vim-coffee-script"]
-	path = vim/.vim/bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "vim/.vim/bundle/vim-css-color"]
-	path = vim/.vim/bundle/vim-css-color
-	url = https://github.com/ap/vim-css-color.git
 [submodule "vim/.vim/bundle/vim-easymotion"]
 	path = vim/.vim/bundle/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
@@ -43,9 +34,6 @@
 [submodule "vim/.vim/bundle/vim-javascript"]
 	path = vim/.vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "vim/.vim/bundle/vim-jade"]
-	path = vim/.vim/bundle/vim-jade
-	url = https://github.com/digitaltoad/vim-jade.git
 [submodule "vim/.vim/bundle/vim-markdown"]
 	path = vim/.vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown.git
@@ -64,9 +52,6 @@
 [submodule "vim/.vim/bundle/vim-surround"]
 	path = vim/.vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "vim/.vim/bundle/vim-yard"]
-	path = vim/.vim/bundle/vim-yard
-	url = https://github.com/postmodern/vim-yard.git
 [submodule "vim/.vim/bundle/vim-fugitive"]
 	path = vim/.vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -121,9 +106,6 @@
 [submodule "vim/.vim/bundle/vim-elixir"]
 	path = vim/.vim/bundle/vim-elixir
 	url = https://github.com/elixir-lang/vim-elixir.git
-[submodule "vim/.vim/bundle/apiblueprint"]
-	path = vim/.vim/bundle/apiblueprint
-	url = https://github.com/kylef/apiblueprint.vim.git
 [submodule "vim/.vim/bundle/vim-rhubarb"]
 	path = vim/.vim/bundle/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb

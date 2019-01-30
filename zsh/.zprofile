@@ -84,5 +84,5 @@ fi
 #
 
 if (( $#commands[keychain] )); then
-  eval $(keychain --agents gpg,ssh --quiet --quick --noask --eval id_ed25519 id_rsa)
+  eval $(keychain --quiet --quick --noask --eval id_ed25519 id_rsa)
 fi

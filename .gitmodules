@@ -130,6 +130,6 @@
 [submodule "vim/.vim/bundle/fzf-mru.vim"]
 	path = vim/.vim/bundle/fzf-mru.vim
 	url = https://github.com/pbogut/fzf-mru.vim.git
-[submodule "vim/.vim/bundle/--force"]
-	path = vim/.vim/bundle/--force
+[submodule "vim/.vim/bundle/vim-css-color"]
+	path = vim/.vim/bundle/vim-css-color
 	url = https://github.com/ap/vim-css-color.git

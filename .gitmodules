@@ -76,9 +76,6 @@
 [submodule "vim/.vim/bundle/vim-textobj-rubyblock"]
 	path = vim/.vim/bundle/vim-textobj-rubyblock
 	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
-[submodule "vim/.vim/bundle/neocomplete"]
-	path = vim/.vim/bundle/neocomplete
-	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "vim/.vim/bundle/vim-pathogen"]
 	path = vim/.vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git

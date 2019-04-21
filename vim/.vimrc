@@ -4,6 +4,8 @@ runtime init/mappings.vim
 runtime init/termhacks.vim
 runtime init/styling.vim
 
+runtime init/hooks.vim
+
 " ############################################################################ "
 
 " Allow set config per-file with special modelines

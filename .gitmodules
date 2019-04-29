@@ -21,7 +21,7 @@
 	url = https://github.com/godlygeek/tabular.git
 [submodule "vim/.vim/pack/vendor/start/easymotion"]
 	path = vim/.vim/pack/vendor/start/easymotion
-	url = https://github.com/Lokaltog/vim-easymotion.git
+	url = https://github.com/easymotion/vim-easymotion.git
 [submodule "vim/.vim/pack/vendor/start/endwise"]
 	path = vim/.vim/pack/vendor/start/endwise
 	url = https://github.com/tpope/vim-endwise.git

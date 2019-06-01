@@ -6,21 +6,12 @@
 #
 
 #
-# Ensure /etc/zprofile is loaded
-#
-
-if [[ -e /etc/zsh/zprofile ]]; then
-  . /etc/zsh/zprofile
-fi
-
-#
 # zprofile loads /etc/profile.env which resets some env vars
 # thus load local env afterwards
 #
 if [[ -s "${ZDOTDIR:-$HOME}/.env" ]]; then
   . "${ZDOTDIR:-$HOME}/.env"
 fi
-
 
 #
 # Browser

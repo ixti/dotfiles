@@ -104,7 +104,7 @@
 	path = vim/.vim/pack/vendor/start/crystal
 	url = https://github.com/rhysd/vim-crystal
 [submodule "zsh/.zsh/lib/zsh-autoenv"]
-	path = zsh/.zsh/lib/zsh-autoenv
+	path = zsh/.zsh/lib/autoenv
 	url = https://github.com/Tarrasch/zsh-autoenv
 [submodule "vim/.vim/pack/vendor/start/tagbar"]
 	path = vim/.vim/pack/vendor/start/tagbar
@@ -121,3 +121,6 @@
 [submodule "vim/.vim/pack/vendor/start/plantuml-syntax"]
 	path = vim/.vim/pack/vendor/start/plantuml-syntax
 	url = https://github.com/aklt/plantuml-syntax.git
+[submodule "zsh/.zsh/lib/pure-prompt"]
+	path = zsh/.zsh/lib/pure
+	url = https://github.com/sindresorhus/pure.git

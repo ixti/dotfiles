@@ -6,8 +6,9 @@ map <C-b> :tabprev<CR>
 map <C-n> :tabnext<CR>
 
 " Tab-management
-nmap <Leader>tt :tabnew<Space>
-nmap <Leader>to :tabnew %<CR>
+nmap <Leader>tt :tabnew<CR>
+nmap <Leader>to :tabnew<Space>
+nmap <Leader>tw :tabnew %<CR>
 nmap <Leader>tc :tabclose<CR>
 
 " switch to upper/lower window quickly

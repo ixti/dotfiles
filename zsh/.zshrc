@@ -1,9 +1,8 @@
-export VIRTUAL_ENV_DISABLE_PROMPT=0
-
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/autoenv/autoenv.zsh"
 
-autoload -Uz promptinit; promptinit
+autoload -Uz promptinit
+promptinit
 prompt pure
 
 setopt nocorrectall
@@ -23,4 +22,8 @@ alias -g .....="../../../.."
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"
+fi
+
+if (( ${+functions[chruby]} )); then
+  chruby ruby
 fi

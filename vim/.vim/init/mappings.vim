@@ -5,6 +5,11 @@ let mapleader = ","
 map <C-b> :tabprev<CR>
 map <C-n> :tabnext<CR>
 
+" Tab-management
+nmap <Leader>tt :tabnew<Space>
+nmap <Leader>to :tabnew %<CR>
+nmap <Leader>tc :tabclose<CR>
+
 " switch to upper/lower window quickly
 map <C-h> <C-W>h
 map <C-j> <C-W>j
@@ -20,9 +25,6 @@ nmap <Leader>y "+y
 nmap <Leader>Y "+Y
 nmap <Leader>p "+p
 nmap <Leader>P "+P
-
-" tabs management
-nmap t :tabnew<Space>
 
 " disable up/down/left/right
 map <Up>    <Nop>

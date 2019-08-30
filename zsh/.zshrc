@@ -16,6 +16,9 @@ alias bu="bundle update"
 alias bo="bundle open"
 alias ror="bundle exec rails"
 
+alias t="task"
+alias T="timew"
+
 alias -g ...="../.."
 alias -g ....="../../.."
 alias -g .....="../../../.."

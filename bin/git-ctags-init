@@ -27,7 +27,7 @@ install_hook() {
 
 cat <<ctags | install_hook "ctags"
 set -e
-dir="\$(git rev-parse --git-dir)"
+dir=\$(git rev-parse --show-toplevel)
 trap 'rm -f "\$dir/\$\$.tags"' EXIT
 git ls-files | ctags --tag-relative=yes -L - -f"\$dir/\$$.tags"
 mv "\$dir/\$$.tags" "\$dir/tags"

@@ -2,4 +2,4 @@
 #include ".Xresources.d/urxvt"
 #include ".Xresources.d/xterm"
 #include ".Xresources.d/xautolock"
-#include ".Xresources.d/xft"
+#include ".Xresources.d/xft-hidpi"

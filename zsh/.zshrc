@@ -23,6 +23,8 @@ alias -g ...="../.."
 alias -g ....="../../.."
 alias -g .....="../../../.."
 
+alias venv="python3 -m venv"
+
 if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"
 fi

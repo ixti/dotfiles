@@ -124,3 +124,6 @@
 [submodule "zsh/.zsh/lib/pure-prompt"]
 	path = zsh/.zsh/lib/pure
 	url = https://github.com/sindresorhus/pure.git
+[submodule "vim/.vim/pack/vendor/start/bats.vim"]
+	path = vim/.vim/pack/vendor/start/bats.vim
+	url = https://github.com/aliou/bats.vim.git

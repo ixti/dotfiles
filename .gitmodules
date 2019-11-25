@@ -127,3 +127,6 @@
 [submodule "vim/.vim/pack/vendor/start/bats.vim"]
 	path = vim/.vim/pack/vendor/start/bats.vim
 	url = https://github.com/aliou/bats.vim.git
+[submodule "vim/.vim/pack/vendor/start/kotlin-vim"]
+	path = vim/.vim/pack/vendor/start/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim.git

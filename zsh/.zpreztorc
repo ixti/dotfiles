@@ -144,7 +144,7 @@ zstyle ':prezto:module:prompt' show-return-val 'yes'
 #
 
 # Auto switch the Ruby version on directory change.
-zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
+zstyle ':prezto:module:ruby:chruby' auto-switch 'no'
 
 #
 # Screen

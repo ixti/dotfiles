@@ -130,3 +130,6 @@
 [submodule "vim/.vim/pack/vendor/start/kotlin-vim"]
 	path = vim/.vim/pack/vendor/start/kotlin-vim
 	url = https://github.com/udalov/kotlin-vim.git
+[submodule "vim/.vim/pack/vendor/start/vim-gitgutter"]
+	path = vim/.vim/pack/vendor/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter

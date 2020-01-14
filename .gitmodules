@@ -94,9 +94,6 @@
 [submodule "vim/.vim/pack/vendor/start/rhubarb"]
 	path = vim/.vim/pack/vendor/start/rhubarb
 	url = https://github.com/tpope/vim-rhubarb
-[submodule "vim/.vim/pack/vendor/start/ack"]
-	path = vim/.vim/pack/vendor/start/ack
-	url = https://github.com/mileszs/ack.vim
 [submodule "vim/.vim/pack/vendor/start/incsearch"]
 	path = vim/.vim/pack/vendor/start/incsearch
 	url = https://github.com/haya14busa/incsearch.vim

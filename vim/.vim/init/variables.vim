@@ -1,23 +1,6 @@
 " vim: set foldmethod=marker foldlevel=0 nomodeline:
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ack {{{
-
-let g:ackhighlight = 1
-let g:ack_mappings = {
-  \  'v':  '<C-W><CR><C-W>L<C-W>p<C-W>J<C-W>p',
-  \ 'gv': '<C-W><CR><C-W>L<C-W>p<C-W>J'
-  \ }
-
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
-" }}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline {{{
 
 let g:airline_theme           = 'jellybeans'

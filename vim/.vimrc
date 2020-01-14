@@ -1,3 +1,5 @@
+runtime! plugin/sensible.vim
+
 runtime init/variables.vim
 
 runtime init/mappings.vim

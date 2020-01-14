@@ -16,3 +16,5 @@
 	gpgsign = true
 [branch]
 	sort = committerdate
+[alias]
+  ctags = !git-ctags >/dev/null 2>&1

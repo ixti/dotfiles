@@ -1,0 +1,10 @@
+#!/bin/bash
+
+worktree=$(git rev-parse --show-toplevel)
+tmp_file=${worktree}/"$$.tags"
+
+trap 'rm -f "${tmp_file}"' EXIT
+
+git ls-files | ctags --tag-relative=yes -L - -f"${tmp_file}"
+
+mv "${tmp_file}" "${worktree}/tags"

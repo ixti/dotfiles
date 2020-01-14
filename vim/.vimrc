@@ -10,6 +10,9 @@ runtime init/hooks.vim
 
 " ############################################################################ "
 
+" Display unprintable characters
+set list
+
 " Allow set config per-file with special modelines
 set modeline
 

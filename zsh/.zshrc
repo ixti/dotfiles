@@ -44,3 +44,19 @@ fi
 if (( ${+functions[chruby]} )); then
   chruby ruby
 fi
+
+# Python version manager (https://github.com/pyenv/pyenv)
+if [[ -d "${HOME}/.pyenv/bin" ]]; then
+  path=("${HOME}/.pyenv/bin" $path)
+  export PATH
+
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+# Java SDK/JDK manager (https://sdkman.io)
+if [[ -e "/home/ixti/.sdkman" ]]; then
+  export SDKMAN_DIR="/home/ixti/.sdkman"
+
+  [[ -s "/home/ixti/.sdkman/bin/sdkman-init.sh" ]] && source "/home/ixti/.sdkman/bin/sdkman-init.sh"
+fi

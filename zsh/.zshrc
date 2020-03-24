@@ -45,14 +45,22 @@ if (( ${+functions[chruby]} )); then
   chruby ruby
 fi
 
-# Python version manager (https://github.com/pyenv/pyenv)
-if [[ -d "${HOME}/.pyenv/bin" ]]; then
-  path=("${HOME}/.pyenv/bin" $path)
-  export PATH
+# Lazy PyEnv
+pyenv() {
+  # Remove ourselves
+  unset -f pyenv
 
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
+  # Python version manager (https://github.com/pyenv/pyenv)
+  if [[ -d "${HOME}/.pyenv/bin" ]]; then
+    path=("${HOME}/.pyenv/bin" $path)
+    export PATH
+
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+  fi
+
+  pyenv "$@"
+}
 
 # Java SDK/JDK manager (https://sdkman.io)
 if [[ -e "/home/ixti/.sdkman" ]]; then

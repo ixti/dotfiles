@@ -45,25 +45,37 @@ if (( ${+functions[chruby]} )); then
   chruby ruby
 fi
 
-# Lazy PyEnv
-pyenv() {
-  # Remove ourselves
-  unset -f pyenv
+if (( ${+commands[pyenv]} )); then
+  # Lazy PyEnv
+  function pyenv() {
+    # Remove ourselves
+    unset -f pyenv
 
-  # Python version manager (https://github.com/pyenv/pyenv)
-  if [[ -d "${HOME}/.pyenv/bin" ]]; then
-    path=("${HOME}/.pyenv/bin" $path)
-
+    # Python version manager (https://github.com/pyenv/pyenv)
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
-  fi
 
-  pyenv "$@"
-}
+    pyenv "$@"
+  }
+fi
 
 # Java SDK/JDK manager (https://sdkman.io)
 if [[ -e "/home/ixti/.sdkman" ]]; then
   export SDKMAN_DIR="/home/ixti/.sdkman"
 
-  [[ -s "/home/ixti/.sdkman/bin/sdkman-init.sh" ]] && source "/home/ixti/.sdkman/bin/sdkman-init.sh"
+  if [[ -s "/home/ixti/.sdkman/bin/sdkman-init.sh" ]]; then
+    source "/home/ixti/.sdkman/bin/sdkman-init.sh"
+  fi
+fi
+
+if (( ${+commands[vivid]} )); then
+  # XXX: if this generates error, ensure to install filetypes database and themes:
+  #
+  #     # tune this var a bit ;))
+  #     vivid_cargo=~/.cargo/registry/src/github.com-1ecc6299db9ec823/vivid-0.5.0/
+  #
+  #     rm -rf ~/.config/vivid
+  #     install -Dm644 -t ~/.config/vivid "${vivid_cargo}"/config/filetypes.yml
+  #     install -Dm644 -t ~/.config/vivid/themes "${vivid_cargo}"/themes/*.yml
+  export LS_COLORS="$(vivid generate jellybeans)"
 fi

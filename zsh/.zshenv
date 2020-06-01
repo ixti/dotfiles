@@ -19,9 +19,8 @@ if (( ${+commands[vivid]} )); then
   #     vivid_cargo=~/.cargo/registry/src/github.com-1ecc6299db9ec823/vivid-0.5.0/
   #
   #     rm -rf ~/.config/vivid
-  #     mkdir -p ~/.config/vivid/themes
-  #     cp "${vivid_cargo}config/filetypes.yml ~/.config/vivid
-  #     cp "${vivid_cargo}config/themes/*.yml ~/.config/vivid/themes
+  #     install -Dm644 -t ~/.config/vivid "${vivid_cargo}"/config/filetypes.yml
+  #     install -Dm644 -t ~/.config/vivid/themes "${vivid_cargo}"/themes/*.yml
   export LS_COLORS=$(vivid generate jellybeans)
 fi
 

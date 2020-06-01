@@ -53,7 +53,6 @@ pyenv() {
   # Python version manager (https://github.com/pyenv/pyenv)
   if [[ -d "${HOME}/.pyenv/bin" ]]; then
     path=("${HOME}/.pyenv/bin" $path)
-    export PATH
 
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"

@@ -133,3 +133,6 @@
 [submodule "vim/.vim/pack/vendor/start/logstash.vim"]
 	path = vim/.vim/pack/vendor/start/logstash.vim
 	url = https://github.com/robbles/logstash.vim.git
+[submodule "zsh/.zsh/lib/fast-syntax-highlighting"]
+	path = zsh/.zsh/lib/fast-syntax-highlighting
+	url = https://github.com/zdharma/fast-syntax-highlighting

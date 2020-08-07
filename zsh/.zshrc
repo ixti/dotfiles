@@ -20,9 +20,6 @@ alias ror="bundle exec rails"
 alias om="overmind"
 alias oms="overmind start"
 
-alias t="task"
-alias T="timew"
-
 alias -g ...="../.."
 alias -g ....="../../.."
 alias -g .....="../../../.."

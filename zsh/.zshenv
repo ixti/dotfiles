@@ -12,6 +12,11 @@ if [[ -d "${HOME}/.cargo/bin" ]]; then
   path=("${HOME}/.cargo/bin" $path)
 fi
 
+# Go-lang compiled binaries
+if [[ -d "${HOME}/go/bin" ]]; then
+  path=("${HOME}/go/bin" $path)
+fi
+
 if [[ -d "${HOME}/.pyenv/bin" ]]; then
   path=("${HOME}/.pyenv/bin" $path)
 fi

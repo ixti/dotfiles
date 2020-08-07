@@ -2,9 +2,14 @@
 
 worktree=$(git rev-parse --show-toplevel)
 tmp_file=${worktree}/"$$.tags"
+ctags="ctags --tag-relative=yes -L -"
 
 trap 'rm -f "${tmp_file}"' EXIT
 
-git ls-files | ctags --tag-relative=yes -L - -f"${tmp_file}"
+if [[ "fd" == "${TEST_XXX}" ]] && command -v fd >/dev/null 2>&1; then
+  fd --type f --base-directory "${worktree}" | ${ctags} -f "${tmp_file}"
+else
+  git ls-files --cached --modified --others | ${ctags} -f "${tmp_file}"
+fi
 
 mv "${tmp_file}" "${worktree}/tags"

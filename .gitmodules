@@ -103,9 +103,6 @@
 [submodule "zsh/.zsh/lib/zsh-autoenv"]
 	path = zsh/.zsh/lib/autoenv
 	url = https://github.com/Tarrasch/zsh-autoenv
-[submodule "vim/.vim/pack/vendor/start/tagbar"]
-	path = vim/.vim/pack/vendor/start/tagbar
-	url = https://github.com/majutsushi/tagbar
 [submodule "vim/.vim/pack/vendor/start/fzf"]
 	path = vim/.vim/pack/vendor/start/fzf
 	url = https://github.com/junegunn/fzf.vim.git

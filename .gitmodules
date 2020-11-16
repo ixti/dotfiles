@@ -13,9 +13,6 @@
 [submodule "vim/.vim/pack/vendor/start/nerdtree"]
 	path = vim/.vim/pack/vendor/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "vim/.vim/pack/vendor/start/syntastic"]
-	path = vim/.vim/pack/vendor/start/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/.vim/pack/vendor/start/tabular"]
 	path = vim/.vim/pack/vendor/start/tabular
 	url = https://github.com/godlygeek/tabular.git
@@ -133,3 +130,6 @@
 [submodule "zsh/.zsh/lib/fast-syntax-highlighting"]
 	path = zsh/.zsh/lib/fast-syntax-highlighting
 	url = https://github.com/zdharma/fast-syntax-highlighting
+[submodule "vim/.vim/pack/vendor/start/ale"]
+	path = vim/.vim/pack/vendor/start/ale
+	url = https://github.com/dense-analysis/ale.git

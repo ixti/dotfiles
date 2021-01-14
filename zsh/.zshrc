@@ -18,7 +18,6 @@ alias bo="bundle open"
 alias ror="bundle exec rails"
 
 alias om="overmind"
-alias oms="overmind start"
 
 alias -g ...="../.."
 alias -g ....="../../.."
@@ -59,12 +58,29 @@ fi
 
 # Java SDK/JDK manager (https://sdkman.io)
 if [[ -e "/home/ixti/.sdkman" ]]; then
-  export SDKMAN_DIR="/home/ixti/.sdkman"
+  # Lazy SdlkMan
+  function sdk() {
+    export SDKMAN_DIR="/home/ixti/.sdkman"
 
-  if [[ -s "/home/ixti/.sdkman/bin/sdkman-init.sh" ]]; then
-    source "/home/ixti/.sdkman/bin/sdkman-init.sh"
-  fi
+    if [[ -s "/home/ixti/.sdkman/bin/sdkman-init.sh" ]]; then
+      source "/home/ixti/.sdkman/bin/sdkman-init.sh"
+    fi
+
+    sdk "$@"
+  }
 fi
+
+if (( ${+commands[fzf]} && ${+commands[fd]} )); then
+  export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
+fi
+
+# case "$TERM" in
+#   *-kitty)
+#     autoload -Uz compinit
+#     compinit
+#     kitty + complete setup zsh | source /dev/stdin
+#     ;;
+# esac
 
 if (( ${+commands[vivid]} )); then
   # XXX: if this generates error, ensure to install filetypes database and themes:

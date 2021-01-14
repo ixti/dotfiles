@@ -1,15 +1,16 @@
 #!/bin/bash
 
+set -e
+
 worktree=$(git rev-parse --show-toplevel)
 tmp_file=${worktree}/"$$.tags"
-ctags="ctags --tag-relative=yes -L -"
 
 trap 'rm -f "${tmp_file}"' EXIT
 
-if [[ "fd" == "${TEST_XXX}" ]] && command -v fd >/dev/null 2>&1; then
-  fd --type f --base-directory "${worktree}" | ${ctags} -f "${tmp_file}"
-else
-  git ls-files --cached --modified --others | ${ctags} -f "${tmp_file}"
-fi
+# Alternative would be to use `fd`:
+#   fd --type f --base-directory "${worktree}" | ctags ...
+# Unfortunately it proved to be slower
+git ls-files --cached --modified --others --exclude-standard \
+  | ctags --quiet=yes --tag-relative=yes -L - -f "${tmp_file}"
 
 mv "${tmp_file}" "${worktree}/tags"

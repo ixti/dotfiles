@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if command -v jq >/dev/null 2>&1; then
+  curl -s https://ipinfo.io | jq
+else
+  curl -s https://ipinfo.io
+fi

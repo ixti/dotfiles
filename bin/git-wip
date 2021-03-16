@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export LEFTHOOK=0
+set -eux
+
+git add .
+git commit -m "WIP"

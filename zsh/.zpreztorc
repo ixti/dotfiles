@@ -38,6 +38,7 @@ zstyle ':prezto:load' pmodule \
   'ruby' \
   'rails' \
   'python' \
+  'node' \
   'history-substring-search' \
   'completion'
 

@@ -1,0 +1,74 @@
+# env:
+#   # TERM variable
+#   #
+#   # This value is used to set the `$TERM` environment variable for
+#   # each instance of Alacritty. If it is not present, alacritty will
+#   # check the local terminfo database and use `alacritty` if it is
+#   # available, otherwise `xterm-256color` is used.
+#   #
+#   # XXX: this variable is set on terminal start, thus it's what it was set at
+#   #   the terminal start all the time afterwards, including when running ssh.
+#   TERM: xterm-256color
+
+font:
+  size: 12.0
+  normal:
+    family: Victor Mono
+
+# Window opacity as a floating point number from `0.0` to `1.0`.
+# The value `0.0` is completely transparent and `1.0` is opaque.
+background_opacity: 0.90
+
+# Colors (Blood Moon)
+colors:
+  # Default colors
+  primary:
+    background: '0x000000'
+    foreground: '0xC6C6C4'
+
+  # Normal colors
+  normal:
+    black:   '0x000000'
+    red:     '0xC40233'
+    green:   '0x009F6B'
+    yellow:  '0xFFD700'
+    blue:    '0x0087BD'
+    magenta: '0x9A4EAE'
+    cyan:    '0x20B2AA'
+    white:   '0xC6C6C4'
+
+  # Bright colors
+  bright:
+    black:   '0x696969'
+    red:     '0xFF2400'
+    green:   '0x03C03C'
+    yellow:  '0xFDFF00'
+    blue:    '0x007FFF'
+    magenta: '0xFF1493'
+    cyan:    '0x00CCCC'
+    white:   '0xFFFAFA'
+
+window:
+  # Startup Mode (changes require restart)
+  #
+  # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  #
+  # Values for `startup_mode` (macOS only):
+  #   - SimpleFullscreen
+  startup_mode: Maximized
+
+  # GTK theme variant (Linux/BSD only)
+  #
+  # Override the variant of the GTK theme. Commonly supported values are `dark` and `light`.
+  # Set this to `None` to use the default theme variant.
+  gtk_theme_variant: dark
+
+
+key_bindings:
+  - { key: V,     mods: Control|Shift,  action: Paste }
+  - { key: C,     mods: Control|Shift,  action: Copy }
+  - { key: F11,                         action: ToggleFullscreen }
+  - { key: N,     mods: Control|Shift,  action: SpawnNewInstance }

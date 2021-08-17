@@ -8,13 +8,9 @@
 	tool = vimdiff
 [rerere]
 	enabled = true
-[core]
-	excludesfile = ~/.config/git/ignore
 [merge]
 	tool = vimdiff
 [commit]
 	gpgsign = true
 [branch]
 	sort = committerdate
-[alias]
-  ctags = !git-ctags >/dev/null 2>&1

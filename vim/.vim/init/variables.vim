@@ -54,7 +54,7 @@ let g:jellybeans_overrides = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " markdown {{{
 
-let g:markdown_fenced_languages = [ 'html', 'css', 'scss', 'sass', 'ruby', 'python', 'zsh', 'bash=sh']
+let g:markdown_fenced_languages = [ 'bash=sh', 'css', 'html', 'python', 'ruby', 'sass', 'scss', 'sql', 'zsh' ]
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

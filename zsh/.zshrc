@@ -38,7 +38,11 @@ if (( ${+commands[vimx]} )); then
 fi
 
 if (( ${+functions[chruby]} )); then
-  chruby ruby
+  if [[ "${HOME}" != "${PWD}" ]] && [[ -f .ruby-version ]]; then
+    chruby "$(cat .ruby-version)"
+  else
+    chruby ruby
+  fi
 fi
 
 if (( ${+commands[pyenv]} )); then

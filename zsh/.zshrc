@@ -1,10 +1,13 @@
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
 source "${ZDOTDIR:-$HOME}/.zsh/lib/autoenv/autoenv.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 
-autoload -Uz promptinit
-promptinit
-prompt pure
+# autoload -Uz promptinit
+# promptinit
+# prompt pure
 
 setopt nocorrectall
 setopt interactivecomments
@@ -32,10 +35,6 @@ alias venv="python3 -m venv"
 if (( ${+commands[vimx]} )); then
   alias vim="vimx"
   export EDITOR="vimx"
-fi
-
-if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"
 fi
 
 if (( ${+functions[chruby]} )); then
@@ -74,13 +73,28 @@ if (( ${+commands[fzf]} && ${+commands[fd]} )); then
   export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 fi
 
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # case "$TERM" in
 #   *-kitty)
 #     autoload -Uz compinit
 #     compinit
 #     kitty + complete setup zsh | source /dev/stdin
+#     alias kitty-diff="kitty +kitten diff"
+#     alias kitty-icat="kitty +kitten icat"
 #     ;;
 # esac
+
+FLUTTER_DIR="/home/ixti/.local/opt/flutter"
+if [[ -d "${FLUTTER_DIR}/bin" ]]; then
+  path=("${FLUTTER_DIR}/bin" "${FLUTTER_DIR}/.pub-cache/bin" $path)
+fi
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"
+fi
 
 if (( ${+commands[vivid]} )); then
   # XXX: if this generates error, ensure to install filetypes database and themes:

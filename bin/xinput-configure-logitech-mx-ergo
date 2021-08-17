@@ -1,0 +1,6 @@
+#!/bin/sh
+
+DEVICE="pointer:Logitech MX Ergo"
+
+xinput set-prop "${DEVICE}" "libinput Accel Profile Enabled" 1, 0
+xinput set-prop "${DEVICE}" "Coordinate Transformation Matrix" 1.7 0 0 0 1.7 0 0 0 1

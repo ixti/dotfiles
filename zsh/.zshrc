@@ -101,13 +101,5 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then
 fi
 
 if (( ${+commands[vivid]} )); then
-  # XXX: if this generates error, ensure to install filetypes database and themes:
-  #
-  #     # tune this var a bit ;))
-  #     vivid_cargo=~/.cargo/registry/src/github.com-1ecc6299db9ec823/vivid-0.5.0/
-  #
-  #     rm -rf ~/.config/vivid
-  #     install -Dm644 -t ~/.config/vivid "${vivid_cargo}"/config/filetypes.yml
-  #     install -Dm644 -t ~/.config/vivid/themes "${vivid_cargo}"/themes/*.yml
   export LS_COLORS="$(vivid generate jellybeans)"
 fi

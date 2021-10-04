@@ -102,7 +102,7 @@ fi
 
 export GPG_TTY="$(tty)"
 if (( ${+commands[keychain]} )); then
-  eval `keychain --quiet --noask --eval --agents gpg,ssh`
+  eval `keychain --quiet --quick --noask --eval --agents gpg,ssh`
 fi
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then

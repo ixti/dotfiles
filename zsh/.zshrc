@@ -96,10 +96,15 @@ if [[ -d "${FLUTTER_DIR}/bin" ]]; then
   path=("${FLUTTER_DIR}/bin" "${FLUTTER_DIR}/.pub-cache/bin" $path)
 fi
 
-if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"
-fi
-
 if (( ${+commands[vivid]} )); then
   export LS_COLORS="$(vivid generate jellybeans)"
+fi
+
+export GPG_TTY="$(tty)"
+if (( ${+commands[keychain]} )); then
+  eval `keychain --quiet --noask --eval --agents gpg,ssh`
+fi
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"
 fi

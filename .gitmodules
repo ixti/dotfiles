@@ -10,9 +10,6 @@
 [submodule "vim/.vim/pack/vendor/start/nerdcommenter"]
 	path = vim/.vim/pack/vendor/start/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/.vim/pack/vendor/start/nerdtree"]
-	path = vim/.vim/pack/vendor/start/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vim/.vim/pack/vendor/start/tabular"]
 	path = vim/.vim/pack/vendor/start/tabular
 	url = https://github.com/godlygeek/tabular.git
@@ -133,3 +130,9 @@
 [submodule "vim/.vim/pack/vendor/start/ale"]
 	path = vim/.vim/pack/vendor/start/ale
 	url = https://github.com/dense-analysis/ale.git
+[submodule "vim/.vim/pack/vendor/start/vim-terraform"]
+	path = vim/.vim/pack/vendor/start/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
+[submodule "vim/.vim/pack/vendor/start/fern.vim"]
+	path = vim/.vim/pack/vendor/start/fern.vim
+	url = https://github.com/lambdalisue/fern.vim

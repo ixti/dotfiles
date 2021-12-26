@@ -136,3 +136,6 @@
 [submodule "vim/.vim/pack/vendor/start/fern.vim"]
 	path = vim/.vim/pack/vendor/start/fern.vim
 	url = https://github.com/lambdalisue/fern.vim
+[submodule "vim/.vim/pack/vendor/start/FixCursorHold.nvim"]
+	path = vim/.vim/pack/vendor/start/FixCursorHold.nvim
+	url = git@github.com:antoinemadec/FixCursorHold.nvim.git

@@ -7,6 +7,7 @@ runtime init/termhacks.vim
 runtime init/styling.vim
 
 runtime init/hooks.vim
+runtime init/fern.vim
 
 " ############################################################################ "
 

@@ -13,15 +13,28 @@ nnoremap <silent> <Leader>E :Fern . -drawer -toggle -reveal=%<CR>
 
 function! s:init_fern() abort
   nmap <buffer><expr>
-        \ <Plug>(fern-my-open-or-expand)
+        \ <Plug>(fern-my-action-open-or-expand)
         \ fern#smart#leaf(
         \   "\<Plug>(fern-action-open:edit-or-split)",
         \   "\<Plug>(fern-action-expand)",
         \   "\<Plug>(fern-action-collapse)",
         \ )
 
-  nmap <buffer><nowait> o <Plug>(fern-my-open-or-expand)
-  nmap <buffer> <CR> <Plug>(fern-action-open-or-expand)
+  nmap <buffer><expr>
+    \ <Plug>(fern-my-action-open:split)
+    \ fern#smart#leaf(
+    \   "<Plug>(fern-action-open:split)",
+    \   ""
+    \ )
+
+  nmap <buffer><expr>
+    \ <Plug>(fern-my-action-open:vsplit)
+    \ fern#smart#leaf(
+    \   "<Plug>(fern-action-open:vsplit)",
+    \   ""
+    \ )
+
+  nmap <buffer><nowait> <CR> <Plug>(fern-my-action-open-or-expand)
 
   nmap <buffer> ! <Plug>(fern-action-hidden:toggle)
 
@@ -32,8 +45,8 @@ function! s:init_fern() abort
 
   nmap <buffer> <Space> <Plug>(fern-action-mark:toggle)j
 
-  nmap <buffer> s <Plug>(fern-action-open:split)
-  nmap <buffer> v <Plug>(fern-action-open:vsplit)
+  nmap <buffer><nowait> s <Plug>(fern-my-action-open:split)
+  nmap <buffer><nowait> v <Plug>(fern-my-action-open:vsplit)
 
   nmap <buffer> r <Plug>(fern-action-reload)
 

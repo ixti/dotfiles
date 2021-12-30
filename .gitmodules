@@ -7,9 +7,6 @@
 [submodule "vim/.vim/pack/vendor/start/mustache"]
 	path = vim/.vim/pack/vendor/start/mustache
 	url = https://github.com/juvenn/mustache.vim.git
-[submodule "vim/.vim/pack/vendor/start/nerdcommenter"]
-	path = vim/.vim/pack/vendor/start/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "vim/.vim/pack/vendor/start/tabular"]
 	path = vim/.vim/pack/vendor/start/tabular
 	url = https://github.com/godlygeek/tabular.git
@@ -139,3 +136,6 @@
 [submodule "vim/.vim/pack/vendor/start/FixCursorHold.nvim"]
 	path = vim/.vim/pack/vendor/start/FixCursorHold.nvim
 	url = git@github.com:antoinemadec/FixCursorHold.nvim.git
+[submodule "vim/.vim/pack/vendor/start/vim-commentary"]
+	path = vim/.vim/pack/vendor/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git

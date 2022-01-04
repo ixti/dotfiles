@@ -11,7 +11,7 @@ let g:gruvbox_italic = 1
 let g:gruvbox_transparent_bg = 0
 
 " possible values: 'soft', 'medium' (default), and 'hard'
-let g:gruvbox_contrast_dark = 'medium'
+let g:gruvbox_contrast_dark = 'hard'
 
 " possible values: 'soft', 'medium' (default), and 'hard'
 let g:gruvbox_contrast_light = 'medium'

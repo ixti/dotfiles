@@ -46,9 +46,6 @@
 [submodule "vim/.vim/pack/vendor/start/airline"]
 	path = vim/.vim/pack/vendor/start/airline
 	url = https://github.com/bling/vim-airline.git
-[submodule "vim/.vim/pack/vendor/start/jellybeans"]
-	path = vim/.vim/pack/themes/opt/jellybeans
-	url = https://github.com/nanotech/jellybeans.vim.git
 [submodule "vim/.vim/pack/vendor/start/rspec"]
 	path = vim/.vim/pack/vendor/start/rspec
 	url = https://github.com/thoughtbot/vim-rspec.git
@@ -70,9 +67,6 @@
 [submodule "vim/.vim/pack/vendor/start/sensible"]
 	path = vim/.vim/pack/vendor/start/sensible
 	url = https://github.com/tpope/vim-sensible
-[submodule "vim/.vim/pack/vendor/start/airline-themes"]
-	path = vim/.vim/pack/vendor/start/airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes
 [submodule "vim/.vim/pack/vendor/start/speeddating"]
 	path = vim/.vim/pack/vendor/start/speeddating
 	url = https://github.com/tpope/vim-speeddating.git
@@ -142,12 +136,6 @@
 [submodule "vim/.vim/pack/themes/opt/dracula"]
 	path = vim/.vim/pack/themes/opt/dracula
 	url = https://github.com/dracula/vim.git
-[submodule "vim/.vim/pack/themes/opt/tender"]
-	path = vim/.vim/pack/themes/opt/tender
-	url = https://github.com/jacoborus/tender.vim.git
-[submodule "vim/.vim/pack/themes/opt/onedark"]
-	path = vim/.vim/pack/themes/opt/onedark
-	url = https://github.com/joshdick/onedark.vim.git
 [submodule "vim/.vim/pack/themes/opt/gruvbox"]
 	path = vim/.vim/pack/themes/opt/gruvbox
 	url = https://github.com/morhetz/gruvbox.git

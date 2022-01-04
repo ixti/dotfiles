@@ -47,7 +47,7 @@
 	path = vim/.vim/pack/vendor/start/airline
 	url = https://github.com/bling/vim-airline.git
 [submodule "vim/.vim/pack/vendor/start/jellybeans"]
-	path = vim/.vim/pack/vendor/start/jellybeans
+	path = vim/.vim/pack/themes/opt/jellybeans
 	url = https://github.com/nanotech/jellybeans.vim.git
 [submodule "vim/.vim/pack/vendor/start/rspec"]
 	path = vim/.vim/pack/vendor/start/rspec
@@ -139,3 +139,6 @@
 [submodule "vim/.vim/pack/vendor/start/vim-commentary"]
 	path = vim/.vim/pack/vendor/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim/.vim/pack/themes/opt/dracula"]
+	path = vim/.vim/pack/themes/opt/dracula
+	url = https://github.com/dracula/vim.git

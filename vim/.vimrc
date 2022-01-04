@@ -4,6 +4,7 @@ runtime init/variables.vim
 
 runtime init/mappings.vim
 runtime init/termhacks.vim
+runtime init/themes/dracula.vim
 runtime init/styling.vim
 
 runtime init/hooks.vim

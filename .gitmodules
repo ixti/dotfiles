@@ -142,3 +142,9 @@
 [submodule "vim/.vim/pack/themes/opt/dracula"]
 	path = vim/.vim/pack/themes/opt/dracula
 	url = https://github.com/dracula/vim.git
+[submodule "vim/.vim/pack/themes/opt/tender"]
+	path = vim/.vim/pack/themes/opt/tender
+	url = https://github.com/jacoborus/tender.vim.git
+[submodule "vim/.vim/pack/themes/opt/onedark"]
+	path = vim/.vim/pack/themes/opt/onedark
+	url = https://github.com/joshdick/onedark.vim.git

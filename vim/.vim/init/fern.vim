@@ -40,6 +40,7 @@ function! s:init_fern() abort
   nmap <buffer> ! <Plug>(fern-action-hidden:toggle)
 
   nmap <buffer> ma <Plug>(fern-action-new-path)
+  nmap <buffer> mc <Plug>(fern-action-copy)
   nmap <buffer> md <Plug>(fern-action-remove)
   nmap <buffer> mm <Plug>(fern-action-move)
   nmap <buffer> mM <Plug>(fern-action-rename)

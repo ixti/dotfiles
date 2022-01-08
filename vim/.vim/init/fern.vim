@@ -49,6 +49,7 @@ function! s:init_fern() abort
 
   nmap <buffer><nowait> s <Plug>(fern-my-action-open:split)
   nmap <buffer><nowait> v <Plug>(fern-my-action-open:vsplit)
+  nmap <buffer>         t <Plug>(open:tabedit)
 
   nmap <buffer> r <Plug>(fern-action-reload)
 

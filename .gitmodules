@@ -138,7 +138,7 @@
 	url = https://github.com/dracula/vim.git
 [submodule "vim/.vim/pack/themes/opt/gruvbox"]
 	path = vim/.vim/pack/themes/opt/gruvbox
-	url = https://github.com/morhetz/gruvbox.git
+	url = https://github.com/gruvbox-community/gruvbox.git
 [submodule "kitty/themes/gruvbox"]
 	path = kitty/themes/gruvbox
 	url = https://github.com/wdomitrz/kitty-gruvbox-theme.git

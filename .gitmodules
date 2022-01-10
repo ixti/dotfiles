@@ -34,3 +34,6 @@
 [submodule ".vim/pack/vendor/start/gina"]
 	path = .vim/pack/vendor/start/gina
 	url = https://github.com/lambdalisue/gina.vim.git
+[submodule ".vim/pack/vendor/start/yaml"]
+	path = .vim/pack/vendor/start/yaml
+	url = https://github.com/stephpy/vim-yaml.git

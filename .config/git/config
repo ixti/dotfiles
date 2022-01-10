@@ -1,0 +1,22 @@
+[user]
+	name = Alexey Zapparov
+	email = alexey@zapparov.com
+	signingkey = 02CCA92C4FA05B80
+[push]
+	default = current
+[diff]
+	colorMoved = default
+[rerere]
+	enabled = true
+[merge]
+	conflictstyle = diff3
+[commit]
+	gpgsign = true
+[branch]
+	sort = committerdate
+[core]
+	pager = delta --color-only --line-numbers
+[interactive]
+	diffFilter = delta --color-only --line-numbers
+[delta]
+	navigate = true

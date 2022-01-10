@@ -1,0 +1,3 @@
+set git-colors = no # Do not read Git's color settings.
+
+source ~/.config/tig/themes/gruvbox-dark-hard.tigrc

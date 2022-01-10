@@ -26,14 +26,11 @@
 	path = .vim/pack/vendor/start/fzf-mru
 	url = https://github.com/pbogut/fzf-mru.vim.git
 [submodule ".vim/pack/vendor/opt/sensible"]
-	path = .vim/pack/vendor/start/sensible
+	path = .vim/pack/vendor/opt/sensible
 	url = https://github.com/tpope/vim-sensible.git
-[submodule ".vim/pack/vendor/start/fugitive"]
-	path = .vim/pack/vendor/start/fugitive
-	url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/pack/vendor/start/signify"]
 	path = .vim/pack/vendor/start/signify
 	url = https://github.com/mhinz/vim-signify.git
-[submodule ".vim/pack/vendor/start/rhubarb"]
-	path = .vim/pack/vendor/start/rhubarb
-	url = https://github.com/tpope/vim-rhubarb.git
+[submodule ".vim/pack/vendor/start/gina"]
+	path = .vim/pack/vendor/start/gina
+	url = https://github.com/lambdalisue/gina.vim.git

@@ -1,16 +1,21 @@
 " vim: set foldmethod=marker foldlevel=0 nomodeline:
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" airline {{{
+" lightline {{{
 
-let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.notexists = '*'
+let g:lightline =
+  \ {
+  \   'active': {
+  \     'left': [
+  \       [ 'mode', 'paste' ],
+  \       [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+  \     ]
+  \   },
+  \   'component': { 'lineinfo': ' %3l:%-2v' },
+  \   'component_function': { 'gitbranch': 'fugitive#head' },
+  \   'separator': { 'left': '', 'right': '' },
+  \   'subseparator': { 'left': '', 'right': '' }
+  \ }
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

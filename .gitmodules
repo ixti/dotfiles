@@ -43,9 +43,6 @@
 [submodule "vim/.vim/pack/vendor/start/fugitive"]
 	path = vim/.vim/pack/vendor/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/.vim/pack/vendor/start/airline"]
-	path = vim/.vim/pack/vendor/start/airline
-	url = https://github.com/bling/vim-airline.git
 [submodule "vim/.vim/pack/vendor/start/rspec"]
 	path = vim/.vim/pack/vendor/start/rspec
 	url = https://github.com/thoughtbot/vim-rspec.git
@@ -136,3 +133,6 @@
 [submodule "vim/.vim/pack/themes/opt/gruvbox"]
 	path = vim/.vim/pack/themes/opt/gruvbox
 	url = https://github.com/gruvbox-community/gruvbox.git
+[submodule "vim/.vim/pack/vendor/start/lightline"]
+	path = vim/.vim/pack/vendor/start/lightline
+	url = https://github.com/itchyny/lightline.vim.git

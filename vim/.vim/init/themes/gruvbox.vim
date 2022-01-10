@@ -1,13 +1,13 @@
 packadd! gruvbox
 
-let g:airline_theme = 'gruvbox'
+if exists('g:lightline')
+  let g:lightline.colorscheme = 'gruvbox'
+endif
 
-" Enables italic text.
-" default: gui 1, term 0
+" Enables italic text. Default: gui 1, term 0
 let g:gruvbox_italic = 1
 
-" Enables transparent background.
-" default: 0
+" Enables transparent background. Default: 0
 let g:gruvbox_transparent_bg = 0
 
 " possible values: 'soft', 'medium' (default), and 'hard'

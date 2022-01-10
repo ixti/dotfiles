@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+worktree=$(git rev-parse --show-toplevel)
+tmp_file=${worktree}/"$$.tags"
+
+trap 'rm -f "${tmp_file}"' EXIT
+
+# Why not?: `fd --type f --base-directory "${worktree}" | ctags ...`
+# Because: https://cj.rs/blog/git-ls-files-is-faster-than-fd-and-find/
+git ls-files --cached --modified --others --exclude-standard \
+  | ctags --quiet=yes --tag-relative=yes -L - -f "${tmp_file}"
+
+mv "${tmp_file}" "${worktree}/tags"

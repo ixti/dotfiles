@@ -17,8 +17,6 @@ let g:lightline =
   \   'subseparator': { 'left': '', 'right': '' }
   \ }
 
-  "\   'component_function': { 'gitbranch': 'fugitive#head' },
-
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

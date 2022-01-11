@@ -8,7 +8,7 @@ let g:loaded_netrwFileHandlers = 1
 let g:fern#disable_default_mappings = 1
 let g:fern#default_hidden           = 0
 
-nnoremap <silent> <Leader>e :Fern %:h -drawer -toggle<CR>
+nnoremap <silent> <Leader>e :Fern %:p -drawer -toggle<CR>
 nnoremap <silent> <Leader>E :Fern %:h -drawer -toggle -reveal=%<CR>
 
 function! s:init_fern() abort

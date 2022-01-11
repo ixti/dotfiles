@@ -3,6 +3,7 @@ runtime init/sensual.vim
 
 runtime init/lightline.vim
 runtime init/fern.vim
+runtime init/gina.vim
 
 runtime init/variables.vim
 runtime init/mappings.vim

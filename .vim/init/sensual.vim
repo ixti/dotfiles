@@ -1,5 +1,8 @@
 runtime OPT plugin/sensible.vim
 
+" Set the <Leader> for combo commands
+let mapleader = ","
+
 " Display non-printable characters
 set list
 

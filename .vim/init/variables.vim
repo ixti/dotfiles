@@ -1,26 +1,6 @@
 " vim: set foldmethod=marker foldlevel=0 nomodeline:
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" lightline {{{
-
-let g:lightline =
-  \ {
-  \   'active': {
-  \     'left': [
-  \       [ 'mode', 'paste' ],
-  \       [ 'gitbranch', 'readonly', 'filename', 'modified' ]
-  \     ]
-  \   },
-  \   'component': { 'lineinfo': ' %3l:%-2v' },
-  \   'component_function': { 'gitbranch': 'gina#component#repo#branch' },
-  \   'separator': { 'left': '', 'right': '' },
-  \   'subseparator': { 'left': '', 'right': '' }
-  \ }
-
-" }}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fzf.vim (https://github.com/junegunn/fzf.vim) {{{
 
 " Prefix commands with `Fzf`, e.g. `FzfFiles`, `FzfHistory`, etc.

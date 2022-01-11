@@ -1,6 +1,3 @@
-" Set the <Leader> for combo commands
-let mapleader = ","
-
 " tab switching
 map <C-b> :tabprev<CR>
 map <C-n> :tabnext<CR>

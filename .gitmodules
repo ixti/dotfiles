@@ -52,3 +52,6 @@
 [submodule ".zprezto"]
 	path = .zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule ".vim/pack/vendor/start/ruby"]
+	path = .vim/pack/vendor/start/ruby
+	url = https://github.com/vim-ruby/vim-ruby.git

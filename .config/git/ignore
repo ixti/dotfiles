@@ -1,2 +1,5 @@
 *.swp
 .rspec-local
+
+.autoenv.in.zsh
+.autoenv.out.zsh

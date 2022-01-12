@@ -2,8 +2,8 @@ export PURE_GIT_PULL=0
 export PURE_PROMPT_SYMBOL="$"
 export PURE_PROMPT_VICMD_SYMBOL=">"
 
-export AUTOENV_IN_FILE=".in.zsh"
-export AUTOENV_OUT_FILE=".out.zsh"
+export AUTOENV_IN_FILE=".autoenv.in.zsh"
+export AUTOENV_OUT_FILE=".autoenv.out.zsh"
 
 fpath=( "${ZDOTDIR:-$HOME}/.zsh/functions" $fpath )
 

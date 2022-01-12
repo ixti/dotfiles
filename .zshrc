@@ -1,10 +1,11 @@
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
 source "${ZDOTDIR:-$HOME}/.zsh/lib/colors/colors.plugin.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/autoenv/autoenv.plugin.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+
+source "${ZDOTDIR:-$HOME}/.zsh/prompt.zsh"
+
 
 # autoload -Uz promptinit
 # promptinit

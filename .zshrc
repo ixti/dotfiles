@@ -30,15 +30,6 @@ alias -g .....="../../../.."
 
 alias venv="python3 -m venv"
 
-# On Fedora `vim` does not include `+clipboard` for some reason.
-# NOTE: SO suggests `gvim -v`: https://vi.stackexchange.com/a/2065
-#   I went with `vimx` way as I don't need this anywhere but Fedora,
-#   everythin just works on Funtoo/Gentoo.
-if (( ${+commands[vimx]} )); then
-  alias vim="vimx"
-  export EDITOR="vimx"
-fi
-
 if (( ${+functions[chruby]} )); then
   if [[ "${HOME}" != "${PWD}" ]] && [[ -f .ruby-version ]]; then
     chruby "$(cat .ruby-version)"

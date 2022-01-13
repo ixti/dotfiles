@@ -12,6 +12,10 @@ $character"""
 
 [directory]
 style = "blue"
+truncation_length = 7
+truncate_to_repo = false
+truncation_symbol = ".../"
+read_only = ""
 
 [character]
 success_symbol = "[>](purple)"

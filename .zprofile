@@ -17,7 +17,9 @@ fi
 # Browser
 #
 
-if [[ "$OSTYPE" == darwin* ]]; then
+if (( ${+commands[xdg-open]} )); then
+  export BROWSER='xdg-open'
+elif [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
@@ -50,10 +52,10 @@ typeset -gU cdpath fpath mailpath path
 # )
 
 # Set the list of directories that Zsh searches for programs.
-path=(
-  /usr/local/{bin,sbin}
-  $path
-)
+# path=(
+#   /usr/local/{bin,sbin}
+#   $path
+# )
 
 #
 # Less
@@ -74,6 +76,6 @@ fi
 # Keychain
 #
 
-if (( $#commands[keychain] )); then
-  eval $(keychain --quiet --quick --noask --eval id_ed25519 id_rsa)
-fi
+# if (( $#commands[keychain] )); then
+#   eval $(keychain --quiet --quick --noask --eval id_ed25519 id_rsa)
+# fi

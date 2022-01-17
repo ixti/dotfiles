@@ -23,22 +23,6 @@ alias -g ...="../.."
 alias -g ....="../../.."
 alias -g .....="../../../.."
 
-alias venv="python3 -m venv"
-
-if (( ${+commands[pyenv]} )); then
-  # Lazy PyEnv
-  function pyenv() {
-    # Remove ourselves
-    unset -f pyenv
-
-    # Python version manager (https://github.com/pyenv/pyenv)
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-
-    pyenv "$@"
-  }
-fi
-
 # Java SDK/JDK manager (https://sdkman.io)
 if [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
   # Lazy SdlkMan

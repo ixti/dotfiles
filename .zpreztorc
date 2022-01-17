@@ -189,3 +189,7 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 # before deleting or overwriting files. Set to 'no' to disable this safer
 # behavior.
 zstyle ':prezto:module:utility' safe-ops 'yes'
+
+
+# Don't `setopt correct`
+zstyle ':prezto:module:utility' correct 'no'

@@ -25,7 +25,7 @@ alias -g .....="../../../.."
 
 # Java SDK/JDK manager (https://sdkman.io)
 if [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
-  # Lazy SdlkMan
+  # Lazy SdkMan
   function sdk() {
     export SDKMAN_DIR="${HOME}/.sdkman"
     source "${HOME}/.sdkman/bin/sdkman-init.sh"
@@ -43,6 +43,6 @@ if (( ${+commands[vivid]} )); then
   export LS_COLORS="$(vivid --database ~/.config/vivid/filetypes.yml generate ~/.config/vivid/gruvbox-dark-hard.yml)"
 fi
 
-if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"
-fi
+path=( "${HOME}/bin" $path )
+
+[[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]] && source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"

@@ -1,15 +1,7 @@
-" Disable netrw.
-let g:loaded_netrw             = 1
-let g:loaded_netrwPlugin       = 1
-let g:loaded_netrwSettings     = 1
-let g:loaded_netrwFileHandlers = 1
-
-" Custom settings and mappings.
 let g:fern#disable_default_mappings = 1
+let g:fern#hide_cursor              = 1
+let g:fern#keepalt_on_edit          = 1
 let g:fern#default_hidden           = 0
-
-nnoremap <silent> <Leader>e :Fern %:p -drawer -toggle<CR>
-nnoremap <silent> <Leader>E :Fern %:h -drawer -toggle -reveal=%<CR>
 
 function! s:init_fern() abort
   nmap <buffer><expr>
@@ -35,7 +27,6 @@ function! s:init_fern() abort
     \ )
 
   nmap <buffer><nowait> <CR> <Plug>(fern-my-action-open-or-expand)
-  nmap <buffer><nowait> o <Plug>(fern-my-action-open-or-expand)
 
   nmap <buffer> ! <Plug>(fern-action-hidden:toggle)
 
@@ -45,7 +36,7 @@ function! s:init_fern() abort
   nmap <buffer> mm <Plug>(fern-action-move)
   nmap <buffer> mM <Plug>(fern-action-rename)
 
-  nmap <buffer> <Space> <Plug>(fern-action-mark:toggle)j
+  nmap <buffer> <Space> <Plug>(fern-action-mark:toggle)
 
   nmap <buffer><nowait> s <Plug>(fern-my-action-open:split)
   nmap <buffer><nowait> v <Plug>(fern-my-action-open:vsplit)
@@ -61,5 +52,8 @@ endfunction
 
 augroup my-fern
   autocmd! *
-  autocmd FileType fern setlocal norelativenumber | setlocal nonumber | call s:init_fern()
+  autocmd FileType fern call s:init_fern()
 augroup END
+
+nnoremap <silent> <Leader>e :<C-u>Fern <C-r>=fnameescape(fnamemodify('.', ':p'))<CR> -drawer -toggle<CR>
+nnoremap <silent> <Leader>E :<C-u>Fern <C-r>=fnameescape(fnamemodify('.', ':p'))<CR> -drawer -toggle -reveal=%:p<CR>

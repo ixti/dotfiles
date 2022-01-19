@@ -33,7 +33,7 @@ if [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
   }
 fi
 
-if (( ${+commands[fzf]} && ${+commands[fd]} )); then
+if (( ${+commands[fd]} )); then
   export FZF_DEFAULT_COMMAND="fd --type file --hidden --no-ignore --follow --exclude .git"
 fi
 

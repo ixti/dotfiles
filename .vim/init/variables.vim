@@ -1,6 +1,15 @@
 " vim: set foldmethod=marker foldlevel=0 nomodeline:
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ruby.vim (https://github.com/vim-ruby/vim-ruby)
+
+let g:ruby_operators        = 1
+let g:ruby_pseudo_operators = 1
+
+" }}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fzf.vim (https://github.com/junegunn/fzf.vim) {{{
 
 " Prefix commands with `Fzf`, e.g. `FzfFiles`, `FzfHistory`, etc.

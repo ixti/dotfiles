@@ -1,0 +1,21 @@
+# vim: et! ft=gitconfig
+
+[include]
+	path = config.delta
+
+[user]
+	name = Alexey Zapparov
+	email = alexey@zapparov.com
+	signingkey = 02CCA92C4FA05B80
+
+[commit]
+	gpgsign = true
+
+[push]
+	default = current
+
+[rerere]
+	enabled = true
+
+[branch]
+	sort = committerdate

@@ -1,0 +1,7 @@
+# vim: et! ft=gitconfig
+
+[include]
+	path = "config##default"
+
+[commit]
+	gpgsign = false

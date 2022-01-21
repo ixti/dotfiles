@@ -1,0 +1,18 @@
+# vim: et! ft=gitconfig
+
+[core]
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	line-numbers = true
+	hunk-header-style = omit
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default

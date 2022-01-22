@@ -61,3 +61,6 @@
 [submodule ".vim/pack/vendor/start/git"]
 	path = .vim/pack/vendor/start/git
 	url = https://github.com/tpope/vim-git.git
+[submodule ".vim/pack/themes/opt/gruvbox8"]
+	path = .vim/pack/themes/opt/gruvbox8
+	url = https://github.com/lifepillar/vim-gruvbox8.git

@@ -1,4 +1,4 @@
-# vim: et! ft=gitconfig
+# vim: noexpandtab ts=4 sw=4 ft=gitconfig
 
 [include]
 	path = config.delta

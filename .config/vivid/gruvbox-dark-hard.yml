@@ -49,7 +49,8 @@ core:
     foreground: alt_blue
     font-style: italic
 
-  multi_hard_link: {}
+  multi_hard_link:
+    font-style: bold
 
   fifo:
     foreground: purple
@@ -71,14 +72,12 @@ core:
     font-style: italic
 
   broken_symlink:
-    foreground: fg
-    background: alt_red
-    font-style: bold
+    foreground: alt_red
+    font-style: italic
 
   missing_symlink_target:
     foreground: fg
     background: alt_red
-    font-style: bold
 
   setuid:
     foreground: fg
@@ -93,8 +92,9 @@ core:
     background: red
 
   sticky_other_writable:
-    foreground: bg
-    background: alt_green
+    foreground: fg
+    background: blue
+    font-style: italic
 
   other_writable:
     foreground: alt_green
@@ -134,7 +134,7 @@ programming:
     foreground: green
 
   tooling:
-    foreground: alt_blue
+    foreground: alt_green
     font-style: italic
 
     continuous-integration:

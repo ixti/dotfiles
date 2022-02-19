@@ -38,9 +38,8 @@ if (( ${+commands[fd]} )); then
 fi
 
 if (( ${+commands[vivid]} )); then
-  # https://github.com/sharkdp/vivid/pull/78
-  # https://github.com/sharkdp/vivid/pull/79
-  export LS_COLORS="$(vivid --database ~/.config/vivid/filetypes.yml generate ~/.config/vivid/gruvbox-dark-hard.yml)"
+  LS_COLORS="$(vivid generate gruvbox-dark-hard)"
+  export LS_COLORS
 fi
 
 path=( "${HOME}/bin" $path )

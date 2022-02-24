@@ -9,7 +9,13 @@ export DISABLE_SPRING=true
 # https://github.com/sharkdp/bat/
 export BAT_THEME="gruvbox-dark"
 
+export XDG_CONFIG_HOME="${HOME}/.config"
+
 # Ensure that a non-login, non-interactive shell has a defined environment.
-if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprofile"
+if [[ "$SHLVL" -eq 1 && ! -o LOGIN ]]; then
+  for zprofile in "/etc/zsh/zprofile" "${ZDOTDIR:-$HOME}/.zprofile"; do
+    [[ -s "${zprofile}"  ]] && source "${zprofile}"
+  done
+
+  unset zprofile
 fi

@@ -24,12 +24,22 @@ alias -g ....="../../.."
 alias -g .....="../../../.."
 
 # Java SDK/JDK manager (https://sdkman.io)
-if [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
+if [[ -r "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
   # Lazy SdkMan
   function sdk() {
     export SDKMAN_DIR="${HOME}/.sdkman"
-    source "${HOME}/.sdkman/bin/sdkman-init.sh"
+    source "${SDKMAN_DIR}/bin/sdkman-init.sh"
     sdk "$@"
+  }
+fi
+
+# NodeJS versions manager (https://github.com/nvm-sh/nvm)
+if [[ -r "${HOME}/.nvm/nvm.sh" ]]; then
+  # Lazy NVM
+  function nvm() {
+    export NVM_DIR="${HOME}/.nvm"
+    source "${NVM_DIR}/nvm.sh"
+    nvm "$@"
   }
 fi
 

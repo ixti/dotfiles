@@ -11,6 +11,10 @@ export BAT_THEME="gruvbox-dark"
 
 export XDG_CONFIG_HOME="${HOME}/.config"
 
+# https://www.cryfs.org
+export CRYFS_NO_UPDATE_CHECK=true
+export CRYFS_LOCAL_STATE_DIR="${XDG_CONFIG_HOME}/cryfs"
+
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN ]]; then
   for zprofile in "/etc/zsh/zprofile" "${ZDOTDIR:-$HOME}/.zprofile"; do

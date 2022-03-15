@@ -2,6 +2,7 @@
 runtime init/sensual.vim
 
 runtime init/lightline.vim
+runtime init/is.vim
 runtime init/fern.vim
 runtime init/gina.vim
 

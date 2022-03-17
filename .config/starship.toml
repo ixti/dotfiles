@@ -8,6 +8,7 @@ $git_status\
 $cmd_duration\
 $line_break\
 $python\
+$shell\
 $character"""
 
 [directory]
@@ -19,7 +20,7 @@ read_only = ""
 
 [character]
 success_symbol = "[>](purple)"
-error_symbol = "[>](red)"
+error_symbol = "[x](red)"
 vicmd_symbol = "[<](green)"
 
 [git_branch]
@@ -48,3 +49,6 @@ style = "yellow"
 [python]
 format = "[$virtualenv]($style) "
 style = "bright-black"
+
+[shell]
+disabled = false

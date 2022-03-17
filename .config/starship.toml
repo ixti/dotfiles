@@ -8,7 +8,6 @@ $git_status\
 $cmd_duration\
 $line_break\
 $python\
-$shell\
 $character"""
 
 [directory]
@@ -49,6 +48,3 @@ style = "yellow"
 [python]
 format = "[$virtualenv]($style) "
 style = "bright-black"
-
-[shell]
-disabled = false

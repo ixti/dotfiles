@@ -5,8 +5,6 @@ source "${ZDOTDIR:-$HOME}/.zsh/lib/colors/colors.plugin.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/autoenv/autoenv.plugin.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 
-source "${ZDOTDIR:-$HOME}/.zsh/prompt.zsh"
-
 setopt nocorrectall
 setopt interactivecomments
 
@@ -54,4 +52,11 @@ fi
 
 path=( "${HOME}/bin" $path )
 
-[[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]] && source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"
+fi
+
+# https://starship.rs/
+if (( ${+commands[starship]} )); then
+  eval "$(starship init zsh)"
+fi

@@ -19,3 +19,8 @@
 
 [branch]
 	sort = committerdate
+
+[alias]
+	ci = commit
+	co = checkout
+	st = status

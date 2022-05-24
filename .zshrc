@@ -58,5 +58,6 @@ fi
 
 # https://starship.rs/
 if (( ${+commands[starship]} )); then
-  eval "$(starship init zsh)"
+  # See: https://github.com/starship/starship/issues/2637
+  source <(starship init zsh --print-full-init)
 fi

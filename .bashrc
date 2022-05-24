@@ -13,7 +13,9 @@ fi
 
 # Put your fun stuff here.
 
+# https://starship.rs/
 if hash starship 2>/dev/null; then
-  # https://starship.rs/
-  eval "$(starship init bash)"
+  # See: https://github.com/starship/starship/issues/2637
+  # shellcheck disable=SC1090
+  source <(starship init bash --print-full-init)
 fi

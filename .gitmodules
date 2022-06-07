@@ -70,6 +70,3 @@
 [submodule ".vim/pack/vendor/start/rhubarb"]
 	path = .vim/pack/vendor/start/rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
-[submodule ".vim/pack/vendor/start/VimCompletesMe"]
-	path = .vim/pack/vendor/start/VimCompletesMe
-	url = https://github.com/ackyshake/VimCompletesMe.git

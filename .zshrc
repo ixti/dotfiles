@@ -31,15 +31,7 @@ if [[ -r "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
   }
 fi
 
-# NodeJS versions manager (https://github.com/nvm-sh/nvm)
-if [[ -r "${HOME}/.nvm/nvm.sh" ]]; then
-  # Lazy NVM
-  function nvm() {
-    export NVM_DIR="${HOME}/.nvm"
-    source "${NVM_DIR}/nvm.sh"
-    nvm "$@"
-  }
-fi
+path=( "${HOME}/bin" $path )
 
 if (( ${+commands[fd]} )); then
   export FZF_DEFAULT_COMMAND="fd --type file --hidden --no-ignore --follow --exclude .git"
@@ -50,14 +42,17 @@ if (( ${+commands[vivid]} )); then
   export LS_COLORS
 fi
 
-path=( "${HOME}/bin" $path )
-
-if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"
+# https://github.com/Schniz/fnm
+if (( ${+commands[fnm]} )); then
+  source <(fnm env --shell zsh)
 fi
 
 # https://starship.rs/
 if (( ${+commands[starship]} )); then
   # See: https://github.com/starship/starship/issues/2637
   source <(starship init zsh --print-full-init)
+fi
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"
 fi

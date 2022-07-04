@@ -73,3 +73,6 @@
 [submodule ".vim/pack/vendor/start/easy-align"]
 	path = .vim/pack/vendor/start/easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
+[submodule ".zsh/lib/zsh-history-substring-search"]
+	path = .zsh/lib/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git

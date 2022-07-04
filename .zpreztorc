@@ -38,8 +38,7 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'git' \
   'python' \
-  'completion' \
-  'history-substring-search'
+  'completion'
 
 #
 # Autosuggestions

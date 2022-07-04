@@ -6,8 +6,12 @@ source "${ZDOTDIR:-$HOME}/.zsh/lib/autoenv/autoenv.plugin.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+if [[ -n "$key_info" ]]; then
+  bindkey -M vicmd 'k' history-substring-search-up
+  bindkey -M vicmd 'j' history-substring-search-down
+  bindkey -M viins "$key_info[Up]" history-substring-search-up
+  bindkey -M viins "$key_info[Down]" history-substring-search-down
+fi
 
 setopt nocorrectall
 setopt interactivecomments

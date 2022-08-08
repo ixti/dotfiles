@@ -10,9 +10,6 @@
 [submodule ".vim/pack/vendor/start/ale"]
 	path = .vim/pack/vendor/start/ale
 	url = https://github.com/dense-analysis/ale.git
-[submodule ".vim/pack/vendor/start/fern"]
-	path = .vim/pack/vendor/start/fern
-	url = https://github.com/lambdalisue/fern.vim
 [submodule ".vim/pack/vendor/start/endwise"]
 	path = .vim/pack/vendor/start/endwise
 	url = https://github.com/tpope/vim-endwise.git
@@ -76,3 +73,10 @@
 [submodule ".zsh/lib/zsh-history-substring-search"]
 	path = .zsh/lib/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search.git
+[submodule ".vim/pack/vendor/start/asciidoctor"]
+	path = .vim/pack/vendor/start/asciidoctor
+	url = https://github.com/habamax/vim-asciidoctor.git
+[submodule ".vim/pack/vendor/start/fern"]
+	path = .vim/pack/vendor/start/fern
+	url = https://github.com/lambdalisue/fern.vim.git
+	branch = main

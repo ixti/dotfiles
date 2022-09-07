@@ -1,6 +1,12 @@
 # Major performance hogger - +110ms
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
+# Zprezto gets in the way of compinit in a very weird way... o_O
+#   rm -rf .config/zprezto .zcompdump
+# https://superuser.com/a/1092328
+# autoload -Uz compinit && compinit
+# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
 source "${ZDOTDIR:-$HOME}/.zsh/lib/colors/colors.plugin.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/autoenv/autoenv.plugin.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"

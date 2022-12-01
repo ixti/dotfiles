@@ -9,7 +9,6 @@ source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
 source "${ZDOTDIR:-$HOME}/.zsh/lib/colors/colors.plugin.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/autoenv/autoenv.plugin.zsh"
-source "${ZDOTDIR:-$HOME}/.zsh/lib/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
 if [[ -n "$key_info" ]]; then
@@ -70,3 +69,7 @@ fi
 if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"
 fi
+
+# Note that zsh-syntax-highlighting must be the last plugin sourced.
+# See: <https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#with-a-plugin-manager>
+source "${ZDOTDIR:-$HOME}/.zsh/lib/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"

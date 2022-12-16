@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+THEMES=(
+  default
+  catppuccin_frappe
+  catppuccin_mocha
+)
+
+valid_theme() {
+  for theme in "${THEMES[@]}"; do
+    if [[ "${theme}" == "${1:-}" ]]; then
+      return 0
+    fi
+  done
+
+  return 1
+}
+
+if ! valid_theme "${1:-}"; then
+  echo "USAGE: $(basename "$0") THEME"
+  echo
+  echo "THEMES"
+  echo
+
+  for theme in "${THEMES[@]}"; do
+    printf "\t* %s\n" "${theme}"
+  done
+
+  unset theme
+  exit 0
+fi
+
+yadm config --unset-all local.class 'theme:*'
+
+if [[ "default" != "$1" ]]; then
+  yadm config --add local.class "theme:$1"
+fi

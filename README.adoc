@@ -13,11 +13,18 @@ To make it easier, I'm using yadm alternatives using `theme:{name}` class, e.g.:
 
 [source,bash]
 ----
-# Set theme to catppuccin
-yadm config --add local.class theme:catppuccin
+# Set theme to catppuccin_frappe
+yadm config --add local.class theme:catppuccin_frappe
 
 # Switch back to default theme
 yadm config --unset-all local.class 'theme:*'
+----
+
+There's also a helper for that:
+
+[source,bash]
+----
+yadm-theme catppuccin_frappe
 ----
 
 == Install

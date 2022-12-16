@@ -80,3 +80,9 @@
 	path = .vim/pack/vendor/start/fern
 	url = https://github.com/lambdalisue/fern.vim.git
 	branch = main
+[submodule ".vim/pack/themes/opt/catppuccin"]
+	path = .vim/pack/themes/opt/catppuccin
+	url = https://github.com/catppuccin/vim.git
+[submodule ".config/kitty/themes/catppuccin"]
+	path = .config/kitty/themes/catppuccin
+	url = https://github.com/catppuccin/kitty.git

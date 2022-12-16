@@ -50,10 +50,7 @@ if (( ${+commands[fd]} )); then
   export FZF_DEFAULT_COMMAND="fd --type file --hidden --no-ignore --follow --exclude .git"
 fi
 
-if (( ${+commands[vivid]} )); then
-  LS_COLORS="$(vivid generate gruvbox-dark-hard)"
-  export LS_COLORS
-fi
+source "${ZDOTDIR:-$HOME}/.zsh/ls_colors.zsh"
 
 # https://github.com/Schniz/fnm
 if (( ${+commands[fnm]} )); then

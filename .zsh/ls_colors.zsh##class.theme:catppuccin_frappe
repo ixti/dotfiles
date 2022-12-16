@@ -1,0 +1,4 @@
+if (( ${+commands[vivid]} )); then
+  LS_COLORS="$(vivid generate "${HOME}/.config/vivid/themes/catppuccin-frappe.yml")"
+  export LS_COLORS
+fi

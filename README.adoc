@@ -1,0 +1,35 @@
+= /home/ixti
+
+== Dependencies
+
+* yadm (https://yadm.io/[homepage] | https://packages.gentoo.org/packages/app-admin/yadm[ebuild])
+* (optional) vivid (https://github.com/sharkdp/vivid[homepage] | https://github.com/gentoo/guru/tree/master/app-shells/vivid[ebuild])
+* (optional) starship (https://starship.rs/[homepage] | https://packages.gentoo.org/packages/app-shells/starship[ebuild])
+
+== Theming
+
+By default, I'm using gruvbox, but sometimes I love to experiment with themes :D
+To make it easier, I'm using yadm alternatives using `theme:{name}` class, e.g.:
+
+[source,bash]
+----
+# Set theme to catppuccin
+yadm config --add local.class theme:catppuccin
+
+# Switch back to default theme
+yadm config --unset-all local.class 'theme:*'
+----
+
+== Install
+
+[source,bash]
+----
+yadm clone --branch yadm --single-branch "git@gitlab.com:${USER}/dotfiles.git"
+----
+
+== Update
+
+[source,bash]
+----
+yadm pull
+----

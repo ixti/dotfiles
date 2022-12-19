@@ -4,8 +4,6 @@ set -euo pipefail
 
 THEMES=(
   default
-  catppuccin_frappe
-  catppuccin_mocha
 )
 
 valid_theme() {

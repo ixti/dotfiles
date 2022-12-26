@@ -3,12 +3,20 @@ $username\
 $hostname\
 $directory\
 $git_branch\
+$git_commit\
 $git_state\
 $git_status\
 $cmd_duration\
-$line_break\
+$ruby\
+$nodejs\
 $python\
+$line_break\
 $character"""
+
+[character]
+success_symbol = "[>](bold purple)"
+error_symbol = "[x](bold red)"
+vimcmd_symbol = "[<](bold green)"
 
 [directory]
 style = "blue"
@@ -17,34 +25,37 @@ truncate_to_repo = false
 truncation_symbol = ".../"
 read_only = ""
 
-[character]
-success_symbol = "[>](purple)"
-error_symbol = "[x](red)"
-vimcmd_symbol = "[<](green)"
-
 [git_branch]
-format = "[$branch]($style)"
+format = "[$symbol$branch(:$remote_branch)]($style) "
 style = "bright-black"
 
-[git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
-stashed = "≡"
+[git_commit]
+commit_hash_length = 8
+tag_disabled = false
+style = "bold bright-black"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
 
+[git_status]
+style = "cyan"
+
 [cmd_duration]
 format = "[$duration]($style) "
 style = "yellow"
 
+[fill]
+symbol = " "
+
 [python]
-format = "[$virtualenv]($style) "
-style = "bright-black"
+format = "[\\[](black)[$symbol$pyenv_prefix($version)([|](black)$virtualenv)]($style)[\\]](black)"
+symbol = "python-"
+
+[ruby]
+format = "[\\[](black)[$symbol($version)]($style)[\\]](black)"
+symbol = "ruby-"
+
+[nodejs]
+format = "[\\[](black)[$symbol($version)]($style)[\\]](black)"
+symbol = "node-"

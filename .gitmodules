@@ -80,7 +80,3 @@
 	path = .vim/pack/vendor/start/fern
 	url = https://github.com/lambdalisue/fern.vim.git
 	branch = main
-[submodule ".vim/pack/vendor/start/coc"]
-	path = .vim/pack/vendor/start/coc
-	url = https://github.com/neoclide/coc.nvim.git
-	branch = release

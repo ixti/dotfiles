@@ -7,6 +7,7 @@ $git_commit\
 $git_state\
 $git_status\
 $cmd_duration\
+$pulumi\
 $ruby\
 $nodejs\
 $python\
@@ -45,8 +46,9 @@ style = "cyan"
 format = "[$duration]($style) "
 style = "yellow"
 
-[fill]
-symbol = " "
+[pulumi]
+format = "[{](black)[$symbol($username@)$stack]($style)[}](black)"
+symbol = ""
 
 [python]
 format = "[\\[](black)[$symbol$pyenv_prefix($version)([|](black)$virtualenv)]($style)[\\]](black)"

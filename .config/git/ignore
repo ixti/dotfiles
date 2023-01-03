@@ -1,5 +1,14 @@
-*.swp
+# Ruby and its friends
 .rspec-local
+.irb_history
 
+# Vim
+*.swp
+*~
+
+# https://gitlab.com/ixti/dotfiles/-/blob/fdfd19ea505f76e6d02fb20eb65f0703894dee87/.zshenv#L1-3
 .autoenv.in.zsh
 .autoenv.out.zsh
+
+# https://github.com/Arkweid/lefthook
+lefthook-local.yml

@@ -10,13 +10,10 @@ source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/colors/colors.plugin.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/autoenv/autoenv.plugin.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/zsh-history-substring-search/zsh-history-substring-search.zsh"
+source "${ZDOTDIR:-$HOME}/.zsh/lib/zsh-vi-mode/zsh-vi-mode.zsh"
 
-if [[ -n "$key_info" ]]; then
-  bindkey -M vicmd 'k' history-substring-search-up
-  bindkey -M vicmd 'j' history-substring-search-down
-  bindkey -M viins "$key_info[Up]" history-substring-search-up
-  bindkey -M viins "$key_info[Down]" history-substring-search-down
-fi
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 setopt nocorrectall
 setopt interactivecomments

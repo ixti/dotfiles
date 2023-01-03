@@ -80,3 +80,6 @@
 	path = .vim/pack/vendor/start/fern
 	url = https://github.com/lambdalisue/fern.vim.git
 	branch = main
+[submodule ".zsh/lib/zsh-vi-mode"]
+	path = .zsh/lib/zsh-vi-mode
+	url = https://github.com/jeffreytse/zsh-vi-mode.git

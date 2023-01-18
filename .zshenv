@@ -17,9 +17,6 @@ export CRYFS_LOCAL_STATE_DIR="${XDG_CONFIG_HOME}/cryfs"
 
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 
-# https://github.com/jeffreytse/zsh-vi-mode
-export ZVM_CURSOR_STYLE_ENABLED=false
-
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN ]]; then
   for zprofile in "/etc/zsh/zprofile" "${ZDOTDIR:-$HOME}/.zprofile"; do

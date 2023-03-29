@@ -6,3 +6,5 @@ g:ale_virtualtext_cursor = "disabled"
 g:ale_linters = {
   "ruby": ["ruby", "rubocop", "solargraph"]
 }
+
+g:ale_echo_msg_format = "(%linter%) %s"

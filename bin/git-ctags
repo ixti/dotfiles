@@ -5,8 +5,8 @@
 
 set -euo pipefail
 
-worktree=$(git rev-parse --show-toplevel)
-tmp_file=${worktree}/"$$.tags"
+worktree="$(git rev-parse --show-toplevel)"
+tmp_file="${worktree}/$$.tags"
 
 trap 'rm -f "${tmp_file}"' EXIT
 

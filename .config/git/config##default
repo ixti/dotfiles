@@ -8,6 +8,9 @@
 	email = alexey@zapparov.com
 	signingkey = 02CCA92C4FA05B80
 
+[init]
+	defaultBranch = main
+
 [commit]
 	gpgsign = true
 

@@ -80,3 +80,6 @@
 	path = .vim/pack/vendor/start/fern
 	url = https://github.com/lambdalisue/fern.vim.git
 	branch = main
+[submodule ".vim/pack/vendor/start/rbs"]
+	path = .vim/pack/vendor/start/rbs
+	url = https://github.com/jlcrochet/vim-rbs.git

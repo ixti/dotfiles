@@ -28,6 +28,7 @@ alias om="overmind"
 alias gbv="git branch --verbose --verbose"
 alias gfp="git fetch --prune"
 alias gri="git rebase --interactive"
+alias tig="LEFTHOOK=0 tig"
 
 alias -g ...="../.."
 alias -g ....="../../.."

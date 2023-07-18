@@ -9,11 +9,12 @@ export DISABLE_SPRING=true
 # https://github.com/sharkdp/bat/
 export BAT_THEME="gruvbox-dark"
 
-export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 
 # https://www.cryfs.org
 export CRYFS_NO_UPDATE_CHECK=true
-export CRYFS_LOCAL_STATE_DIR="${XDG_CONFIG_HOME}/cryfs"
+export CRYFS_LOCAL_STATE_DIR="${XDG_DATA_HOME}/cryfs"
 
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 

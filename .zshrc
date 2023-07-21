@@ -54,7 +54,7 @@ source "${ZDOTDIR:-$HOME}/.zsh/ls_colors.zsh"
 
 # https://github.com/Schniz/fnm
 if (( ${+commands[fnm]} )); then
-  source <(fnm env --shell zsh)
+  source <(fnm env --use-on-cd --shell zsh)
 fi
 
 # https://starship.rs/

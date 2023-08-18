@@ -1,0 +1,42 @@
+@define-color bg-normal     #000000;
+@define-color fg-normal     #BBBBBB;
+@define-color fg-warning    #CC5500;
+@define-color fg-critical   #CC1100;
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: UbuntuMono Nerd Font Mono;
+  font-size:   14px;
+  min-height: 24px;
+}
+
+window#waybar {
+  background-color: @bg-normal;
+  color: @fg-normal;
+}
+
+.modules-right > widget:last-child > #tray {
+  margin-right: 14px;
+}
+
+#clock, #language {
+  font-weight: bold;
+}
+
+#battery,
+#network,
+#bluetooth,
+#backlight,
+#wireplumber {
+  padding: 7px;
+  font-size: 1.5em;
+}
+
+#battery.warning {
+  color: @fg-warning;
+}
+
+#battery.critical {
+  color: @fg-critical;
+}

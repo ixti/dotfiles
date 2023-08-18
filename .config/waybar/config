@@ -1,0 +1,112 @@
+// vim: ft=jsonc
+// See: https://github.com/Alexays/Waybar/wiki/Configuration
+// Requires NERDFonts: https://github.com/ryanoasis/nerd-fonts
+[{
+  // Decide if the bar is displayed in front (top) of the windows or behind (bottom) them.
+  "layer": "top",
+
+  // Where panel should be displayed on.
+  // See: https://github.com/Alexays/Waybar/wiki/Configuration#configuration-of-multiple-outputs
+  // "output": "eDP-1",
+
+  // Bar position, can be top, bottom, left, right.
+  "position": "top",
+
+  // Modules that will be displayed on the left.
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+
+  // Modules that will be displayed in the center.
+  "modules-center": [
+    "clock"
+  ],
+
+  // Modules that will be displayed on the right.
+  "modules-right": [
+    "backlight",
+    "wireplumber",
+    "network",
+    "bluetooth",
+    "hyprland/language",
+    "battery",
+    "tray"
+  ],
+
+  // Size of gaps in between of the different modules.
+  "spacing": 2,
+
+  // Modules configurations (in alphabetical order)
+
+  "backlight": {
+    "format": "{icon}",
+    "format-icons": ["\udb81\udee9", "\udb86\ude4e", "\udb86\ude4f", "\udb86\ude50", "\udb86\ude51", "\udb86\ude52", "\udb86\ude53", "\udb86\ude54", "\udb86\ude55", "\udb86\ude56", "\udb81\udee8"],
+    "scroll-step": 5.0,
+    "tooltip": false
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "rotate": 270,
+    "format": "{icon}",
+    "format-charging": "\udb80\udc84",
+    "format-icons": ["\udb80\udc83", "\udb80\udc8e", "\udb80\udc7a", "\udb80\udc7b", "\udb80\udc7c", "\udb80\udc7d", "\udb80\udc7e", "\udb80\udc7f", "\udb80\udc80", "\udb80\udc81", "\udb80\udc82", "\udb80\udc79"]
+  },
+
+  "bluetooth": {
+    "format-disabled": "",
+    "format-off": "\udb80\udcb2",
+    "format-on": "\udb80\udcaf",
+    "format-connected": "\udb80\udcb1",
+    "format-connected-battery": "\udb80\udcb1",
+    "tooltip": true,
+    "tooltip-format": "\udb80\udcaf {controller_address} - {controller_alias}",
+    "tooltip-format-connected": "\udb80\udcb1 {controller_alias}\nMAC:\t\t{controller_address}\nConnections:\t{num_connections}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "\udb80\udcaf {device_address} ({device_alias})"
+  },
+
+  "clock": {
+    "interval": 60,
+    "format": "{:%H:%M}",
+    "tooltip": false
+  },
+
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "disable-scroll": true
+  },
+
+  "hyprland/language": {
+    "format-en": "EN",
+    "format-ru": "RU"
+  },
+
+  "network": {
+    "format": "\udb81\udc8d",
+    "format-wifi": "{icon}",
+    "format-ethernet": "\udb80\udf17",
+    "format-disconnected": "\udb83\udc9b",
+    "format-icons": ["\udb82\udd2e", "\udb82\udd2f", "\udb82\udd1f", "\udb82\udd22","\udb82\udd25", "\udb82\udd28"],
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "\udb81\udda9 {ifname} - {essid} ({signalStrength}%)\n\nIP Address:\t{ipaddr}\nGateway:\t{gwaddr}\n",
+    "tooltip-format-ethernet": "\udb80\udf17 {ifname}",
+    "tooltip-format-disconnected": "Disconnected"
+  },
+
+  "tray": {
+    "icon-size": 14,
+    "spacing": 10
+  },
+
+  "wireplumber": {
+    "format": "{icon}",
+    "format-muted": "\udb81\udd81",
+    "format-icons": ["\udb81\udd80", "\udb81\udd7e"],
+    "tooltip-format": "{icon} {node_name} ({volume}%)",
+    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle"
+  }
+}]

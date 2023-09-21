@@ -16,6 +16,8 @@ export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 export CRYFS_NO_UPDATE_CHECK=true
 export CRYFS_LOCAL_STATE_DIR="${XDG_DATA_HOME}/cryfs"
 
+# Start or re-use gpg-agent
+gpgconf --launch gpg-agent
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 
 # Ensure that a non-login, non-interactive shell has a defined environment.

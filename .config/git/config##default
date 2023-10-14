@@ -17,6 +17,10 @@
 [push]
 	default = current
 
+[pull]
+	ff = only
+	rebase = merges
+
 [rerere]
 	enabled = true
 

@@ -30,3 +30,14 @@ function aye_or_nay() {
     esac
   done
 }
+
+function aws-session() {
+  export AWS_PROFILE="${1-:$AWS_PROFILE}"
+
+  if [[ -z "${AWS_PROFILE}" ]]; then
+    echo "Usage: aws-workon AWS_PROFILE" >&2
+    return 1
+  fi
+
+  source <(aws-vault export "$AWS_PROFILE" | grep '^AWS_[^=]+=' | sed 's/^AWS_/export AWS_/')
+}

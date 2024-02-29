@@ -16,6 +16,7 @@
 
 [push]
 	default = current
+	signed = if-asked
 
 [pull]
 	ff = only

@@ -30,6 +30,9 @@ alias gfp="git fetch --prune"
 alias gri="git rebase --interactive"
 alias tig="LEFTHOOK=0 tig"
 
+# https://github.com/drduh/YubiKey-Guide?tab=readme-ov-file#using-multiple-yubikeys
+alias smartcard-reset='gpg-connect-agent killagent /bye && gpg-connect-agent "scd serialno" "learn --force" /bye && gpg --card-status'
+
 alias -g ...="../.."
 alias -g ....="../../.."
 alias -g .....="../../../.."
@@ -44,7 +47,7 @@ if [[ -r "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
   }
 fi
 
-path=( "${HOME}/bin" $path )
+path=( "${HOME}/bin" "${HOME}/.local/bin" $path )
 
 if (( ${+commands[fd]} )); then
   export FZF_DEFAULT_COMMAND="fd --type file --hidden --no-ignore --follow --exclude .git"

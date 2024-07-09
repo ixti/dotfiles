@@ -4,6 +4,7 @@ vim9script
 runtime init/10_sensual.vim
 runtime init/50_ale.vim
 runtime init/50_asciidoctor.vim
+runtime init/50_autocmd.vim
 runtime init/50_fern.vim
 runtime init/50_fzf.vim
 runtime init/50_hooks.vim

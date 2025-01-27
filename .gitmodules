@@ -86,3 +86,6 @@
 [submodule ".vim/pack/vendor/start/dbml"]
 	path = .vim/pack/vendor/start/dbml
 	url = https://github.com/jidn/vim-dbml.git
+[submodule ".vim/pack/vendor/start/d2"]
+	path = .vim/pack/vendor/start/d2
+	url = https://github.com/terrastruct/d2-vim.git

@@ -89,3 +89,6 @@
 [submodule ".vim/pack/vendor/start/d2"]
 	path = .vim/pack/vendor/start/d2
 	url = https://github.com/terrastruct/d2-vim.git
+[submodule ".vim/pack/vendor/start/go"]
+	path = .vim/pack/vendor/start/go
+	url = https://github.com/fatih/vim-go.git

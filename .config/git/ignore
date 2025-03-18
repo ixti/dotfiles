@@ -12,3 +12,6 @@
 
 # https://github.com/Arkweid/lefthook
 lefthook-local.yml
+
+# Universal CTags
+/tags

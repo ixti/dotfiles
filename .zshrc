@@ -47,7 +47,8 @@ if [[ -r "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
   }
 fi
 
-path=( "${HOME}/bin" "${HOME}/.local/bin" $path )
+path=( "${HOME}/bin" "${HOME}/.local/bin" "${HOME}/go/bin" $path )
+export MANPATH=$HOME/.local/share/man:$MANPATH
 
 if (( ${+commands[fd]} )); then
   export FZF_DEFAULT_COMMAND="fd --type file --hidden --no-ignore --follow --exclude .git"
@@ -57,6 +58,7 @@ source "${ZDOTDIR:-$HOME}/.zsh/ls_colors.zsh"
 
 # https://github.com/Schniz/fnm
 if (( ${+commands[fnm]} )); then
+  export FNM_COREPACK_ENABLED="true"
   source <(fnm env --use-on-cd --version-file-strategy recursive --shell zsh)
 fi
 
@@ -70,6 +72,16 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zsh/local.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zsh/local.zsh"
 fi
 
+source "${ZDOTDIR:-$HOME}/.zsh/github-helpers.zsh"
+
 # Note that zsh-syntax-highlighting must be the last plugin sourced.
 # See: <https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#with-a-plugin-manager>
 source "${ZDOTDIR:-$HOME}/.zsh/lib/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+
+# pnpm
+export PNPM_HOME="/home/ixti/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

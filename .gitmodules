@@ -92,3 +92,6 @@
 [submodule ".vim/pack/vendor/start/go"]
 	path = .vim/pack/vendor/start/go
 	url = https://github.com/fatih/vim-go.git
+[submodule ".vim/pack/vendor/start/editorconfig"]
+	path = .vim/pack/vendor/start/editorconfig
+	url = https://github.com/editorconfig/editorconfig-vim.git

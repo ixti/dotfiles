@@ -1,3 +1,7 @@
+function github-access-token() {
+  secret-tool lookup github token
+}
+
 function github-private-registry-update-access-token() {
   xdg-open https://github.com/settings/tokens
 
@@ -9,9 +13,5 @@ function github-private-registry-update-access-token() {
 }
 
 function github-private-registry-setup() {
-  local api_token
-
-  api_token="$(secret-tool lookup github token)"
-
-  export BUNDLE_RUBYGEMS__PKG__GITHUB__COM="x-api-token:${api_token}"
+  export BUNDLE_RUBYGEMS__PKG__GITHUB__COM="x-api-token:$(github-access-token)"
 }

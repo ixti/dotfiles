@@ -47,7 +47,7 @@ if [[ -r "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
   }
 fi
 
-path=( "${HOME}/bin" "${HOME}/.local/bin" "${HOME}/go/bin" $path )
+path=( "${HOME}/bin" "${HOME}/.local/bin" "${HOME}/go/bin" "${HOME}/.cargo/bin" $path )
 export MANPATH=$HOME/.local/share/man:$MANPATH
 
 if (( ${+commands[fd]} )); then

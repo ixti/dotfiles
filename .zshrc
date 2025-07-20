@@ -80,8 +80,8 @@ source "${ZDOTDIR:-$HOME}/.zsh/lib/fast-syntax-highlighting/fast-syntax-highligh
 
 # pnpm
 export PNPM_HOME="/home/ixti/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+path=( "$PNPM_HOME" $path )
 # pnpm end
+
+# bun completions
+[ -s "/home/ixti/.bun/_bun" ] && source "/home/ixti/.bun/_bun"

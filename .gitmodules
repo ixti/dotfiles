@@ -1,35 +1,35 @@
 [submodule ".vim/pack/themes/opt/gruvbox"]
-	path = .vim/pack/themes/opt/gruvbox
+	path = .config/vim/pack/themes/opt/gruvbox
 	url = https://github.com/gruvbox-community/gruvbox.git
 [submodule ".vim/pack/vendor/start/lightline"]
-	path = .vim/pack/vendor/start/lightline
+	path = .config/vim/pack/vendor/start/lightline
 	url = https://github.com/itchyny/lightline.vim.git
 [submodule ".vim/pack/vendor/start/commentary"]
-	path = .vim/pack/vendor/start/commentary
+	path = .config/vim/pack/vendor/start/commentary
 	url = https://github.com/tpope/vim-commentary.git
 [submodule ".vim/pack/vendor/start/ale"]
-	path = .vim/pack/vendor/start/ale
+	path = .config/vim/pack/vendor/start/ale
 	url = https://github.com/dense-analysis/ale.git
 [submodule ".vim/pack/vendor/start/endwise"]
-	path = .vim/pack/vendor/start/endwise
+	path = .config/vim/pack/vendor/start/endwise
 	url = https://github.com/tpope/vim-endwise.git
 [submodule ".vim/pack/vendor/start/is"]
-	path = .vim/pack/vendor/start/is
+	path = .config/vim/pack/vendor/start/is
 	url = https://github.com/haya14busa/is.vim.git
 [submodule ".vim/pack/vendor/start/fzf"]
-	path = .vim/pack/vendor/start/fzf
+	path = .config/vim/pack/vendor/start/fzf
 	url = https://github.com/junegunn/fzf.vim.git
 [submodule ".vim/pack/vendor/start/fzf-mru"]
-	path = .vim/pack/vendor/start/fzf-mru
+	path = .config/vim/pack/vendor/start/fzf-mru
 	url = https://github.com/pbogut/fzf-mru.vim.git
 [submodule ".vim/pack/vendor/opt/sensible"]
-	path = .vim/pack/vendor/opt/sensible
+	path = .config/vim/pack/vendor/opt/sensible
 	url = https://github.com/tpope/vim-sensible.git
 [submodule ".vim/pack/vendor/start/signify"]
-	path = .vim/pack/vendor/start/signify
+	path = .config/vim/pack/vendor/start/signify
 	url = https://github.com/mhinz/vim-signify.git
 [submodule ".vim/pack/vendor/start/yaml"]
-	path = .vim/pack/vendor/start/yaml
+	path = .config/vim/pack/vendor/start/yaml
 	url = https://github.com/stephpy/vim-yaml.git
 [submodule ".zsh/lib/colors"]
 	path = .zsh/lib/colors
@@ -44,54 +44,54 @@
 	path = .zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
 [submodule ".vim/pack/vendor/start/ruby"]
-	path = .vim/pack/vendor/start/ruby
+	path = .config/vim/pack/vendor/start/ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
 [submodule ".vim/pack/vendor/start/rails"]
-	path = .vim/pack/vendor/start/rails
+	path = .config/vim/pack/vendor/start/rails
 	url = https://github.com/tpope/vim-rails.git
 [submodule ".vim/pack/vendor/start/git"]
-	path = .vim/pack/vendor/start/git
+	path = .config/vim/pack/vendor/start/git
 	url = https://github.com/tpope/vim-git.git
 [submodule ".vim/pack/themes/opt/gruvbox8"]
-	path = .vim/pack/themes/opt/gruvbox8
+	path = .config/vim/pack/themes/opt/gruvbox8
 	url = https://github.com/lifepillar/vim-gruvbox8.git
 [submodule ".vim/pack/vendor/start/plantuml-syntax"]
-	path = .vim/pack/vendor/start/plantuml-syntax
+	path = .config/vim/pack/vendor/start/plantuml-syntax
 	url = https://github.com/aklt/plantuml-syntax.git
 [submodule ".vim/pack/vendor/start/fugitive"]
-	path = .vim/pack/vendor/start/fugitive
+	path = .config/vim/pack/vendor/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/pack/vendor/start/fugitive-gitlab"]
-	path = .vim/pack/vendor/start/fugitive-gitlab
+	path = .config/vim/pack/vendor/start/fugitive-gitlab
 	url = https://github.com/shumphrey/fugitive-gitlab.vim.git
 [submodule ".vim/pack/vendor/start/rhubarb"]
-	path = .vim/pack/vendor/start/rhubarb
+	path = .config/vim/pack/vendor/start/rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
 [submodule ".vim/pack/vendor/start/easy-align"]
-	path = .vim/pack/vendor/start/easy-align
+	path = .config/vim/pack/vendor/start/easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
 [submodule ".zsh/lib/zsh-history-substring-search"]
 	path = .zsh/lib/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search.git
 [submodule ".vim/pack/vendor/start/asciidoctor"]
-	path = .vim/pack/vendor/start/asciidoctor
+	path = .config/vim/pack/vendor/start/asciidoctor
 	url = https://github.com/habamax/vim-asciidoctor.git
 [submodule ".vim/pack/vendor/start/fern"]
-	path = .vim/pack/vendor/start/fern
+	path = .config/vim/pack/vendor/start/fern
 	url = https://github.com/lambdalisue/fern.vim.git
 	branch = main
 [submodule ".vim/pack/vendor/start/rbs"]
-	path = .vim/pack/vendor/start/rbs
+	path = .config/vim/pack/vendor/start/rbs
 	url = https://github.com/jlcrochet/vim-rbs.git
 [submodule ".vim/pack/vendor/start/dbml"]
-	path = .vim/pack/vendor/start/dbml
+	path = .config/vim/pack/vendor/start/dbml
 	url = https://github.com/jidn/vim-dbml.git
 [submodule ".vim/pack/vendor/start/d2"]
-	path = .vim/pack/vendor/start/d2
+	path = .config/vim/pack/vendor/start/d2
 	url = https://github.com/terrastruct/d2-vim.git
 [submodule ".vim/pack/vendor/start/go"]
-	path = .vim/pack/vendor/start/go
+	path = .config/vim/pack/vendor/start/go
 	url = https://github.com/fatih/vim-go.git
 [submodule ".vim/pack/vendor/start/editorconfig"]
-	path = .vim/pack/vendor/start/editorconfig
+	path = .config/vim/pack/vendor/start/editorconfig
 	url = https://github.com/editorconfig/editorconfig-vim.git

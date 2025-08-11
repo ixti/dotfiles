@@ -1,5 +1,12 @@
 vim9script
 
+if empty($XDG_CACHE_HOME)  | $XDG_CACHE_HOME  = $HOME .. "/.cache"       | endif
+if empty($XDG_CONFIG_HOME) | $XDG_CONFIG_HOME = $HOME .. "/.config"      | endif
+if empty($XDG_DATA_HOME)   | $XDG_DATA_HOME   = $HOME .. "/.local/share" | endif
+if empty($XDG_STATE_HOME)  | $XDG_STATE_HOME  = $HOME .. "/.local/state" | endif
+
+set runtimepath^=$XDG_CONFIG_HOME/vim
+
 # Setup baseline settings
 runtime init/10_sensual.vim
 runtime init/20_crash_tolerance.vim

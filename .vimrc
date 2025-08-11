@@ -2,6 +2,7 @@ vim9script
 
 # Setup baseline settings
 runtime init/10_sensual.vim
+runtime init/20_crash_tolerance.vim
 runtime init/50_ale.vim
 runtime init/50_asciidoctor.vim
 runtime init/50_autocmd.vim

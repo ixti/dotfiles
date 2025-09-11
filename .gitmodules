@@ -61,9 +61,6 @@
 [submodule ".vim/pack/vendor/start/fugitive"]
 	path = .config/vim/pack/vendor/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/pack/vendor/start/fugitive-gitlab"]
-	path = .config/vim/pack/vendor/start/fugitive-gitlab
-	url = https://github.com/shumphrey/fugitive-gitlab.vim.git
 [submodule ".vim/pack/vendor/start/rhubarb"]
 	path = .config/vim/pack/vendor/start/rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git

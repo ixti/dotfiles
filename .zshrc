@@ -49,11 +49,6 @@ fi
 
 source "${ZDOTDIR:-$HOME}/.zsh/ls_colors.zsh"
 
-# https://mise.jdx.dev
-if (( ${+commands[mise]} )); then
-  source <(mise activate zsh)
-fi
-
 # https://starship.rs/
 if (( ${+commands[starship]} )); then
   # See: https://github.com/starship/starship/issues/2637

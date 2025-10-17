@@ -47,17 +47,21 @@ format = "[$duration]($style) "
 style = "yellow"
 
 [pulumi]
-format = "[{](black)[$symbol($username@)$stack]($style)[}](black)"
-symbol = ""
+format = " [$symbol($username@)$stack]($style)"
+symbol = " "
+
+[bun]
+format = " [$symbol($version )]($style)"
+symbol = " "
 
 [python]
-format = "[\\[](black)[$symbol$pyenv_prefix($version)([|](black)$virtualenv)]($style)[\\]](black)"
-symbol = "python-"
+format = " [$symbol$pyenv_prefix($version)([|](black)$virtualenv)]"
+symbol = " "
 
 [ruby]
-format = "[\\[](black)[$symbol($version)]($style)[\\]](black)"
-symbol = "ruby-"
+format = " [$symbol($version)]($style)"
+symbol = " "
 
 [nodejs]
-format = "[\\[](black)[$symbol($version)]($style)[\\]](black)"
-symbol = "node-"
+format = " [$symbol($version)]($style)"
+symbol = " "

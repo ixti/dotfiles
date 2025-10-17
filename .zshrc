@@ -30,22 +30,15 @@ alias gfp="git fetch --prune"
 alias gri="git rebase --interactive"
 alias tig="LEFTHOOK=0 tig"
 
+alias av="aws-vault"
+alias ave="aws-vault exec"
+
 # https://github.com/drduh/YubiKey-Guide?tab=readme-ov-file#using-multiple-yubikeys
 alias smartcard-reset='gpg-connect-agent killagent /bye && gpg-connect-agent "scd serialno" "learn --force" /bye && gpg --card-status'
 
 alias -g ...="../.."
 alias -g ....="../../.."
 alias -g .....="../../../.."
-
-# Java SDK/JDK manager (https://sdkman.io)
-if [[ -r "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
-  # Lazy SdkMan
-  function sdk() {
-    export SDKMAN_DIR="${HOME}/.sdkman"
-    source "${SDKMAN_DIR}/bin/sdkman-init.sh"
-    sdk "$@"
-  }
-fi
 
 path=( "${HOME}/bin" "${HOME}/.local/bin" "${HOME}/go/bin" "${HOME}/.cargo/bin" $path )
 export MANPATH=$HOME/.local/share/man:$MANPATH
@@ -56,10 +49,9 @@ fi
 
 source "${ZDOTDIR:-$HOME}/.zsh/ls_colors.zsh"
 
-# https://github.com/Schniz/fnm
-if (( ${+commands[fnm]} )); then
-  export FNM_COREPACK_ENABLED="true"
-  source <(fnm env --use-on-cd --version-file-strategy recursive --shell zsh)
+# https://mise.jdx.dev
+if (( ${+commands[mise]} )); then
+  source <(mise activate zsh)
 fi
 
 # https://starship.rs/
@@ -77,11 +69,3 @@ source "${ZDOTDIR:-$HOME}/.zsh/github-helpers.zsh"
 # Note that zsh-syntax-highlighting must be the last plugin sourced.
 # See: <https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#with-a-plugin-manager>
 source "${ZDOTDIR:-$HOME}/.zsh/lib/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
-
-# pnpm
-export PNPM_HOME="/home/ixti/.local/share/pnpm"
-path=( "$PNPM_HOME" $path )
-# pnpm end
-
-# bun completions
-[ -s "/home/ixti/.bun/_bun" ] && source "/home/ixti/.bun/_bun"

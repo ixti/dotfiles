@@ -1,4 +1,8 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
+$shell\
 $username\
 $hostname\
 $directory\
@@ -15,17 +19,21 @@ $python\
 $line_break\
 $character"""
 
-[character]
-success_symbol = "[>](bold purple)"
-error_symbol = "[x](bold red)"
-vimcmd_symbol = "[<](bold green)"
+[shell]
+fish_indicator    = 'fsh'
+bash_indicator    = 'bsh'
+zsh_indicator     = 'zsh'
+unknown_indicator = '***'
+style             = 'black'
+disabled          = false
 
 [directory]
-style = "blue"
-truncation_length = 7
-truncate_to_repo = false
-truncation_symbol = ".../"
-read_only = ""
+style             = 'blue'
+truncation_length = 5
+truncate_to_repo  = true
+truncation_symbol = '…/'
+read_only_style   = 'bold red'
+read_only         = ' 󰌾'
 
 [git_branch]
 format = "[$symbol$branch(:$remote_branch)]($style) "

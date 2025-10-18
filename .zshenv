@@ -1,16 +1,20 @@
-# https://github.com/zpm-zsh/autoenv
-export AUTOENV_IN_FILE=".autoenv.in.zsh"
-export AUTOENV_OUT_FILE=".autoenv.out.zsh"
-
-# Spring gives me headaches most of the time
-# https://github.com/rails/spring
-export DISABLE_SPRING=true
-
-# https://github.com/sharkdp/bat/
-export BAT_THEME="gruvbox-dark"
+path=(
+  "${HOME}/bin"
+  "${HOME}/.local/bin"
+  "${HOME}/go/bin"
+  "${HOME}/.cargo/bin"
+  $path
+)
 
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
+
+# export ZDOTDIR="${ZDOTDIR:-${XDG_CONFIG_HOME}/zsh}"
+
+export MANPATH="$HOME/.local/share/man:$MANPATH"
+
+# https://github.com/sharkdp/bat/
+export BAT_THEME="gruvbox-dark"
 
 # https://www.cryfs.org
 export CRYFS_NO_UPDATE_CHECK=true
@@ -24,6 +28,5 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN ]]; then
   for zprofile in "/etc/zsh/zprofile" "${ZDOTDIR:-$HOME}/.zprofile"; do
     [[ -s "${zprofile}"  ]] && source "${zprofile}"
   done
-
   unset zprofile
 fi

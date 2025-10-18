@@ -8,7 +8,6 @@ source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 # zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 source "${ZDOTDIR:-$HOME}/.zsh/lib/colors/colors.plugin.zsh"
-source "${ZDOTDIR:-$HOME}/.zsh/lib/autoenv/autoenv.plugin.zsh"
 source "${ZDOTDIR:-$HOME}/.zsh/lib/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
 bindkey -M vicmd 'k' history-substring-search-up

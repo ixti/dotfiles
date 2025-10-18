@@ -34,9 +34,6 @@
 [submodule ".zsh/lib/colors"]
 	path = .zsh/lib/colors
 	url = https://github.com/zpm-zsh/colors.git
-[submodule ".zsh/lib/autoenv"]
-	path = .zsh/lib/autoenv
-	url = https://github.com/zpm-zsh/autoenv.git
 [submodule ".zsh/lib/fast-syntax-highlighting"]
 	path = .zsh/lib/fast-syntax-highlighting
 	url = https://github.com/zdharma-continuum/fast-syntax-highlighting.git

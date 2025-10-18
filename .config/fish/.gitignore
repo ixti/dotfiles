@@ -1,0 +1,7 @@
+completions/
+!completions/.keep
+
+conf.d/99-local.fish
+functions/99-local.fish
+
+fish_variables

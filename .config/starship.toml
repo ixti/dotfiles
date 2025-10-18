@@ -9,6 +9,7 @@ $git_status\
 $cmd_duration\
 $pulumi\
 $ruby\
+$bun\
 $nodejs\
 $python\
 $line_break\
@@ -53,6 +54,7 @@ symbol = " "
 [bun]
 format = " [$symbol($version )]($style)"
 symbol = " "
+style  = "bold yellow"
 
 [python]
 format = " [$symbol$pyenv_prefix($version)([|](black)$virtualenv)]"

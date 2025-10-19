@@ -1,1 +1,6 @@
+local/
+!local/.keep
+
 .zcompdump
+.zshenv
+.zshrc

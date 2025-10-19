@@ -1,0 +1,7 @@
+# vim: ft=zsh
+
+# zz - just like zi but with fzf
+function zz() {
+  local dir="$(zoxide query -l | fzf)"
+  [[ -d "$dir" ]] && cd "$dir"
+}

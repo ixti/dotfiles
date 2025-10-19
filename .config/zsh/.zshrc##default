@@ -1,5 +1,10 @@
 # vim: ft=zsh
 
+zcompile -R "${ZDOTDIR}/.zshrc.zwc" "${ZDOTDIR}/.zshrc"
+
+# Preamble
+################################################################################
+
 typeset -r plugins="${ZDOTDIR}/plugins"
 
 # A command-line fuzzy finder
@@ -70,7 +75,6 @@ if (( ${+commands[lsd]} )); then
 elif (( ${+commands[vivid]} )); then
   typeset -gx LS_COLORS="$(vivid generate gruvbox-dark-hard)"
 
-  alias ls='ls --color=auto'
   alias ll='ls --color=auto --all --long'
   alias la='ls --color=auto --almost-all'
 fi
@@ -83,6 +87,9 @@ source "${plugins}/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Aliases
 ################################################################################
+
+# Make standard ls colourful automagically, but don't replace it with LSD
+alias ls='ls --color=auto'
 
 # Git
 alias gbv="git branch --verbose --verbose"
@@ -103,6 +110,12 @@ alias ave="aws-vault exec"
 
 # Integrations
 ################################################################################
+
+# The front-end to your dev env
+# https://mise.jdx.dev/
+if (( ${+commands[mise]} )) && (( ! ${+functions[mise]} )); then
+  source <(command mise activate zsh)
+fi
 
 # The minimal, blazing-fast, and infinitely customizable prompt.
 # https://starship.rs/

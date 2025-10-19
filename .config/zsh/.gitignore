@@ -1,6 +1,12 @@
 local/
 !local/.keep
 
-.zcompdump
+# YADM-managed aliases
 .zshenv
 .zshrc
+
+# compinit cache (should not even be here)
+.zcompdump
+
+# Bytecode cache
+.zshrc.zwc

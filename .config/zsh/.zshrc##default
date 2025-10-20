@@ -6,7 +6,7 @@ if [[ ! -f "${ZDOTDIR}/.zshrc.zwc" || "${ZDOTDIR}/.zshrc" -nt "${ZDOTDIR}/.zshrc
 fi
 
 # Uncomment to profile
-# zmodload zsh/zprof
+zmodload zsh/zprof
 
 # ZSH Options -- https://zsh.sourceforge.io/Doc/Release/Options.html
 ################################################################################
@@ -70,8 +70,9 @@ fi
 # Plugins
 ################################################################################
 
-zstyle ':plugin:ez-compinit' 'compstyle' 'prez'
-zstyle ':plugin:ez-compinit' 'use-cache' 'yes'
+zstyle ':antidote:*'            'zcompile'   'yes'
+zstyle ':plugin:ez-compinit'    'compstyle'  'prez'
+zstyle ':plugin:ez-compinit'    'use-cache'  'yes'
 
 source "${ZDOTDIR}/antidote/antidote.zsh"
 antidote load

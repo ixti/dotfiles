@@ -67,13 +67,22 @@ else
   typeset -gx LS_COLORS="${LS_COLORS:-'di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'}"
 fi
 
+# Plugins
+################################################################################
+
+zstyle ':plugin:ez-compinit' 'compstyle' 'prez'
+zstyle ':plugin:ez-compinit' 'use-cache' 'yes'
+
+source "${ZDOTDIR}/antidote/antidote.zsh"
+antidote load
+
 # Integrations
 ################################################################################
 
 # The front-end to your dev env
 # https://mise.jdx.dev/
 if (( ${+commands[mise]} )) && (( ! ${+functions[mise]} )); then
-  source <(command mise activate zsh)
+  zsh-defer -c 'source <(command mise activate zsh)'
 fi
 
 # The minimal, blazing-fast, and infinitely customizable prompt.
@@ -97,22 +106,19 @@ if (( ${+commands[zoxide]} )); then
   source <(command zoxide init zsh)
 fi
 
-# Plugins
-################################################################################
-
-zstyle ':plugin:ez-compinit' 'compstyle' 'prez'
-zstyle ':plugin:ez-compinit' 'use-cache' 'yes'
-
-source "${ZDOTDIR}/antidote/antidote.zsh"
-antidote load
-
 # Functions
 ################################################################################
 
 autoload -Uz gh-access-token
 autoload -Uz zz
 
-# Aliases
+# Location Aliases
+################################################################################
+
+hash -d guru-overlay=/var/db/repos/guru
+hash -d gentoo-overlay=/var/db/repos/gentoo
+
+# Command Aliases
 ################################################################################
 
 # Make standard ls colourful automagically, but don't replace it with LSD

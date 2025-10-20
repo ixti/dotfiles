@@ -7,18 +7,16 @@ hash -d gentoo-overlay=/var/db/repos/gentoo
 # Command Aliases
 ################################################################################
 
-# Make standard ls colourful automagically, but don't replace it with LSD
-alias ls='ls --color=auto'
-
 # The next gen ls command
 # https://github.com/lsd-rs/lsd
 if (( ${+commands[lsd]} )); then
-  alias ll='lsd --all -l'
-  alias la='lsd --almost-all'
+  alias l="lsd"
 else
-  alias ll='ls --color=auto --all --long'
-  alias la='ls --color=auto --almost-all'
+  alias l="ls --color=auto"
 fi
+
+alias la="l --almost-all"
+alias ll="l --almost-all -l"
 
 # Git
 alias gbv="git branch --verbose --verbose"

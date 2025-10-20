@@ -31,12 +31,6 @@
 [submodule ".vim/pack/vendor/start/yaml"]
 	path = .config/vim/pack/vendor/start/yaml
 	url = https://github.com/stephpy/vim-yaml.git
-[submodule ".zsh/lib/colors"]
-	path = .config/zsh/plugins/colors
-	url = https://github.com/zpm-zsh/colors.git
-[submodule ".zsh/lib/fast-syntax-highlighting"]
-	path = .config/zsh/plugins/fast-syntax-highlighting
-	url = https://github.com/zdharma-continuum/fast-syntax-highlighting.git
 [submodule ".vim/pack/vendor/start/ruby"]
 	path = .config/vim/pack/vendor/start/ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
@@ -61,9 +55,6 @@
 [submodule ".vim/pack/vendor/start/easy-align"]
 	path = .config/vim/pack/vendor/start/easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
-[submodule ".zsh/lib/zsh-history-substring-search"]
-	path = .config/zsh/plugins/zsh-history-substring-search
-	url = https://github.com/zsh-users/zsh-history-substring-search.git
 [submodule ".vim/pack/vendor/start/asciidoctor"]
 	path = .config/vim/pack/vendor/start/asciidoctor
 	url = https://github.com/habamax/vim-asciidoctor.git
@@ -86,3 +77,6 @@
 [submodule ".vim/pack/vendor/start/editorconfig"]
 	path = .config/vim/pack/vendor/start/editorconfig
 	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule ".config/zsh/antidote"]
+	path = .config/zsh/antidote
+	url = https://github.com/mattmc3/antidote.git

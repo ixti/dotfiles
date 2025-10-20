@@ -3,10 +3,10 @@
 # XDG - https://specifications.freedesktop.org/basedir-spec/latest/#variables
 ################################################################################
 
-typeset default_xdg_cache_home="${HOME}/.cache"
-typeset default_xdg_config_home="${HOME}/.config"
-typeset default_xdg_data_home="${HOME}/.local/share"
-typeset default_xdg_state_home="${HOME}/.local/state"
+local default_xdg_cache_home="${HOME}/.cache"
+local default_xdg_config_home="${HOME}/.config"
+local default_xdg_data_home="${HOME}/.local/share"
+local default_xdg_state_home="${HOME}/.local/state"
 
 typeset -gx XDG_CACHE_HOME="${XDG_CACHE_HOME:-${default_xdg_cache_home}}"
 typeset -gx XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${default_xdg_config_home}}"
@@ -58,21 +58,25 @@ unset xdg_dir
 # Disallow further modifications of critical XDG paths.
 # But allow modifications of `$XDG_CACHE_HOME`
 
-typeset -r XDG_CONFIG_HOME
-typeset -r XDG_DATA_HOME
-typeset -r XDG_STATE_HOME
+typeset -r XDG_{CONFIG,DATA,STATE}_HOME
 
 # Keep ZSH config under `${XDG_CONFIG_HOME}/zsh` by default
 ################################################################################
 
-typeset -gx ZDOTDIR="${ZDOTDIR:-${XDG_CONFIG_HOME}/zsh}"
+typeset -rgx ZDOTDIR="${ZDOTDIR:-${XDG_CONFIG_HOME}/zsh}"
+typeset -rgx ZCACHEDIR="${ZCACHEDIR:-${XDG_CACHE_HOME}/zsh}"
+typeset -rgx ZSTATEDIR="${ZSTATEDIR:-${XDG_STATE_HOME}/zsh}"
+
+[[ -d "${ZCACHEDIR}" ]] || mkdir -p -m 0700 "${ZCACHEDIR}"
+[[ -d "${ZSTATEDIR}" ]] || mkdir -p -m 0700 "${ZSTATEDIR}"
 
 # Setup ZSH History
 ################################################################################
 
-typeset -gx HISTFILE="${XDG_STATE_HOME}/zsh/history"
-typeset -gx HISTSIZE=5000
-typeset -gx SAVEHIST=5000
+typeset -rgx HISTFILE="${ZSTATEDIR}/history"
+typeset -rgx HISTSIZE=10000
+typeset -rgx SAVEHIST=10000
+typeset -rgx HIST_STAMPS="yyyy-mm-dd"
 
 # Setup $PATH, and ensure it contains UNIQUE values only
 ################################################################################
@@ -96,9 +100,6 @@ typeset -gU fpath=(
 
 # System ENV vars
 ################################################################################
-
-typeset -gx LANG="en_US.UTF-8"
-typeset -gx LC_ALL="en_US.UTF-8"
 
 typeset -gx MANPATH="$HOME/.local/share/man:$MANPATH"
 
@@ -129,5 +130,5 @@ fi
 ################################################################################
 
 local zshenv_local="${ZDOTDIR}/local/.zshenv"
-[[ -f "$zshenv_local" ]] && source "$zshenv_local" || true
+[[ -r "$zshenv_local" ]] && source "$zshenv_local"
 unset zshenv_local

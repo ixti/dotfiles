@@ -5,8 +5,11 @@ local/
 .zshenv
 .zshrc
 
+# Antidote compiled bundle
+.zsh_plugins.zsh
+
 # compinit cache (should not even be here)
 .zcompdump
 
 # Bytecode cache
-.zshrc.zwc
+**/*.zwc

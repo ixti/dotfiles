@@ -1,19 +1,12 @@
 # vim: ft=zsh
 
-zcompile -R "${ZDOTDIR}/.zshrc.zwc" "${ZDOTDIR}/.zshrc"
+if [[ ! -f "${ZDOTDIR}/.zshrc.zwc" || "${ZDOTDIR}/.zshrc" -nt "${ZDOTDIR}/.zshrc.zwc" ]]; then
+  # Recompile in background
+  (zcompile -- "${ZDOTDIR}/.zshrc.zwc" "${ZDOTDIR}/.zshrc") &!
+fi
 
-# Preamble
-################################################################################
-
-typeset -r plugins="${ZDOTDIR}/plugins"
-
-# A command-line fuzzy finder
-# https://github.com/junegunn/fzf
-typeset -i has_fzf=$(( ${+commands[fzf]} ))
-
-# A smarter cd command.
-# https://github.com/ajeetdsouza/zoxide
-typeset -i has_zoxide=$(( ${+commands[zoxide]} ))
+# Uncomment to profile
+# zmodload zsh/zprof
 
 # ZSH Options -- https://zsh.sourceforge.io/Doc/Release/Options.html
 ################################################################################
@@ -41,7 +34,7 @@ unsetopt flowcontrol       # Disable start/stop characters in shell editor.
 setopt extendedglob        # Enable advanced globbing (e.g., ^, ~, and ** wildcards).
 setopt nocaseglob          # Make filename completion case-insensitive.
 setopt nomatch             # Print an error when glob patterns don't match.
-setopt globdots            # Include dotfiles in globbing patterns.
+setopt noglobdots          # Hide dotfiles unless you explicitly include them.
 
 # Command history
 setopt extendedhistory     # Record timestamps in history.
@@ -53,7 +46,6 @@ setopt sharehistory        # Share history across multiple Zsh sessions.
 
 # Safety and strictness
 setopt noclobber           # Prevent overwriting files with > redirection.
-setopt noglobdots          # (optional) Hide dotfiles unless you explicitly include them.
 setopt localoptions        # Make option changes local to functions.
 setopt localtraps          # Make traps local to functions.
 
@@ -62,51 +54,18 @@ setopt promptsubst         # Allow variable expansion in prompts.
 setopt nohup               # Prevent background jobs from hanging up on logout.
 setopt notify              # Report job status changes immediately.
 
-# ENV meaningful in interactive shells only
+# ENV meaningful in the interactive shell only
 ################################################################################
 
-# The next gen ls command
-# https://github.com/lsd-rs/lsd
-if (( ${+commands[lsd]} )); then
-  alias ll='lsd --all -l'
-  alias la='lsd --almost-all'
+typeset -gx ZSH_AUTOSUGGEST_USE_ASYNC=1
+
 # A themeable LS_COLORS generator with a rich filetype datebase.
 # https://github.com/sharkdp/vivid/
-elif (( ${+commands[vivid]} )); then
+if (( ${+commands[vivid]} )); then
   typeset -gx LS_COLORS="$(vivid generate gruvbox-dark-hard)"
-
-  alias ll='ls --color=auto --all --long'
-  alias la='ls --color=auto --almost-all'
+else
+  typeset -gx LS_COLORS="${LS_COLORS:-'di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'}"
 fi
-
-# Plugins
-################################################################################
-
-source "${plugins}/colors/colors.plugin.zsh"
-source "${plugins}/zsh-history-substring-search/zsh-history-substring-search.zsh"
-
-# Aliases
-################################################################################
-
-# Make standard ls colourful automagically, but don't replace it with LSD
-alias ls='ls --color=auto'
-
-# Git
-alias gbv="git branch --verbose --verbose"
-alias gfp="git fetch --prune"
-alias gri="git rebase --interactive"
-
-# Ruby
-alias be="bundle exec"
-alias bi="bundle install"
-alias bu="bundle update"
-alias bo="bundle open"
-alias ror="bundle exec rails"
-
-# Other tools
-alias om="overmind"
-alias av="aws-vault"
-alias ave="aws-vault exec"
 
 # Integrations
 ################################################################################
@@ -125,50 +84,74 @@ if (( ${+commands[starship]} )); then
   source <(command starship init zsh)
 fi
 
-if (( has_fzf )); then
+# A command-line fuzzy finder
+# https://github.com/junegunn/fzf
+if (( ${+commands[fzf]} )); then
   source <(command fzf --zsh)
 fi
 
+# A smarter cd command.
 # NOTE: Must be last thing in the config, if used with `--cmd cd`
-if (( has_zoxide )); then
+# https://github.com/ajeetdsouza/zoxide
+if (( ${+commands[zoxide]} )); then
   source <(command zoxide init zsh)
 fi
 
-# Custom functions
+# Plugins
+################################################################################
+
+zstyle ':plugin:ez-compinit' 'compstyle' 'prez'
+zstyle ':plugin:ez-compinit' 'use-cache' 'yes'
+
+source "${ZDOTDIR}/antidote/antidote.zsh"
+antidote load
+
+# Functions
 ################################################################################
 
 autoload -Uz gh-access-token
 autoload -Uz zz
 
-# Local overrides
+# Aliases
+################################################################################
+
+# Make standard ls colourful automagically, but don't replace it with LSD
+alias ls='ls --color=auto'
+
+# The next gen ls command
+# https://github.com/lsd-rs/lsd
+if (( ${+commands[lsd]} )); then
+  alias ll='lsd --all -l'
+  alias la='lsd --almost-all'
+else
+  alias ll='ls --color=auto --all --long'
+  alias la='ls --color=auto --almost-all'
+fi
+
+# Git
+alias gbv="git branch --verbose --verbose"
+alias gfp="git fetch --prune"
+alias gri="git rebase --interactive"
+
+# Ruby
+alias be="bundle exec"
+alias bi="bundle install"
+alias bu="bundle update"
+alias bo="bundle open"
+alias ror="bundle exec rails"
+
+# Other tools
+alias om="overmind"
+alias av="aws-vault"
+alias ave="aws-vault exec"
+
+# Local Overrides
 ################################################################################
 
 local zshrc_local="${ZDOTDIR}/local/.zshrc"
-[[ -f "$zshrc_local" ]] && source "$zshrc_local" || true
+[[ -r "$zshrc_local" ]] && source "$zshrc_local"
 unset zshrc_local
 
-# Setup Auto-Completion
 ################################################################################
 
-# Deduplicate path and fpath again before initializing completions
-typeset -gU path fpath
-
-autoload -Uz compinit
-
-typeset zcompdump_path="${XDG_CACHE_HOME}/zsh/zcompdump"
-if [[ $zcompdump_path(#qNmh-20) ]]; then
-  # -C (skip function check) implies -i (skip security check).
-  compinit -C -d "$zcompdump_path"
-else
-  mkdir -p "$zcompdump_path:h"
-  compinit -i -d "$zcompdump_path"
-  # Keep $zcompdump_path younger than cache time even if it isn't regenerated.
-  touch "$zcompdump_path"
-fi
-unset zcompdump_path
-
-################################################################################
-
-# Note that zsh-syntax-highlighting must be the last plugin sourced.
-# See: <https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#with-a-plugin-manager>
-source "${plugins}/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+(( ${+builtins[zprof]} )) && zprof || true

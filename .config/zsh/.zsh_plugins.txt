@@ -1,0 +1,13 @@
+# A better and friendly vi(vim) mode for ZSH
+# https://github.com/jeffreytse/zsh-vi-mode
+jeffreytse/zsh-vi-mode
+
+# Make Zsh compinit suck less
+# https://github.com/mattmc3/ez-compinit
+mattmc3/ez-compinit
+
+# Feature-rich syntax highlighting for ZSH
+# https://github.com/zdharma-continuum/fast-syntax-highlighting
+zdharma-continuum/fast-syntax-highlighting  kind:defer # Syntax highlighting
+zsh-users/zsh-autosuggestions               kind:defer # Auto-suggestions
+zsh-users/zsh-history-substring-search      kind:defer # Up/Down to search history

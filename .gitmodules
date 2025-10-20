@@ -78,5 +78,6 @@
 	path = .config/vim/pack/vendor/start/editorconfig
 	url = https://github.com/editorconfig/editorconfig-vim.git
 [submodule ".config/zsh/antidote"]
-	path = .config/zsh/antidote
+	path = .config/zsh/.antidote
+	shallow = true
 	url = https://github.com/mattmc3/antidote.git

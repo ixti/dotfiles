@@ -79,7 +79,7 @@ zstyle ':antidote:*'            'zcompile'   'yes'
 zstyle ':plugin:ez-compinit'    'compstyle'  'prez'
 zstyle ':plugin:ez-compinit'    'use-cache'  'yes'
 
-source "${ZDOTDIR}/antidote/antidote.zsh"
+source "${ZDOTDIR}/.antidote/antidote.zsh"
 antidote load
 
 # Integrations

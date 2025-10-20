@@ -5,6 +5,7 @@ jeffreytse/zsh-vi-mode
 # Make Zsh compinit suck less
 # https://github.com/mattmc3/ez-compinit
 mattmc3/ez-compinit
+zsh-users/zsh-completions kind:fpath path:src
 
 # Feature-rich syntax highlighting for ZSH
 # https://github.com/zdharma-continuum/fast-syntax-highlighting

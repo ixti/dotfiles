@@ -57,8 +57,6 @@ setopt notify              # Report job status changes immediately.
 # ENV meaningful in the interactive shell only
 ################################################################################
 
-typeset -gx ZSH_AUTOSUGGEST_USE_ASYNC=1
-
 # A themeable LS_COLORS generator with a rich filetype datebase.
 # https://github.com/sharkdp/vivid/
 if (( ${+commands[vivid]} )); then
@@ -66,6 +64,13 @@ if (( ${+commands[vivid]} )); then
 else
   typeset -gx LS_COLORS="${LS_COLORS:-'di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'}"
 fi
+
+# ENV used by plugins
+################################################################################
+
+typeset -rgxi ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+typeset -rgxa ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+typeset -rgx  ZSH_COMPDUMP="${ZCACHEDIR}/zcompdump"
 
 # Plugins
 ################################################################################

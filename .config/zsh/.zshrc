@@ -127,7 +127,7 @@ source "${ZDOTDIR}/zshrc/binds.zsh"
 # Local Overrides
 ################################################################################
 
-local zshrc_local="${ZDOTDIR}/local/.zshrc"
+local zshrc_local="${ZDOTDIR}/local/zshrc"
 [[ -r "$zshrc_local" ]] && source "$zshrc_local"
 unset zshrc_local
 

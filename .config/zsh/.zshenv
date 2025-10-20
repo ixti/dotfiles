@@ -129,6 +129,6 @@ fi
 # Local overrides
 ################################################################################
 
-local zshenv_local="${ZDOTDIR}/local/.zshenv"
+local zshenv_local="${ZDOTDIR}/local/zshenv"
 [[ -r "$zshenv_local" ]] && source "$zshenv_local"
 unset zshenv_local

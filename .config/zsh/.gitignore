@@ -13,3 +13,4 @@ local/
 
 # Bytecode cache
 **/*.zwc
+**/*.zwc.old

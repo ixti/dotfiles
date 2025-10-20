@@ -6,7 +6,7 @@ if [[ ! -f "${ZDOTDIR}/.zshrc.zwc" || "${ZDOTDIR}/.zshrc" -nt "${ZDOTDIR}/.zshrc
 fi
 
 # Uncomment to profile
-# zmodload zsh/zprof
+zmodload zsh/zprof
 
 # ZSH Options -- https://zsh.sourceforge.io/Doc/Release/Options.html
 ################################################################################
@@ -54,7 +54,7 @@ setopt promptsubst         # Allow variable expansion in prompts.
 setopt nohup               # Prevent background jobs from hanging up on logout.
 setopt notify              # Report job status changes immediately.
 
-# ENV meaningful in the interactive shell only
+# Additional ENV (meaningful in the interactive shell only)
 ################################################################################
 
 # A themeable LS_COLORS generator with a rich filetype datebase.
@@ -65,11 +65,11 @@ else
   typeset -gx LS_COLORS="${LS_COLORS:-'di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'}"
 fi
 
-# ENV used by plugins
-################################################################################
-
+# ENV for `zsh-users/zsh-autosuggestions` plugin
 typeset -rgxi ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 typeset -rgxa ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# ENV for `mattmc3/ez-compinit`
 typeset -rgx  ZSH_COMPDUMP="${ZCACHEDIR}/zcompdump"
 
 # Plugins
@@ -88,14 +88,14 @@ antidote load
 # The front-end to your dev env
 # https://mise.jdx.dev/
 if (( ${+commands[mise]} )) && (( ! ${+functions[mise]} )); then
+  # Mise activation itself is not problematic, but its env-hook is as heavy as
+  # the rest of this configuration, LOL
   zsh-defer -c 'source <(command mise activate zsh)'
 fi
 
 # The minimal, blazing-fast, and infinitely customizable prompt.
 # https://starship.rs/
 if (( ${+commands[starship]} )); then
-  # See: https://github.com/starship/starship/issues/2637
-  # source <(command starship init zsh --print-full-init)
   source <(command starship init zsh)
 fi
 
@@ -118,44 +118,11 @@ fi
 autoload -Uz gh-access-token
 autoload -Uz zz
 
-# Location Aliases
+# Location and Command Aliases
 ################################################################################
 
-hash -d guru-overlay=/var/db/repos/guru
-hash -d gentoo-overlay=/var/db/repos/gentoo
-
-# Command Aliases
-################################################################################
-
-# Make standard ls colourful automagically, but don't replace it with LSD
-alias ls='ls --color=auto'
-
-# The next gen ls command
-# https://github.com/lsd-rs/lsd
-if (( ${+commands[lsd]} )); then
-  alias ll='lsd --all -l'
-  alias la='lsd --almost-all'
-else
-  alias ll='ls --color=auto --all --long'
-  alias la='ls --color=auto --almost-all'
-fi
-
-# Git
-alias gbv="git branch --verbose --verbose"
-alias gfp="git fetch --prune"
-alias gri="git rebase --interactive"
-
-# Ruby
-alias be="bundle exec"
-alias bi="bundle install"
-alias bu="bundle update"
-alias bo="bundle open"
-alias ror="bundle exec rails"
-
-# Other tools
-alias om="overmind"
-alias av="aws-vault"
-alias ave="aws-vault exec"
+source "${ZDOTDIR}/zshrc/aliases.zsh"
+source "${ZDOTDIR}/zshrc/binds.zsh"
 
 # Local Overrides
 ################################################################################

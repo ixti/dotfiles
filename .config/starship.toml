@@ -65,7 +65,7 @@ symbol = " "
 style  = "bold yellow"
 
 [python]
-format = " [$symbol$pyenv_prefix($version)([|](black)$virtualenv)]"
+format = ' [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 symbol = " "
 
 [ruby]

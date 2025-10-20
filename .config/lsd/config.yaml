@@ -1,11 +1,5 @@
-classic: false
-
-date: "+%Y-%m-%d %H:%M"
-
+classic:   false
+date:      "+%Y-%m-%d %H:%M"
 hyperlink: never
-
-icons:
-  theme: fancy
-
-sorting:
-  dir-grouping: first
+icons:     { theme: fancy }
+sorting:   { dir-grouping: first }

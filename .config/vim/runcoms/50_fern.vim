@@ -1,9 +1,12 @@
 vim9script
 
-g:fern#disable_default_mappings = 1
-g:fern#hide_cursor              = 1
-g:fern#keepalt_on_edit          = 1
-g:fern#default_hidden           = 0
+g:fern#default_hidden             = 0
+g:fern#disable_default_mappings   = 1
+g:fern#disable_drawer_auto_resize = 0
+g:fern#disable_drawer_hover_popup = 0
+g:fern#drawer_width               = 40
+g:fern#hide_cursor                = 1
+g:fern#keepalt_on_edit            = 1
 
 augroup FernInit
   def ConfigureFern(): void

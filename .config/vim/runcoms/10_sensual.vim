@@ -1,7 +1,5 @@
 vim9script
 
-runtime OPT plugin/sensible.vim
-
 # Set the <Leader> for combo commands
 g:mapleader = ","
 

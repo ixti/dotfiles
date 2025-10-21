@@ -1,9 +1,7 @@
 vim9script
 
-packadd! gruvbox
-
 if exists("g:lightline")
-  let g:lightline.colorscheme = "gruvbox"
+  g:lightline.colorscheme = "gruvbox"
 endif
 
 # Enables italic text. Default: gui 1, term 0
@@ -20,5 +18,5 @@ g:gruvbox_contrast_light = "medium"
 
 set background=dark
 
-syntax enable
+syntax      enable
 colorscheme gruvbox

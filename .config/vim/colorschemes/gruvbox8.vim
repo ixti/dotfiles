@@ -1,7 +1,5 @@
 vim9script
 
-packadd! gruvbox8
-
 if exists("g:lightline")
   g:lightline.colorscheme = "gruvbox8"
 endif
@@ -17,5 +15,5 @@ g:gruvbox_transp_bg = 0
 
 set background=dark
 
-syntax enable
+syntax      enable
 colorscheme gruvbox8_hard

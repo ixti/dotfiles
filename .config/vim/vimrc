@@ -1,23 +1,100 @@
 vim9script
 
-if empty($XDG_CACHE_HOME)  | $XDG_CACHE_HOME  = $HOME .. "/.cache"       | endif
-if empty($XDG_CONFIG_HOME) | $XDG_CONFIG_HOME = $HOME .. "/.config"      | endif
-if empty($XDG_DATA_HOME)   | $XDG_DATA_HOME   = $HOME .. "/.local/share" | endif
-if empty($XDG_STATE_HOME)  | $XDG_STATE_HOME  = $HOME .. "/.local/state" | endif
+if empty($XDG_CACHE_HOME)
+  setenv("XDG_CACHE_HOME", $HOME .. "/.cache")
+endif
 
-set runtimepath^=$XDG_CONFIG_HOME/vim
+if empty($XDG_CONFIG_HOME)
+  setenv("XDG_CONFIG_HOME", $HOME .. "/.config")
+endif
 
-# Setup baseline settings
-runtime init/10_sensual.vim
-runtime init/20_crash_tolerance.vim
-runtime init/50_ale.vim
-runtime init/50_asciidoctor.vim
-runtime init/50_autocmd.vim
-runtime init/50_fern.vim
-runtime init/50_fzf.vim
-runtime init/50_hooks.vim
-runtime init/50_is.vim
-runtime init/50_lightline.vim
-runtime init/50_mappings.vim
-runtime init/50_ruby.vim
-runtime init/50_theme.vim
+if empty($XDG_DATA_HOME)
+  setenv("XDG_DATA_HOME", $HOME .. "/.local/share")
+endif
+
+if empty($XDG_STATE_HOME)
+  setenv("XDG_STATE_HOME", $HOME .. "/.local/state")
+endif
+
+&runtimepath = $XDG_CONFIG_HOME .. "/vim," .. &runtimepath
+
+plug#begin($XDG_CACHE_HOME .. "/vim-plug")
+
+  # Universal set of defaults that (hopefully) everyone can agree on.
+  # https://github.com/tpope/vim-sensible
+  Plug "tpope/vim-sensible"
+
+  # Helps to end certain structures automatically.
+  # https://github.com/tpope/vim-endwise
+  Plug "tpope/vim-endwise"
+
+  # A Git wrapper so awesome, it should be illegal.
+  # https://github.com/tpope/vim-fugitive
+  Plug "tpope/vim-fugitive"
+
+  # GitHub extension for fugitive.
+  # https://github.com/tpope/vim-rhubarb
+  Plug "tpope/vim-rhubarb"
+
+  # Asynchronous Lint Engine.
+  # https://github.com/dense-analysis/ale
+  Plug "dense-analysis/ale"
+
+  # Show a diff using Vim its sign column.
+  # https://github.com/mhinz/vim-signify
+  Plug "mhinz/vim-signify"
+
+  # General purpose asynchronous tree viewer written in Pure Vim script.
+  # https://github.com/lambdalisue/vim-fern
+  Plug "lambdalisue/vim-fern"
+
+  # TODO: Check if there are better alternatives
+  # Incremental search improved - successor of incsearch.vim
+  # https://github.com/haya14busa/is.vim
+  Plug "haya14busa/is.vim"
+
+  # TODO: Check if there are better alternatives
+  # A light and configurable statusline/tabline plugin for Vim.
+  # https://github.com/itchyny/lightline.vim
+  Plug "itchyny/lightline.vim"
+
+  # TODO: Figure out if some can be removed (copied directly from old submodules)
+
+  Plug "vim-ruby/vim-ruby"
+  Plug "tpope/vim-rails"
+  Plug "tpope/vim-git"
+  # Plug junegunn/fzf
+  Plug "junegunn/fzf.vim"
+  Plug "pbogut/fzf-mru.vim"
+  Plug "tpope/vim-commentary"
+  Plug "stephpy/vim-yaml"
+  Plug "aklt/plantuml-syntax"
+  Plug "junegunn/vim-easy-align"
+  Plug "habamax/vim-asciidoctor"
+  Plug "jlcrochet/vim-rbs"
+  Plug "jidn/vim-dbml"
+  Plug "fatih/vim-go"
+  Plug "editorconfig/editorconfig-vim"
+
+  # Color-schemes, ensure they are not loaded by default
+  Plug "lifepillar/vim-gruvbox8",   { "on": [], "as": "colorscheme-gruvbox8" }
+  Plug "gruvbox-community/gruvbox", { "on": [], "as": "colorscheme-gruvbox" }
+
+plug#end()
+
+runtime runcoms/10_sensual.vim
+runtime runcoms/20_crash_tolerance.vim
+runtime runcoms/50_ale.vim
+runtime runcoms/50_asciidoctor.vim
+runtime runcoms/50_autocmd.vim
+runtime runcoms/50_fern.vim
+runtime runcoms/50_fzf.vim
+runtime runcoms/50_hooks.vim
+runtime runcoms/50_is.vim
+runtime runcoms/50_lightline.vim
+runtime runcoms/50_mappings.vim
+runtime runcoms/50_ruby.vim
+
+# Enable colorscheme and configure it
+plug#load("colorscheme-gruvbox8")
+runtime colorschemes/gruvbox8.vim

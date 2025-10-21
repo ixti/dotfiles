@@ -62,8 +62,8 @@ opt.display:append({ "lastline", "truncate" })
 -- Always show signs (LSP/gitsigns)
 opt.signcolumn = "yes"
 
--- Better Markdown/LaTeX display
-opt.conceallevel = 2
+-- Don't conceal anything!!!
+opt.conceallevel = 0
 
 -- Ensure modern color support.
 opt.termguicolors = true

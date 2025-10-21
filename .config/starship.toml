@@ -25,7 +25,7 @@ bash_indicator    = 'bsh'
 zsh_indicator     = 'zsh'
 unknown_indicator = '***'
 style             = 'black'
-disabled          = false
+disabled          = true
 
 [directory]
 style             = 'blue'

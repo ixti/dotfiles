@@ -121,11 +121,6 @@ typeset -gx BAT_THEME="gruvbox-dark"
 typeset -gx CRYFS_NO_UPDATE_CHECK=true
 typeset -gx CRYFS_LOCAL_STATE_DIR="${XDG_DATA_HOME}/cryfs"
 
-# Start or re-use gpg-agent
-if (( ${+commands[gpgconf]} )); then
-  typeset -gx SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-fi
-
 # Local overrides
 ################################################################################
 

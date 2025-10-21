@@ -19,6 +19,9 @@ setopt nobeep              # Disable annoying terminal beep.
 setopt interactivecomments # Allow comments in interactive mode.
 setopt correct             # Try to correct the spelling of commands.
 setopt nocorrectall        # But don't correct arguments.
+setopt promptsubst         # Allow variable expansion in prompts.
+setopt pathscript          # Allow Zsh to locate and execute scripts in $PATH
+                           # when invoked without a full or relative path.
 
 # Auto-completion
 setopt completeinword      # Complete from both ends of a word.
@@ -27,8 +30,8 @@ setopt pathdirs            # Perform path search even on command names with slas
 setopt automenu            # Show completion menu on a successive tab press.
 setopt autolist            # Automatically list choices on ambiguous completion.
 setopt autoparamslash      # If completed parameter is a directory, add a trailing slash.
-unsetopt menucomplete      # Do not autoselect the first completion entry.
-unsetopt flowcontrol       # Disable start/stop characters in shell editor.
+setopt nomenucomplete      # Do not autoselect the first completion entry.
+setopt noflowcontrol       # Disable start/stop characters in shell editor.
 
 # Filename and globbing behavior
 setopt extendedglob        # Enable advanced globbing (e.g., ^, ~, and ** wildcards).
@@ -43,16 +46,26 @@ setopt histignorespace     # Ignore commands prefixed with a space.
 setopt histreduceblanks    # Remove redundant empty lines from history.
 setopt incappendhistory    # Append to history file incrementally (no loss on crash).
 setopt sharehistory        # Share history across multiple Zsh sessions.
+setopt histverify          # Confirm before executing recalled history commands.
+setopt histfcntllock       # Prevents occasional corruption when multiple shells are open.
 
 # Safety and strictness
 setopt noclobber           # Prevent overwriting files with > redirection.
 setopt localoptions        # Make option changes local to functions.
 setopt localtraps          # Make traps local to functions.
 
-# Usability enhancements
-setopt promptsubst         # Allow variable expansion in prompts.
-setopt nohup               # Prevent background jobs from hanging up on logout.
+# Process management
 setopt notify              # Report job status changes immediately.
+setopt nohup               # Prevent background jobs from hanging up on logout.
+setopt nobgnice            # Don't run all background jobs at a lower priority.
+setopt nocheckjobs         # Don't report on jobs when shell exit.
+                           # NOTE: set unhup and unset hup serve different
+                           #       purposes.
+unsetopt hup               # Don't kill jobs on shell exit.
+
+# Debugging
+# setopt sourcetrace         # Print the name of each file as it is sourced.
+# setopt traceparsing        # Show commands as they are parsed and executed.
 
 # Additional ENV (meaningful in the interactive shell only)
 ################################################################################
@@ -71,6 +84,12 @@ typeset -rgxa ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # ENV for `mattmc3/ez-compinit`
 typeset -rgx  ZSH_COMPDUMP="${ZCACHEDIR}/zcompdump"
+
+# Preconfigure ZLE
+################################################################################
+
+# Make URL pasting safer by automatically escaping it
+source "${ZDOTDIR}/zshrc/safer-copy-pasta.zsh"
 
 # Plugins
 ################################################################################
@@ -123,6 +142,7 @@ autoload -Uz zz
 
 source "${ZDOTDIR}/zshrc/aliases.zsh"
 source "${ZDOTDIR}/zshrc/binds.zsh"
+source "${ZDOTDIR}/zshrc/ssh-and-gnupg.zsh"
 
 # Local Overrides
 ################################################################################

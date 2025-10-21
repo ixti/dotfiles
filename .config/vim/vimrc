@@ -48,10 +48,9 @@ plug#begin($XDG_CACHE_HOME .. "/vim-plug")
   # https://github.com/lambdalisue/vim-fern
   Plug "lambdalisue/vim-fern"
 
-  # TODO: Check if there are better alternatives
-  # Incremental search improved - successor of incsearch.vim
-  # https://github.com/haya14busa/is.vim
-  Plug "haya14busa/is.vim"
+  # Enhancing in-buffer search experience
+  # https://github.com/junegunn/vim-slash
+  Plug "junegunn/vim-slash"
 
   # TODO: Check if there are better alternatives
   # A light and configurable statusline/tabline plugin for Vim.
@@ -89,8 +88,8 @@ runtime runcoms/50_asciidoctor.vim
 runtime runcoms/50_autocmd.vim
 runtime runcoms/50_fern.vim
 runtime runcoms/50_fzf.vim
+runtime runcoms/50_slash.vim
 runtime runcoms/50_hooks.vim
-runtime runcoms/50_is.vim
 runtime runcoms/50_lightline.vim
 runtime runcoms/50_mappings.vim
 runtime runcoms/50_ruby.vim

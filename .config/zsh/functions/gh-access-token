@@ -1,35 +1,33 @@
 # vim: ft=zsh
 
-function gh-access-token() {
-  local attr="github"
-  local name="token"
+local attr="github"
+local name="token"
 
-  case "${1:-}" in
-    update)
-      print "Visit <https://github.com/settings/tokens> and create/update token"
+case "${1:-}" in
+  update)
+    print "Visit <https://github.com/settings/tokens> and create/update token"
 
-      "${BROWSER}" "https://github.com/settings/tokens"
+    "${BROWSER}" "https://github.com/settings/tokens"
 
-      print "Please create new token and paste it here..."
+    print "Please create new token and paste it here..."
 
-      secret-tool store --label="Github Private Registries Access Token" "${attr}" "${name}"
+    secret-tool store --label="Github Private Registries Access Token" "${attr}" "${name}"
 
-      gh-access-token setup
+    gh-access-token setup
 
-      return
-      ;;
+    return
+    ;;
 
-    setup)
-      typeset token="$(gh-access-token)"
-      typeset -gx BUNDLE_RUBYGEMS__PKG__GITHUB__COM="x-api-token:${token}"
+  setup)
+    typeset token="$(gh-access-token)"
+    typeset -gx BUNDLE_RUBYGEMS__PKG__GITHUB__COM="x-api-token:${token}"
 
-      return
-      ;;
+    return
+    ;;
 
-    *)
-      secret-tool lookup "${attr}" "${name}"
+  *)
+    secret-tool lookup "${attr}" "${name}"
 
-      return
-      ;;
-  esac
-}
+    return
+    ;;
+esac

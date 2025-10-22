@@ -1,17 +1,16 @@
 # vim: ft=zsh
 
 # zz - just like zi but with fzf
-function zz() {
-  if ! (( ${+commands[zoxide]} )); then
-    print -ru2 "missing dependency: zoxide"
-    return 1
-  fi
 
-  if ! (( ${+commands[fzf]} )); then
-    print -ru2 "missing dependency: fzf"
-    return 1
-  fi
+if ! (( ${+commands[zoxide]} )); then
+  print -ru2 "missing dependency: zoxide"
+  return 1
+fi
 
-  local dir="$(command zoxide query -l | command fzf)"
-  [[ -d "$dir" ]] && cd "$dir"
-}
+if ! (( ${+commands[fzf]} )); then
+  print -ru2 "missing dependency: fzf"
+  return 1
+fi
+
+local dir="$(command zoxide query -l | command fzf)"
+[[ -d "$dir" ]] && cd "$dir"

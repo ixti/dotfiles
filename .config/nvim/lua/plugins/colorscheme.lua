@@ -1,21 +1,28 @@
 -- STABLE
 return {
-  "ellisonleao/gruvbox.nvim",
+  "folke/tokyonight.nvim",
+  lazy     = false,
+  priority = 1000,
 
-  priority = 9000,
+  opts = {
+    style           = "night", -- "storm", "night", "moon", "day"
+    transparent     = false,
+    terminal_colors = true,
 
-  config = function(opts)
-    require("gruvbox").setup({
-      contrast         = "hard",
-      terminal_colors  = true,
-      undercurl        = true,
-      bold             = true,
-      strikethrough    = true,
-      transparent_mode = false,
-      italic           = { comments = true, strings = false },
-    })
+    styles = {
+      comments  = { italic = true },
+      keywords  = { italic = false },
+      functions = { bold = true },
+      variables = {},
+      sidebars  = "dark",
+      floats    = "dark",
+    },
+    sidebars     = { "qf", "help", "neo-tree", "terminal" },
+    lualine_bold = true,
+  },
 
-    vim.o.background = "dark"
-    vim.cmd.colorscheme("gruvbox")
+  config = function(_, opts)
+    require("tokyonight").setup(opts)
+    vim.cmd("colorscheme tokyonight")
   end,
 }

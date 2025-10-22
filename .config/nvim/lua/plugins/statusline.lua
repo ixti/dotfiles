@@ -1,4 +1,3 @@
--- STABLE
 return {
   {
     "nvim-lualine/lualine.nvim",
@@ -10,11 +9,8 @@ return {
     config = function()
       require("lualine").setup({
         options = {
-          icons_enabled        = true,
-          globalstatus         = true,
-          section_separators   = { left = "", right = "" },
-          component_separators = { left = "", right = "" },
-          disabled_filetypes   = { "NvimTree", "neo-tree" },
+          globalstatus       = true,
+          disabled_filetypes = { "NvimTree", "neo-tree" },
         },
 
         tabline = {

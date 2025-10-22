@@ -4,28 +4,19 @@ return {
   ---@type Flash.Config
   opts = {
     modes = {
-      -- Activate Flash automatically during `/` searches
-      search = {
-        enabled = true,
-        highlight = { backdrop = false },
-        jump = {
-          history = true,
-          register = true,
-          nohlsearch = true,
-        },
-      },
+      search = { enabled = false },
 
       -- f, F, t, T enhancements
       char = {
-        enabled = true,
+        enabled     = true,
         jump_labels = true,
-        autohide = true,
+        autohide    = true,
       },
     },
 
     -- Global behavior
     jump = {
-      autojump = true,
+      autojump  = false,
       inclusive = false,
     },
 

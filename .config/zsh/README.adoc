@@ -1,0 +1,11 @@
+= ZSH Configuration
+
+== Completions
+
+Completions are configured to be cached. If you need to reset the cache (after
+installing new commands / functions), you can reset it with:
+
+[source, zsh]
+----
+run-compinit -f
+----

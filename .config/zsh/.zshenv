@@ -76,7 +76,6 @@ typeset -rgx ZSTATEDIR="${ZSTATEDIR:-${XDG_STATE_HOME}/zsh}"
 typeset -rgx HISTFILE="${ZSTATEDIR}/history"
 typeset -rgx HISTSIZE=10000
 typeset -rgx SAVEHIST=10000
-typeset -rgx HIST_STAMPS="yyyy-mm-dd"
 
 # Setup $PATH, and ensure it contains UNIQUE values only
 ################################################################################

@@ -65,7 +65,6 @@ unsetopt hup               # Don't kill jobs on shell exit.
 
 # Debugging
 # setopt sourcetrace         # Print the name of each file as it is sourced.
-# setopt traceparsing        # Show commands as they are parsed and executed.
 
 # Additional ENV (meaningful in the interactive shell only)
 ################################################################################

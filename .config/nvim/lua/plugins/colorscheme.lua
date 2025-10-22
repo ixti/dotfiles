@@ -1,7 +1,10 @@
+-- STABLE
 return {
   "ellisonleao/gruvbox.nvim",
-  priority = 1000,
-  config = function()
+
+  priority = 9000,
+
+  config = function(opts)
     require("gruvbox").setup({
       contrast         = "hard",
       terminal_colors  = true,

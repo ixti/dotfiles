@@ -19,8 +19,7 @@ keymap("n", "<C-n>", "<Cmd>tabnext<CR>", { silent = true })
 
 -- **** Tab management *********************************************************
 
-keymap("n", "<Leader>tt", "<Cmd>tabnew<CR>", { silent = true })
-keymap("n", "<Leader>to", ":tabnew<Space>", { desc = "Open new tab with filename prompt" })
+keymap("n", "<Leader>tt", "<Cmd>tabnew<CR>",   { silent = true })
 keymap("n", "<Leader>tw", "<Cmd>tabnew %<CR>", { silent = true })
 keymap("n", "<Leader>tc", "<Cmd>tabclose<CR>", { silent = true })
 

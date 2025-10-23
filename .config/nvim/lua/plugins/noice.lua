@@ -11,7 +11,7 @@ return {
   opts = {
     cmdline = {
       opts = {
-        position = { row = "95%", col = "50%" },
+        position = { row = "90%", col = "50%" },
       }
     }
   },

@@ -3,6 +3,7 @@ return {
 
   lazy     = false,
   priority = 1000,
+  version  = false,
 
   config = function()
     -- Mock nvim-web-devicons globally so everything uses mini.icons

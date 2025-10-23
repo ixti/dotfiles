@@ -1,0 +1,15 @@
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+
+config-file = config.d/10-disable-window-decorations
+config-file = config.d/50-font-monolisa
+# config-file = config.d/51-font-victor-mono
+
+# Whether to start the window in a maximized state. This setting applies
+# to new windows and does not apply to tabs, splits, etc. However, this setting
+# will apply to all new windows, not just the first one.
+maximize = true
+
+# A theme to use. This can be a built-in theme name, a custom theme
+# name, or an absolute path to a custom theme file.
+theme = light:tokyonight_day,dark:tokyonight_storm

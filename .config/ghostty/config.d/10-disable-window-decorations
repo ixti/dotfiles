@@ -1,0 +1,6 @@
+# Completely disable window decorations
+gtk-titlebar      = false
+window-decoration = false
+gtk-wide-tabs     = false
+gtk-adwaita       = false
+window-theme      = system

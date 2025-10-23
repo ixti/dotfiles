@@ -7,6 +7,10 @@ hash -d gentoo-overlay=/var/db/repos/gentoo
 # Command Aliases
 ################################################################################
 
+# Ask for confirmation when trying to copy/move over existing file
+alias cp="cp -i"
+alias mv="mv -i"
+
 # The next gen ls command
 # https://github.com/lsd-rs/lsd
 if (( ${+commands[lsd]} )); then

@@ -35,11 +35,11 @@ return {
     },
 
     keymaps = {
-      ["<CR>"] = "actions.select",
-      ["q"]    = "actions.close",
-      ["t"]    = { "actions.select", opts = { tab = true }, desc = "Open in new tab" },
-      ["s"]    = { "actions.select", opts = { vertical = true }, desc = "Open in vertical split" },
-      ["S"]    = { "actions.select", opts = { horizontal = true }, desc = "Open in horizontal split" },
+      ["<CR>"]  = { "actions.select", opts = { close = true } },
+      ["t"]     = { "actions.select", opts = { close = true, tab = true },        desc = "Open in new tab" },
+      ["s"]     = { "actions.select", opts = { close = true, vertical = true },   desc = "Open in vertical split" },
+      ["S"]     = { "actions.select", opts = { close = true, horizontal = true }, desc = "Open in horizontal split" },
+      ["q"]     = { "actions.close" },
     },
   },
 
@@ -51,6 +51,7 @@ return {
     local oil = require("oil")
 
     oil.setup(opts)
+
     require("oil-git-status").setup({
       show_ignored = true,
       symbols = {
@@ -67,24 +68,6 @@ return {
           ["?"] = "?",
         },
       },
-    })
-
-    -- Start Oil upon start with no file given
-    vim.api.nvim_create_autocmd("VimEnter", {
-      callback = function()
-        if "" == vim.fn.expand("%") then
-          vim.schedule(oil.open)
-        end
-      end,
-    })
-
-    -- Start Oil on empty tab
-    vim.api.nvim_create_autocmd("TabNewEntered", {
-      callback = function()
-        if "" == vim.bo.buftype and "" == vim.api.nvim_buf_get_name(0) then
-          vim.schedule(oil.open)
-        end
-      end,
     })
   end,
 }

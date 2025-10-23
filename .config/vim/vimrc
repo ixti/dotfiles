@@ -96,4 +96,4 @@ runtime runcoms/50_ruby.vim
 
 # Enable colorscheme and configure it
 plug#load("colorscheme-gruvbox8")
-runtime colorschemes/gruvbox8.vim
+runtime themes/gruvbox8.vim

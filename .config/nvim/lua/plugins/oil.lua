@@ -44,7 +44,7 @@ return {
   },
 
   keys = {
-    { "<Leader>o", "<CMD>Oil<CR>", desc = "Open parent directory" },
+    { "<Leader>o", "<CMD>Oil --float<CR>", desc = "Open parent directory" },
   },
 
   config = function(_, opts)

@@ -60,13 +60,29 @@ opt.colorcolumn = "81"
 opt.display:append({ "lastline", "truncate" })
 
 -- Always show signs (LSP/gitsigns)
-opt.signcolumn = "yes"
+opt.signcolumn = "yes:2"
 
--- Don't conceal anything!!!
+-- Don't conceal anything!!! (like ``` in markdown)
 opt.conceallevel = 0
 
 -- Ensure modern color support.
 opt.termguicolors = true
+
+-- Hide the command line unless needed
+opt.cmdheight = 0
+
+-- Automatically toggle command line visibility
+vim.api.nvim_create_autocmd({ "CmdlineEnter" }, {
+  callback = function()
+    opt.cmdheight = 1
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "CmdlineLeave" }, {
+  callback = function()
+    opt.cmdheight = 0
+  end,
+})
 
 
 -- ****  Command / Search  *****************************************************

@@ -8,8 +8,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        globalstatus       = true,
-        disabled_filetypes = { "NvimTree", "neo-tree" },
+        globalstatus = true,
       },
 
       tabline = {

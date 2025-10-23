@@ -3,6 +3,7 @@ return {
 
   lazy     = false,
   priority = 1000,
+  version  = false,
 
   opts = {
     style        = "night", -- "storm", "night", "moon", "day"
@@ -11,6 +12,7 @@ return {
 
     styles = {
       keywords = { italic = false },
+      floats   = "transparent",
     },
   },
 

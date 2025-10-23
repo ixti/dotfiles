@@ -1,10 +1,14 @@
+-- TODO
 return {
   "stevearc/oil.nvim",
+
   lazy = false,
+
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
+    "nvim-mini/mini.icons",
     "refractalize/oil-git-status.nvim",
   },
+
   opts = {
     default_file_explorer = true,
     view_options = {
@@ -15,9 +19,11 @@ return {
       signcolumn = "yes:2",
     },
   },
+
   keys = {
     { "<Leader>o", "<CMD>Oil<CR>", desc = "Open parent directory" },
   },
+
   config = function(_, opts)
     require("oil").setup(opts)
     require("oil-git-status").setup({

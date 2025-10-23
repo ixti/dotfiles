@@ -1,44 +1,22 @@
 return {
   "folke/flash.nvim",
+
   event = "VeryLazy",
-  ---@type Flash.Config
+
   opts = {
-    modes = {
-      search = { enabled = false },
+    label  = {
+      before  = true,  -- (default: false)
+      after   = false, -- (default: true)
 
-      -- f, F, t, T enhancements
-      char = {
-        enabled     = true,
-        jump_labels = true,
-        autohide    = true,
-      },
-    },
-
-    -- Global behavior
-    jump = {
-      autojump  = false,
-      inclusive = false,
-    },
-
-    highlight = {
-      backdrop = true,
-      matches = true,
-      priority = 5000,
+      -- Can be useful for visualizing Treesitter ranges.
       rainbow = {
-        enabled = true,
-        shade = 5,
-      },
-      groups = {
-        match = "FlashMatch",
-        current = "FlashCurrent",
-        label = "FlashLabel",
-        backdrop = "FlashBackdrop",
+        enabled = true, -- (default: false)
+        shade   = 8,    -- number between 1 and 9 (default: 5)
       },
     },
 
     prompt = {
-      enabled = true,
-      prefix = { { "⚡", "FlashPromptIcon" } },
+      enabled = false, -- (default: true)
     },
   },
 

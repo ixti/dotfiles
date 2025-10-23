@@ -1,4 +1,3 @@
--- STABLE
 return {
   "nvim-neo-tree/neo-tree.nvim",
 
@@ -34,8 +33,4 @@ return {
     sort_case_insensitive = true,
     filesystem            = { use_libuv_file_watcher = true },
   },
-
-  deactivate = function()
-    vim.cmd([[Neotree close]])
-  end,
 }

@@ -1,3 +1,4 @@
+-- TODO
 return {
   -- Linting (replaces ALE)
   {

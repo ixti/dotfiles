@@ -1,8 +1,8 @@
--- TODO
 return {
   "stevearc/oil.nvim",
 
-  lazy = false,
+  lazy     = false,
+  priority = 900,
 
   dependencies = {
     "nvim-mini/mini.icons",
@@ -25,7 +25,9 @@ return {
   },
 
   config = function(_, opts)
-    require("oil").setup(opts)
+    local oil = require("oil")
+
+    oil.setup(opts)
     require("oil-git-status").setup({
       show_ignored = true,
       symbols = {
@@ -42,6 +44,24 @@ return {
           ["?"] = "?",
         },
       },
+    })
+
+    -- Start Oil upon start with no file given
+    vim.api.nvim_create_autocmd("VimEnter", {
+      callback = function()
+        if "" == vim.fn.expand("%") then
+          vim.schedule(oil.open)
+        end
+      end,
+    })
+
+    -- Start Oil on empty tab
+    vim.api.nvim_create_autocmd("TabNewEntered", {
+      callback = function()
+        if "" == vim.bo.buftype and "" == vim.api.nvim_buf_get_name(0) then
+          vim.schedule(oil.open)
+        end
+      end,
     })
   end,
 }

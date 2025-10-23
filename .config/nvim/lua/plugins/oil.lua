@@ -11,12 +11,35 @@ return {
 
   opts = {
     default_file_explorer = true,
+
     view_options = {
       show_hidden   = true,
       natural_order = true,
     },
+
     win_options = {
-      signcolumn = "yes:2",
+      signcolumn  = "yes:2",
+      colorcolumn = "",
+    },
+
+    float = {
+      padding       = 2,
+      max_width     = 0.6,
+      max_height    = 0.4,
+      border        = "rounded",
+
+      win_options = {
+        winblend      = 10,
+        colorcolumn   = "",
+      },
+    },
+
+    keymaps = {
+      ["<CR>"] = "actions.select",
+      ["q"]    = "actions.close",
+      ["t"]    = { "actions.select", opts = { tab = true }, desc = "Open in new tab" },
+      ["s"]    = { "actions.select", opts = { vertical = true }, desc = "Open in vertical split" },
+      ["S"]    = { "actions.select", opts = { horizontal = true }, desc = "Open in horizontal split" },
     },
   },
 

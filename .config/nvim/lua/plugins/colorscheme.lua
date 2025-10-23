@@ -6,9 +6,12 @@ return {
 
   opts = {
     style        = "night", -- "storm", "night", "moon", "day"
-    styles       = { keywords  = { italic = false } },
     sidebars     = { "qf", "help", "neo-tree", "terminal" },
     lualine_bold = true,
+
+    styles = {
+      keywords = { italic = false },
+    },
   },
 
   config = function(_, opts)

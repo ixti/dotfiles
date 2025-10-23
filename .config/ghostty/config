@@ -12,4 +12,4 @@ maximize = true
 
 # A theme to use. This can be a built-in theme name, a custom theme
 # name, or an absolute path to a custom theme file.
-theme = light:tokyonight_day,dark:tokyonight_storm
+theme = light:tokyonight_day,dark:tokyonight_moon

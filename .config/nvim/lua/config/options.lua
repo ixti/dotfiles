@@ -68,22 +68,6 @@ opt.conceallevel = 0
 -- Ensure modern color support.
 opt.termguicolors = true
 
--- Hide the command line unless needed
-opt.cmdheight = 0
-
--- Automatically toggle command line visibility
-vim.api.nvim_create_autocmd({ "CmdlineEnter" }, {
-  callback = function()
-    opt.cmdheight = 1
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "CmdlineLeave" }, {
-  callback = function()
-    opt.cmdheight = 0
-  end,
-})
-
 
 -- ****  Command / Search  *****************************************************
 
@@ -120,6 +104,5 @@ opt.viewoptions:remove("options")
 
 -- ****  Tweaks & Optimizations  ***********************************************
 
-opt.lazyredraw  = true   -- Optimizes macros/redraws
-opt.timeoutlen  = 400    -- Faster keymap recognition
-opt.ttimeoutlen = 10
+opt.timeoutlen  = 400 -- Faster keymap recognition
+opt.ttimeoutlen = 10  -- How long Neovim waits for the rest of an escape sequence

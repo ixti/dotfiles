@@ -11,12 +11,15 @@ hash -d gentoo-overlay=/var/db/repos/gentoo
 alias cp="cp -i"
 alias mv="mv -i"
 
+# Make default ls colourful
+alias ls="ls --color=auto"
+
 # The next gen ls command
 # https://github.com/lsd-rs/lsd
 if (( ${+commands[lsd]} )); then
   alias l="lsd"
 else
-  alias l="ls --color=auto"
+  alias l="ls"
 fi
 
 alias la="l --almost-all"

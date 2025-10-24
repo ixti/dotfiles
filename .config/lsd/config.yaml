@@ -1,5 +1,6 @@
-classic:   false
-date:      "+%Y-%m-%d %H:%M"
-hyperlink: never
-icons:     { theme: fancy }
-sorting:   { dir-grouping: first }
+classic:       false
+date:          "+%Y-%m-%d %H:%M"
+hyperlink:     never
+icons:         { theme: fancy }
+sorting:       { dir-grouping: first }
+symlink-arrow: ->

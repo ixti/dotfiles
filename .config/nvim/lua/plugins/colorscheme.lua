@@ -6,7 +6,7 @@ return {
   version  = false,
 
   opts = {
-    style        = "moon", -- "storm", "night", "moon", "day"
+    style        = "night", -- "storm", "night", "moon", "day"
     sidebars     = { "qf", "help", "neo-tree", "terminal" },
     lualine_bold = true,
 

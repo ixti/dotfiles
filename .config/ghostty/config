@@ -1,9 +1,8 @@
 # Run `ghostty +show-config --default --docs` to view a list of
 # all available config options and their default values.
 
-config-file = config.d/10-disable-window-decorations
-config-file = config.d/50-font-monolisa
-# config-file = config.d/51-font-victor-mono
+config-file = config.d/disable-window-decorations
+config-file = config.d/fonts
 
 # Whether to start the window in a maximized state. This setting applies
 # to new windows and does not apply to tabs, splits, etc. However, this setting

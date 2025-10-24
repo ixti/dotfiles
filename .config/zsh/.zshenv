@@ -77,6 +77,18 @@ typeset -rgx HISTFILE="${ZSTATEDIR}/history"
 typeset -rgx HISTSIZE=10000
 typeset -rgx SAVEHIST=10000
 
+# Setup PNPM
+################################################################################
+
+if [[ -z "${PNPM_HOME:-}" ]]; then
+  typeset -gx PNPM_HOME="${XDG_DATA_HOME}/pnpm"
+
+  if [[ ! -d "$PNPM_HOME" ]]; then
+    print -u2 "Creating missing PNPM directory: $PNPM_HOME"
+    mkdir -p -m 0700 "$PNPM_HOME"
+  fi
+fi
+
 # Setup $PATH, and ensure it contains UNIQUE values only
 ################################################################################
 
@@ -85,6 +97,7 @@ typeset -gU path=(
   "${HOME}/bin"
   "${HOME}/go/bin"
   "${HOME}/.cargo/bin"
+  "${PNPM_HOME}"
   $path
 )
 

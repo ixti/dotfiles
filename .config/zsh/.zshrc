@@ -93,9 +93,9 @@ source "${ZDOTDIR}/zshrc/safer-copy-pasta.zsh"
 # Plugins
 ################################################################################
 
-zstyle ':antidote:*'            'zcompile'   'yes'
-zstyle ':plugin:ez-compinit'    'compstyle'  'prez'
-zstyle ':plugin:ez-compinit'    'use-cache'  'yes'
+zstyle ':antidote:*'          'zcompile'   'yes'
+zstyle ':plugin:ez-compinit'  'compstyle'  'zshzoo'
+zstyle ':plugin:ez-compinit'  'use-cache'  'yes'
 
 source "${ZDOTDIR}/.antidote/antidote.zsh"
 antidote load
@@ -140,7 +140,7 @@ autoload -Uz zz
 ################################################################################
 
 source "${ZDOTDIR}/zshrc/aliases.zsh"
-source "${ZDOTDIR}/zshrc/binds.zsh"
+source "${ZDOTDIR}/zshrc/bindkeys.zsh"
 source "${ZDOTDIR}/zshrc/ssh-and-gnupg.zsh"
 
 # Local Overrides

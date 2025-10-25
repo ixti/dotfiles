@@ -9,7 +9,9 @@ opt.scrolloff = 3
 opt.sidescrolloff = 2
 
 -- This provides smoother horizontal and vertical scrolling in compatible UIs.
-opt.smoothscroll = true
+-- But can (and does) add rendering overhead depending on terminal or GUI frontend
+-- (like kitty or wezterm). Thus, disabling it.
+opt.smoothscroll = false
 
 -- Disbale mouse interactions
 opt.mouse = ""
@@ -35,15 +37,23 @@ opt.softtabstop = -1
 -- Context‑aware indentation.
 opt.smartindent = true
 
+-- Hard-wrap on 81st character by default
+opt.textwidth = 80
+
 
 -- ****  UI / Display  *********************************************************
 
 -- Always show absolute line numbers (easy to toggle to hybrid later).
 opt.number = true
 
--- Highlight current line/column to track cursor location.
-opt.cursorline   = true
-opt.cursorcolumn = true
+-- Highlight current line to track cursor location.
+opt.cursorline = true
+
+-- Do not highlight cursor's column as it leads to huge performance issues ((
+opt.cursorcolumn = false
+
+-- Visually mark 81s column.
+opt.colorcolumn = "81,121"
 
 -- Show non‑printing characters to spot stray spaces/tabs.
 opt.list = true
@@ -51,10 +61,6 @@ opt.listchars = { tab = "> ", trail = "-", extends = ">", precedes = "<", nbsp =
 
 -- Never wrap long lines; horizontal scrolling is clearer for code.
 opt.wrap = false
-
--- Visually mark 80‑character guideline.
-opt.textwidth   = 80
-opt.colorcolumn = "81"
 
 -- Display as much of the final line as possible even if long.
 opt.display:append({ "lastline", "truncate" })

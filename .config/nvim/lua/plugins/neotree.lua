@@ -32,5 +32,10 @@ return {
     popup_border_style    = "rounded",
     sort_case_insensitive = true,
     filesystem            = { use_libuv_file_watcher = true },
+
+    window = {
+      position = "left",
+      width    = "25%",
+    },
   },
 }

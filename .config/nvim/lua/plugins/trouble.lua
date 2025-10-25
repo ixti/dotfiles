@@ -4,6 +4,18 @@ return {
   branch = "main",
   cmd    = "Trouble",
 
+  dependencies = {
+    "folke/noice.nvim",
+  },
+
+  opts = {
+    mode                 = "document_diagnostics",
+    auto_open            = false,
+    auto_close           = true,
+    auto_preview         = false,
+    use_diagnostic_signs = true,
+  },
+
   keys = {
     {
       "<leader>xx",
@@ -16,12 +28,12 @@ return {
      desc = "Buffer Diagnostics (Trouble)",
     },
     {
-      "<leader>cs",
+      "<leader>xs",
       "<cmd>Trouble symbols toggle focus=false<cr>",
       desc = "Symbols (Trouble)",
     },
     {
-      "<leader>cl",
+      "<leader>xl",
       "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
       desc = "LSP Definitions / references / ... (Trouble)",
     },

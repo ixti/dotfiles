@@ -9,10 +9,34 @@ return {
   },
 
   opts = {
-    cmdline = {
-      opts = {
-        position = { row = "90%", col = "50%" },
-      }
-    }
+    lsp = {
+      override = {
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+        ["vim.lsp.util.stylize_markdown"] = true,
+        ["cmp.entry.get_documentation"] = true,
+      },
+    },
+
+    presets = {
+      bottom_search         = true,  -- classic bottom search bar
+      command_palette       = true,  -- blend cmdline and popupmenu
+      long_message_to_split = true,  -- move long messages to a split
+      inc_rename            = false, -- enables an input dialog for inc-rename.nvim
+      lsp_doc_border        = true,  -- add borders around hover docs
+    },
+
+    routes = {
+      {
+        filter = { event = "msg_show", find = "Trouble" },
+        view   = "mini",
+      },
+    },
+
+    views = {
+      split = {
+        size        = "40%",
+        win_options = { colorcolumn = "" },
+      },
+    },
   },
 }

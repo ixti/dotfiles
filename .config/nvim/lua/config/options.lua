@@ -1,114 +1,168 @@
 local opt = vim.opt
 
--- ****  Navigation & Scrolling  ************************************************
+-- ============================================================================
+-- Navigation & Scrolling
+-- ============================================================================
 
--- Keep a few context lines visible above/below cursor while scrolling.
+-- Keep 3 context lines visible above/below cursor while scrolling
+-- Prevents cursor from touching screen edges during vertical navigation
 opt.scrolloff = 3
 
--- Keep small horizontal margin when side‑scrolling long lines.
-opt.sidescrolloff = 2
+-- Keep 6 columns visible when horizontally scrolling long lines
+-- Provides context when navigating lines wider than the window
+opt.sidescrolloff = 6
 
--- This provides smoother horizontal and vertical scrolling in compatible UIs.
--- But can (and does) add rendering overhead depending on terminal or GUI frontend
--- (like kitty or wezterm). Thus, disabling it.
+-- Smooth scrolling can cause performance issues in some terminals (kitty, wezterm)
+-- Disabled to prioritize rendering speed over animation smoothness
 opt.smoothscroll = false
 
--- Disbale mouse interactions
+-- Disable all mouse interactions (keyboard-only workflow)
+-- Remove this line if you prefer mouse support for clicking, scrolling, etc.
 opt.mouse = ""
 
+-- Open vertical splits to the right (instead of left)
+opt.splitright = true
 
--- **** Whitespace & Indentation ***********************************************
+-- Open horizontal splits below (instead of above)
+opt.splitbelow = true
 
--- Use spaces instead of literal tab characters.
+-- ============================================================================
+-- Whitespace & Indentation
+-- ============================================================================
+
+-- Convert Tab key to spaces (prevents mixed indentation issues)
 opt.expandtab = true
 
--- Set visible width of a hard tab; rarely used once expandtab=true.
+-- Width of actual tab character when displayed (only matters for existing tabs)
+-- Set to 4 to match common convention for viewing legacy code
 opt.tabstop = 4
 
--- Two‑space indentation width for coding (fits common Lua/Ruby style).
+-- Number of spaces for each indentation level (affects >>, <<, and auto-indent)
+-- 2 spaces is standard for Lua, Ruby, and many modern languages
 opt.shiftwidth = 2
 
--- Ensure shifting (> or <) snaps to multiples of shiftwidth.
+-- Round indentation to nearest multiple of shiftwidth when using < or >
+-- Prevents uneven indentation when shifting blocks
 opt.shiftround = true
 
--- Follows shiftwidth automatically.
+-- Number of spaces inserted when pressing Tab in insert mode
+-- `-1` means "follow shiftwidth automatically"
 opt.softtabstop = -1
 
--- Context‑aware indentation.
+-- Enable context-aware auto-indentation (recognizes brackets, braces, etc.)
 opt.smartindent = true
 
--- Hard-wrap on 81st character by default
+-- Automatically hard-wrap lines at 80 characters
+-- Common limit for code readability and commit message conventions
 opt.textwidth = 80
 
+-- ============================================================================
+-- UI & Display
+-- ============================================================================
 
--- ****  UI / Display  *********************************************************
-
--- Always show absolute line numbers (easy to toggle to hybrid later).
+-- Show absolute line numbers in the gutter
+-- Can be combined with 'relativenumber' for hybrid numbering
 opt.number = true
 
--- Highlight current line to track cursor location.
+-- Highlight the current line to make cursor location more visible
 opt.cursorline = true
 
--- Do not highlight cursor's column as it leads to huge performance issues ((
+-- Disable column highlighting (can cause severe performance degradation)
 opt.cursorcolumn = false
 
--- Visually mark 81s column.
+-- Draw vertical rulers at columns 81 and 121
+-- 80 is standard limit; 121 marks extended tolerance for long lines
 opt.colorcolumn = "81,121"
 
--- Show non‑printing characters to spot stray spaces/tabs.
+-- Display invisible characters to catch trailing spaces and mixed indentation
 opt.list = true
-opt.listchars = { tab = "> ", trail = "-", extends = ">", precedes = "<", nbsp = "+" }
+opt.listchars = {
+  tab      = "> ", -- Show tabs as "> "
+  trail    = "-",  -- Show trailing spaces as "-"
+  extends  = ">",  -- Show ">" when line continues beyond right edge
+  precedes = "<",  -- Show "<" when line continues beyond left edge
+  nbsp     = "+",  -- Show non-breaking spaces as "+"
+}
 
--- Never wrap long lines; horizontal scrolling is clearer for code.
+-- Disable line wrapping (horizontal scrolling is clearer for code)
+-- Long lines stay on one line; use sidescroll to navigate
 opt.wrap = false
 
--- Display as much of the final line as possible even if long.
+-- When last line is too long to fit, show as much as possible instead of "@@@"
 opt.display:append({ "lastline", "truncate" })
 
--- Always show signs (LSP/gitsigns)
+-- Always show sign column with space for 2 signs (LSP diagnostics, git changes, etc.)
+-- Prevents UI jumping when signs appear/disappear
 opt.signcolumn = "yes:2"
 
--- Don't conceal anything!!! (like ``` in markdown)
+-- Never conceal syntax elements (prevents hiding ``` block surroundings)
+-- Set to 2 or 3 if you want concealment in specific filetypes
 opt.conceallevel = 0
 
--- Ensure modern color support.
+-- Enable 24-bit RGB colors in terminal (required for modern color schemes)
 opt.termguicolors = true
 
-
--- ****  Command / Search  *****************************************************
-
--- Preview substitutions live.
+-- Show live preview of substitutions in a split window
+-- Useful for verifying :%s/foo/bar/g before executing
 opt.inccommand = "split"
 
--- Smart command‑line completion:
---  First <Tab>: list matches & insert longest prefix;
---  Second <Tab>: cycle through full matches.
+-- ============================================================================
+-- Search Behaviour
+-- ============================================================================
+
+-- Make searches case-insensitive by default
+opt.ignorecase = true
+
+-- Override ignorecase when search pattern contains uppercase letters
+-- Enables smart case-sensitive search (e.g., /Foo matches only "Foo", not "foo")
+opt.smartcase = true
+
+-- ============================================================================
+-- Command Line & Completion
+-- ============================================================================
+
+-- Command-line completion behavior:
+--   First <Tab>: show all matches and complete longest common prefix
+--   Subsequent <Tab>: cycle through full matches
 opt.wildmode = { "list:longest", "full" }
 
--- Make search case‑insensitive unless capital letters are used.
-opt.ignorecase = true
-opt.smartcase  = true
-
--- Update asynchronous UI feedback (diagnostics/git) quickly.
-opt.updatetime = 100
-
--- Keep command history depth manageable.
+-- Store up to 1000 commands in history (:history to view)
 opt.history = 1000
 
+-- ============================================================================
+-- Session & File Handling
+-- ============================================================================
 
--- ****  Session / File Handling  **********************************************
+-- Disable swap files (can cause issues with file watchers and git)
+-- Rely on undofile for recovery instead
+opt.swapfile = false
 
-opt.swapfile   = false
-opt.undofile   = true
+-- Enable persistent undo (survives closing and reopening files)
+-- Undo history stored in ~/.local/state/nvim/undo/
+opt.undofile = true
+
+-- Maximum number of changes that can be undone
 opt.undolevels = 10000
 
--- Don’t persist local options/keymaps inside session or view files;
--- avoids polluting project sessions with personal prefs.
+-- Don't save local options/keymaps in session files
+-- Prevents personal preferences from leaking into shared project sessions
 opt.sessionoptions:remove("options")
+
+-- Don't save local options/keymaps in view files (created by mkview)
 opt.viewoptions:remove("options")
 
+-- ============================================================================
+-- Performance & Responsiveness
+-- ============================================================================
 
--- ****  Tweaks & Optimizations  ***********************************************
+-- Trigger CursorHold events and swap file writes after 100ms of inactivity
+-- Faster feedback for LSP diagnostics, git signs, and auto-save plugins
+opt.updatetime = 100
 
-opt.timeoutlen  = 400 -- Faster keymap recognition
-opt.ttimeoutlen = 10  -- How long Neovim waits for the rest of an escape sequence
+-- Time (ms) Neovim waits for next key in a mapped sequence (e.g., <leader>ff)
+-- Lower = faster response but less time to complete multi-key bindings
+opt.timeoutlen = 400
+
+-- Time (ms) Neovim waits for escape sequences from the terminal
+-- Lower = faster escape key response in terminal emulators
+opt.ttimeoutlen = 10

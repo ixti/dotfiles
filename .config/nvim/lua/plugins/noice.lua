@@ -6,6 +6,7 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
+    "smjonas/inc-rename.nvim",
   },
 
   opts = {
@@ -18,11 +19,11 @@ return {
     },
 
     presets = {
-      bottom_search         = true,  -- classic bottom search bar
-      command_palette       = true,  -- blend cmdline and popupmenu
-      long_message_to_split = true,  -- move long messages to a split
-      inc_rename            = false, -- enables an input dialog for inc-rename.nvim
-      lsp_doc_border        = true,  -- add borders around hover docs
+      bottom_search         = true, -- classic bottom search bar
+      command_palette       = true, -- blend cmdline and popupmenu
+      long_message_to_split = true, -- move long messages to a split
+      inc_rename            = true, -- enables an input dialog for inc-rename.nvim
+      lsp_doc_border        = true, -- add borders around hover docs
     },
 
     routes = {

@@ -39,11 +39,11 @@ return {
       -- Keybindings on LSP attach
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(event)
-          local opts   = { noremap = true, silent = true, buffer = event.buf }
-          local keymap = vim.keymap.set
-
-          keymap("n", "<C-w>[",     vim.lsp.buf.hover,  opts)
-          keymap("n", "<leader>//", vim.lsp.buf.rename, opts)
+          vim.keymap.set("n", "K", vim.lsp.buf.hover, {
+            noremap = true,
+            silent  = true,
+            buffer  = event.buf,
+          })
         end,
       })
 

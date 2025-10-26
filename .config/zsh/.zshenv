@@ -133,6 +133,12 @@ typeset -gx GNUPGHOME="${GNUPGHOME:-"${HOME}/.gnupg"}"
 typeset -gx BAT_CONFIG_DIR="${XDG_CONFIG_HOME}/bat"
 typeset -gx BAT_CONFIG_PATH="${BAT_CONFIG_DIR}/config"
 
+# A command-line fuzzy finder
+# https://github.com/junegunn/fzf
+if (( ${+commands[fd]} )); then
+  typeset -gx FZF_DEFAULT_COMMAND="fd --hidden --type l --type f --type d --exclude .git --exclude .cache";
+fi
+
 # https://www.cryfs.org
 typeset -gx CRYFS_NO_UPDATE_CHECK=true
 typeset -gx CRYFS_LOCAL_STATE_DIR="${XDG_DATA_HOME}/cryfs"

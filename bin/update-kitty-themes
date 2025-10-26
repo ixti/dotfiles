@@ -3,14 +3,14 @@
 
 set -euo pipefail
 
-local kitty_home_dir="${XDG_CONFIG_HOME:-"${HOME}/.config"}/kitty"
-local kitty_themes_dir="${kitty_home_dir}/themes"
+kitty_home_dir="${XDG_CONFIG_HOME:-"${HOME}/.config"}/kitty"
+kitty_themes_dir="${kitty_home_dir}/themes"
 
 [[ -d "${kitty_themes_dir}" ]] || mkdir -p "${kitty_themes_dir}"
 
 typeset -a updated_files=()
 
-function sync() {
+sync() {
   print -u2 "* ${1}\n  ↪ ${2}"
 
   if curl --fail -slo "${2}" "${1}"; then
@@ -20,7 +20,7 @@ function sync() {
   fi
 }
 
-function update_kitty_theme() {
+update_kitty_theme() {
   local src="$1"
   local dst="${kitty_themes_dir}/${2:-"$(basename "$src")"}"
 
@@ -50,3 +50,6 @@ if (( ${+commands[yadm]} && ${#updated_files[@]} )); then
     print -u2 "Skipped yadm commit."
   fi
 fi
+
+unset kitty_home_dir kitty_themes_dir
+unset updated_file sync update_kitty_theme

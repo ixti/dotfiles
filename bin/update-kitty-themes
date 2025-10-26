@@ -35,6 +35,8 @@ update_kitty_theme "https://raw.githubusercontent.com/scottmckendry/cyberdream.n
 update_kitty_theme "https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/refs/heads/main/extras/kitty/cyberdream-light.conf"
 
 if (( ${+commands[yadm]} && ${#updated_files[@]} )); then
+  yadm add "${updated_files[@]}"
+
   print -u2 "\nDo you want to commit the following updated Kitty themes to yadm?"
 
   for f in "${updated_files[@]}"; do

@@ -40,6 +40,8 @@ if (( ${+commands[bat]} )); then
 fi
 
 if (( ${+commands[yadm]} && ${#updated_files[@]} )); then
+  yadm add "${updated_files[@]}"
+
   print -u2 "\nDo you want to commit the following updated Bat themes to yadm?"
 
   for f in "${updated_files[@]}"; do

@@ -72,17 +72,21 @@ unsetopt hup               # Don't kill jobs on shell exit.
 # A themeable LS_COLORS generator with a rich filetype datebase.
 # https://github.com/sharkdp/vivid/
 if (( ${+commands[vivid]} )); then
-  typeset -gx LS_COLORS="$(vivid generate tokyonight-night)"
+  vivid_theme="tokyonight-night"
+  vivid_cache="${XDG_CACHE_HOME}/vivid/${vivid_theme}"
+
+  if [[ -r "${vivid_cache}" ]]; then
+    typeset -gx LS_COLORS="$(<"${vivid_cache}")"
+  else
+    [[ -d "${vivid_cache:h}" ]] || mkdir "${vivid_cache:h}"
+    typeset -gx LS_COLORS="$(vivid generate "${vivid_theme}" | tee "${vivid_cache}")"
+  fi
+
+  unset vivid_theme vivid_cache
 else
-  typeset -gx LS_COLORS="${LS_COLORS:-'di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'}"
+  # Standard style used by default for 'list-colors'
+  typeset -gx LS_COLORS=${LS_COLORS:-'di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'}
 fi
-
-# ENV for `zsh-users/zsh-autosuggestions` plugin
-typeset -rgxi ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-typeset -rgxa ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-# ENV for `mattmc3/ez-compinit`
-typeset -rgx  ZSH_COMPDUMP="${ZCACHEDIR}/zcompdump"
 
 # Preconfigure ZLE
 ################################################################################
@@ -92,6 +96,13 @@ source "${ZDOTDIR}/zshrc/safer-copy-pasta.zsh"
 
 # Plugins
 ################################################################################
+
+# ENV for `zsh-users/zsh-autosuggestions` plugin
+typeset -rgxi ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+typeset -rgxa ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# ENV for `mattmc3/ez-compinit`
+typeset -rgx  ZSH_COMPDUMP="${ZCACHEDIR}/zcompdump"
 
 zstyle ':antidote:*'          'zcompile'   'yes'
 zstyle ':plugin:ez-compinit'  'compstyle'  'zshzoo'

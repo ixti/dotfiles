@@ -125,9 +125,13 @@ typeset -gx PAGER=${PAGER:-/usr/bin/less}
 # Less is more, LOL
 typeset -gx LESSHISTFILE="${XDG_CACHE_HOME}/lesshst"
 
+# GnuPG
+typeset -gx GNUPGHOME="${GNUPGHOME:-"${HOME}/.gnupg"}"
+
 # A cat(1) clone with wings.
 # https://github.com/sharkdp/bat/
-typeset -gx BAT_THEME="gruvbox-dark"
+typeset -gx BAT_CONFIG_DIR="${XDG_CONFIG_HOME}/bat"
+typeset -gx BAT_CONFIG_PATH="${BAT_CONFIG_DIR}/config"
 
 # https://www.cryfs.org
 typeset -gx CRYFS_NO_UPDATE_CHECK=true

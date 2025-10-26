@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+set -euxo pipefail
+
+THEMES_DIR="$(realpath "${0:A:h}/../themes")"
+
+function refresh_tokyonight() {
+  local filename="tokyonight_$1.tmTheme"
+  local upstream="https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/${filename}"
+
+  curl -slfo "${THEMES_DIR}/${filename}" "${upstream}"
+}
+
+refresh_tokyonight "day"
+refresh_tokyonight "storm"
+refresh_tokyonight "moon"
+refresh_tokyonight "night"
+
+bat cache --build

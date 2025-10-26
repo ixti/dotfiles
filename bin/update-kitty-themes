@@ -1,0 +1,52 @@
+#!/usr/bin/env zsh
+# Kitty theme auto-updater with interactive yadm commit
+
+set -euo pipefail
+
+local kitty_home_dir="${XDG_CONFIG_HOME:-"${HOME}/.config"}/kitty"
+local kitty_themes_dir="${kitty_home_dir}/themes"
+
+[[ -d "${kitty_themes_dir}" ]] || mkdir -p "${kitty_themes_dir}"
+
+typeset -a updated_files=()
+
+function sync() {
+  print -u2 "* ${1}\n  ↪ ${2}"
+
+  if curl --fail -slo "${2}" "${1}"; then
+    if (( ${+commands[yadm]} )) && [[ -n "$(yadm status --porcelain "${2}")" ]]; then
+      updated_files+=("${2}")
+    fi
+  fi
+}
+
+function update_kitty_theme() {
+  local src="$1"
+  local dst="${kitty_themes_dir}/${2:-"$(basename "$src")"}"
+
+  sync "${src}" "${dst}"
+}
+
+update_kitty_theme "https://raw.githubusercontent.com/folke/tokyonight.nvim/refs/heads/main/extras/kitty/tokyonight_day.conf"
+update_kitty_theme "https://raw.githubusercontent.com/folke/tokyonight.nvim/refs/heads/main/extras/kitty/tokyonight_storm.conf"
+update_kitty_theme "https://raw.githubusercontent.com/folke/tokyonight.nvim/refs/heads/main/extras/kitty/tokyonight_moon.conf"
+update_kitty_theme "https://raw.githubusercontent.com/folke/tokyonight.nvim/refs/heads/main/extras/kitty/tokyonight_night.conf"
+update_kitty_theme "https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/refs/heads/main/extras/kitty/cyberdream.conf"
+update_kitty_theme "https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/refs/heads/main/extras/kitty/cyberdream-light.conf"
+
+if (( ${+commands[yadm]} && ${#updated_files[@]} )); then
+  print -u2 "\nDo you want to commit the following updated Kitty themes to yadm?"
+
+  for f in "${updated_files[@]}"; do
+    print -u2 "  ${f}"
+  done
+
+  print -u2 -n "> Commit these files? (y/N): "
+  read -r reply
+
+  if [[ "$reply" =~ ^[Yy] ]]; then
+    yadm commit "${updated_files[@]}" -m "chore(kitty): Update themes"
+  else
+    print -u2 "Skipped yadm commit."
+  fi
+fi

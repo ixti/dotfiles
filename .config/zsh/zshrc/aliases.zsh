@@ -7,9 +7,10 @@ hash -d gentoo-overlay=/var/db/repos/gentoo
 # Command Aliases
 ################################################################################
 
-# Ask for confirmation when trying to copy/move over existing file
+# Ask for confirmation when trying to modify existing files
 alias cp="cp -i"
 alias mv="mv -i"
+alias rm="rm -i"
 
 # Make default ls colourful
 alias ls="ls --color=auto"

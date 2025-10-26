@@ -8,6 +8,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
+        theme        = "auto",
         globalstatus = true,
       },
 

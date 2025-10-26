@@ -1,6 +1,6 @@
 local M = {}
 
-function M.git_root_or_fallback(fallback)
+function M.git_root_or_cwd()
   local cwd = vim.fn.getcwd()
 
   local ok, git2 = pcall(require, "fugit2.core.git2")
@@ -18,7 +18,7 @@ function M.git_root_or_fallback(fallback)
     end
   end
 
-  return fallback or cwd
+  return cwd
 end
 
 return M

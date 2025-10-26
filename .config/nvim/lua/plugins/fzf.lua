@@ -20,10 +20,10 @@ return {
     })
 
     -- Git and recent files picker similar to your Telescope custom function using fugit2.nvim
-    local git_root_or_fallback = require("utils.fs").git_root_or_fallback
+    local git_root_or_cwd = require("utils.fs").git_root_or_cwd
 
     local function fzf_recent_files()
-      fzf.oldfiles({ cwd = git_root_or_fallback() })
+      fzf.oldfiles({ cwd = git_root_or_cwd() })
     end
 
     local keymap = vim.keymap.set

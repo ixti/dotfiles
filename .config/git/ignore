@@ -18,3 +18,7 @@ lefthook-local.yml
 
 # Ignore Claude's settings
 **/.claude/settings.local.json
+
+# https://mise.jdx.dev/configuration.html
+mise.local.toml
+mise.*.local.toml

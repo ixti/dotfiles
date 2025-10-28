@@ -13,21 +13,7 @@ return {
       },
 
       tabline = {
-        lualine_a = { "tabs" },
-        lualine_b = {
-          {
-            "windows",
-
-            filetype_names = {
-              ["neo-tree"] = "NeoTree",
-            },
-
-            disabled_buftypes = {
-              "quickfix",
-              "prompt",
-            },
-          },
-        },
+        lualine_a = { { "tabs", mode = 2 } },
         lualine_y = { "diff", "diagnostics" },
         lualine_z = { "branch" },
       },

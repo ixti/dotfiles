@@ -35,6 +35,10 @@ return {
     },
 
     views = {
+      notify = {
+        timeout = 1000, -- 1 second in ms
+      },
+
       split = {
         size        = "40%",
         win_options = { colorcolumn = "" },

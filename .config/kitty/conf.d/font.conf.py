@@ -21,7 +21,7 @@ disable_ligatures cursor
 
 try:
     family_map = all_fonts_map().get("family_map", {})
-    familie    = set(map(str.lower, family_map.keys()))
+    families   = set(map(str.lower, family_map.keys()))
 
     if "monolisa variable" in families:
         print(MONO_LISA_VARIABLE)

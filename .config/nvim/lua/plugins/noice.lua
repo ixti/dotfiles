@@ -32,13 +32,17 @@ return {
         filter = { event = "msg_show", find = "Trouble" },
         view   = "mini",
       },
+      {
+        filter = { event = "msg_show", find = "search_count" },
+        opts   = { skip = true },
+      },
+      {
+        filter = { event = "msg_show", kind = "" },
+        opts   = { skip = true },
+      },
     },
 
     views = {
-      notify = {
-        timeout = 1000, -- 1 second in ms
-      },
-
       split = {
         size        = "40%",
         win_options = { colorcolumn = "" },

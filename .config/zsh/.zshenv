@@ -140,7 +140,7 @@ typeset -gx LESSHISTFILE="${XDG_CACHE_HOME}/lesshst"
 ## Mise-en-place -- Development environment setup tool
 ## https://mise.jdx.dev/
 
-typeset -gX MISE_ENV=development
+typeset -gx MISE_ENV=development
 
 ## PNPM -- https://pnpm.io/
 ## https://pnpm.io/

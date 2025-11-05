@@ -3,11 +3,6 @@
 [include]
 	path = config.delta
 
-[user]
-	name = Alexey Zapparov
-	email = alexey@zapparov.com
-	signingkey = 02CCA92C4FA05B80
-
 [init]
 	defaultBranch = main
 
@@ -16,10 +11,10 @@
 
 [push]
 	default = current
-	signed = if-asked
+	signed  = if-asked
 
 [pull]
-	ff = only
+	ff     = only
 	rebase = merges
 
 [rerere]
@@ -29,12 +24,13 @@
 	sort = committerdate
 
 [alias]
-	ci = commit
-	co = checkout
-	st = status
+	ci  = commit
+	co  = checkout
+	st  = status
 	sup = submodule update
+
 [filter "lfs"]
-	process = git-lfs filter-process
+	process  = git-lfs filter-process
 	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+	clean    = git-lfs clean -- %f
+	smudge   = git-lfs smudge -- %f

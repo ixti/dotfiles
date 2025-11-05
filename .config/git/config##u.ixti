@@ -1,0 +1,9 @@
+# vim: noexpandtab ts=4 sw=4 ft=gitconfig
+
+[include]
+	path = "config##default"
+
+[user]
+	name       = Alexey Zapparov
+	email      = alexey@zapparov.com
+	signingkey = 02CCA92C4FA05B80

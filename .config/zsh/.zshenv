@@ -77,18 +77,6 @@ typeset -rgx HISTFILE="${ZSTATEDIR}/history"
 typeset -rgx HISTSIZE=10000
 typeset -rgx SAVEHIST=10000
 
-# Setup PNPM
-################################################################################
-
-if [[ -z "${PNPM_HOME:-}" ]]; then
-  typeset -gx PNPM_HOME="${XDG_DATA_HOME}/pnpm"
-
-  if [[ ! -d "$PNPM_HOME" ]]; then
-    print -u2 "Creating missing PNPM directory: $PNPM_HOME"
-    mkdir -p -m 0700 "$PNPM_HOME"
-  fi
-fi
-
 # Setup $PATH, and ensure it contains UNIQUE values only
 ################################################################################
 
@@ -122,26 +110,49 @@ typeset -gx PAGER=${PAGER:-/usr/bin/less}
 # App-specific ENV vars
 ################################################################################
 
-# Less is more, LOL
-typeset -gx LESSHISTFILE="${XDG_CACHE_HOME}/lesshst"
+## BAT -- A cat(1) clone with wings.
+## https://github.com/sharkdp/bat/
 
-# GnuPG
-typeset -gx GNUPGHOME="${GNUPGHOME:-"${HOME}/.gnupg"}"
-
-# A cat(1) clone with wings.
-# https://github.com/sharkdp/bat/
 typeset -gx BAT_CONFIG_DIR="${XDG_CONFIG_HOME}/bat"
 typeset -gx BAT_CONFIG_PATH="${BAT_CONFIG_DIR}/config"
 
-# A command-line fuzzy finder
-# https://github.com/junegunn/fzf
+## CRYFS -- Cryptographic filesystem for the cloud
+## https://www.cryfs.org
+
+typeset -gx CRYFS_NO_UPDATE_CHECK=true
+typeset -gx CRYFS_LOCAL_STATE_DIR="${XDG_DATA_HOME}/cryfs"
+
+## FZF -- A command-line fuzzy finder
+## https://github.com/junegunn/fzf/
+
 if (( ${+commands[fd]} )); then
   typeset -gx FZF_DEFAULT_COMMAND="fd --hidden --type l --type f --type d --exclude .git --exclude .cache";
 fi
 
-# https://www.cryfs.org
-typeset -gx CRYFS_NO_UPDATE_CHECK=true
-typeset -gx CRYFS_LOCAL_STATE_DIR="${XDG_DATA_HOME}/cryfs"
+## GnuPG
+
+typeset -gx GNUPGHOME="${GNUPGHOME:-"${HOME}/.gnupg"}"
+
+## Less is more
+
+typeset -gx LESSHISTFILE="${XDG_CACHE_HOME}/lesshst"
+
+## Mise-en-place -- Development environment setup tool
+## https://mise.jdx.dev/
+
+typeset -gX MISE_ENV=development
+
+## PNPM -- https://pnpm.io/
+## https://pnpm.io/
+
+if [[ -z "${PNPM_HOME:-}" ]]; then
+  typeset -gx PNPM_HOME="${XDG_DATA_HOME}/pnpm"
+
+  if [[ ! -d "$PNPM_HOME" ]]; then
+    print -u2 "Creating missing PNPM directory: $PNPM_HOME"
+    mkdir -p -m 0700 "$PNPM_HOME"
+  fi
+fi
 
 # Local overrides
 ################################################################################

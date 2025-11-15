@@ -35,7 +35,7 @@ return {
 
     window = {
       position = "left",
-      width    = "25%",
+      width    = "20%",
     },
   },
 }

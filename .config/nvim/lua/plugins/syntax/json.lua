@@ -1,0 +1,3 @@
+return {
+  "elzr/vim-json",
+}

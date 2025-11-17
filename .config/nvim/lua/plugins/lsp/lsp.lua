@@ -61,6 +61,11 @@ return {
               "node_modules/.*",
               "vendor/.*",
             },
+            addonSettings = {
+              ["Ruby LSP Rails"] = {
+                enablePendingMigrationsPrompt = false,
+              },
+            },
           },
         },
       })

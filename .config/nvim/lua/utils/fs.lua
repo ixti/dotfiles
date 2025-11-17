@@ -1,24 +1,26 @@
 local M = {}
 
-function M.git_root_or_cwd()
-  local cwd = vim.fn.getcwd()
+function ensure_lazy_loaded(name)
+  local lazy    = require("lazy")
+  local plugins = lazy.plugins()
 
-  local ok, git2 = pcall(require, "fugit2.core.git2")
-
-  if not ok then
-    vim.notify("fugit2.core.git2 not found", vim.log.levels.WARN)
-
-    -- Potentially can fallback to pure git calls, but as I'm using Fugit2 atm
-    -- not going to build wunderwaffle for no good reason.
-  else
-    local repo, _ = git2.Repository.open(cwd, true)
-
-    if repo then
-      return repo:workdir()
-    end
+  if plugins[name] and plugins[name].loaded then
+    return
   end
 
-  return cwd
+  lazy.load({ plugins = { name } })
+end
+
+function M.git_root_or_cwd()
+  ensure_lazy_loaded("vim-fugitive")
+
+  local git_root = vim.fn.FugitiveWorkTree()
+
+  if git_root and git_root ~= "" then
+    return git_root
+  end
+
+  return vim.fn.getcwd()
 end
 
 return M

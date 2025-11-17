@@ -9,38 +9,17 @@ return {
     "nvim-mini/mini.icons",
   },
 
-  keys = {
-    {
-      "<leader>e",
-      function ()
-        Snacks.picker.explorer()
-      end,
-      desc = "File Explorer",
-    },
-    {
-      "<leader>ff",
-      function()
-        Snacks.picker.smart()
-      end,
-      desc = "Smart Find Files",
-    },
-    {
-      "<leader>fb",
-      function()
-        Snacks.picker.buffers()
-      end,
-      desc = "Find buffers",
-    },
-    {
-      "<leader>fg",
-      function()
-        Snacks.picker.grep()
-      end,
-      desc = "Grep",
-    },
+  opts = {
+    indent       = { enabled = true },
+    explorer     = { enabled = true, replace_netrw = true, trash = true },
+    notifier     = { enabled = true, timeout = 3000 },
+    statuscolumn = { enabled = true },
   },
 
-  config = function(_, opts)
-    require("snacks").setup(opts)
-  end,
+  keys = {
+    { "<leader>e",  function () Snacks.explorer.reveal() end, desc = "File Explorer" },
+    { "<leader>ff", function() Snacks.picker.smart() end,     desc = "Smart Find Files" },
+    { "<leader>fb", function() Snacks.picker.buffers() end,   desc = "Find buffers" },
+    { "<leader>fg", function() Snacks.picker.grep() end,      desc = "Grep" },
+  },
 }

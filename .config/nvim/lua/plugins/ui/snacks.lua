@@ -1,5 +1,3 @@
-local git_root_or_cwd = require("utils.fs").git_root_or_cwd
-
 return {
   "folke/snacks.nvim",
 
@@ -15,14 +13,14 @@ return {
     {
       "<leader>e",
       function ()
-        Snacks.picker.explorer({ cwd = git_root_or_cwd() })
+        Snacks.picker.explorer()
       end,
       desc = "File Explorer",
     },
     {
       "<leader>ff",
       function()
-        Snacks.picker.smart({ cwd = git_root_or_cwd() })
+        Snacks.picker.smart()
       end,
       desc = "Smart Find Files",
     },
@@ -36,7 +34,7 @@ return {
     {
       "<leader>fg",
       function()
-        Snacks.picker.grep({ cwd = require("utils.fs").git_root_or_cwd() })
+        Snacks.picker.grep()
       end,
       desc = "Grep",
     },

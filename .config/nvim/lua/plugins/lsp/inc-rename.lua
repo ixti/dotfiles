@@ -1,8 +1,6 @@
 return {
   "smjonas/inc-rename.nvim",
 
-  opts = {},
-
   config = function(_, opts)
     require("inc_rename").setup(opts)
 

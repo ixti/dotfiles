@@ -27,29 +27,6 @@ return {
       desc = "Smart Find Files",
     },
     {
-      "<leader>fm",
-      function()
-        local cwd   = git_root_or_cwd()
-        local items = {}
-
-        for _, file in ipairs(vim.v.oldfiles or {}) do
-          if file and vim.startswith(file, cwd) then
-
-            table.insert(items, {
-              file = file,
-              text = vim.fn.fnamemodify(file, ":~:."),
-            })
-          end
-        end
-
-        Snacks.picker.pick({
-          items = items,
-          title = "Recent Files"
-        })
-      end,
-      desc = "Recent Files",
-    },
-    {
       "<leader>fb",
       function()
         Snacks.picker.buffers()

@@ -7,6 +7,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-mini/mini.icons",
+    "folke/which-key.nvim",
   },
 
   opts = {
@@ -45,8 +46,6 @@ return {
     { "<leader>..", function() Snacks.scratch() end,                    desc = "Toggle Scratch Buffer (snacks.nvim)" },
     { "<leader>./", function() Snacks.scratch.select() end,             desc = "Select Scratch Buffer (snacks.nvim)" },
 
-    { "<leader>zz", function() Snacks.zen() end,                        desc = "Toggle Scope Focus Mode (snacks.nvim)" },
-
     -- TODO: Figure out if I'm ever gonan use these
 
     { "<leader>bd", function() Snacks.bufdelete() end,                  desc = "Delete Buffer (snacks.nvim)" },
@@ -61,5 +60,8 @@ return {
       function() Snacks.notifier.show_history() end,
       {}
     )
+
+    Snacks.toggle.zen():map("<leader>zz")
+    Snacks.toggle.dim():map("<leader>zd")
   end,
 }

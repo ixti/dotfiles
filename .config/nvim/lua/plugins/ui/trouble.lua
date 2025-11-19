@@ -4,10 +4,6 @@ return {
   branch = "main",
   cmd    = "Trouble",
 
-  dependencies = {
-    "folke/noice.nvim",
-  },
-
   opts = {
     mode                 = "document_diagnostics",
     auto_open            = false,

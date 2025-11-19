@@ -11,13 +11,25 @@ return {
   },
 
   opts = {
-    indent       = { enabled = true },
-    notifier     = { enabled = true, timeout = 1000 },
+    input        = { enabled = true },
     statuscolumn = { enabled = true },
+
+    indent = {
+      enabled = true
+    },
 
     explorer = {
       replace_netrw = true,
       trash         = true,
+    },
+
+    notifier = {
+      enabled = true,
+      timeout = 1000,
+    },
+
+    picker = {
+      ui_select = true,
     },
 
     styles = {

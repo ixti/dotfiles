@@ -1,19 +1,14 @@
 return {
   "saghen/blink.cmp",
 
-  dependencies = {
-    "L3MON4D3/LuaSnip",
-    "rafamadriz/friendly-snippets",
-  },
-
   ---@module "blink.cmp"
   ---@type blink.cmp.Config
   opts = {
     keymap  = { preset = "default" },
     fuzzy   = { implementation = "prefer_rust" },
 
-    snippets = {
-      preset = "luasnip",
+    sources = {
+      default = { "lsp", "path", "buffer" },
     },
 
     -- UI Customization
@@ -25,4 +20,6 @@ return {
 
     signature = { window = { border = "rounded" } },
   },
+
+  opts_extend = { "sources.default" },
 }

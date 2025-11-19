@@ -40,7 +40,7 @@ return {
 
     vim.lsp.enable("rubocop")
 
-    for _, server in ipairs({ "gopls", "ts_ls", "vacuum" }) do
+    for _, server in ipairs({ "gopls", "stimulus_ls", "ts_ls", "vacuum" }) do
       vim.lsp.config(server, { capabilities = capabilities })
       vim.lsp.enable(server)
     end

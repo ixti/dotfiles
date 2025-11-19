@@ -1,3 +1,0 @@
-return {
-  "stephpy/vim-yaml",
-}

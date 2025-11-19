@@ -1,3 +1,0 @@
-return {
-  "cespare/vim-toml",
-}

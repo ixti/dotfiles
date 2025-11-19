@@ -17,8 +17,9 @@ return {
       automatic_enable = false,
       ensure_installed = {
         "gopls",
-        "ruby_lsp",
         "rubocop",
+        "ruby_lsp",
+        "stimulus_ls",
         "ts_ls",
         "vacuum",
       },

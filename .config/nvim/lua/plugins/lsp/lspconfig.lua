@@ -58,6 +58,11 @@ return {
           function() Snacks.picker.lsp_definitions() end,
           opts({ desc = "Goto Definition (snacks.nvim)" })
         )
+
+        keymap("n", "<leader>rn",
+          function() require("live-rename").rename() end,
+          opts({ desc = "LSP Rename (live-rename.nvim)" })
+        )
       end,
     })
   end,

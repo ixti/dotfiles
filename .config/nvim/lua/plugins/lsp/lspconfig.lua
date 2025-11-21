@@ -54,7 +54,10 @@ return {
         keymap("n", "K",          vim.lsp.buf.hover,       opts({ desc = "Preview (LSP)" }))
         keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts({ desc = "Code Actions (LSP)" }))
 
-        keymap("n", "<C-]>", function() Snacks.picker.lsp_definitions() end,      opts({ desc = "Goto Definition (snacks.nvim)" }))
+        keymap("n", "<C-]>",
+          function() Snacks.picker.lsp_definitions() end,
+          opts({ desc = "Goto Definition (snacks.nvim)" })
+        )
       end,
     })
   end,

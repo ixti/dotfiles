@@ -6,37 +6,57 @@ return {
   config = function()
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+    -- *** Config Overrides ****************************************************
+
     vim.lsp.config("ruby_lsp", {
-      capabilities = capabilities,
+      cmd = { "bundle", "exec", "ruby-lsp" },
 
       init_options = {
-        enabledFeatures = { diagnostics = false }, -- Disable RuboCop diagnostics
-        formatter       = "auto",
-      },
+        addonSettings = {
+          ["Ruby LSP Rails"] = {
+            enablePendingMigrationsPrompt = false,
+          },
+        },
 
-      settings = {
-        rubyLsp = {
-          excludePattern = {
-            "tmp/.*",
-            "log/.*",
-            "node_modules/.*",
-            "vendor/.*",
-          },
-          addonSettings = {
-            ["Ruby LSP Rails"] = {
-              enablePendingMigrationsPrompt = false,
-            },
-          },
+        enabledFeatures = {
+          diagnostics = false, -- Disable RuboCop diagnostics
+        },
+
+        excludedGems = {
+          "rubocop",
+        },
+
+        excludedPatterns = {
+          "tmp/**",
+          "log/**",
+          "spec/**",
+          "**/node_modules/**",
+          "**/vendor/**",
         },
       },
     })
 
-    vim.lsp.enable("ruby_lsp")
+    vim.lsp.config("rubocop", {
+      cmd = { "bundle", "exec", "rubocop", "--lsp" },
+    })
 
-    for _, server in ipairs({ "rubocop", "gopls", "stimulus_ls", "ts_ls", "vacuum" }) do
+    -- *** Enabled LSP Servers *************************************************
+
+    local enabled_servers = {
+      "gopls",
+      "rubocop",
+      "ruby_lsp",
+      "stimulus_ls",
+      "ts_ls",
+      "vacuum",
+    }
+
+    for _, server in ipairs(enabled_servers) do
       vim.lsp.config(server, { capabilities = capabilities })
       vim.lsp.enable(server)
     end
+
+    -- *** Key Mappings ********************************************************
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group    = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),

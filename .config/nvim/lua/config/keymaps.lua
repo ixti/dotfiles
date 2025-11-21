@@ -1,8 +1,7 @@
-local editor = require("utils.editor")
 local keymap = vim.keymap.set
 
 -- <C‑L>: clear search highlighting & refresh diffs.
-keymap("n", "<C-l>", editor.clear_search_highlight_and_refresh_diff, {
+keymap("n", "<C-l>", require("utils.editor").clear_search_highlight_and_refresh_diff, {
   silent = true,
   desc   = "Clear search highlights / refresh diff"
 })
@@ -33,8 +32,10 @@ keymap("v", "<", "<gv", { silent = true })
 -- **** Disable arrow keys in normal and insert modes **************************
 
 for _, mode in ipairs({ "n", "i" }) do
-  keymap(mode, "<Up>", "<Nop>",    { silent = true })
-  keymap(mode, "<Down>", "<Nop>",  { silent = true })
-  keymap(mode, "<Left>", "<Nop>",  { silent = true })
-  keymap(mode, "<Right>", "<Nop>", { silent = true })
+  local opts = { silent = true }
+
+  keymap(mode, "<Up>",    "<Nop>", opts)
+  keymap(mode, "<Down>",  "<Nop>", opts)
+  keymap(mode, "<Left>",  "<Nop>", opts)
+  keymap(mode, "<Right>", "<Nop>", opts)
 end

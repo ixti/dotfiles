@@ -10,7 +10,6 @@ function M.clear_search_highlight_and_refresh_diff()
     vim.cmd.diffupdate()
   end
 
-  -- Redraw the screen (same as pressing Ctrl‑L)
   vim.cmd.redraw()
 end
 

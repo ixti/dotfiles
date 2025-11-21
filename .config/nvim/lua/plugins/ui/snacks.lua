@@ -11,12 +11,9 @@ return {
   },
 
   opts = {
+    indent       = { enabled = true },
     input        = { enabled = true },
     statuscolumn = { enabled = true },
-
-    indent = {
-      enabled = true
-    },
 
     explorer = {
       replace_netrw = true,
@@ -42,10 +39,11 @@ return {
   keys = {
     { "<leader>e",  function() Snacks.explorer() end,                   desc = "File Explorer (snacks.nvim)" },
 
-    { "<leader>ff", function() Snacks.picker.files() end,               desc = "Find Files (snacks.nvim)" },
+    { "<leader>ff", function() Snacks.picker.smart() end,               desc = "Smart Find Files (snacks.nvim)" },
+    { "<leader>fF", function() Snacks.picker.files() end,               desc = "Find Files (snacks.nvim)" },
     { "<leader>fb", function() Snacks.picker.buffers() end,             desc = "Find buffers (snacks.nvim)" },
     { "<leader>fg", function() Snacks.picker.grep() end,                desc = "Grep (snacks.nvim)" },
-    { "<leader>fm", function() Snacks.picker.smart() end,               desc = "Smart Find Files (snacks.nvim)" },
+    { "<leader>fm", function() Snacks.picker.marks() end,               desc = "Marks (snacks.nvim)" },
 
     { "<leader>fc", function() Snacks.picker.command_history() end,     desc = "Command History (snacks.nvim)" },
     { "<leader>fC", function() Snacks.picker.commands() end,            desc = "Commands (snacks.nvim)" },

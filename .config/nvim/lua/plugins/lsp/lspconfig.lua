@@ -34,22 +34,18 @@ return {
 
     vim.lsp.enable("ruby_lsp")
 
-    vim.lsp.config("rubocop", {
-      capabilities = capabilities,
-    })
-
-    vim.lsp.enable("rubocop")
-
-    for _, server in ipairs({ "gopls", "stimulus_ls", "ts_ls", "vacuum" }) do
+    for _, server in ipairs({ "rubocop", "gopls", "stimulus_ls", "ts_ls", "vacuum" }) do
       vim.lsp.config(server, { capabilities = capabilities })
       vim.lsp.enable(server)
     end
 
     vim.api.nvim_create_autocmd("LspAttach", {
-      callback = function(args)
-        local bufnr  = args.buf
-
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
+      callback = function(event)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, {
+          noremap = true,
+          silent  = true,
+          buffer  = event.buf,
+        })
       end,
     })
   end,

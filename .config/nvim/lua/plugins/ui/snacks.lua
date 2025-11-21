@@ -65,11 +65,9 @@ return {
   config = function(_, opts)
     require("snacks").setup(opts)
 
-    vim.api.nvim_create_user_command(
-      "Notifications",
-      function() Snacks.notifier.show_history() end,
-      {}
-    )
+    vim.api.nvim_create_user_command("Notifications", function()
+      Snacks.notifier.show_history()
+    end, {})
 
     Snacks.toggle.zen():map("<leader>zz")
     Snacks.toggle.dim():map("<leader>zd")

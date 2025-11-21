@@ -106,6 +106,9 @@ opt.termguicolors = true
 -- Useful for verifying :%s/foo/bar/g before executing
 opt.inccommand = "split"
 
+-- Default border style of floating windows
+opt.winborder = "rounded"
+
 -- ============================================================================
 -- Search Behaviour
 -- ============================================================================

@@ -22,12 +22,10 @@ keymap("n", "<Leader>tt", "<Cmd>tabnew<CR>",   { silent = true })
 keymap("n", "<Leader>tw", "<Cmd>tabnew %<CR>", { silent = true })
 keymap("n", "<Leader>tc", "<Cmd>tabclose<CR>", { silent = true })
 
-
 -- **** Visual shifting (stay in Visual mode) **********************************
 
 keymap("v", ">", ">gv", { silent = true })
 keymap("v", "<", "<gv", { silent = true })
-
 
 -- **** Disable arrow keys in normal and insert modes **************************
 

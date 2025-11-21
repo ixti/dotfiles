@@ -10,9 +10,8 @@ return {
       capabilities = capabilities,
 
       init_options = {
-        enabledFeatures = {
-          diagnostics = false, -- Disable RuboCop diagnostics
-        },
+        enabledFeatures = { diagnostics = false }, -- Disable RuboCop diagnostics
+        formatter       = "auto",
       },
 
       settings = {
@@ -40,12 +39,22 @@ return {
     end
 
     vim.api.nvim_create_autocmd("LspAttach", {
+      group    = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
       callback = function(event)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, {
-          noremap = true,
-          silent  = true,
-          buffer  = event.buf,
-        })
+        local keymap = vim.keymap.set
+
+        local function opts(overrides)
+          return vim.tbl_extend(
+            "force",
+            { noremap = true, silent = true, buffer = event.buf },
+            overrides or {}
+          )
+        end
+
+        keymap("n", "K",          vim.lsp.buf.hover,       opts({ desc = "Preview (LSP)" }))
+        keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts({ desc = "Code Actions (LSP)" }))
+
+        keymap("n", "<C-]>", function() Snacks.picker.lsp_definitions() end,      opts({ desc = "Goto Definition (snacks.nvim)" }))
       end,
     })
   end,

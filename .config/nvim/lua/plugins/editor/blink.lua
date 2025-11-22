@@ -10,7 +10,7 @@ return {
     fuzzy   = { implementation = "prefer_rust" },
 
     sources = {
-      default = { "lsp", "path", "buffer" },
+      default = { "lsp", "path", "buffer", "omni" },
     },
 
     -- UI Customization

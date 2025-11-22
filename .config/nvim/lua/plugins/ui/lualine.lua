@@ -30,16 +30,14 @@ return {
 
       tabline = {
         lualine_a = { { "tabs", mode = 2 } },
-        lualine_y = {
-          { "diff", source = diff_source },
-          "diagnostics",
-        },
-        lualine_z = { "branch" },
+        lualine_x = { { "diff", source = diff_source } },
+        lualine_y = { "diagnostics" },
+        lualine_z = { { "lsp_status", symbols = { separator = "  " } } },
       },
 
       sections = {
         lualine_a = { "mode" },
-        lualine_b = {},
+        lualine_b = { "branch" },
         lualine_c = { { "filename", path = 1 } },
         lualine_x = { "encoding", "fileformat", "filetype" },
         lualine_y = { "progress" },

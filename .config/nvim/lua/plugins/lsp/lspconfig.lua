@@ -3,58 +3,41 @@ return {
 
   event = { "BufReadPre", "BufNewFile" },
 
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+  },
+
   config = function()
-    local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-    -- *** Config Overrides ****************************************************
-
-    vim.lsp.config("ruby_lsp", {
-      cmd = { "bundle", "exec", "ruby-lsp" },
-
-      init_options = {
-        addonSettings = {
-          ["Ruby LSP Rails"] = {
-            enablePendingMigrationsPrompt = false,
-          },
-        },
-
-        enabledFeatures = {
-          diagnostics = false, -- Disable RuboCop diagnostics
-        },
-
-        excludedGems = {
-          "rubocop",
-        },
-
-        excludedPatterns = {
-          "tmp/**",
-          "log/**",
-          "spec/**",
-          "**/node_modules/**",
-          "**/vendor/**",
-        },
-      },
+    -- Set capabilities to all LSP servers
+    vim.lsp.config("*", {
+      capabilities = require("blink.cmp").get_lsp_capabilities()
     })
 
-    vim.lsp.config("rubocop", {
-      cmd = { "bundle", "exec", "rubocop", "--lsp" },
+    -- *** Enable Language Servers *********************************************
+
+    local maybe_enable = require("utils.lsp").maybe_enable
+
+    maybe_enable("rubocop", {
+      check = { "bundle", "show", "rubocop" },
+      warn  = "Rubocop not found, try: `bundle add rubocop`",
     })
 
-    -- *** Enabled LSP Servers *************************************************
+    maybe_enable("ruby_lsp", {
+      check = { "ruby-lsp", "--version" },
+      warn  = "ruby-lsp not found, try: `gem install ruby-lsp`",
+    })
 
-    local enabled_servers = {
-      "gopls",
-      "rubocop",
-      "ruby_lsp",
-      "stimulus_ls",
-      "ts_ls",
-      "vacuum",
-    }
+    maybe_enable("ts_ls", {
+      check = { "typescript-language-server", "--version" },
+      warn  = "Typescript language server not found, \z
+               try: `npm i -g typescript-language-server`",
+    })
 
-    for _, server in ipairs(enabled_servers) do
-      vim.lsp.config(server, { capabilities = capabilities })
-      vim.lsp.enable(server)
-    end
+    maybe_enable("gopls", {
+      check = { "gopls", "version" },
+      warn  = "Go language server not found, \z
+               try: `o install golang.org/x/tools/gopls@latest`",
+    })
 
     -- *** Key Mappings ********************************************************
 

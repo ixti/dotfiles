@@ -1,10 +1,10 @@
 return {
-  "nvim-mini/mini.comment",
+  "nvim-mini/mini.surround",
 
   version = false,
   event   = { "BufReadPost", "BufNewFile" },
 
   config = function()
-    require("mini.comment").setup()
+    require("mini.surround").setup()
   end
 }

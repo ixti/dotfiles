@@ -1,4 +1,3 @@
--- NOTE: Don't use Mason to install the `ruby-lsp`.
 return {
   init_options = {
     addonSettings = {

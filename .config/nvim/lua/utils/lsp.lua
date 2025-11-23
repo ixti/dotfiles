@@ -1,24 +1,21 @@
 local M = {}
-local J = require("plenary.job")
 
 local registered_servers = {}
 
-local function tail(tbl, offset)
-  local slice = {}
-
-  for i = offset, #tbl do
-    table.insert(slice, tbl[i])
-  end
-
-  return slice
-end
+---@class MaybeEnableOpts
+--- If the given command exists with non-zero status, LSP won't be enabled
+--- and a warning (see below) will be shown instead.
+---@field check table
+--- Warning message to show when check command fails.
+---@field warn string
+--- List of filetypes to attach LSP server lazy-enable to.
+--- If left as `nil`, will use corresponding server's filetypes.
+---@field filetypes table|nil
 
 --- Conditionally enable an LSP server after checking prerequisites
---- @param server string LSP server name
---- @param opts table Options with
----   `check` (command array, e.g. `{"bundle", "show", "rubocop"}`),
----   `warn` (warning message with short how to fix instructions),
----   `filetypes` (array of filetype patterns).
+---
+---@param server string LSP server name
+---@param opts MaybeEnableOpts
 function M.maybe_enable(server, opts)
   if not server then
     vim.notify("Invalid server for maybe_enable", vim.log.levels.ERROR)
@@ -29,7 +26,7 @@ function M.maybe_enable(server, opts)
 
   if not opts or not opts.check or #opts.check == 0 then
     vim.notify(
-      "Invalid opts for maybe_enable",
+      "Missing check command for maybe_enable",
       vim.log.levels.ERROR,
       { title = title }
     )
@@ -61,46 +58,56 @@ function M.maybe_enable(server, opts)
         end
       end
 
-      local command = opts.check[1]
-      local args    = tail(opts.check, 2)
-
-      local function warn_missing()
+      local function warn_missing(err)
         local message = opts.warn
+        local details = vim.trim(tostring(err))
 
         if not message then
           message = string.format("Check failed: %s", table.concat(opts.check, " "))
         end
 
-        vim.notify_once(message, vim.log.levels.WARN, { title = title })
+        if details:match("%S") then
+          vim.notify(
+            string.format("%s\n\n> %s", message, details),
+            vim.log.levels.DEBUG,
+            { title = title, timeout = 5000 }
+          )
+        end
+
+        vim.notify_once(
+          message,
+          vim.log.levels.WARN,
+          { title = title, timeout = 5000 }
+        )
       end
 
-      if vim.fn.executable(command) == 0 then
-        warn_missing()
-        return
-      end
+      xpcall(
+        function()
+          vim.system(opts.check, { stderr = true, stdout = false }, function(out)
+            vim.schedule(function()
+              if out.code ~= 0 then
+                warn_missing(out.stderr)
+                return
+              end
 
-      J:new({
-        command = command,
-        args    = args,
-        on_exit = function(_, status)
-          vim.schedule(function()
-            if status ~= 0 then
-              warn_missing()
-              return
-            end
+              local ok, err = pcall(vim.lsp.enable, server)
 
-            local ok, err = pcall(vim.lsp.enable, server)
-
-            if not ok then
-              vim.notify(
-                string.format("Failed to enable: %s", err),
-                vim.log.levels.ERROR,
-                { title = title }
-              )
-            end
+              if not ok then
+                vim.notify(
+                  string.format("Failed to enable: %s", err),
+                  vim.log.levels.ERROR,
+                  { title = title, timeout = 5000 }
+                )
+              end
+            end)
           end)
         end,
-      }):start()
+        function(err)
+          vim.schedule(function()
+            warn_missing(err)
+          end)
+        end
+      )
     end
   })
 end

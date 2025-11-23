@@ -22,11 +22,15 @@ return {
 
     notifier = {
       enabled = true,
-      timeout = 1000,
+      timeout = 1500,
     },
 
     picker = {
       ui_select = true,
+
+      sources = {
+        luasnip = require("snacks.picker.source.luasnip"),
+      },
     },
 
     styles = {
@@ -52,6 +56,8 @@ return {
 
     { "<leader>fd", function() Snacks.picker.diagnostics_buffer() end,  desc = "Buffer Diagnostics (snacks.nvim)" },
     { "<leader>fD", function() Snacks.picker.diagnostics() end,         desc = "Diagnostics (snacks.nvim)" },
+
+    { "<leader>fs", function() Snacks.picker.luasnip() end,             desc = "LuaSnip (snacks.nvim)" },
 
     { "<leader>..", function() Snacks.scratch() end,                    desc = "Toggle Scratch Buffer (snacks.nvim)" },
     { "<leader>./", function() Snacks.scratch.select() end,             desc = "Select Scratch Buffer (snacks.nvim)" },

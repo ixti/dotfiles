@@ -47,11 +47,9 @@ function M.maybe_enable(server, opts)
 
   vim.api.nvim_create_autocmd("FileType", {
     pattern  = (opts.filetypes or (vim.lsp.config[server] or {}).filetypes),
-    callback = function()
-      local bufnr = vim.api.nvim_get_current_buf()
-
-      if bufnr then
-        for _, client in pairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+    callback = function(event)
+      if event.buf then
+        for _, client in pairs(vim.lsp.get_clients({ bufnr = event.buf })) do
           if client.name == server then
             return
           end

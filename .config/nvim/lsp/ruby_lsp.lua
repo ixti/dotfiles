@@ -6,10 +6,6 @@ return {
       },
     },
 
-    enabledFeatures = {
-      diagnostics = false, -- Disable RuboCop diagnostics
-    },
-
     excludedGems = {
       "rubocop",
     },

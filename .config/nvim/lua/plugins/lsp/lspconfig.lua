@@ -17,14 +17,15 @@ return {
 
     local maybe_enable = require("utils.lsp").maybe_enable
 
-    maybe_enable("rubocop", {
-      check = { "bundle", "show", "rubocop" },
-      warn  = "Rubocop not found, try: `bundle add rubocop`",
-    })
-
     maybe_enable("ruby_lsp", {
-      check = { "ruby-lsp", "--version" },
-      warn  = "ruby-lsp not found, try: `gem install ruby-lsp`",
+      check   = { "ruby-lsp", "--version" },
+      warn    = "ruby-lsp not found, try: `gem install ruby-lsp`",
+      on_fail = function()
+        maybe_enable("rubocop", {
+          check = { "bundle", "show", "rubocop" },
+          warn  = "Rubocop not found, try: `bundle add rubocop`",
+        })
+      end
     })
 
     maybe_enable("ts_ls", {
@@ -56,6 +57,11 @@ return {
 
         keymap("n", "K",          vim.lsp.buf.hover,       opts({ desc = "Preview (LSP)" }))
         keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts({ desc = "Code Actions (LSP)" }))
+
+        keymap({ "n", "v" }, "<leader>cf",
+          vim.lsp.buf.format,
+          opts({ desc = "Format Code (LSP)" })
+        )
 
         keymap("n", "<C-]>",
           function() Snacks.picker.lsp_definitions() end,

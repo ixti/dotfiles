@@ -29,11 +29,7 @@ keymap("v", "<", "<gv", { silent = true })
 
 -- **** Disable arrow keys in normal and insert modes **************************
 
-for _, mode in ipairs({ "n", "i" }) do
-  local opts = { silent = true }
-
-  keymap(mode, "<Up>",    "<Nop>", opts)
-  keymap(mode, "<Down>",  "<Nop>", opts)
-  keymap(mode, "<Left>",  "<Nop>", opts)
-  keymap(mode, "<Right>", "<Nop>", opts)
-end
+keymap({ "n", "i" }, "<Up>",    "<Nop>", { silent = true })
+keymap({ "n", "i" }, "<Down>",  "<Nop>", { silent = true })
+keymap({ "n", "i" }, "<Left>",  "<Nop>", { silent = true })
+keymap({ "n", "i" }, "<Right>", "<Nop>", { silent = true })

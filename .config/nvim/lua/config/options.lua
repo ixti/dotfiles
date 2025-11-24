@@ -60,9 +60,10 @@ opt.textwidth = 80
 -- UI & Display
 -- ============================================================================
 
--- Show absolute line numbers in the gutter
--- Can be combined with 'relativenumber' for hybrid numbering
-opt.number = true
+-- Show absolute line numbers in the gutter on the current line,
+-- and relative numbers before/after it.
+opt.number         = true
+opt.relativenumber = true
 
 -- Highlight the current line to make cursor location more visible
 opt.cursorline = true

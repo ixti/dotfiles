@@ -10,7 +10,14 @@ return {
     fuzzy   = { implementation = "prefer_rust" },
 
     sources = {
-      default = { "lsp", "path", "buffer", "omni" },
+      default   = { "lsp", "path", "buffer", "omni" },
+      providers = {
+        lsp = {
+          name      = "LSP",
+          module    = "blink.cmp.sources.lsp",
+          fallbacks = {}, -- always show buffer, even when LSP is available
+        },
+      },
     },
 
     -- UI Customization
@@ -20,7 +27,10 @@ return {
       documentation = { window = { border = "rounded" } },
     },
 
-    signature = { window = { border = "rounded" } },
+    signature = {
+      enabled = false,
+      window  = { border = "rounded" },
+    },
   },
 
   opts_extend = { "sources.default" },

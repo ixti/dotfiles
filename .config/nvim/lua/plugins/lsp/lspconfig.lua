@@ -19,25 +19,32 @@ return {
 
     maybe_enable("ruby_lsp", {
       check   = { "ruby-lsp", "--version" },
-      warn    = "ruby-lsp not found, try: `gem install ruby-lsp`",
+      warn    = "ruby-lsp not found.\n\z- try: `gem install ruby-lsp`",
       on_fail = function()
         maybe_enable("rubocop", {
           check = { "bundle", "show", "rubocop" },
-          warn  = "Rubocop not found, try: `bundle add rubocop`",
+          warn  = "Rubocop not found.\n\z- try: `bundle add rubocop`",
         })
       end
     })
 
     maybe_enable("ts_ls", {
       check = { "typescript-language-server", "--version" },
-      warn  = "Typescript language server not found, \z
-               try: `npm i -g typescript-language-server`",
+      warn  = "Typescript language server not found.\n\z
+               - try: `npm i -g typescript-language-server`",
+    })
+
+    maybe_enable("denols", {
+      check = { "deno", "lsp", "--help" },
+      warn  = "Deno not found.\n\z
+               - try: `mise use deno`\n\z
+               - or: `sudo emerge dev-lang/deno-bin`",
     })
 
     maybe_enable("gopls", {
       check = { "gopls", "version" },
-      warn  = "Go language server not found, \z
-               try: `o install golang.org/x/tools/gopls@latest`",
+      warn  = "Go language server not found.\n\z
+               - try: `go install golang.org/x/tools/gopls@latest`",
     })
 
     -- *** Key Mappings ********************************************************

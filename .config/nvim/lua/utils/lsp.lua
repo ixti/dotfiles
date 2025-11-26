@@ -1,6 +1,6 @@
 local M = {}
 
----@type table
+---@type table<string, boolean>
 local registered_servers = {}
 
 local CHECK_OPTIONS = {
@@ -71,40 +71,31 @@ function M.maybe_enable(server, opts)
     end
 
     if details:match("%S") then
-      vim.notify(
-        string.format("%s\n\n> %s", message, details),
-        vim.log.levels.DEBUG,
-        { title = title }
-      )
+      vim.notify(details, vim.log.levels.DEBUG, { title = title })
     end
 
-    vim.notify(
-      message,
-      vim.log.levels.WARN,
-      { title = title }
-    )
-
-    on_fail()
+    vim.notify(message, vim.log.levels.WARN, { title = title })
   end
 
   xpcall(
     function()
-      vim.system(opts.check, CHECK_OPTIONS, function(out)
+      vim.system(opts.check, vim.tbl_extend("force", CHECK_OPTIONS, { cwd = vim.loop.cwd() }), function(out)
         vim.schedule(function()
           if out.code ~= 0 then
             warn_missing(out.stderr)
+            on_fail()
             return
           end
 
           local ok, err = pcall(vim.lsp.enable, server)
 
           if not ok then
-            on_fail()
             vim.notify(
               string.format("Failed to enable: %s", err),
               vim.log.levels.ERROR,
               { title = title }
             )
+            on_fail()
           end
         end)
       end)
@@ -112,6 +103,7 @@ function M.maybe_enable(server, opts)
     function(err)
       vim.schedule(function()
         warn_missing(err)
+        on_fail()
       end)
     end
   )

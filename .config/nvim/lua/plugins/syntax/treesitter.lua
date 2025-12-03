@@ -6,6 +6,10 @@ return {
 
   build  = ":TSUpdate",
 
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  },
+
   config = function()
     require("nvim-treesitter").install({
       "bash",
@@ -53,7 +57,9 @@ return {
 
     vim.api.nvim_create_autocmd("FileType", {
       callback = function()
-        pcall(vim.treesitter.start)
+        if pcall(vim.treesitter.start) then
+          vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+        end
       end,
     })
   end,

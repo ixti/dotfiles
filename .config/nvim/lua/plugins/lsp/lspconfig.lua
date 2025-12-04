@@ -15,37 +15,20 @@ return {
 
     -- *** Enable Language Servers *********************************************
 
-    local maybe_enable = require("utils.lsp").maybe_enable
+    -- Ruby LSP: `gem install ruby-lsp`
+    vim.lsp.enable("ruby_lsp")
 
-    maybe_enable("ruby_lsp", {
-      check   = { "ruby-lsp", "--version" },
-      warn    = "ruby-lsp not found.\n\z- try: `gem install ruby-lsp`",
-      on_fail = function()
-        maybe_enable("rubocop", {
-          check = { "bundle", "show", "rubocop" },
-          warn  = "Rubocop not found.\n\z- try: `bundle add rubocop`",
-        })
-      end
-    })
+    -- Rubycop LSP: `bundle add rubocop`
+    vim.lsp.enable("rubocop")
 
-    maybe_enable("ts_ls", {
-      check = { "typescript-language-server", "--version" },
-      warn  = "Typescript language server not found.\n\z
-               - try: `npm i -g typescript-language-server`",
-    })
+    -- Typescript LSP: `npm i -g typescript-language-server`
+    vim.lsp.enable("ts_ls")
 
-    maybe_enable("denols", {
-      check = { "deno", "lsp", "--help" },
-      warn  = "Deno not found.\n\z
-               - try: `mise use deno`\n\z
-               - or: `sudo emerge dev-lang/deno-bin`",
-    })
+    -- Deno LSP: `mise use deno` or `sudo emerge dev-lang/deno-bin`
+    vim.lsp.enable("denols")
 
-    maybe_enable("gopls", {
-      check = { "gopls", "version" },
-      warn  = "Go language server not found.\n\z
-               - try: `go install golang.org/x/tools/gopls@latest`",
-    })
+    -- Go LSP: `go install golang.org/x/tools/gopls@latest`
+    vim.lsp.enable("gopls")
 
     -- *** Key Mappings ********************************************************
 

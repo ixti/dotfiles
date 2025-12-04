@@ -6,6 +6,11 @@ return {
       },
     },
 
+    enabledFeatures = {
+      diagnostics = false,
+      formatting  = false,
+    },
+
     excludedGems = {
       "rubocop",
     },
@@ -17,5 +22,8 @@ return {
       "**/node_modules/**",
       "**/vendor/**",
     },
+
+    formatter = "none",
+    linters   = {},
   },
 }

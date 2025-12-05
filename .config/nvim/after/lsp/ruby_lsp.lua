@@ -1,4 +1,8 @@
 return {
+  cmd_env = {
+    RUBY_YJIT_ENABLE = "1",
+  },
+
   init_options = {
     addonSettings = {
       ["Ruby LSP Rails"] = {

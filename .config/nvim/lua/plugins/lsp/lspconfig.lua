@@ -18,9 +18,6 @@ return {
     -- Ruby LSP: `gem install ruby-lsp`
     vim.lsp.enable("ruby_lsp")
 
-    -- Rubycop LSP: `bundle add rubocop`
-    vim.lsp.enable("rubocop")
-
     -- Typescript LSP: `npm i -g typescript-language-server`
     vim.lsp.enable("ts_ls")
 

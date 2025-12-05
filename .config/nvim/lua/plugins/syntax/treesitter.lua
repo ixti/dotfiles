@@ -1,17 +1,3 @@
---- Only use Tree-sitter indentation for languages where it's known to work well.
---- Other filetypes will use their default indentexpr (often better for Ruby, HTML, etc.)
----@type string[]
-local USE_TS_INDENT_FOR = {
-  "go",
-  "javascript",
-  "json",
-  "jsx",
-  "lua",
-  "python",
-  "typescript",
-  "tsx",
-}
-
 return {
   "nvim-treesitter/nvim-treesitter",
 
@@ -75,9 +61,7 @@ return {
         if pcall(vim.treesitter.start, event.buf) then
           local bo = vim.bo[event.buf]
 
-          if vim.list_contains(USE_TS_INDENT_FOR, bo.filetype) then
-            bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
-          end
+          bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
         end
       end,
     })

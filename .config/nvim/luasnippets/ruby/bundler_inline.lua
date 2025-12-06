@@ -12,7 +12,7 @@ return {
         "  source \"https://gem.coop\"",
         "",
       }),
-      t({ "", "  gem \"" }), i(1, "debug"), t("\""),
+      t({ "", "  " }), i(0),
       t({ "", "end" }),
     }
   )

@@ -5,5 +5,5 @@ return {
     "nvim-lua/plenary.nvim",
   },
 
-  event = { "BufReadPost", "BufNewFile" },
+  event = { "VeryLazy" },
 }

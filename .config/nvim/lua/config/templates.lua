@@ -29,5 +29,6 @@ local function register_template(pattern, filename)
   })
 end
 
-register_template("*_spec.rb", "ruby/rspec.rb")
+-- Order in less specific to more specific pattern
 register_template("*.rb",      "ruby.rb")
+register_template("*_spec.rb", "ruby/rspec.rb")

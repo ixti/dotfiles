@@ -33,9 +33,6 @@ update_bat_theme() {
   sync "${src}" "${dst}"
 }
 
-update_bat_theme "https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/refs/heads/main/extras/textmate/cyberdream.tmTheme"
-update_bat_theme "https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/refs/heads/main/extras/textmate/cyberdream-light.tmTheme"
-
 for variant in "${NIGHTFOX_VARIANTS[@]}"; do
   update_bat_theme "https://raw.githubusercontent.com/EdenEast/nightfox.nvim/refs/heads/main/extra/${variant}/${variant}.tmTheme"
 done

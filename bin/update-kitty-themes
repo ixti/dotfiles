@@ -33,9 +33,6 @@ update_kitty_theme() {
   sync "${src}" "${dst}"
 }
 
-update_kitty_theme "https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/refs/heads/main/extras/kitty/cyberdream.conf"
-update_kitty_theme "https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/refs/heads/main/extras/kitty/cyberdream-light.conf"
-
 for variant in "${NIGHTFOX_VARIANTS[@]}"; do
   update_kitty_theme \
     "https://raw.githubusercontent.com/EdenEast/nightfox.nvim/refs/heads/main/extra/${variant}/kitty.conf" \

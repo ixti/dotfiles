@@ -41,8 +41,6 @@ update_vivid_theme "https://raw.githubusercontent.com/sharkdp/vivid/refs/heads/m
 update_vivid_theme "https://raw.githubusercontent.com/sharkdp/vivid/refs/heads/master/themes/tokyonight-storm.yml"
 update_vivid_theme "https://raw.githubusercontent.com/sharkdp/vivid/refs/heads/master/themes/tokyonight-moon.yml"
 update_vivid_theme "https://raw.githubusercontent.com/sharkdp/vivid/refs/heads/master/themes/tokyonight-night.yml"
-update_vivid_theme "https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/refs/heads/main/extras/vivid/cyberdream.yml"
-update_vivid_theme "https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/refs/heads/main/extras/vivid/cyberdream-light.yml"
 
 rm -rf "${vivid_cache_dir}"
 

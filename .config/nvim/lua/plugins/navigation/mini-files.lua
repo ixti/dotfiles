@@ -9,7 +9,7 @@ return {
 
   keys = {
     {
-      "<leader>fe",
+      "<leader>e",
       function() require("mini.files").open() end,
       desc = "File Crawler (mini.files)",
     },

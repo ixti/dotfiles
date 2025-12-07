@@ -37,7 +37,7 @@ return {
   },
 
   keys = {
-    { "<leader>e",  function() Snacks.explorer() end,                   desc = "File Explorer (snacks.nvim)" },
+    { "<leader>fe", function() Snacks.explorer() end,                   desc = "File Explorer (snacks.nvim)" },
 
     { "<leader>ff", function() Snacks.picker.smart() end,               desc = "Smart Find Files (snacks.nvim)" },
     { "<leader>fF", function() Snacks.picker.files() end,               desc = "Find Files (snacks.nvim)" },

@@ -3,43 +3,59 @@
 
 set -euo pipefail
 
-kitty_home_dir="${XDG_CONFIG_HOME:-"${HOME}/.config"}/kitty"
-kitty_themes_dir="${kitty_home_dir}/themes"
+NIGHTFOX_VARIANTS=(carbonfox dawnfox dayfox duskfox nightfox nordfox terafox)
+TOKYONIGHT_VARIANTS=(day storm moon night)
 
-[[ -d "${kitty_themes_dir}" ]] || mkdir -p "${kitty_themes_dir}"
+_xdg_config_dir="${XDG_CONFIG_HOME:-"${HOME}/.config"}"
+_kitty_config_dir="${KITTY_CONFIG_DIRECTORY:-"${_xdg_config_dir}/kitty"}"
 
-typeset -a updated_files=()
+KITTY_THEMES_DIR="${_kitty_config_dir}/themes"
+unset _xdg_config_dir _kitty_config_dir
+
+[[ -d "${KITTY_THEMES_DIR}" ]] || mkdir -p "${KITTY_THEMES_DIR}"
+
+typeset -a UPDATED_FILES=()
 
 sync() {
   print -u2 "* ${1}\n  ↪ ${2}"
 
   if curl --fail -slo "${2}" "${1}"; then
-    if (( ${+commands[yadm]} )) && [[ -n "$(yadm status --porcelain "${2}")" ]]; then
-      updated_files+=("${2}")
+    if (( ${+commands[yadm]} )) && [[ -n "$(yadm status --porcelain -uall "${2}")" ]]; then
+      UPDATED_FILES+=("${2}")
     fi
   fi
 }
 
 update_kitty_theme() {
   local src="$1"
-  local dst="${kitty_themes_dir}/${2:-"$(basename "$src")"}"
+  local dst="${KITTY_THEMES_DIR}/${2:-"$(basename "$src")"}"
 
   sync "${src}" "${dst}"
 }
 
-update_kitty_theme "https://raw.githubusercontent.com/folke/tokyonight.nvim/refs/heads/main/extras/kitty/tokyonight_day.conf"
-update_kitty_theme "https://raw.githubusercontent.com/folke/tokyonight.nvim/refs/heads/main/extras/kitty/tokyonight_storm.conf"
-update_kitty_theme "https://raw.githubusercontent.com/folke/tokyonight.nvim/refs/heads/main/extras/kitty/tokyonight_moon.conf"
-update_kitty_theme "https://raw.githubusercontent.com/folke/tokyonight.nvim/refs/heads/main/extras/kitty/tokyonight_night.conf"
 update_kitty_theme "https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/refs/heads/main/extras/kitty/cyberdream.conf"
 update_kitty_theme "https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/refs/heads/main/extras/kitty/cyberdream-light.conf"
 
-if (( ${+commands[yadm]} && ${#updated_files[@]} )); then
-  yadm add "${updated_files[@]}"
+for variant in "${NIGHTFOX_VARIANTS[@]}"; do
+  update_kitty_theme \
+    "https://raw.githubusercontent.com/EdenEast/nightfox.nvim/refs/heads/main/extra/${variant}/kitty.conf" \
+    "${variant}.conf"
+done
+unset variant
+
+for variant in "${TOKYONIGHT_VARIANTS[@]}"; do
+  update_kitty_theme \
+    "https://raw.githubusercontent.com/folke/tokyonight.nvim/refs/heads/main/extras/kitty/tokyonight_${variant}.conf" \
+    "tokyonight-${variant}.conf"
+done
+unset variant
+
+if (( ${+commands[yadm]} && ${#UPDATED_FILES[@]} )); then
+  yadm add "${UPDATED_FILES[@]}"
 
   print -u2 "\nDo you want to commit the following updated Kitty themes to yadm?"
 
-  for f in "${updated_files[@]}"; do
+  for f in "${UPDATED_FILES[@]}"; do
     print -u2 "  ${f}"
   done
 
@@ -47,11 +63,8 @@ if (( ${+commands[yadm]} && ${#updated_files[@]} )); then
   read -r reply
 
   if [[ "$reply" =~ ^[Yy] ]]; then
-    yadm commit "${updated_files[@]}" -m "chore(kitty): Update themes"
+    yadm commit "${UPDATED_FILES[@]}" -m "chore(kitty): Update themes"
   else
     print -u2 "Skipped yadm commit."
   fi
 fi
-
-unset kitty_home_dir kitty_themes_dir
-unset updated_file sync update_kitty_theme

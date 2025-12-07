@@ -1,0 +1,133 @@
+colors:
+  bg: "0c0c0c"
+  darker_grey: "161616"
+  dark_grey: "252525"
+  grey: "6e6f70"
+  blue_grey: "b6b8bb"
+  light_grey: "f2f4f8"
+  white: "f9fbff"
+
+  dark_red: "ca4780"
+  red: "ee5396"
+  red_orange: "ff7eb6"
+  bright_orange: "3ddbd9"
+  pale_gold: "08bdba"
+  pink: "ff7eb6"
+
+  lilac: "c8a5ff"
+  dark_blue: "6690d9"
+  deep_blue: "78a9ff"
+  blue: "78a9ff"
+  bright_blue: "8cb6ff"
+  cyan: "33b1ff"
+  blue_green: "2dc7c4"
+
+  green: "25be6a"
+  bright_green: "46c880"
+  brighter_green: "46c880"
+  light_green: "08bdba"
+  dark_green: "1fa25a"
+
+core:
+  normal_text: {}
+
+  regular_file: {}
+
+  reset_to_normal: {}
+
+  directory:
+    foreground: deep_blue
+
+  symlink:
+    foreground: cyan
+
+  multi_hard_link: {}
+
+  fifo:
+    foreground: pale_gold
+
+  socket:
+    foreground: lilac
+
+  door:
+    foreground: pink
+
+  block_device:
+    foreground: bright_orange
+    font-style: bold
+
+  character_device:
+    foreground: pale_gold
+
+  broken_symlink:
+    foreground: red
+    background: dark_red
+
+  missing_symlink_target:
+    foreground: red
+    background: dark_red
+
+  setuid: {}
+
+  setgid: {}
+
+  file_with_capability: {}
+
+  sticky_other_writable: {}
+
+  other_writable: {}
+
+  sticky: {}
+
+  executable_file:
+    foreground: bright_green
+    font-style: bold
+
+text:
+  special:
+    foreground: pale_gold
+    font-style: bold
+
+  todo:
+    foreground: bright_green
+
+  licenses:
+    foreground: light_grey
+    font-style: italic
+
+  configuration:
+    foreground: pale_gold
+
+  other:
+    foreground: light_grey
+
+markup:
+    foreground: bright_orange
+
+programming:
+  source:
+    foreground: green
+
+  tooling:
+    foreground: cyan
+
+    continuous-integration:
+      foreground: blue
+
+office:
+  foreground: lilac
+
+archives:
+  foreground: red_orange
+  font-style: underline
+
+executable:
+  foreground: bright_green
+  font-style: bold
+
+media:
+  foreground: blue_green
+
+unimportant:
+  foreground: grey
+  font-style: italic

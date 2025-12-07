@@ -72,7 +72,7 @@ unsetopt hup               # Don't kill jobs on shell exit.
 # A themeable LS_COLORS generator with a rich filetype datebase.
 # https://github.com/sharkdp/vivid/
 if (( ${+commands[vivid]} )); then
-  vivid_theme="tokyonight-night"
+  vivid_theme="carbonfox"
   vivid_cache="${XDG_CACHE_HOME}/vivid/${vivid_theme}"
 
   if [[ -r "${vivid_cache}" ]]; then

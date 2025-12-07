@@ -66,7 +66,7 @@ opt.number = true
 -- Highlight the current line to make cursor location more visible
 opt.cursorline = true
 
--- Disable column highlighting (can cause severe performance degradation)
+-- Disable column highlighting (when enabled, it can cause severe performance degradation)
 opt.cursorcolumn = false
 
 -- Draw vertical rulers at columns 81 and 121
@@ -74,13 +74,13 @@ opt.cursorcolumn = false
 opt.colorcolumn = "81,121"
 
 -- Display invisible characters to catch trailing spaces and mixed indentation
-opt.list = true
+opt.list      = true
 opt.listchars = {
-  tab      = "> ", -- Show tabs as "> "
-  trail    = "-",  -- Show trailing spaces as "-"
-  extends  = ">",  -- Show ">" when line continues beyond right edge
-  precedes = "<",  -- Show "<" when line continues beyond left edge
-  nbsp     = "+",  -- Show non-breaking spaces as "+"
+  tab      = "» ",
+  trail    = "·",
+  extends  = ">",
+  precedes = "<",
+  nbsp     = "␣",
 }
 
 -- Disable line wrapping (horizontal scrolling is clearer for code)

@@ -21,11 +21,14 @@ return {
     -- Typescript LSP: `npm i -g typescript-language-server`
     vim.lsp.enable("ts_ls")
 
-    -- Deno LSP: `mise use deno` or `sudo emerge dev-lang/deno-bin`
+    -- Deno LSP: `mise use deno` or `sudo emerge dev-lang/deno-bin` (::GENTOO)
     vim.lsp.enable("denols")
 
     -- Go LSP: `go install golang.org/x/tools/gopls@latest`
     vim.lsp.enable("gopls")
+
+    -- Lua LSP: `sudo emerge dev-util/lua-language-server` (::GURU)
+    vim.lsp.enable("lua_ls")
 
     -- *** Key Mappings ********************************************************
 

@@ -1,0 +1,81 @@
+colors:
+  # https://github.com/EdenEast/nightfox.nvim/blob/main/lua/nightfox/palette/terafox.lua
+  bg0:            "0f1c1e"
+  bg1:            "152528"
+  bg2:            "1d3337"
+  bg3:            "254147"
+  bg4:            "2d4f56"
+  fg0:            "eaeeee"
+  fg1:            "e6eaea"
+  fg2:            "cbd9d8"
+  fg3:            "587b7b"
+  sel0:           "293e40"
+  sel1:           "425e5e"
+  comment:        "6d7f8b"
+  black.base:     "2f3239"
+  black.bright:   "4e5157"
+  black.dim:      "282a30"
+  blue.base:      "5a93aa"
+  blue.bright:    "73a3b7"
+  blue.dim:       "4d7d90"
+  cyan.base:      "a1cdd8"
+  cyan.bright:    "afd4de"
+  cyan.dim:       "89aeb8"
+  green.base:     "7aa4a1"
+  green.bright:   "8eb2af"
+  green.dim:      "688b89"
+  magenta.base:   "ad5c7c"
+  magenta.bright: "b97490"
+  magenta.dim:    "934e69"
+  orange.base:    "ff8349"
+  orange.bright:  "ff9664"
+  orange.dim:     "d96f3e"
+  pink.base:      "cb7985"
+  pink.bright:    "d38d97"
+  pink.dim:       "ad6771"
+  red.base:       "e85c51"
+  red.bright:     "eb746b"
+  red.dim:        "c54e45"
+  white.base:     "ebebeb"
+  white.bright:   "eeeeee"
+  white.dim:      "c8c8c8"
+  yellow.base:    "fda47f"
+  yellow.bright:  "fdb292"
+  yellow.dim:     "d78b6c"
+
+core: # See `dircolors -p` for explanations
+  foreground: fg1
+
+  directory:
+    foreground: blue.base
+    font-style: bold
+
+  executable_file: # Files with exec permissions
+    foreground: green.bright
+    font-style: bold
+
+executable: # Libs and exec binaries (without exec permissions)
+  foreground: green.bright
+
+archives:
+  foreground: magenta.base
+
+media:
+  foreground: pink.base
+  font-style: bold
+
+office:
+  foreground: magenta.bright
+  font-style: bold
+
+text:
+  foreground: fg1
+
+markup:
+  foreground: fg1
+
+programming:
+  foreground: yellow.dim
+
+unimportant:
+  foreground: fg3

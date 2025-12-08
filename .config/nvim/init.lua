@@ -6,3 +6,5 @@ require("config.lazy")
 require("config.keymaps")
 require("config.diagnostics")
 require("config.templates")
+
+vim.cmd.colorscheme("nightfox")

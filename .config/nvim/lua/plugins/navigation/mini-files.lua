@@ -7,6 +7,12 @@ return {
     "nvim-mini/mini.icons",
   },
 
+  opts = {
+    options = {
+      permanent_delete = false,
+    },
+  },
+
   keys = {
     {
       "<leader>e",

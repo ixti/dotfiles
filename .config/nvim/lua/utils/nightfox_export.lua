@@ -38,7 +38,7 @@ function M.dump_palettes()
   for _, variant in ipairs(VARIANTS) do
     p("--- # " .. variant)
 
-    local palette = require("nightfox.palette." .. variant).palette 
+    local palette = require("nightfox.palette." .. variant).palette
 
     for _, k in ipairs(FIXED_COLORS) do
       p(k .. ": \"" .. palette[k] .. "\"")

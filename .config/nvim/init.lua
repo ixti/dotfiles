@@ -7,4 +7,4 @@ require("config.keymaps")
 require("config.diagnostics")
 require("config.templates")
 
-vim.cmd.colorscheme("carbonfox")
+vim.cmd.colorscheme("flexoki-darkfox")

@@ -9,7 +9,7 @@
   "mini.comment": { "branch": "main", "commit": "a0c721115faff8d05505c0a12dab410084d9e536" },
   "mini.files": { "branch": "main", "commit": "26baa6215c2e5c40ba7fe82685d827fe8e5c68c8" },
   "mini.icons": { "branch": "main", "commit": "ff2e4f1d29f659cc2bad0f9256f2f6195c6b2428" },
-  "nightfox.nvim": { "branch": "main", "commit": "ba47d4b4c5ec308718641ba7402c143836f35aa9" },
+  "nightfox.nvim": { "branch": "flexoki", "commit": "1f156f29fb561df1df8283ae1c9ae1e4b94e77b4" },
   "nvim-lspconfig": { "branch": "master", "commit": "a2bd1cf7b0446a7414aaf373cea5e4ca804c9c69" },
   "nvim-origami": { "branch": "main", "commit": "5d8bc3d4a089e363e508c8a0f5cd187c2871014e" },
   "nvim-treesitter": { "branch": "main", "commit": "b6271b678e035a5cbf62d637364f3eeca0890171" },

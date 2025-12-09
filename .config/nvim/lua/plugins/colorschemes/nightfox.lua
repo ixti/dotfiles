@@ -92,7 +92,8 @@ return {
     specs = {
       all = {
         syntax = {
-          number = "orange.bright",
+          number   = "orange.bright",
+          operator = "pink.bright",
         },
       },
     },

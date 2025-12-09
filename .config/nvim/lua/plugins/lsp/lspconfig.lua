@@ -3,17 +3,11 @@ return {
 
   event = { "BufReadPre", "BufNewFile" },
 
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-  },
-
   config = function()
     -- Set capabilities to all LSP servers
     vim.lsp.config("*", {
       capabilities = require("blink.cmp").get_lsp_capabilities()
     })
-
-    -- *** Enable Language Servers *********************************************
 
     -- Ruby LSP: `gem install ruby-lsp`
     vim.lsp.enable("ruby_lsp")
@@ -34,34 +28,26 @@ return {
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group    = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
-      callback = function(event)
-        local keymap = vim.keymap.set
+      callback = function(ev)
+        local keymap_default_opts = {
+          noremap = true,
+          silent  = true,
+          buffer  = ev.buf
+        }
 
-        local function opts(overrides)
-          return vim.tbl_extend(
-            "force",
-            { noremap = true, silent = true, buffer = event.buf },
-            overrides or {}
-          )
+        local function keymap(mode, lhs, rhs, opts)
+          local extended_opts = vim.tbl_extend("force", keymap_default_opts, opts or {})
+
+          vim.keymap.set(mode, lhs, rhs, extended_opts)
         end
 
-        keymap("n", "K",          vim.lsp.buf.hover,       opts({ desc = "Preview (LSP)" }))
-        keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts({ desc = "Code Actions (LSP)" }))
+        keymap({ "n", "x" }, "grf", function()
+          vim.lsp.buf.format()
+        end, { desc = "Format Code (LSP)" })
 
-        keymap({ "n", "v" }, "<leader>cf",
-          vim.lsp.buf.format,
-          opts({ desc = "Format Code (LSP)" })
-        )
-
-        keymap("n", "<C-]>",
-          function() Snacks.picker.lsp_definitions() end,
-          opts({ desc = "Goto Definition (snacks.nvim)" })
-        )
-
-        keymap("n", "<leader>rn",
-          function() require("live-rename").rename() end,
-          opts({ desc = "LSP Rename (live-rename.nvim)" })
-        )
+        keymap({ "n" }, "grd", function()
+          Snacks.picker.lsp_definitions()
+        end, { desc = "Goto Definition (LSP + snacks.nvim)" })
       end,
     })
   end,

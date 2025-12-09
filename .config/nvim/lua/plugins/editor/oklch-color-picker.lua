@@ -6,7 +6,7 @@ return {
 
   opts = {
     highlight = {
-      enabled       = false,
+      enabled       = true,
       style         = "foreground+virtual_left",
       register_cmds = false,
     },

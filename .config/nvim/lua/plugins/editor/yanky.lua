@@ -11,6 +11,11 @@ return {
       enabled = true,
     },
 
+    highlight = {
+      on_put  = true,
+      on_yank = false,
+    },
+
     ring = {
       storage = "sqlite",
     },

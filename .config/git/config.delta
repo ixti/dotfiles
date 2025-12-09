@@ -33,14 +33,14 @@
 
 [delta "carbonfox"]
 	syntax-theme                  = carbonfox
-	file-decoration-style         = "#07a19e" ul ol
-	file-style                    = "#8cb6ff" bold
+	file-decoration-style         = "#005d5d" ul ol
+	file-style                    = "#4589ff" bold
 	hunk-header-decoration-style  = "#272525" box
-	hunk-header-file-style        = "#07a19e"
+	hunk-header-file-style        = "#009d9a"
 	hunk-header-line-number-style = "#d9d4d3" bold
 	hunk-header-style             = syntax
 	line-numbers-left-style       = "#cac5c4"
-	line-numbers-minus-style      = "#fa4d56"
-	line-numbers-plus-style       = "#42be65"
+	line-numbers-minus-style      = "#da1e28"
+	line-numbers-plus-style       = "#24a148"
 	line-numbers-right-style      = "#8d8989"
 	line-numbers-zero-style       = "#504e4d"

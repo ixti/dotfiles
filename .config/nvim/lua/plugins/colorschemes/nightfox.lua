@@ -89,19 +89,19 @@ return {
       },
     },
 
-    -- specs = {
-    --   all = {
-    --     syntax = {
-    --       number = "orange.bright",
-    --     },
-    --   },
-    -- },
-    --
-    -- groups = {
-    --   all = {
-    --     Special = { fg = "palette.pink.dim" },
-    --   },
-    -- },
+    specs = {
+      all = {
+        syntax = {
+          number = "orange.bright",
+        },
+      },
+    },
+
+    groups = {
+      all = {
+        Special = { fg = "palette.pink" },
+      },
+    },
   },
 
   config = function(_, opts)

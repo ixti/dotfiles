@@ -1,15 +1,5 @@
 local M = {}
 
-local VARIANTS = {
-  "carbonfox",
-  "dawnfox",
-  "dayfox",
-  "duskfox",
-  "nightfox",
-  "nordfox",
-  "terafox",
-}
-
 local FIXED_COLORS = {
   "bg0", "bg1", "bg2", "bg3", "bg4",
   "fg0", "fg1", "fg2", "fg3",
@@ -35,10 +25,13 @@ function M.dump_palettes()
 
   local function p(line) table.insert(lines, line) end
 
-  for _, variant in ipairs(VARIANTS) do
-    p("--- # " .. variant)
+  local specs = require("nightfox.spec").load()
+  table.sort(specs)
 
-    local palette = require("nightfox.palette." .. variant).palette
+  for spec_name, spec in pairs(specs) do
+    p("--- # " .. spec_name)
+
+    local palette = spec.palette
 
     for _, k in ipairs(FIXED_COLORS) do
       p(k .. ": \"" .. palette[k] .. "\"")

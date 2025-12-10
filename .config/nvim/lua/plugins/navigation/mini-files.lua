@@ -19,9 +19,19 @@ return {
       function()
         local MiniFiles = require("mini.files")
 
-        if not MiniFiles.close() then
-          MiniFiles.open(vim.api.nvim_buf_get_name(0))
+        local ok, closed = pcall(MiniFiles.close)
+        if ok and closed then
+          return
         end
+
+        local file = vim.api.nvim_buf_get_name(0)
+        if file and 1 == vim.fn.filereadable(file) then
+          MiniFiles.open(file)
+        else
+          MiniFiles.open()
+        end
+
+        MiniFiles.reveal_cwd()
       end,
       desc = "File Crawler (mini.files)",
     },
@@ -38,7 +48,7 @@ return {
     local map_split = function(direction)
       local cur_entry = MiniFiles.get_fs_entry()
 
-      if cur_entry == nil or cur_entry.fs_type ~= "file" then
+      if not (cur_entry and cur_entry.fs_type == "file") then
         return
       end
 

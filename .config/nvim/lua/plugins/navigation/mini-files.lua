@@ -81,6 +81,11 @@ return {
         keymap("n", "<CR>", function()
           MiniFiles.go_in({ close_on_file = true })
         end, { buffer = buffer, desc = "Go in entry plus (alias)" })
+
+        keymap("n", "<BS>", function()
+          MiniFiles.go_out()
+          MiniFiles.trim_right()
+        end, { buffer = buffer, desc = "Go out plus (alias)" })
       end,
     })
   end,

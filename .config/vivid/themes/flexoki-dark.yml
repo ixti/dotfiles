@@ -1,0 +1,81 @@
+---
+colors:
+  bg0:            "1c1b1a"
+  bg1:            "100f0f"
+  bg2:            "151413"
+  bg3:            "171616"
+  bg4:            "1a1918"
+  fg0:            "dad8ce"
+  fg1:            "cecdc3"
+  fg2:            "b7b5ac"
+  fg3:            "9f9d96"
+  sel0:           "262523"
+  sel1:           "2d2c2a"
+  comment:        "494845"
+  black.base:     "575653"
+  black.bright:   "6f6e69"
+  black.dim:      "403e3c"
+  blue.base:      "4385be"
+  blue.bright:    "92bfdb"
+  blue.dim:       "205ea6"
+  cyan.base:      "3aa99f"
+  cyan.bright:    "87d3c3"
+  cyan.dim:       "24837b"
+  green.base:     "879a39"
+  green.bright:   "bec97e"
+  green.dim:      "66800b"
+  magenta.base:   "8b7ec8"
+  magenta.bright: "c4b9e0"
+  magenta.dim:    "5e409d"
+  orange.base:    "da702c"
+  orange.bright:  "f9ae77"
+  orange.dim:     "bc5215"
+  pink.base:      "4385be"
+  pink.bright:    "92bfdb"
+  pink.dim:       "205ea6"
+  red.base:       "d14d41"
+  red.bright:     "f89a8a"
+  red.dim:        "af3029"
+  white.base:     "cecdc3"
+  white.bright:   "f2f0e5"
+  white.dim:      "878580"
+  yellow.base:    "d0a215"
+  yellow.bright:  "eccb60"
+  yellow.dim:     "ad8301"
+
+core: # See `dircolors -p` for explanations
+  foreground: fg1
+
+  directory:
+    foreground: blue.base
+    font-style: bold
+
+  executable_file: # Files with exec permissions
+    foreground: green.bright
+    font-style: bold
+
+executable: # Libs and exec binaries (without exec permissions)
+  foreground: green.bright
+
+archives:
+  foreground: magenta.base
+
+media:
+  foreground: pink.base
+  font-style: bold
+
+office:
+  foreground: magenta.bright
+  font-style: bold
+
+text:
+  foreground: fg1
+
+markup:
+  foreground: fg1
+
+programming:
+  foreground: yellow.dim
+
+unimportant:
+  foreground: fg3

@@ -8,10 +8,10 @@ if vim.fn.isdirectory(TEMPLATES_PATH) == 0 then
 end
 
 local function read_template(filename)
-  local lines = LOADED_TEMPLATES[filename]
+  local cached = LOADED_TEMPLATES[filename]
 
-  if lines then
-    return lines
+  if cached then
+    return cached
   end
 
   local file = TEMPLATES_PATH .. "/" .. filename

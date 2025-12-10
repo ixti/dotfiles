@@ -1,10 +1,15 @@
-local keymap = vim.keymap.set
+local keymap     = vim.keymap.set
+local nohlsearch = vim.cmd.nohlsearch
+local diffupdate = vim.cmd.diffupdate
+local redraw     = vim.cmd.redraw
 
 -- <C‑L>: clear search highlighting & refresh diffs.
-keymap("n", "<C-l>", require("utils.editor").clear_search_highlight_and_refresh_diff, {
-  silent = true,
-  desc   = "Clear search highlights / refresh diff"
-})
+keymap("n", "<C-l>", function()
+  if vim.v.hlsearch == 1 then nohlsearch() end
+  if vim.wo.diff         then diffupdate() end
+
+  redraw()
+end, { silent = true, desc = "Clear search highlights / refresh diff" })
 
 -- In insert mode, make <C‑U> and <C‑W> create undo breakpoints
 -- so backspacing/deleting forms separate undo steps.

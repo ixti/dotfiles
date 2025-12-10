@@ -70,7 +70,10 @@ return {
       Snacks.notifier.show_history()
     end, {})
 
-    Snacks.toggle.zen():map("<leader>zz")
-    Snacks.toggle.dim():map("<leader>zd")
+    Snacks.toggle.zen({ name = "󰽏 Zen Mode" }):map("<leader>tz")
+    Snacks.toggle.dim({ name = "󰱊 Dimming" }):map("<leader>td")
+    Snacks.toggle.diagnostics({ name = " Diagnostics" }):map("<leader>tD")
+    Snacks.toggle.treesitter({ name = " Treesitter Highlighting" }):map("<leader>tt")
+    Snacks.toggle.inlay_hints({ name = " Inlay hints" }):map("<leader>ti")
   end,
 }

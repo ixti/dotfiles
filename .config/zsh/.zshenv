@@ -122,7 +122,11 @@ typeset -gx BAT_CONFIG_PATH="${BAT_CONFIG_DIR}/config"
 typeset -gx CRYFS_NO_UPDATE_CHECK=true
 typeset -gx CRYFS_LOCAL_STATE_DIR="${XDG_DATA_HOME}/cryfs"
 
-## FZF -- A command-line fuzzy finder
+## EZA -- Modern replacement for the file-listing command-line program `ls`.
+## https://eza.rocks
+typeset -gx EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
+
+## FZF -- A command-line fuzzy finder.
 ## https://github.com/junegunn/fzf/
 
 if (( ${+commands[fd]} )); then

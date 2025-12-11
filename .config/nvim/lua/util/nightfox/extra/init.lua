@@ -21,16 +21,12 @@ local function resolve_color(v, path)
   return v
 end
 
-local function render(template, palette, normalize)
+local function render(template, palette)
   local lines = {}
-
-  if not normalize then
-    normalize = function(v) return v end
-  end
 
   for _, s in ipairs(template) do
     local _s = s:gsub("($%b{})", function(w)
-      return normalize(resolve_color(palette, w:sub(3, -2)))
+      return resolve_color(palette, w:sub(3, -2))
     end)
 
     table.insert(lines, _s)
@@ -44,7 +40,7 @@ local function generate(template, opts)
 
   for name, scheme in pairs(opts.schemes) do
     local fname = dirname .. "/" .. name .. "." .. opts.extname
-    local object = render(template, scheme, opts.normalize)
+    local object = render(template, scheme)
 
     vim.fn.writefile(object, fname, "s")
   end
@@ -74,13 +70,6 @@ function M.generate()
     dirname = "~/.config/kitty/themes",
     extname = "conf",
     schemes = schemes,
-  })
-
-  generate(vivid, {
-    dirname   = "~/.config/vivid/themes",
-    extname   = "yml",
-    schemes   = schemes,
-    normalize = function(v) return v:sub(2, -1) end
   })
 end
 

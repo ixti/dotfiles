@@ -1,81 +1,335 @@
----
+# Flexoki inky colors palette
+# https://stephango.com/flexoki
 colors:
-  bg0:            "1c1b1a"
-  bg1:            "100f0f"
-  bg2:            "151413"
-  bg3:            "171616"
-  bg4:            "1a1918"
-  fg0:            "dad8ce"
-  fg1:            "cecdc3"
-  fg2:            "b7b5ac"
-  fg3:            "9f9d96"
-  sel0:           "262523"
-  sel1:           "2d2c2a"
-  comment:        "494845"
-  black.base:     "575653"
-  black.bright:   "6f6e69"
-  black.dim:      "403e3c"
-  blue.base:      "4385be"
-  blue.bright:    "92bfdb"
-  blue.dim:       "205ea6"
-  cyan.base:      "3aa99f"
-  cyan.bright:    "87d3c3"
-  cyan.dim:       "24837b"
-  green.base:     "879a39"
-  green.bright:   "bec97e"
-  green.dim:      "66800b"
-  magenta.base:   "8b7ec8"
-  magenta.bright: "c4b9e0"
-  magenta.dim:    "5e409d"
-  orange.base:    "da702c"
-  orange.bright:  "f9ae77"
-  orange.dim:     "bc5215"
-  pink.base:      "ce5d97"
-  pink.bright:    "f4a4c2"
-  pink.dim:       "a02f6f"
-  red.base:       "d14d41"
-  red.bright:     "f89a8a"
-  red.dim:        "af3029"
-  white.base:     "cecdc3"
-  white.bright:   "f2f0e5"
-  white.dim:      "878580"
-  yellow.base:    "d0a215"
-  yellow.bright:  "eccb60"
-  yellow.dim:     "ad8301"
+  paper:       "fffcf0" #fffcf0
+  black:       "100f0f" #100f0f
 
-core: # See `dircolors -p` for explanations
-  foreground: fg1
+  base_50:     "f2f0e5" #f2f0e5
+  base_100:    "e6e4d9" #e6e4d9
+  base_150:    "dad8ce" #dad8ce
+  base_200:    "cecdc3" #cecdc3
+  base_300:    "b7b5ac" #b7b5ac
+  base_400:    "9f9d96" #9f9d96
+  base_500:    "878580" #878580
+  base_600:    "6f6e69" #6f6e69
+  base_700:    "575653" #575653
+  base_800:    "403e3c" #403e3c
+  base_850:    "343331" #343331
+  base_900:    "282726" #282726
+  base_950:    "1c1b1a" #1c1b1a
+
+  red_50:      "ffe1d5" #ffe1d5
+  red_100:     "ffcabb" #ffcabb
+  red_150:     "fdb2a2" #fdb2a2
+  red_200:     "f89a8a" #f89a8a
+  red_300:     "e8705f" #e8705f
+  red_400:     "d14d41" #d14d41
+  red_500:     "c03e35" #c03e35
+  red_600:     "af3029" #af3029
+  red_700:     "942822" #942822
+  red_800:     "6c201c" #6c201c
+  red_850:     "551b18" #551b18
+  red_900:     "3e1715" #3e1715
+  red_950:     "261312" #261312
+
+  orange_50:   "ffe7ce" #ffe7ce
+  orange_100:  "fed3af" #fed3af
+  orange_150:  "fcc192" #fcc192
+  orange_200:  "f9ae77" #f9ae77
+  orange_300:  "ec8b49" #ec8b49
+  orange_400:  "da702c" #da702c
+  orange_500:  "cb6120" #cb6120
+  orange_600:  "bc5215" #bc5215
+  orange_700:  "9d4310" #9d4310
+  orange_800:  "71320d" #71320d
+  orange_850:  "59290d" #59290d
+  orange_900:  "40200d" #40200d
+  orange_950:  "27180e" #27180e
+
+  yellow_50:   "faeec6" #faeec6
+  yellow_100:  "f6e2a0" #f6e2a0
+  yellow_150:  "f1d67e" #f1d67e
+  yellow_200:  "eccb60" #eccb60
+  yellow_300:  "dfb431" #dfb431
+  yellow_400:  "d0a215" #d0a215
+  yellow_500:  "be9207" #be9207
+  yellow_600:  "ad8301" #ad8301
+  yellow_700:  "8e6b01" #8e6b01
+  yellow_800:  "664d01" #664d01
+  yellow_850:  "503d02" #503d02
+  yellow_900:  "3a2d04" #3a2d04
+  yellow_950:  "241e08" #241e08
+
+  green_50:    "edeecf" #edeecf
+  green_100:   "dde2b2" #dde2b2
+  green_150:   "cdd597" #cdd597
+  green_200:   "bec97e" #bec97e
+  green_300:   "a0af54" #a0af54
+  green_400:   "879a39" #879a39
+  green_500:   "768d21" #768d21
+  green_600:   "66800b" #66800b
+  green_700:   "536907" #536907
+  green_800:   "3d4c07" #3d4c07
+  green_850:   "313d07" #313d07
+  green_900:   "252d09" #252d09
+  green_950:   "1a1e0c" #1a1e0c
+
+  cyan_50:     "ddf1e4" #ddf1e4
+  cyan_100:    "bfe8d9" #bfe8d9
+  cyan_150:    "a2dece" #a2dece
+  cyan_200:    "87d3c3" #87d3c3
+  cyan_300:    "5abdac" #5abdac
+  cyan_400:    "3aa99f" #3aa99f
+  cyan_500:    "2f968d" #2f968d
+  cyan_600:    "24837b" #24837b
+  cyan_700:    "1c6c66" #1c6c66
+  cyan_800:    "164f4a" #164f4a
+  cyan_850:    "143f3c" #143f3c
+  cyan_900:    "122f2c" #122f2c
+  cyan_950:    "101f1d" #101f1d
+
+  blue_50:     "e1eceb" #e1eceb
+  blue_100:    "c6dde8" #c6dde8
+  blue_150:    "abcfe2" #abcfe2
+  blue_200:    "92bfdb" #92bfdb
+  blue_300:    "66a0c8" #66a0c8
+  blue_400:    "4385be" #4385be
+  blue_500:    "3171b2" #3171b2
+  blue_600:    "205ea6" #205ea6
+  blue_700:    "1a4f8c" #1a4f8c
+  blue_800:    "163b66" #163b66
+  blue_850:    "133051" #133051
+  blue_900:    "12253b" #12253b
+  blue_950:    "101a24" #101a24
+
+  purple_50:   "f0eaec" #f0eaec
+  purple_100:  "e2d9e9" #e2d9e9
+  purple_150:  "d3cae6" #d3cae6
+  purple_200:  "c4b9e0" #c4b9e0
+  purple_300:  "a699d0" #a699d0
+  purple_400:  "8b7ec8" #8b7ec8
+  purple_500:  "735eb5" #735eb5
+  purple_600:  "5e409d" #5e409d
+  purple_700:  "4f3685" #4f3685
+  purple_800:  "3c2a62" #3c2a62
+  purple_850:  "31234e" #31234e
+  purple_900:  "261c39" #261c39
+  purple_950:  "1a1623" #1a1623
+
+  magenta_50:  "fee4e5" #fee4e5
+  magenta_100: "fccfda" #fccfda
+  magenta_150: "f9b9cf" #f9b9cf
+  magenta_200: "f4a4c2" #f4a4c2
+  magenta_300: "e47da8" #e47da8
+  magenta_400: "ce5d97" #ce5d97
+  magenta_500: "b74583" #b74583
+  magenta_600: "a02f6f" #a02f6f
+  magenta_700: "87285e" #87285e
+  magenta_800: "641f46" #641f46
+  magenta_850: "4f1b39" #4f1b39
+  magenta_900: "39172b" #39172b
+  magenta_950: "24131d" #24131d
+
+core:
+  normal_text:
+    foreground: base_200
+    background: black
+
+  regular_file: {}
+  reset_to_normal: {}
 
   directory:
-    foreground: blue.base
+    foreground: blue_400
     font-style: bold
 
-  executable_file: # Files with exec permissions
-    foreground: green.bright
+  symlink:
+    foreground: cyan_200
+    font-style: italic
+
+  multi_hard_link: {}
+  fifo: {}
+  socket: {}
+  door: {}
+  block_device: {}
+  character_device: {}
+
+  broken_symlink:
+    foreground: red_200
+    font-style: italic
+
+  missing_symlink_target:
+    foreground: red_200
+    font-style: []
+
+  setuid: {}
+  setgid: {}
+  file_with_capability: {}
+  sticky_other_writable: {}
+  other_writable: {}
+  sticky: {}
+
+  executable_file:
+    foreground: green_400
     font-style: bold
-
-executable: # Libs and exec binaries (without exec permissions)
-  foreground: green.bright
-
-archives:
-  foreground: magenta.base
-
-media:
-  foreground: pink.base
-  font-style: bold
-
-office:
-  foreground: magenta.bright
-  font-style: bold
 
 text:
-  foreground: fg1
+  special: {}
+  todo: {}
+  licenses: {}
+  configuration:
+    generic: {}
+    metadata: {}
+    bibtex: {}
+    dockerfile: {}
+    nix: {}
+    qt: {}
+    desktop: {}
+    system: {}
+  other: {}
 
 markup:
-  foreground: fg1
+  web: {}
+  other: {}
 
 programming:
-  foreground: yellow.dim
+  source:
+    actionscript: {}
+    ada: {}
+    applescript: {}
+    asp: {}
+    assembly: {}
+    awk: {}
+    basic: {}
+    cabal: {}
+    clojure: {}
+    crystal: {}
+    csharp: {}
+    css: {}
+    cxx: {}
+    d: {}
+    dart: {}
+    diff: {}
+    elixir: {}
+    emacs: {}
+    elm: {}
+    erlang: {}
+    fsharp: {}
+    gcode: {}
+    go: {}
+    graphviz: {}
+    groovy: {}
+    hack: {}
+    hare: {}
+    haskell: {}
+    ipython: {}
+    java: {}
+    javascript: {}
+    julia: {}
+    kotlin: {}
+    latex: {}
+    less: {}
+    llvm: {}
+    lisp: {}
+    lua: {}
+    mathematica: {}
+    matlab: {}
+    mojo: {}
+    nim: {}
+    ocaml: {}
+    openscad: {}
+    pascal: {}
+    perl: {}
+    php: {}
+    powershell: {}
+    prql: {}
+    puppet: {}
+    purescript: {}
+    python: {}
+    r: {}
+    raku: {}
+    ruby: {}
+    rust: {}
+    sass: {}
+    scala: {}
+    shell: {}
+    sql: {}
+    swift: {}
+    tablegen: {}
+    tcl: {}
+    typescript: {}
+    v: {}
+    viml: {}
+    zig: {}
+
+  tooling:
+    vcs:
+      git: {}
+      hg: {}
+      other: {}
+    build:
+      cmake: {}
+      make: {}
+      automake: {}
+      configure: {}
+      scons: {}
+      pip: {}
+    packaging:
+      go: {}
+      python: {}
+      ruby: {}
+      v: {}
+    code-style:
+      python: {}
+      cxx: {}
+    editors:
+      editorconfig: {}
+      qt: {}
+      kdevelop: {}
+    documentation:
+      doxygen: {}
+    continuous-integration: {}
+
+media:
+  image:
+    application: {}
+    bitmap: {}
+    raw: {}
+    vector: {}
+  audio: {}
+  video: {}
+  fonts: {}
+  3d:
+    application: {}
+    mesh: {}
+
+office:
+  document: {}
+  spreadsheet: {}
+  presentation: {}
+  calendar: {}
+
+archives:
+  packages: {}
+  ros: {}
+  images: {}
+  other: {}
+
+executable:
+  windows: {}
+  library: {}
+  linux: {}
 
 unimportant:
-  foreground: fg3
+  build_artifacts:
+    cxx: {}
+    cmake: {}
+    automake: {}
+    rust: {}
+    python: {}
+    haskell: {}
+    java: {}
+    scons: {}
+    latex: {}
+    llvm: {}
+  macos: {}
+  other: {}

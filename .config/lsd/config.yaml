@@ -1,7 +1,0 @@
-classic:       false
-date:          "+%Y-%m-%d %H:%M"
-hyperlink:     never
-color:         { theme: custom }
-icons:         { theme: fancy }
-sorting:       { dir-grouping: first }
-symlink-arrow: ->

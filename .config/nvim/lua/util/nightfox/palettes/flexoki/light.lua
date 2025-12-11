@@ -21,7 +21,7 @@ return {
   magenta = accent_shades_of("purple"),
   cyan    = accent_shades_of("cyan"),
   orange  = accent_shades_of("orange"),
-  pink    = accent_shades_of("blue"),
+  pink    = accent_shades_of("magenta"),
 
   comment = COLORS.paper:blend(COLORS.black, 0.4):to_css(),
 

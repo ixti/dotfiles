@@ -3,7 +3,7 @@ return {
 
   lazy     = false,
   priority = 1000,
-  compile  = false,
+  compile  = true,
 
   build    = ":NightfoxCompile",
 

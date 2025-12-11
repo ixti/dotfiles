@@ -107,6 +107,9 @@ typeset -gx EDITOR="vim"
 typeset -gx VISUAL="${VISUAL:-$EDITOR}"
 typeset -gx PAGER=${PAGER:-/usr/bin/less}
 
+# Reset system-defined LS_COLORS.
+unset LS_COLORS
+
 # App-specific ENV vars
 ################################################################################
 
@@ -124,6 +127,7 @@ typeset -gx CRYFS_LOCAL_STATE_DIR="${XDG_DATA_HOME}/cryfs"
 
 ## EZA -- Modern replacement for the file-listing command-line program `ls`.
 ## https://eza.rocks
+
 typeset -gx EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
 
 ## FZF -- A command-line fuzzy finder.

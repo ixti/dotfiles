@@ -12,20 +12,16 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
 
-# Make default ls colourful
-alias ls="ls --color=auto"
-
 ## EZA -- Modern replacement for the file-listing command-line program `ls`.
 # https://eza.rocks
 if (( ${+commands[eza]} )); then
-  alias eza="eza --time-style='+%F %R' --icons=auto --group"
-  alias l="eza"
+  alias ls="eza --time-style='+%F %R' --icons=auto --group"
 else
-  alias l="ls"
+  alias ls="ls --color=auto"
 fi
 
-alias la="l --almost-all"
-alias ll="l --almost-all -l"
+alias la="ls --almost-all"
+alias ll="ls --almost-all -l"
 
 # Git
 alias gbv="git branch --verbose --verbose"

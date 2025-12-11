@@ -66,28 +66,6 @@ unsetopt hup               # Don't kill jobs on shell exit.
 # Debugging
 # setopt sourcetrace         # Print the name of each file as it is sourced.
 
-# Additional ENV (meaningful in the interactive shell only)
-################################################################################
-
-# A themeable LS_COLORS generator with a rich filetype datebase.
-# https://github.com/sharkdp/vivid/
-if (( ${+commands[vivid]} )); then
-  vivid_theme="flexoki-dark"
-  vivid_cache="${XDG_CACHE_HOME}/vivid/${vivid_theme}"
-
-  if [[ -r "${vivid_cache}" ]]; then
-    typeset -gx LS_COLORS="$(<"${vivid_cache}")"
-  else
-    [[ -d "${vivid_cache:h}" ]] || mkdir "${vivid_cache:h}"
-    typeset -gx LS_COLORS="$(vivid generate "${vivid_theme}" | tee "${vivid_cache}")"
-  fi
-
-  unset vivid_theme vivid_cache
-else
-  # LS_COLORS fallback
-  typeset -gx LS_COLORS=${LS_COLORS:-'di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'}
-fi
-
 # Preconfigure ZLE
 ################################################################################
 

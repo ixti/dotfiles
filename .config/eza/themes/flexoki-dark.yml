@@ -1,0 +1,106 @@
+# Flexoki Dark theme
+# Based on amazing colours system designed by Steph Ango
+# https://stephango.com/flexoki
+
+colourful: true
+
+filekinds:
+  normal:       {foreground: "#cecdc3"} # base-200
+  directory:    {foreground: "#4385be"} # blue-400
+  symlink:      {foreground: "#87d3c3", is_italic: true} # cyan-200
+  pipe:         {foreground: "#6f6e69"} # base-600
+  block_device: {foreground: "#f9ae77"} # orange-200
+  char_device:  {foreground: "#eccb60"} # yellow-200
+  socket:       {foreground: "#9f9d96"} # base-400
+  special:      {foreground: "#ce5d97"} # magenta-400
+  executable:   {foreground: "#879a39"} # green-400
+  mount_point:  {foreground: "#205ea6"} # blue-600
+
+perms:
+  user_read:          {foreground: "#eccb60", is_bold: false} # yellow-200
+  group_read:         {foreground: "#d0a215", is_bold: false} # yellow-400
+  other_read:         {foreground: "#ad8301", is_bold: false} # yellow-600
+  user_write:         {foreground: "#f89a8a", is_bold: false} # red-200
+  group_write:        {foreground: "#d14d41", is_bold: false} # red-400
+  other_write:        {foreground: "#af3029", is_bold: false} # red-600
+  user_execute_file:  {foreground: "#bec97e", is_bold: true}  # green-200
+  user_execute_other: {foreground: "#bec97e", is_bold: true}  # green-200
+  group_execute:      {foreground: "#879a39", is_bold: true}  # green-400
+  other_execute:      {foreground: "#66800b", is_bold: true}  # green-600
+  special_user_file:  {foreground: "#ce5d97", is_bold: false} # magenta-400
+  special_other:      {foreground: "#a02f6f", is_bold: false} # magenta-600
+  attribute:          {foreground: "#6f6e69", is_bold: false} # base-600
+
+size:
+  major:       {foreground: "#cecdc3", is_bold: false}  # base-200
+  minor:       {foreground: "#cecdc3", is_bold: false}  # base-200
+  number_byte: {foreground: "#9f9d96", is_bold: false}  # base-400
+  number_kilo: {foreground: "#879a39", is_bold: false}  # green-400
+  number_mega: {foreground: "#d0a215", is_bold: true}  # yellow-400
+  number_giga: {foreground: "#da702c", is_bold: true}  # orange-400
+  number_huge: {foreground: "#d14d41", is_bold: true}  # red-400
+  unit_byte:   {foreground: "#6f6e69", is_bold: false}  # base-600
+  unit_kilo:   {foreground: "#66800b", is_bold: false}  # green-600
+  unit_mega:   {foreground: "#ad8301", is_bold: true}  # yellow-600
+  unit_giga:   {foreground: "#bc5215", is_bold: true}  # orange-600
+  unit_huge:   {foreground: "#af3029", is_bold: true}  # red-600
+
+users:
+  user_you:    {foreground: "#9f9d96"} # base-400
+  user_root:   {foreground: "#d14d41"} # red-400
+  user_other:  {foreground: "#da702c", is_italic: true} # orange-400
+  group_yours: {foreground: "#6f6e69"} # base-600
+  group_root:  {foreground: "#af3029"} # red-600
+  group_other: {foreground: "#cb6120", is_italic: true} # orange-600
+
+links:
+  normal:          {foreground: "#3aa99f"} # cyan-400
+  multi_link_file: {foreground: "#24837b"} # cyan-600
+
+git:
+  new:        {foreground: "#879a39"} # green-400
+  modified:   {foreground: "#d0a215"} # yellow-400
+  deleted:    {foreground: "#d14d41"} # red-400
+  renamed:    {foreground: "#87d3c3"} # cyan-200
+  typechange: {foreground: "#8b7ec8"} # purple-400
+  ignored:    {foreground: "#6f6e69"} # base-600
+  conflicted: {foreground: "#a02f6f"} # magenta-600
+
+git_repo:
+  branch_main:  {foreground: "#cecdc3"} # base-200
+  branch_other: {foreground: "#8b7ec8"} # purple-400
+  git_clean:    {foreground: "#879a39"} # green-400
+  git_dirty:    {foreground: "#d14d41"} # red-400
+
+security_context:
+  colon: {foreground: "#6f6e69"} # base-600
+  user:  {foreground: "#cecdc3"} # base-200
+  role:  {foreground: "#8b7ec8"} # purple-400
+  typ:   {foreground: "#9f9d96"} # base-400
+  range: {foreground: "#c4b9e0"} # purple-200
+
+file_type:
+  image:      {foreground: "#eccb60"} # yellow-200
+  video:      {foreground: "#f9ae77"} # orange-200
+  music:      {foreground: "#bec97e"} # green-200
+  lossless:   {foreground: "#87d3c3"} # cyan-200
+  crypto:     {foreground: "#5e409d"} # purple-600
+  compressed: {foreground: "#8b7ec8"} # purple-400
+  temp:       {foreground: "#d14d41"} # red-400
+  document:   {foreground: "#f2f0e5"} # base-50
+  source:     {foreground: "#879a39", is_bold: false} # green-400
+  compiled:   {foreground: "#6f6e69", is_italic: true} # base-600
+  build:      {foreground: "#6f6e69", is_bold: true, is_underline: false} # base-600
+
+punctuation:         {foreground: "#6f6e69"} # base-600
+date:                {foreground: "#24837b"} # blue-600
+inode:               {foreground: "#6f6e69"} # base-600
+blocks:              {foreground: "#6f6e69"} # base-600
+header:              {foreground: "#cecdc3"} # base-200
+octal:               {foreground: "#3aa99f"} # cyan-400
+flags:               {foreground: "#8b7ec8"} # purple-400
+
+symlink_path:        {foreground: "#24837b"} # cyan-600
+control_char:        {foreground: "#4385be"} # blue-400
+broken_symlink:      {foreground: "#d14d41"} # red-400
+broken_path_overlay: {foreground: "#6f6e69"} # base-600

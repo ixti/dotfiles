@@ -7,16 +7,15 @@ NOTE: Most dependencies are optional, but highly recommended.
 yadm::
   (https://yadm.io/[homepage] | https://packages.gentoo.org/packages/app-admin/yadm[ebuild])
   Dotfiles manager.
-vivid::
-  (https://github.com/sharkdp/vivid[homepage] | https://github.com/gentoo/guru/tree/master/app-shells/vivid[ebuild])
-  Themable `LS_COLORS` generator.
 starship::
   (https://starship.rs/[homepage] | https://packages.gentoo.org/packages/app-shells/starship[ebuild])
   Prompt generator.
+bat::
+  (https://github.com/sharkdp/bat[homepage] | https://packages.gentoo.org/packages/sys-apps/bat[ebuild])
+  A cat(1) clone with wings.
 eza::
   (https://eza.rocks/[homepage] | https://packages.gentoo.org/packages/sys-apps/eza[ebuild])
   Modern replacement for the file-listing command-line program `ls`.
-  Respects `LS_COLORS`.
 
 
 == Install

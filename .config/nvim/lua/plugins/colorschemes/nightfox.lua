@@ -38,7 +38,6 @@ return {
         "force",
         {
           palettes = {
-            dayfox   = require("util.nightfox.palettes.flexoki.light"),
             nightfox = require("util.nightfox.palettes.flexoki.dark"),
           },
         },

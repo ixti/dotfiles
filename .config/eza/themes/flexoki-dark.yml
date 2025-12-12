@@ -104,3 +104,7 @@ symlink_path:        {foreground: "#24837b"} # cyan-600
 control_char:        {foreground: "#4385be"} # blue-400
 broken_symlink:      {foreground: "#d14d41"} # red-400
 broken_path_overlay: {foreground: "#6f6e69"} # base-600
+
+extensions:
+  yml:  { icon: { glyph: "" } }
+  yaml: { icon: { glyph: "" } }

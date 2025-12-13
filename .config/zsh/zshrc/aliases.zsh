@@ -15,13 +15,15 @@ alias rm="rm -i"
 ## EZA -- Modern replacement for the file-listing command-line program `ls`.
 # https://eza.rocks
 if (( ${+commands[eza]} )); then
-  alias ls="eza --time-style='+%F %R' --icons=auto --group"
+  alias eza="eza --time-style='+%F %R' --git --icons=auto --group"
+  alias ls="eza"
+  alias la="eza --all"
+  alias ll="eza --all --long"
 else
   alias ls="ls --color=auto"
+  alias la="ls --almost-all"
+  alias ll="ls --almost-all -l"
 fi
-
-alias la="ls --almost-all"
-alias ll="ls --almost-all -l"
 
 # Git
 alias gbv="git branch --verbose --verbose"

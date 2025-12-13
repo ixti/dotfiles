@@ -10,12 +10,18 @@ yadm::
 starship::
   (https://starship.rs/[homepage] | https://packages.gentoo.org/packages/app-shells/starship[ebuild])
   Prompt generator.
-bat::
-  (https://github.com/sharkdp/bat[homepage] | https://packages.gentoo.org/packages/sys-apps/bat[ebuild])
-  A cat(1) clone with wings.
 eza::
   (https://eza.rocks/[homepage] | https://packages.gentoo.org/packages/sys-apps/eza[ebuild])
   Modern replacement for the file-listing command-line program `ls`.
+delta::
+  (https://dandavison.github.io/delta/[homepage] | https://packages.gentoo.org/packages/dev-util/git-delta[ebuild])
+  A syntax-highlighting pager for git.
+difftastic::
+  (https://difftastic.wilfred.me.uk/[homepage] | https://packages.gentoo.org/packages/dev-util/difftastic[ebuild])
+  CLI diff tool that compares files based on their syntax, not line-by-line.
+bat::
+  (https://github.com/sharkdp/bat[homepage] | https://packages.gentoo.org/packages/sys-apps/bat[ebuild])
+  A cat(1) clone with wings.
 
 
 == Install

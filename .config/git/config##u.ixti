@@ -3,6 +3,9 @@
 [include]
 	path = "config##default"
 
+[commit]
+	gpgsign = true
+
 [user]
 	name       = Alexey Zapparov
 	email      = alexey@zapparov.com

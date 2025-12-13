@@ -1,36 +1,7 @@
 # vim: noexpandtab ts=4 sw=4 ft=gitconfig
 
 [include]
-	path = config.delta
-
-[init]
-	defaultBranch = main
-
-[commit]
-	gpgsign = true
-
-[push]
-	default = current
-	signed  = if-asked
-
-[pull]
-	ff     = only
-	rebase = merges
-
-[rerere]
-	enabled = true
-
-[branch]
-	sort = committerdate
-
-[alias]
-	ci  = commit
-	co  = checkout
-	st  = status
-	sup = submodule update
-
-[filter "lfs"]
-	process  = git-lfs filter-process
-	required = true
-	clean    = git-lfs clean -- %f
-	smudge   = git-lfs smudge -- %f
+	path = conf.d/base.gitconfig
+	path = conf.d/lfs.gitconfig
+	path = conf.d/difftastic.gitconfig
+	path = conf.d/delta.gitconfig

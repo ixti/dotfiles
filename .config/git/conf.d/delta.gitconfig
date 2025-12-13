@@ -1,0 +1,73 @@
+# vim: noexpandtab ts=4 sw=4 ft=gitconfig
+
+[core]
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[alias]
+	diffx = "-c delta.features=paramecium diff"
+
+[delta]
+	features             = "paramecium-horizontalis"
+	navigate             = true
+	line-numbers         = true
+	paging               = "auto"
+	merge-conflict-style = "zdiff3"
+
+[delta "paramecium"]
+	dark                      = true
+	side-by-side              = false
+
+	zero-style                = "dim syntax"
+
+	commit-style              = "yellow bold"
+	commit-decoration-style   = "omit"
+
+	file-added-label          = " "
+	file-removed-label        = " "
+	file-modified-label       = " "
+	file-renamed-label        = " "
+	file-copied-label         = " 󰕜"
+
+	file-style                = "white dim"
+	file-decoration-style     = "black dim ol ul"
+
+	hunk-header-style         = "omit"
+
+	line-numbers-left-format  = "{nm:>4}┆"
+	line-numbers-right-format = "{np:>4}│ "
+	line-numbers-left-style   = "black dim"
+	line-numbers-right-style  = "black dim"
+	line-numbers-minus-style  = "red"
+	line-numbers-plus-style   = "green"
+	line-numbers-zero-style   = "black"
+
+[delta "paramecium-horizontalis"]
+	dark                      = true
+	side-by-side              = true
+
+	zero-style                = "dim syntax"
+
+	commit-style              = "yellow bold"
+	commit-decoration-style   = "omit"
+
+	file-added-label          = " "
+	file-removed-label        = " "
+	file-modified-label       = " "
+	file-renamed-label        = " "
+	file-copied-label         = " 󰕜"
+
+	file-style                = "white dim"
+	file-decoration-style     = "black dim ol ul"
+
+	hunk-header-style         = "omit"
+
+	line-numbers-left-format  = "{nm:>4}│ "
+	line-numbers-right-format = "┆{np:>4}│ "
+	line-numbers-left-style   = "black dim"
+	line-numbers-right-style  = "black dim"
+	line-numbers-minus-style  = "red"
+	line-numbers-plus-style   = "green"
+	line-numbers-zero-style   = "black"

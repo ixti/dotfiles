@@ -1,0 +1,40 @@
+# vim: noexpandtab ts=4 sw=4 ft=gitconfig
+
+[branch]
+	sort = committerdate
+
+[color]
+	ui   = "auto"
+	meta = "yellow bold"
+	frag = "cyan bold"
+	old  = "red"
+	new  = "green"
+
+[core]
+	pager = "diff-highlight | less -RFX"
+
+[diff]
+	algorithm  = histogram
+	colorMoved = default
+	context	   = 5
+	wordRegex  = "[[:alnum:]_]+|[^[:space:]]"
+
+[init]
+	defaultBranch = main
+
+[merge]
+	conflictstyle = zdiff3
+
+[mergetool]
+	prompt = false
+
+[pull]
+	ff     = only
+	rebase = merges
+
+[push]
+	default = current
+	signed  = if-asked
+
+[rerere]
+	enabled = true

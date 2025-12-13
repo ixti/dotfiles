@@ -1,0 +1,7 @@
+# vim: noexpandtab ts=4 sw=4 ft=gitconfig
+
+[alias]
+	# https://difftastic.wilfred.me.uk/
+    difft	   = -c diff.external=difft diff
+    log-difft  = -c diff.external=difft log --ext-diff
+    show-difft = -c diff.external=difft show --ext-diff

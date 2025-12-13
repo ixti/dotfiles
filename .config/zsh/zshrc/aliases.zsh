@@ -15,7 +15,7 @@ alias rm="rm -i"
 ## EZA -- Modern replacement for the file-listing command-line program `ls`.
 # https://eza.rocks
 if (( ${+commands[eza]} )); then
-  alias eza="eza --time-style='+%F %R' --git --icons=auto --group"
+  alias eza="eza --time-style='+%F %R' --git --icons=auto --group --group-directories-first"
   alias ls="eza"
   alias la="eza --all"
   alias ll="eza --all --long"

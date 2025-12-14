@@ -11,12 +11,12 @@
 	new  = "green"
 
 [core]
-	pager = "diff-highlight | less -RFX"
+	pager = "diff-highlight | less"
 
 [diff]
 	algorithm  = histogram
 	colorMoved = default
-	context	   = 5
+	context    = 5
 	wordRegex  = "[[:alnum:]_]+|[^[:space:]]"
 
 [init]

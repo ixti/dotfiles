@@ -2,6 +2,6 @@
 
 [alias]
 	# https://difftastic.wilfred.me.uk/
-    difft	   = -c diff.external=difft diff
-    log-difft  = -c diff.external=difft log --ext-diff
-    show-difft = -c diff.external=difft show --ext-diff
+    difft      = "-c diff.external=difft diff"
+    log-difft  = "-c diff.external=difft log --ext-diff"
+    show-difft = "-c diff.external=difft show --ext-diff"

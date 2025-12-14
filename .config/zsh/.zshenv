@@ -115,38 +115,57 @@ unset LS_COLORS
 
 ## BAT -- A cat(1) clone with wings.
 ## https://github.com/sharkdp/bat/
+################################################################################
 
 typeset -gx BAT_CONFIG_DIR="${XDG_CONFIG_HOME}/bat"
 typeset -gx BAT_CONFIG_PATH="${BAT_CONFIG_DIR}/config"
 
 ## CRYFS -- Cryptographic filesystem for the cloud
 ## https://www.cryfs.org
+################################################################################
 
 typeset -gx CRYFS_NO_UPDATE_CHECK=true
 typeset -gx CRYFS_LOCAL_STATE_DIR="${XDG_DATA_HOME}/cryfs"
 
 ## EZA -- Modern replacement for the file-listing command-line program `ls`.
 ## https://eza.rocks
+################################################################################
 
 typeset -gx EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
 
 ## FZF -- A command-line fuzzy finder.
 ## https://github.com/junegunn/fzf/
+################################################################################
 
 if (( ${+commands[fd]} )); then
   typeset -gx FZF_DEFAULT_COMMAND="fd --hidden --type l --type f --type d --exclude .git --exclude .cache";
 fi
 
 ## GnuPG
+################################################################################
 
 typeset -gx GNUPGHOME="${GNUPGHOME:-"${HOME}/.gnupg"}"
 
 ## Less is more
+################################################################################
 
 typeset -gx LESSHISTFILE="${XDG_CACHE_HOME}/lesshst"
 
+# -F or --quit-if-one-screen : Auto-exit if file fits the screen,
+# -g or --hilite-search      : (perf) Highlight one match at a time.
+# -i or --ignore-case        : Case-insensitive search.
+# -M or --LONG-PROMPT        : Prompt even more verbosely than more.
+# -R or --RAW-CONTROL-CHARS  : Causes limited set of escape sequences are output in "raw" form.
+# -S or --chop-long-lines    : Causes  lines longer than the screen width to be chopped (truncated) rather than wrapped.
+# -w or --hilite-unread      : Temporarily highlights the first "new" line after a forward movement of a full page.
+# -X or --no-init            : Disables sending the termcap initialization and deinitialization strings to the terminal.
+#                              NOTE: This means it also disables mousewheel scrolling.
+# -zn or --window=n or -n    : Changes the default scrolling window size to n lines.
+typeset -gx LESS="-F -g -i -M -R -S -w -X -z-4"
+
 ## Mise-en-place -- Development environment setup tool
 ## https://mise.jdx.dev/
+################################################################################
 
 typeset -gx MISE_ENV=development
 

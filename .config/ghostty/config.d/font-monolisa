@@ -1,0 +1,4 @@
+font-family    = "MonoLisa Variable"
+font-size      = 10
+font-variation = wght=200
+font-feature   = -calt, -liga, -dlig

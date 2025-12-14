@@ -1,0 +1,31 @@
+# Flexoki[1] Dark Colors based theme
+#
+# [1]: https://stephango.com/flexoki
+
+palette = 0=#343331
+palette = 1=#d14d41
+palette = 2=#879a39
+palette = 3=#d0a215
+palette = 4=#4385be
+palette = 5=#8b7ec8
+palette = 6=#3aa99f
+palette = 7=#cecdc3
+palette = 8=#575653
+palette = 9=#f89a8a
+palette = 10=#bec97e
+palette = 11=#eccb60
+palette = 12=#92bfdb
+palette = 13=#c4b9e0
+palette = 14=#87d3c3
+palette = 15=#f2f0e5
+palette = 16=#da702c
+palette = 17=#ce5d97
+
+background = #100f0f
+foreground = #cecdc3
+
+cursor-color = #cecdc3
+cursor-text  = #100f0f
+
+selection-background = #164f4a
+selection-foreground = #ddf1e4

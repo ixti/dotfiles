@@ -1,26 +1,24 @@
-= /home/ixti
-
 == Dependencies
+:yadm:       https://yadm.io/[yadm]
+:starship:   https://starship.rs/[starship]
+:eza:        https://eza.rocks/[eza]
+:delta:      https://dandavison.github.io/delta/[delta]
+:difftastic: https://difftastic.wilfred.me.uk/[difftastic]
+:bat:        https://github.com/sharkdp/bat/[bat]
 
 NOTE: Most dependencies are optional, but highly recommended.
 
-yadm::
-  (https://yadm.io/[homepage] | https://packages.gentoo.org/packages/app-admin/yadm[ebuild])
+{yadm} (https://packages.gentoo.org/packages/app-admin/yadm[ebuild])::
   Dotfiles manager.
-starship::
-  (https://starship.rs/[homepage] | https://packages.gentoo.org/packages/app-shells/starship[ebuild])
+{starship} (https://packages.gentoo.org/packages/app-shells/starship[ebuild])::
   Prompt generator.
-eza::
-  (https://eza.rocks/[homepage] | https://packages.gentoo.org/packages/sys-apps/eza[ebuild])
+{eza} (https://packages.gentoo.org/packages/sys-apps/eza[ebuild])::
   Modern replacement for the file-listing command-line program `ls`.
-delta::
-  (https://dandavison.github.io/delta/[homepage] | https://packages.gentoo.org/packages/dev-util/git-delta[ebuild])
+{delta} (https://packages.gentoo.org/packages/dev-util/git-delta[ebuild])::
   A syntax-highlighting pager for git.
-difftastic::
-  (https://difftastic.wilfred.me.uk/[homepage] | https://packages.gentoo.org/packages/dev-util/difftastic[ebuild])
+{difftastic} (https://packages.gentoo.org/packages/dev-util/difftastic[ebuild])::
   CLI diff tool that compares files based on their syntax, not line-by-line.
-bat::
-  (https://github.com/sharkdp/bat[homepage] | https://packages.gentoo.org/packages/sys-apps/bat[ebuild])
+{bat} (https://packages.gentoo.org/packages/sys-apps/bat[ebuild])::
   A cat(1) clone with wings.
 
 
@@ -28,7 +26,7 @@ bat::
 
 [source,bash]
 ----
-yadm clone --branch yadm --single-branch "git@gitlab.com:${USER}/dotfiles.git"
+yadm clone --branch main --single-branch "https://codeberg.org/ixti/dotfiles.git"
 ----
 
 == Update

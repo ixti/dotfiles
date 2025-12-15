@@ -26,15 +26,15 @@ return {
 
   bg0     = COLORS.base_950:to_css(),                          -- (status line and float)
   bg1     = COLORS.black:to_css(),                             -- Default bg
-  bg2     = COLORS.black:blend(COLORS.base_950, 0.4):to_css(), -- Lighter bg (colorcolm folds)
+  bg2     = COLORS.black:blend(COLORS.base_950, 0.3):to_css(), -- Lighter bg (colorcolm folds)
   bg3     = COLORS.black:blend(COLORS.base_900, 0.6):to_css(), -- Lighter bg (cursor line)
-  bg4     = COLORS.black:blend(COLORS.base_800, 0.8):to_css(), -- Conceal, border fg
+  bg4     = COLORS.black:blend(COLORS.base_850, 0.6):to_css(), -- Conceal, border fg
 
   fg0     = COLORS.base_150:to_css(), -- Lighter fg
   fg1     = COLORS.base_200:to_css(), -- Default fg
   fg2     = COLORS.base_300:to_css(), -- Darker fg (status line)
   fg3     = COLORS.base_400:to_css(), -- Darker fg (line numbers, fold colums)
 
-  sel0    = COLORS.black:blend(COLORS.base_950, 0.7):to_css(), -- Popup bg, visual selection bg
-  sel1    = COLORS.black:blend(COLORS.base_850, 0.7):to_css(), -- Popup sel bg, search bg
+  sel0    = COLORS.base_950:blend(COLORS.base_900, 0.5):to_css(), -- Popup bg, visual selection bg
+  sel1    = COLORS.base_950:blend(COLORS.base_800, 0.5):to_css(), -- Popup sel bg, search bg
 }

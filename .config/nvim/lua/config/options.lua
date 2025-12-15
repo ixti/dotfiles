@@ -76,10 +76,10 @@ opt.colorcolumn = "81,121"
 -- Display invisible characters to catch trailing spaces and mixed indentation
 opt.list      = true
 opt.listchars = {
-  tab      = "» ",
+  tab      = "󰄾",
   trail    = "·",
-  extends  = ">",
-  precedes = "<",
+  extends  = "→",
+  precedes = "←",
   nbsp     = "␣",
 }
 

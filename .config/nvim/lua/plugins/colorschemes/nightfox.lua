@@ -27,7 +27,9 @@ return {
 
     groups = {
       all = {
-        Special = { fg = "palette.pink" },
+        Special             = { fg = "palette.pink" },
+        Whitespace          = { fg = "palette.bg4" },
+        MiniFilesCursorLine = { link = "PmenuSel" },
       },
     },
   },

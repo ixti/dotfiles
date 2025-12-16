@@ -27,12 +27,13 @@ return {
 
     groups = {
       all = {
-        Special                = { fg = "palette.pink" },
-        Whitespace             = { fg = "palette.bg4" },
-        MiniFilesCursorLine    = { link = "PmenuSel" },
-        SnacksPickerCursorLine = { link = "PmenuSel" },
-        SnacksPickerDir        = { fg = "palette.cyan.dim" },
-        SnacksPickerTotals     = { fg = "palette.pink.dim" },
+        Special                        = { fg = "palette.pink" },
+        Whitespace                     = { fg = "palette.bg4" },
+        MiniFilesCursorLine            = { link = "PmenuSel" },
+        SnacksPickerCursorLine         = { link = "PmenuSel" },
+        SnacksPickerDir                = { fg = "palette.cyan.dim" },
+        SnacksPickerTotals             = { fg = "palette.pink.dim" },
+        SnacksPickerGitStatusUntracked = { fg = "palette.black" },
       },
     },
   },

@@ -85,6 +85,7 @@ typeset -gU path=(
   "${HOME}/bin"
   "${HOME}/go/bin"
   "${HOME}/.cargo/bin"
+  "${XDG_CACHE_HOME}/.bun/bin"
   "${PNPM_HOME}"
   $path
 )

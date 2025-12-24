@@ -15,13 +15,8 @@ theme = flexoki-dark
 # the cursor. Test field: ({| x => y !== z |})
 font-shaping-break = cursor
 
-# HACK: Correctly handle ^[ as Escape, otherwise GhosTTY sends some 
+# HACK: Correctly handle ^[ as Escape, otherwise GhosTTY sends something else.
 keybind = ctrl+[=text:\x1b
-
-# Do not automatically copy selected text to the main copy buffer.
-# It will still copy to the select buffer. In other words, makes
-# text selection behave just the way you expect.
-copy-on-select = false
 
 # Whether to start the window in a maximized state. This setting applies
 # to new windows and does not apply to tabs, splits, etc. However, this setting

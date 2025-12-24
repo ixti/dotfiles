@@ -12,8 +12,15 @@ return {
     -- Ruby LSP: `gem install ruby-lsp`
     vim.lsp.enable("ruby_lsp")
 
-    -- Typescript LSP: `npm i -g typescript-language-server`
+    -- Typescript LSP:
+    -- * `bun i -g typescript-language-server`
+    -- * `npm i -g typescript-language-server`
     vim.lsp.enable("ts_ls")
+
+    -- Tailwind LSP:
+    -- * `bun i -g @tailwindcss/language-server`
+    -- * `npm i -g @tailwindcss/language-server`
+    vim.lsp.enable("tailwindcss")
 
     -- Deno LSP: `mise use deno` or `sudo emerge dev-lang/deno-bin` (::GENTOO)
     vim.lsp.enable("denols")

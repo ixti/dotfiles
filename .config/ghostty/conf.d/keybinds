@@ -1,0 +1,32 @@
+# ft=conf
+
+# Reset keybindings I'm not using
+keybind = alt+digit_1=unbind
+keybind = alt+digit_2=unbind
+keybind = alt+digit_3=unbind
+keybind = alt+digit_4=unbind
+keybind = alt+digit_5=unbind
+keybind = alt+digit_6=unbind
+keybind = alt+digit_7=unbind
+keybind = alt+digit_8=unbind
+keybind = alt+1=unbind
+keybind = alt+2=unbind
+keybind = alt+3=unbind
+keybind = alt+4=unbind
+keybind = alt+5=unbind
+keybind = alt+6=unbind
+keybind = alt+7=unbind
+keybind = alt+8=unbind
+keybind = alt+9=unbind
+keybind = alt+f4=unbind
+
+# Ghostty sends the CSI-u “fixterms” sequence `^[[91;5u` AKA `\x1b[91;5u`
+# for `Ctrl+[` by default, not a bare ESC (i.e., `^[` AKA `\x1b`).
+# See: https://github.com/ghostty-org/ghostty/discussions/5071#discussioncomment-13094257
+keybind = ctrl+left_bracket=text:\x1b
+
+# Tab Management
+keybind = ctrl+page_up=previous_tab
+keybind = ctrl+page_down=next_tab
+keybind = ctrl+shift+page_up=move_tab:-1
+keybind = ctrl+shift+page_down=move_tab:1

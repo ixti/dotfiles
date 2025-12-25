@@ -1,3 +1,5 @@
+# ft=conf
+
 font-family  = "Victor Mono"
 font-size    = 10
 font-feature = -calt, -liga, -dlig

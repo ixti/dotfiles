@@ -1,22 +1,22 @@
 # Run `ghostty +show-config --default --docs` to view a list of
 # all available config options and their default values.
 
+# A theme to use. This can be a built-in theme name, a custom theme
+# name, or an absolute path to a custom theme file.
+theme = flexoki-dark
+
 # If "MonoLisa Variable" font is installed:
 config-file = conf.d/font-monolisa
 
 # Alternatively, comment the above, install VictorMono and uncomment below:
 # config-file = conf.d/font-victormono
 
-# A theme to use. This can be a built-in theme name, a custom theme
-# name, or an absolute path to a custom theme file.
-theme = flexoki-dark
+# Keybindings
+config-file = conf.d/keybinds
 
 # If ligatures are enabled (questionable choice), then at least break then under
-# the cursor. Test field: ({| x => y !== z |})
+# the cursor. Test: ({| X -> X => X !== X |})
 font-shaping-break = cursor
-
-# HACK: Correctly handle ^[ as Escape, otherwise GhosTTY sends something else.
-keybind = ctrl+[=text:\x1b
 
 # Whether to start the window in a maximized state. This setting applies
 # to new windows and does not apply to tabs, splits, etc. However, this setting

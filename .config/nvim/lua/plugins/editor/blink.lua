@@ -3,15 +3,16 @@ return {
 
   version = "1.*",
 
-  dependencies = {
-    "L3MON4D3/LuaSnip",
-  },
-
   ---@module "blink.cmp"
   ---@type blink.cmp.Config
   opts = {
-    keymap   = { preset = "default" },
-    snippets = { preset = "luasnip" },
+    keymap = {
+      preset = "default",
+    },
+
+    snippets = {
+      friendly_snippets = false,
+    },
 
     completion = {
       menu          = { border = "rounded" },
@@ -29,7 +30,7 @@ return {
     },
 
     sources = {
-      default   = { "lsp", "path", "buffer", "snippets" },
+      default   = { "lsp", "path", "buffer" },
       providers = {
         lsp = {
           name      = "LSP",

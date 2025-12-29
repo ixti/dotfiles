@@ -3,11 +3,15 @@
 local attr="github"
 local name="token"
 
+_show_token() {
+  secret-tool lookup "${attr}" "${name}"
+}
+
 case "${1:-}" in
   update)
     print "Visit <https://github.com/settings/tokens> and create/update token"
 
-    "${BROWSER}" "https://github.com/settings/tokens"
+    "${BROWSER:-xdg-open}" "https://github.com/settings/tokens"
 
     print "Please create new token and paste it here..."
 
@@ -15,19 +19,24 @@ case "${1:-}" in
 
     gh-access-token setup
 
-    return
+    return 0
     ;;
 
   setup)
-    typeset token="$(gh-access-token)"
-    typeset -gx BUNDLE_RUBYGEMS__PKG__GITHUB__COM="x-api-token:${token}"
+    typeset -gx BUNDLE_RUBYGEMS__PKG__GITHUB__COM="x-api-token:$(_show_token)"
 
-    return
+    return 0
+    ;;
+
+  show)
+    _show_token
+
+    return 0
     ;;
 
   *)
-    secret-tool lookup "${attr}" "${name}"
+    printf -u2 "USAGE: gh-access-token {update|setup|show}"
 
-    return
+    return 1
     ;;
 esac

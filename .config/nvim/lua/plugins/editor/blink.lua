@@ -11,7 +11,7 @@ return {
     },
 
     snippets = {
-      friendly_snippets = false,
+      preset = "default",
     },
 
     completion = {
@@ -30,12 +30,17 @@ return {
     },
 
     sources = {
-      default   = { "lsp", "path", "buffer" },
+      default   = { "lsp", "path", "buffer", "snippets" },
       providers = {
         lsp = {
           name      = "LSP",
           module    = "blink.cmp.sources.lsp",
           fallbacks = {}, -- always show buffer, even when LSP is available
+        },
+        snippets = {
+          opts = {
+            friendly_snippets = false,
+          },
         },
       },
     },

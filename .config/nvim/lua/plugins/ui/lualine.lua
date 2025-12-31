@@ -6,6 +6,8 @@ return {
     "nvim-mini/mini.icons",
   },
 
+  event = "UiEnter",
+
   config = function()
     -- Lualine with `diff` causes gitsigns to be force-killed that leaves git index lock:
     -- * https://github.com/nvim-lualine/lualine.nvim/issues/1096

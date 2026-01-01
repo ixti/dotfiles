@@ -2,5 +2,9 @@
 
 font-family    = "MonoLisa Variable"
 font-size      = 10
-font-variation = wght=200
 font-feature   = -calt, -liga, -dlig
+
+font-variation              = wght=200
+font-variation-italic       = wght=200
+font-variation-bold         = wght=600
+font-variation-bold-italic  = wght=600

@@ -70,13 +70,12 @@ opt.cursorline = true
 opt.cursorcolumn = false
 
 -- Draw vertical rulers at columns 81 and 121
--- 80 is standard limit; 121 marks extended tolerance for long lines
 opt.colorcolumn = "81,121"
 
 -- Display invisible characters to catch trailing spaces and mixed indentation
 opt.list      = true
 opt.listchars = {
-  tab      = "󰄾",
+  tab      = "󰘟·󰘠",
   trail    = "·",
   extends  = "→",
   precedes = "←",

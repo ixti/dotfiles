@@ -34,6 +34,8 @@ return {
         SnacksPickerDir                = { fg = "palette.cyan.dim" },
         SnacksPickerTotals             = { fg = "palette.pink.dim" },
         SnacksPickerGitStatusUntracked = { fg = "palette.black" },
+        WinBar                         = { link = "StatusLine" },
+        WinBarNC                       = { link = "StatusLineNC" },
       },
     },
   },

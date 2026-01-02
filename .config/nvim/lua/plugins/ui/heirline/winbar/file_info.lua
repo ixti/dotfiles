@@ -41,6 +41,10 @@ local FileName = {
 
     return filename
   end,
+
+  hl = function()
+    if conditions.is_active() then return { bold = true } end
+  end,
 }
 
 return {

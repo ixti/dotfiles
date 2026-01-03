@@ -11,7 +11,7 @@ local FileIcon = {
   end,
 
   hl = function(self)
-    return self.is_active and self.icon_color or self.inactive_hl
+    return self.icon_color
   end,
 }
 
@@ -31,7 +31,7 @@ local FileName = {
   end,
 
   hl = function(self)
-    return self.is_active and { bold = true } or self.inactive_hl
+    return self.is_active and { bold = true }
   end,
 }
 

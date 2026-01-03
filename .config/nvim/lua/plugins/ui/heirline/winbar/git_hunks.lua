@@ -15,15 +15,9 @@ return {
     self.lines_changed     = status_dict.changed or 0
     self.has_lines_changed = self.lines_changed > 0
 
-    if self.is_active then
-      self.lines_added_hl    = utils.get_highlight("GitSignsAdd")
-      self.lines_removed_hl  = utils.get_highlight("GitSignsDelete")
-      self.lines_changed_hl  = utils.get_highlight("GitSignsChange")
-    else
-      self.lines_added_hl    = self.inactive_hl
-      self.lines_removed_hl  = self.inactive_hl
-      self.lines_changed_hl  = self.inactive_hl
-    end
+    self.lines_added_hl    = utils.get_highlight("GitSignsAdd")
+    self.lines_removed_hl  = utils.get_highlight("GitSignsDelete")
+    self.lines_changed_hl  = utils.get_highlight("GitSignsChange")
   end,
 
   {

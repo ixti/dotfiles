@@ -1,16 +1,17 @@
 local conditions = require("heirline.conditions")
 local utils      = require("heirline.utils")
 
-local FileInfo = require("plugins.ui.heirline.winbar.file_info")
-local GitHunks = require("plugins.ui.heirline.winbar.git_hunks")
-local LspInfo  = require("plugins.ui.heirline.winbar.lsp_info")
+local FileInfo           = require("plugins.ui.heirline.winbar.file_info")
+local GitHunks           = require("plugins.ui.heirline.winbar.git_hunks")
+local ReadOnlyFileMark   = require("plugins.ui.heirline.winbar.read_only_file_mark")
+local UnsavedChangesMark = require("plugins.ui.heirline.winbar.unsaved_changes_mark")
 
 local FileWinbar = {
   init = function(self)
-    self.is_active = conditions.is_active()
-    self.normal_hl = utils.get_highlight("Normal")
-    self.dimmed_hl = utils.get_highlight("Comment")
-    self.winbar_hl = utils.get_highlight(self.is_active and "WinBar" or "WinBarNC")
+    self.is_active   = conditions.is_active()
+    self.normal_hl   = utils.get_highlight("Normal")
+    self.winbar_hl   = utils.get_highlight(self.is_active and "WinBar" or "WinBarNC")
+    self.inactive_hl = { fg = utils.get_highlight("Comment").fg }
   end,
 
   hl = function(self)
@@ -25,20 +26,12 @@ local FileWinbar = {
     end,
 
     {
-      {
-        flexible = 1,
-        { LspInfo },
-        { provider = "" },
-      },
-
-      { provider = "%=" },
       FileInfo,
       { provider = "%=" },
-
       {
         flexible = 1,
-        { GitHunks },
-        { provider = "" },
+        { UnsavedChangesMark, GitHunks, ReadOnlyFileMark },
+        { UnsavedChangesMark, ReadOnlyFileMark },
       },
     }
   ),

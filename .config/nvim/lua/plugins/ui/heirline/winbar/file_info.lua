@@ -1,22 +1,6 @@
 local MiniIcons  = require("mini.icons")
 local conditions = require("heirline.conditions")
 
-local function is_readonly()
-  return not vim.bo.modifiable or vim.bo.readonly
-end
-
-local ReadOnlyMark = {
-  condition = is_readonly,
-  provider  = "󰌾",
-  hl        = "Error",
-}
-
-local UnsavedChangesMark = {
-  condition = function() return vim.bo.modified end,
-  provider  = " *",
-  hl        = "Changed"
-}
-
 local FileIcon = {
   init = function(self)
     self.icon, self.icon_color = MiniIcons.get("file", self.filename)
@@ -27,7 +11,7 @@ local FileIcon = {
   end,
 
   hl = function(self)
-    return self.icon_color
+    return self.is_active and self.icon_color or self.inactive_hl
   end,
 }
 
@@ -47,7 +31,7 @@ local FileName = {
   end,
 
   hl = function(self)
-    if self.is_active then return { bold = true } end
+    return self.is_active and { bold = true } or self.inactive_hl
   end,
 }
 
@@ -56,8 +40,6 @@ return {
     self.filename = vim.api.nvim_buf_get_name(0)
   end,
 
-  ReadOnlyMark,
   FileIcon,
   FileName,
-  UnsavedChangesMark,
 }

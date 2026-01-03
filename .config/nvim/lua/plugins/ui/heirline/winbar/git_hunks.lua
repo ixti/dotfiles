@@ -1,6 +1,6 @@
 local utils = require("heirline.utils")
 
-local Delimiter = require("plugins.ui.heirline.winbar.delimiters").east
+local Delimiter = require("plugins.ui.heirline.winbar.delimiter")
 
 return {
   condition = utils.is_git_repo,
@@ -14,6 +14,16 @@ return {
     self.has_lines_removed = self.lines_removed > 0
     self.lines_changed     = status_dict.changed or 0
     self.has_lines_changed = self.lines_changed > 0
+
+    if self.is_active then
+      self.lines_added_hl    = utils.get_highlight("GitSignsAdd")
+      self.lines_removed_hl  = utils.get_highlight("GitSignsDelete")
+      self.lines_changed_hl  = utils.get_highlight("GitSignsChange")
+    else
+      self.lines_added_hl    = self.inactive_hl
+      self.lines_removed_hl  = self.inactive_hl
+      self.lines_changed_hl  = self.inactive_hl
+    end
   end,
 
   {
@@ -29,7 +39,9 @@ return {
       return self.has_lines_added and ("+" .. self.lines_added)
     end,
 
-    hl = "GitSignsAdd",
+    hl = function(self)
+      return self.lines_added_hl
+    end,
   },
 
   {
@@ -39,7 +51,9 @@ return {
       return self.has_lines_removed and (prefix .. self.lines_removed)
     end,
 
-    hl = "GitSignsDelete",
+    hl = function(self)
+      return self.lines_removed_hl
+    end,
   },
 
   {
@@ -49,6 +63,8 @@ return {
       return self.has_lines_changed and (prefix .. self.lines_changed)
     end,
 
-    hl = "GitSignsChange",
+    hl = function(self)
+      return self.lines_changed_hl
+    end,
   },
 }

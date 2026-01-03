@@ -1,9 +1,13 @@
 local MiniIcons  = require("mini.icons")
 local conditions = require("heirline.conditions")
 
+local function is_readonly()
+  return not vim.bo.modifiable or vim.bo.readonly
+end
+
 local ReadOnlyMark = {
-  condition = function() return not vim.bo.modifiable or vim.bo.readonly end,
-  provider  = "[RO] ",
+  condition = is_readonly,
+  provider  = "󰌾",
   hl        = "Error",
 }
 
@@ -42,8 +46,8 @@ local FileName = {
     return filename
   end,
 
-  hl = function()
-    if conditions.is_active() then return { bold = true } end
+  hl = function(self)
+    if self.is_active then return { bold = true } end
   end,
 }
 

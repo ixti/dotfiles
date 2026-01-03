@@ -17,26 +17,16 @@ return {
 
       inactive_sections = {},
 
-      tabline = {
-        lualine_a = { { "tabs", mode = 0 }},
-        lualine_b = { "filename" },
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = { "diagnostics" },
-        lualine_z = { { "lsp_status", symbols = { separator = "  " } } },
-      },
+      tabline = {},
 
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch" },
-        lualine_c = {},
-        lualine_x = { "encoding", "fileformat", "filetype" },
+        lualine_c = { { "tabs", mode = 0 } },
+        lualine_x = { "diagnostics", "encoding", "fileformat", "filetype" },
         lualine_y = {},
         lualine_z = { "progress", "location" },
       },
     })
-
-    -- Disable tabline completely, using winbar instead,
-    -- vim.opt.showtabline = 0
   end,
 }

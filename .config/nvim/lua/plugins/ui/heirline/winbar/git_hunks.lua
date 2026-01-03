@@ -1,5 +1,7 @@
 local utils = require("heirline.utils")
 
+local Delimiter = require("plugins.ui.heirline.winbar.delimiters").east
+
 return {
   condition = utils.is_git_repo,
 
@@ -19,7 +21,7 @@ return {
       return self.has_lines_added or self.has_lines_removed or self.has_lines_changed
     end,
 
-    provider = " "
+    Delimiter
   },
 
   {

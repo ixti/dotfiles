@@ -26,5 +26,8 @@ return {
 
       winbar = require("plugins.ui.heirline.winbar"),
     })
+
+    -- Disable tabline completely
+    vim.opt.showtabline = 0
   end,
 }

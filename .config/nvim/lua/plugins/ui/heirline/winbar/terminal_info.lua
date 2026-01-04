@@ -2,23 +2,21 @@ local MiniIcons = require("mini.icons")
 
 local if_active = require("plugins.ui.heirline.shared").if_active
 
+local icon, icon_hl, has_icon = MiniIcons.get("default", "os")
+
 local TerminalIcon = {
-  init = function(self)
-    self.icon, self.icon_color = MiniIcons.get("default", "os")
+  provider = function()
+    return has_icon and (icon .. " ") or "TERMINAL: "
   end,
 
-  provider = function(self)
-    return self.icon and (self.icon .. " ")
-  end,
-
-  hl = function(self)
-    return self.icon_color
-  end,
+  hl = icon_hl,
 }
 
 local TerminalName = {
   provider = function()
-    return vim.api.nvim_buf_get_name(0):gsub(".*:", "")
+    local name = vim.api.nvim_buf_get_name(0):gsub(".*:", "")
+
+    return name ~= "" and name or "unknown"
   end,
 }
 

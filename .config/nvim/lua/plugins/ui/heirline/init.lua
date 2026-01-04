@@ -23,6 +23,8 @@ return {
         diag_hints_fg           = utils.get_highlight("DiagnosticHint").fg,
         diag_infos_fg           = utils.get_highlight("DiagnosticInfo").fg,
 
+        git_branch_fg           = utils.get_highlight("Special").fg,
+
         git_hunks_added_fg      = utils.get_highlight("GitSignsAdd").fg,
         git_hunks_removed_fg    = utils.get_highlight("GitSignsDelete").fg,
         git_hunks_changed_fg    = utils.get_highlight("GitSignsChange").fg,

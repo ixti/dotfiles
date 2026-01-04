@@ -1,10 +1,9 @@
 local MiniIcons  = require("mini.icons")
 local conditions = require("heirline.conditions")
-local utils      = require("heirline.utils")
 
 local Space      = require("plugins.ui.heirline.shared").Space
 
-local git_icon, git_hl = MiniIcons.get("filetype", "git")
+local git_icon, _, has_git_icon = MiniIcons.get("filetype", "git")
 
 return {
   condition = conditions.is_git_repo,
@@ -13,22 +12,18 @@ return {
     self.git_head = vim.b.gitsigns_head
   end,
 
-  hl = function()
-    return git_hl or utils.get_highlight("Special")
-  end,
+  hl = { fg = "git_branch_fg", bold = true },
 
   Space,
 
   {
-    provider = function()
-      return git_icon and (git_icon .. " ")
-    end,
+    condition = has_git_icon,
+    provider  = (git_icon .. " "),
   },
 
   {
     provider = function(self)
       return self.git_head
     end,
-    hl = { bold = true }
   },
 }

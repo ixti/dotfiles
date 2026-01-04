@@ -3,17 +3,29 @@ local conditions = require("heirline.conditions")
 
 local if_active  = require("plugins.ui.heirline.shared").if_active
 
+local default_icon, default_icon_hl, has_default_icon = MiniIcons.get("default", "file")
+
 local FileIcon = {
   init = function(self)
-    self.icon, self.icon_color = MiniIcons.get("file", self.filename)
+    if self.filename == "" then
+      self.icon     = default_icon
+      self.icon_hl  = default_icon_hl
+      self.has_icon = has_default_icon
+
+      return
+    end
+
+    self.icon, self.icon_hl, self.has_icon = MiniIcons.get("file", self.filename)
   end,
 
   provider = function(self)
-    return self.icon and (self.icon .. " ")
+    if self.has_icon then
+      return self.icon .. " "
+    end
   end,
 
   hl = function(self)
-    return self.icon_color
+    return self.icon_hl
   end,
 }
 

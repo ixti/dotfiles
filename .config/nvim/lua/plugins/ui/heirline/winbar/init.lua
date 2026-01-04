@@ -1,5 +1,4 @@
 local conditions         = require("heirline.conditions")
-local utils              = require("heirline.utils")
 
 local FileInfo           = require("plugins.ui.heirline.winbar.file_info")
 local GitHunks           = require("plugins.ui.heirline.winbar.git_hunks")
@@ -10,13 +9,8 @@ local TerminalInfo       = require("plugins.ui.heirline.winbar.terminal_info")
 local Space              = require("plugins.ui.heirline.shared").Space
 local Filler             = require("plugins.ui.heirline.shared").Filler
 
-local WinbarInit = function(self)
+local function WinbarInit(self)
   self.is_active = conditions.is_active()
-end
-
-local InactiveHL = { fg = utils.get_highlight("Comment").fg, force = true }
-local WinbarHL   = function(self)
-  return (not self.is_active) and InactiveHL
 end
 
 return {
@@ -29,7 +23,6 @@ return {
     end,
 
     init = WinbarInit,
-    hl   = WinbarHL,
 
     Space,
     TerminalInfo,
@@ -40,7 +33,6 @@ return {
   -- Regular files
   {
     init = WinbarInit,
-    hl   = WinbarHL,
 
     Space,
     FileInfo,

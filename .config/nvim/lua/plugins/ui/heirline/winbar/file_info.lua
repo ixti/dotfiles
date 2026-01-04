@@ -1,6 +1,8 @@
 local MiniIcons  = require("mini.icons")
 local conditions = require("heirline.conditions")
 
+local if_active  = require("plugins.ui.heirline.shared").if_active
+
 local FileIcon = {
   init = function(self)
     self.icon, self.icon_color = MiniIcons.get("file", self.filename)
@@ -29,16 +31,14 @@ local FileName = {
 
     return filename
   end,
-
-  hl = function(self)
-    return self.is_active and { bold = true }
-  end,
 }
 
 return {
   init = function(self)
     self.filename = vim.api.nvim_buf_get_name(0)
   end,
+
+  hl = if_active({ bold = true }, { fg = "winbar_inactive_fg", force = true }),
 
   FileIcon,
   FileName,

@@ -9,7 +9,7 @@ local update = {
 }
 
 local hl = function(self)
-  return self.vimode_spec:hl({ bold = true })
+  return self.vimode_spec:hl()
 end
 
 local ShortName = {

@@ -1,5 +1,7 @@
 local MiniIcons = require("mini.icons")
 
+local if_active = require("plugins.ui.heirline.shared").if_active
+
 local TerminalIcon = {
   init = function(self)
     self.icon, self.icon_color = MiniIcons.get("default", "os")
@@ -18,13 +20,11 @@ local TerminalName = {
   provider = function()
     return vim.api.nvim_buf_get_name(0):gsub(".*:", "")
   end,
-
-  hl = function(self)
-    return self.is_active and { bold = true }
-  end,
 }
 
 return {
+  hl = if_active({ bold = true }, { fg = "winbar_inactive_fg", force = true }),
+
   TerminalIcon,
   TerminalName,
 }

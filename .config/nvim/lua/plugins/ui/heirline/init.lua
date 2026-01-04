@@ -11,6 +11,34 @@ return {
   config = function()
     local heirline   = require("heirline")
     local conditions = require("heirline.conditions")
+    local utils      = require("heirline.utils")
+
+    local function setup_colors()
+      return {
+        delimiter_fg            = utils.get_highlight("Conceal").fg,
+        winbar_inactive_fg      = utils.get_highlight("Comment").fg,
+
+        diag_errors_fg          = utils.get_highlight("DiagnosticError").fg,
+        diag_warnings_fg        = utils.get_highlight("DiagnosticWarn").fg,
+        diag_hints_fg           = utils.get_highlight("DiagnosticHint").fg,
+        diag_infos_fg           = utils.get_highlight("DiagnosticInfo").fg,
+
+        git_hunks_added_fg      = utils.get_highlight("GitSignsAdd").fg,
+        git_hunks_removed_fg    = utils.get_highlight("GitSignsDelete").fg,
+        git_hunks_changed_fg    = utils.get_highlight("GitSignsChange").fg,
+
+        read_only_file_mark     = utils.get_highlight("Error").fg,
+        unsaved_changes_mark_fg = utils.get_highlight("Changed").fg,
+
+        vimode_fg               = utils.get_highlight("Normal").bg,
+        vimode_normal_bg        = utils.get_highlight("HeirlineModeNormal").bg,
+        vimode_insert_bg        = utils.get_highlight("HeirlineModeInsert").bg,
+        vimode_visual_bg        = utils.get_highlight("HeirlineModeVisual").bg,
+        vimode_selection_bg     = utils.get_highlight("HeirlineModeSelection").bg,
+        vimode_replace_bg       = utils.get_highlight("HeirlineModeReplace").bg,
+        vimode_special_bg       = utils.get_highlight("HeirlineModeSpecial").bg,
+      }
+    end
 
     heirline.setup({
       opts = {
@@ -23,10 +51,17 @@ return {
             filetype = { "fugitive", "Trouble", "dashboard" },
           }, args.buf)
         end,
+
+        colors = setup_colors,
       },
 
       winbar     = require("plugins.ui.heirline.winbar"),
       statusline = require("plugins.ui.heirline.statusline"),
+    })
+
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      group    = vim.api.nvim_create_augroup("Heirline", { clear = true }),
+      callback = function() utils.on_colorscheme(setup_colors) end,
     })
 
     -- Disable tabline completely

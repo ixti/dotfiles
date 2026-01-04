@@ -1,9 +1,13 @@
-local utils = require("heirline.utils")
-
 local M = {}
 
 M.Filler     = { provider = "%=" }
 M.Space      = { provider = " " }
-M.Delimiter  = { provider = "│", hl = { fg = utils.get_highlight("Conceal").fg, force = true } }
+M.Delimiter  = { provider = "│", hl = { fg = "delimiter_fg" } }
+
+function M.if_active(active, inactive)
+  return function(self)
+    return self.is_active and active or inactive
+  end
+end
 
 return M

@@ -59,9 +59,30 @@ return {
       statusline = require("plugins.ui.heirline.statusline"),
     })
 
+    local buffer_diagnostics = require("plugins.ui.heirline.shared.buffer_diagnostics")
+    local group              = vim.api.nvim_create_augroup("Heirline", { clear = true })
+
     vim.api.nvim_create_autocmd("ColorScheme", {
-      group    = vim.api.nvim_create_augroup("Heirline", { clear = true }),
+      desc     = "Reset Heirline colors",
+      group    = group,
       callback = function() utils.on_colorscheme(setup_colors) end,
+    })
+
+    vim.api.nvim_create_autocmd("DiagnosticChanged", {
+      group    = group,
+      desc     = "Reset Heirline diagnostic stats cache",
+      callback = function(args)
+        buffer_diagnostics.reset(args.buf, args.data.diagnostics)
+        vim.cmd.redrawstatus()
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("BufDelete", {
+      group    = group,
+      desc     = "Cleanup Heirline diagnostic stats cache for deleted buffer",
+      callback = function(args)
+        buffer_diagnostics.clear(args.buf)
+      end,
     })
 
     -- Disable tabline completely

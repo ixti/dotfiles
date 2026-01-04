@@ -2,6 +2,7 @@ return {
   "rebelot/heirline.nvim",
 
   dependencies = {
+    "lewis6991/gitsigns.nvim",
     "nvim-mini/mini.icons",
   },
 
@@ -24,7 +25,8 @@ return {
         end,
       },
 
-      winbar = require("plugins.ui.heirline.winbar"),
+      winbar     = require("plugins.ui.heirline.winbar"),
+      statusline = require("plugins.ui.heirline.statusline"),
     })
 
     -- Disable tabline completely

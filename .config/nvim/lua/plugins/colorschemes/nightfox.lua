@@ -36,6 +36,13 @@ return {
         SnacksPickerGitStatusUntracked = { fg = "palette.black" },
         WinBar                         = { link = "StatusLine" },
         WinBarNC                       = { link = "StatusLineNC" },
+
+        HeirlineModeNormal             = { bg = "palette.blue",    fg = "palette.bg0" },
+        HeirlineModeInsert             = { bg = "palette.green",   fg = "palette.bg0" },
+        HeirlineModeVisual             = { bg = "palette.magenta", fg = "palette.bg0" },
+        HeirlineModeSelection          = { bg = "palette.pink",    fg = "palette.bg0" },
+        HeirlineModeReplace            = { bg = "palette.orange",  fg = "palette.bg0" },
+        HeirlineModeSpecial            = { bg = "palette.yellow",  fg = "palette.bg0" },
       },
     },
   },

@@ -6,8 +6,15 @@ local GitHunks           = require("plugins.ui.heirline.winbar.git_hunks")
 local ReadOnlyFileMark   = require("plugins.ui.heirline.winbar.read_only_file_mark")
 local UnsavedChangesMark = require("plugins.ui.heirline.winbar.unsaved_changes_mark")
 local TerminalInfo       = require("plugins.ui.heirline.winbar.terminal_info")
-local Space              = { provider = " " }
-local Filler             = { provider = "%=" }
+local Shared             = require("plugins.ui.heirline.shared")
+
+local WinbarInit = function(self)
+  self.is_active = conditions.is_active()
+end
+
+local WinbarHl   = function(self)
+  return (not self.is_active) and Shared.InactiveHL
+end
 
 return {
   fallthrough = false,
@@ -18,40 +25,28 @@ return {
       return conditions.buffer_matches({ buftype = { "terminal" } })
     end,
 
-    init = function(self)
-      self.is_active   = conditions.is_active()
-      self.inactive_hl = { fg = utils.get_highlight("Comment").fg, force = true }
-    end,
+    init = WinbarInit,
+    hl   = WinbarHl,
 
-    hl = function(self)
-      return (not self.is_active) and self.inactive_hl
-    end,
-
-    Space,
+    Shared.Space,
     TerminalInfo,
-    Filler,
-    Space,
+    Shared.Filler,
+    Shared.Space,
   },
 
   -- Regular files
   {
-    init = function(self)
-      self.is_active   = conditions.is_active()
-      self.inactive_hl = { fg = utils.get_highlight("Comment").fg, force = true }
-    end,
+    init = WinbarInit,
+    hl   = WinbarHl,
 
-    hl = function(self)
-      return (not self.is_active) and self.inactive_hl
-    end,
-
-    Space,
+    Shared.Space,
     FileInfo,
-    Filler,
+    Shared.Filler,
     {
       flexible = 1,
-      { UnsavedChangesMark, GitHunks,        ReadOnlyFileMark },
+      { UnsavedChangesMark, GitHunks, ReadOnlyFileMark },
       { UnsavedChangesMark, ReadOnlyFileMark },
     },
-    Space,
+    Shared.Space,
   },
 }

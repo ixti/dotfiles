@@ -107,6 +107,9 @@ opt.inccommand = "split"
 -- Default border style of floating windows
 opt.winborder = "rounded"
 
+-- Global statusline
+opt.laststatus = 3
+
 -- ============================================================================
 -- Search Behaviour
 -- ============================================================================

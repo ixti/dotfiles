@@ -1,9 +1,11 @@
-local utils = require("heirline.utils")
+local conditions = require("heirline.conditions")
+local utils      = require("heirline.utils")
 
-local Delimiter = require("plugins.ui.heirline.winbar.delimiter")
+local Delimiter = require("plugins.ui.heirline.shared").Delimiter
+local Space     = require("plugins.ui.heirline.shared").Space
 
 return {
-  condition = utils.is_git_repo,
+  condition = conditions.is_git_repo,
 
   init = function(self)
     local status_dict = vim.b.gitsigns_status_dict or {}
@@ -25,12 +27,14 @@ return {
       return self.has_lines_added or self.has_lines_removed or self.has_lines_changed
     end,
 
-    Delimiter
+    Space,
+    Delimiter,
+    Space,
   },
 
   {
     provider = function(self)
-      return self.has_lines_added and ("+" .. self.lines_added)
+      return self.has_lines_added and (" +" .. self.lines_added)
     end,
 
     hl = function(self)
@@ -40,9 +44,7 @@ return {
 
   {
     provider = function(self)
-      local prefix = self.has_lines_added and " -" or "-"
-
-      return self.has_lines_removed and (prefix .. self.lines_removed)
+      return self.has_lines_removed and (" -" .. self.lines_removed)
     end,
 
     hl = function(self)
@@ -52,9 +54,7 @@ return {
 
   {
     provider = function(self)
-      local prefix = (self.has_lines_added or self.has_lines_removed) and " ~" or "~"
-
-      return self.has_lines_changed and (prefix .. self.lines_changed)
+      return self.has_lines_changed and (" ~" .. self.lines_changed)
     end,
 
     hl = function(self)

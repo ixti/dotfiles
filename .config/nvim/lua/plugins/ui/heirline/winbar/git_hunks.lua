@@ -1,8 +1,7 @@
 local conditions = require("heirline.conditions")
-local utils      = require("heirline.utils")
 
-local Delimiter = require("plugins.ui.heirline.shared").Delimiter
-local Space     = require("plugins.ui.heirline.shared").Space
+local Delimiter  = require("plugins.ui.heirline.shared").Delimiter
+local Space      = require("plugins.ui.heirline.shared").Space
 
 return {
   condition = conditions.is_git_repo,
@@ -16,10 +15,6 @@ return {
     self.has_lines_removed = self.lines_removed > 0
     self.lines_changed     = status_dict.changed or 0
     self.has_lines_changed = self.lines_changed > 0
-
-    self.lines_added_hl    = utils.get_highlight("GitSignsAdd")
-    self.lines_removed_hl  = utils.get_highlight("GitSignsDelete")
-    self.lines_changed_hl  = utils.get_highlight("GitSignsChange")
   end,
 
   {
@@ -29,36 +24,23 @@ return {
 
     Space,
     Delimiter,
-    Space,
-  },
 
-  {
-    provider = function(self)
-      return self.has_lines_added and (" +" .. self.lines_added)
-    end,
+    {
+      hl        = "GitSignsAdd",
+      condition = function(self) return self.has_lines_added end,
+      provider  = function(self) return (" +" .. self.lines_added) end,
+    },
 
-    hl = function(self)
-      return self.lines_added_hl
-    end,
-  },
+    {
+      hl        = "GitSignsDelete",
+      condition = function(self) return self.has_lines_removed end,
+      provider  = function(self) return (" -" .. self.lines_removed) end,
+    },
 
-  {
-    provider = function(self)
-      return self.has_lines_removed and (" -" .. self.lines_removed)
-    end,
-
-    hl = function(self)
-      return self.lines_removed_hl
-    end,
-  },
-
-  {
-    provider = function(self)
-      return self.has_lines_changed and (" ~" .. self.lines_changed)
-    end,
-
-    hl = function(self)
-      return self.lines_changed_hl
-    end,
+    {
+      hl        = "GitSignsChange",
+      condition = function(self) return self.has_lines_changed end,
+      provider  = function(self) return (" ~" .. self.lines_changed) end,
+    },
   },
 }

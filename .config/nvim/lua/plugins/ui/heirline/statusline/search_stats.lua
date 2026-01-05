@@ -23,7 +23,7 @@ return {
   Delimiter,
 
   {
-    hl = { fg = "search_stats_fg" },
+    hl = { fg = "search_stats_fg", bold = true },
 
     provider = function(self)
       if self.sc_total == 0 then

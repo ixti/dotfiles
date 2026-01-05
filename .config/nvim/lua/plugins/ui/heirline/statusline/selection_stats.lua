@@ -11,6 +11,8 @@ return {
     "CursorMovedI",
   },
 
+  hl = { fg = "selection_stats_fg", bold = true },
+
   init = function(self)
     local line_start = vim.fn.line("v")
     local line_end   = vim.fn.line(".")
@@ -38,8 +40,6 @@ return {
       return self.vimode_spec.is_visual_char or self.vimode_spec.is_selection_char
     end,
 
-    hl = { fg = "selection_stats_fg" },
-
     provider = function(self)
       if self.sel_lines == 1 then
         return string.format(" %dC ", self.sel_cols)
@@ -54,8 +54,6 @@ return {
       return self.vimode_spec.is_visual_line or self.vimode_spec.is_selection_line
     end,
 
-    hl = { fg = "selection_stats_fg" },
-
     provider = function(self)
       return string.format(" %dL ", self.sel_lines)
     end,
@@ -65,8 +63,6 @@ return {
     condition = function(self)
       return self.vimode_spec.is_visual_block or self.vimode_spec.is_selection_block
     end,
-
-    hl = { fg = "selection_stats_fg" },
 
     provider = function(self)
       return string.format(" %dx%d ", self.sel_lines, self.sel_cols)

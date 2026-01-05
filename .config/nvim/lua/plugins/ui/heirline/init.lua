@@ -18,6 +18,7 @@ return {
         delimiter_fg            = utils.get_highlight("Conceal").fg,
         inactive_fg             = utils.get_highlight("Comment").fg,
 
+        macro_recording_fg      = utils.get_highlight("DiagnosticWarn").fg,
         search_stats_fg         = utils.get_highlight("HeirlineModeSpecial").bg,
         selection_stats_fg      = utils.get_highlight("HeirlineModeVisual").bg,
 

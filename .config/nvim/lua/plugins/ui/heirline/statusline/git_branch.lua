@@ -17,7 +17,7 @@ return {
   Space,
 
   {
-    condition = (git_icon and true or false),
+    condition = function() return (git_icon and true or false) end,
     provider  = (git_icon .. " "),
   },
 

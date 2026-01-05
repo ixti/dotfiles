@@ -6,11 +6,14 @@ local Diagnostics        = require("plugins.ui.heirline.winbar.diagnostics")
 local ReadOnlyFileMark   = require("plugins.ui.heirline.winbar.read_only_file_mark")
 local UnsavedChangesMark = require("plugins.ui.heirline.winbar.unsaved_changes_mark")
 local TerminalInfo       = require("plugins.ui.heirline.winbar.terminal_info")
+local WeirdFormat        = require("plugins.ui.heirline.winbar.weird_format")
+local WeirdEncoding      = require("plugins.ui.heirline.winbar.weird_encoding")
 local Space              = require("plugins.ui.heirline.shared").Space
 local Filler             = require("plugins.ui.heirline.shared").Filler
 
 local function WinbarInit(self)
-  self.is_active = conditions.is_active()
+  self.is_active  = conditions.is_active()
+  self.is_special = vim.bo.filetype == "" or vim.bo.buftype ~= ""
 end
 
 return {
@@ -39,6 +42,8 @@ return {
     Filler,
     {
       flexible = 1,
+      { UnsavedChangesMark, Diagnostics, GitHunks, WeirdEncoding, WeirdFormat, ReadOnlyFileMark },
+      { UnsavedChangesMark, Diagnostics, GitHunks, WeirdEncoding, ReadOnlyFileMark },
       { UnsavedChangesMark, Diagnostics, GitHunks, ReadOnlyFileMark },
       { UnsavedChangesMark, Diagnostics, ReadOnlyFileMark },
       { UnsavedChangesMark, ReadOnlyFileMark },

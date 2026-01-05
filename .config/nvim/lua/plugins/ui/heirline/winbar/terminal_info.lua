@@ -2,11 +2,11 @@ local MiniIcons = require("mini.icons")
 
 local if_active = require("plugins.ui.heirline.shared").if_active
 
-local icon, icon_hl, has_icon = MiniIcons.get("default", "os")
+local icon, icon_hl = MiniIcons.get("default", "os")
 
 local TerminalIcon = {
   provider = function()
-    return has_icon and (icon .. " ") or "TERMINAL: "
+    return icon and (icon .. " ") or "TERMINAL: "
   end,
 
   hl = icon_hl,

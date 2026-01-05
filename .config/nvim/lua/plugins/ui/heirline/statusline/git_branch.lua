@@ -3,7 +3,7 @@ local conditions = require("heirline.conditions")
 
 local Space      = require("plugins.ui.heirline.shared").Space
 
-local git_icon, _, has_git_icon = MiniIcons.get("filetype", "git")
+local git_icon   = MiniIcons.get("filetype", "git")
 
 return {
   condition = conditions.is_git_repo,
@@ -17,7 +17,7 @@ return {
   Space,
 
   {
-    condition = has_git_icon,
+    condition = (git_icon and true or false),
     provider  = (git_icon .. " "),
   },
 

@@ -28,19 +28,19 @@ return {
   },
 
   {
-    hl        = if_active({ fg = "git_hunks_added_fg" }, { fg = "winbar_inactive_fg" }),
+    hl        = if_active({ fg = "git_hunks_added_fg" }, { fg = "inactive_fg" }),
     condition = function(self) return self.has_lines_added end,
     provider  = function(self) return (" +" .. self.lines_added) end,
   },
 
   {
-    hl        = if_active({ fg = "git_hunks_removed_fg" }, { fg = "winbar_inactive_fg" }),
+    hl        = if_active({ fg = "git_hunks_removed_fg" }, { fg = "inactive_fg" }),
     condition = function(self) return self.has_lines_removed end,
     provider  = function(self) return (" -" .. self.lines_removed) end,
   },
 
   {
-    hl        = if_active({ fg = "git_hunks_changed_fg" }, { fg = "winbar_inactive_fg" }),
+    hl        = if_active({ fg = "git_hunks_changed_fg" }, { fg = "inactive_fg" }),
     condition = function(self) return self.has_lines_changed end,
     provider  = function(self) return (" ~" .. self.lines_changed) end,
   },

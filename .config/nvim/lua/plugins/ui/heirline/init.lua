@@ -16,7 +16,7 @@ return {
     local function setup_colors()
       return {
         delimiter_fg            = utils.get_highlight("Conceal").fg,
-        winbar_inactive_fg      = utils.get_highlight("Comment").fg,
+        inactive_fg             = utils.get_highlight("Comment").fg,
 
         diag_errors_fg          = utils.get_highlight("DiagnosticError").fg,
         diag_warnings_fg        = utils.get_highlight("DiagnosticWarn").fg,

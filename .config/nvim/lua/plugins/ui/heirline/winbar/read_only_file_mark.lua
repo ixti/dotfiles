@@ -11,6 +11,6 @@ return {
 
   {
     provider = "RO",
-    hl        = if_active({ fg = "read_only_mark_fg" }, { fg = "winbar_inactive_fg" }),
+    hl        = if_active({ fg = "read_only_mark_fg" }, { fg = "inactive_fg" }),
   },
 }

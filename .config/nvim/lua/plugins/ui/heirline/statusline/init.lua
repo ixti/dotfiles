@@ -11,7 +11,7 @@ return {
     self.vimode_spec = VimodeSpec.get(vim.fn.mode(1))
   end,
 
-  flexible = true,
+  flexible = 42,
 
   { Vimode.Long, GitBranch, Filler, Delimiter, Tabs, Delimiter, Ruler },
   { Vimode.Long, Filler, Delimiter, Tabs, Delimiter, Ruler },

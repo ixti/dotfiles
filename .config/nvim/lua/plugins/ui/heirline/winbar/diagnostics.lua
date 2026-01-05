@@ -42,25 +42,25 @@ return {
     Delimiter,
 
     {
-      hl        = if_active({ fg = "diag_errors_fg" }, { fg = "winbar_inactive_fg" }),
+      hl        = if_active({ fg = "diag_errors_fg" }, { fg = "inactive_fg" }),
       condition = function(self) return self.has_errors end,
       provider  = function(self) return (" " .. errors_prefix .. " ".. self.errors) end,
     },
 
     {
-      hl        = if_active({ fg = "diag_warnings_fg" }, { fg = "winbar_inactive_fg" }),
+      hl        = if_active({ fg = "diag_warnings_fg" }, { fg = "inactive_fg" }),
       condition = function(self) return self.has_warnings end,
       provider  = function(self) return (" " .. warnings_prefix .. " " .. self.warnings) end,
     },
 
     {
-      hl        = if_active({ fg = "diag_hints_fg" }, { fg = "winbar_inactive_fg" }),
+      hl        = if_active({ fg = "diag_hints_fg" }, { fg = "inactive_fg" }),
       condition = function(self) return self.has_hints end,
       provider  = function(self) return (" " .. hints_prefix .. " " .. self.hints) end,
     },
 
     {
-      hl        = if_active({ fg = "diag_infos_fg" }, { fg = "winbar_inactive_fg" }),
+      hl        = if_active({ fg = "diag_infos_fg" }, { fg = "inactive_fg" }),
       condition = function(self) return self.has_infos end,
       provider  = function(self) return (" " .. infos_prefix .. " " .. self.infos) end,
     },

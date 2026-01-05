@@ -7,6 +7,6 @@ return {
   Space,
   {
     provider = "*",
-    hl       = if_active({ fg = "unsaved_changes_mark_fg" }, { fg = "winbar_inactive_fg" }),
+    hl       = if_active({ fg = "unsaved_changes_mark_fg" }, { fg = "inactive_fg" }),
   },
 }

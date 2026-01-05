@@ -21,7 +21,7 @@ local TerminalName = {
 }
 
 return {
-  hl = if_active({ bold = true }, { fg = "winbar_inactive_fg", force = true }),
+  hl = if_active({ bold = true }, { fg = "inactive_fg", force = true }),
 
   TerminalIcon,
   TerminalName,

@@ -45,7 +45,7 @@ return {
     self.filename = vim.api.nvim_buf_get_name(0)
   end,
 
-  hl = if_active({ bold = true }, { fg = "winbar_inactive_fg", force = true }),
+  hl = if_active({ bold = true }, { fg = "inactive_fg", force = true }),
 
   FileIcon,
   FileName,

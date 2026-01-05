@@ -35,7 +35,7 @@ case "${1:-}" in
     ;;
 
   *)
-    printf -u2 "USAGE: gh-access-token {update|setup|show}"
+    print -u2 "USAGE: gh-access-token {update|setup|show}"
 
     return 1
     ;;

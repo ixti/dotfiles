@@ -1,10 +1,11 @@
-local Vimode      = require("plugins.ui.heirline.statusline.vimode")
-local GitBranch   = require("plugins.ui.heirline.statusline.git_branch")
-local Tabs        = require("plugins.ui.heirline.statusline.tabs")
-local Ruler       = require("plugins.ui.heirline.statusline.ruler")
-local Filler      = require("plugins.ui.heirline.shared").Filler
-local Delimiter   = require("plugins.ui.heirline.shared").Delimiter
-local VimodeSpec  = require("plugins.ui.heirline.shared.vimode_spec")
+local Vimode         = require("plugins.ui.heirline.statusline.vimode")
+local GitBranch      = require("plugins.ui.heirline.statusline.git_branch")
+local Tabs           = require("plugins.ui.heirline.statusline.tabs")
+local SearchStats    = require("plugins.ui.heirline.statusline.search_stats")
+local SelectionStats = require("plugins.ui.heirline.statusline.selection_stats")
+local Ruler          = require("plugins.ui.heirline.statusline.ruler")
+local Filler         = require("plugins.ui.heirline.shared").Filler
+local VimodeSpec     = require("plugins.ui.heirline.shared.vimode_spec")
 
 return {
   init = function(self)
@@ -13,8 +14,10 @@ return {
 
   flexible = 42,
 
-  { Vimode.Long, GitBranch, Filler, Delimiter, Tabs, Delimiter, Ruler },
-  { Vimode.Long, Filler, Delimiter, Tabs, Delimiter, Ruler },
-  { Vimode.Short, Filler, Delimiter, Tabs },
-  { Vimode.Shortest, Filler, Delimiter, Tabs },
+  { Vimode.Long, GitBranch, Filler, SelectionStats, SearchStats, Tabs, Ruler },
+  { Vimode.Long, Filler, SelectionStats, SearchStats, Tabs, Ruler },
+  { Vimode.Long, Filler, SearchStats, Tabs, Ruler },
+  { Vimode.Long, Filler, Tabs, Ruler },
+  { Vimode.Short, Filler, Tabs },
+  { Vimode.Shortest, Filler, Tabs },
 }

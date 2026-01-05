@@ -28,19 +28,19 @@ local Tab = {
 
   {
     provider = function(self)
-      return "%" .. self.tabnr .. "T" .. self.tabpage .. ":" .. self.long_name .. "%T"
+      return "%" .. self.tabnr .. "T " .. self.tabpage .. ":" .. self.long_name .. " %T"
     end,
   },
 
   {
     provider = function(self)
-      return "%" .. self.tabnr .. "T" .. self.tabpage .. ":" .. self.short_name .. "%T"
+      return "%" .. self.tabnr .. "T " .. self.tabpage .. ":" .. self.short_name .. " %T"
     end,
   },
 
   {
     provider = function(self)
-      return "%" .. self.tabnr .. "T" .. self.tabpage .. "%T"
+      return "%" .. self.tabnr .. "T " .. self.tabpage .. " %T"
     end,
   },
 }
@@ -48,49 +48,53 @@ local Tab = {
 -- Heavily based on heirline's make_tablist,
 -- main difference is adding tab separator
 return {
-  init = function(self)
-    local tabpages    = vim.api.nvim_list_tabpages()
-    local child_index = 1
+  Delimiter,
 
-    for i, tabpage in ipairs(tabpages) do
-      local tabnr = vim.api.nvim_tabpage_get_number(tabpage)
-      local child = self[child_index]
+  {
+    init = function(self)
+      local tabpages    = vim.api.nvim_list_tabpages()
+      local child_index = 1
 
-      if not (child and child.tabpage == tabpage) then
-        child             = self:new(Tab, i)
-        child.tabnr       = tabnr
-        child.tabpage     = tabpage
+      for i, tabpage in ipairs(tabpages) do
+        local tabnr = vim.api.nvim_tabpage_get_number(tabpage)
+        local child = self[child_index]
 
-        self[child_index] = child
-      end
+        if not (child and child.tabpage == tabpage) then
+          child             = self:new(Tab, i)
+          child.tabnr       = tabnr
+          child.tabpage     = tabpage
 
-      if tabpage == vim.api.nvim_get_current_tabpage() then
-        child.is_active   = true
-        self.active_child = child_index
-      else
-        child.is_active = false
-      end
+          self[child_index] = child
+        end
 
-      child_index = child_index + 1
-
-      -- This is basically the main difference, LOL
-      if i < #tabpages then
-        local delimiter = self[child_index]
-
-        if not delimiter or not delimiter.is_delimiter then
-          self[child_index] = self:new(Delimiter)
-          self[child_index].is_delimiter = true
+        if tabpage == vim.api.nvim_get_current_tabpage() then
+          child.is_active   = true
+          self.active_child = child_index
+        else
+          child.is_active = false
         end
 
         child_index = child_index + 1
-      end
-    end
 
-    -- Clean up any remaining children
-    if #self > child_index - 1 then
-      for i = child_index, #self do
-        self[i] = nil
+        -- This is basically the main difference, LOL
+        if i < #tabpages then
+          local delimiter = self[child_index]
+
+          if not delimiter or not delimiter.is_delimiter then
+            self[child_index] = self:new(Delimiter)
+            self[child_index].is_delimiter = true
+          end
+
+          child_index = child_index + 1
+        end
       end
-    end
-  end,
+
+      -- Clean up any remaining children
+      if #self > child_index - 1 then
+        for i = child_index, #self do
+          self[i] = nil
+        end
+      end
+    end,
+  },
 }

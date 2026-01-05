@@ -18,6 +18,9 @@ return {
         delimiter_fg            = utils.get_highlight("Conceal").fg,
         inactive_fg             = utils.get_highlight("Comment").fg,
 
+        search_stats_fg         = utils.get_highlight("HeirlineModeSpecial").bg,
+        selection_stats_fg      = utils.get_highlight("HeirlineModeVisual").bg,
+
         diag_errors_fg          = utils.get_highlight("DiagnosticError").fg,
         diag_warnings_fg        = utils.get_highlight("DiagnosticWarn").fg,
         diag_hints_fg           = utils.get_highlight("DiagnosticHint").fg,
@@ -74,7 +77,7 @@ return {
       group    = group,
       desc     = "Reset Heirline diagnostic stats cache",
       callback = function(args)
-        buffer_diagnostics.reset(args.buf, args.data.diagnostics)
+        buffer_diagnostics.reset(args.buf)
         vim.cmd.redrawstatus()
       end,
     })

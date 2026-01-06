@@ -52,46 +52,47 @@ return {
 
   {
     init = function(self)
-      local tabpages    = vim.api.nvim_list_tabpages()
-      local child_index = 1
+      local tabpages   = vim.api.nvim_list_tabpages()
+      local tabs_count = #tabpages
+      local child_idx  = 1
 
       for i, tabpage in ipairs(tabpages) do
         local tabnr = vim.api.nvim_tabpage_get_number(tabpage)
-        local child = self[child_index]
+        local child = self[child_idx]
 
         if not (child and child.tabpage == tabpage) then
-          child             = self:new(Tab, i)
+          child             = self:new(Tab, child_idx)
           child.tabnr       = tabnr
           child.tabpage     = tabpage
 
-          self[child_index] = child
+          self[child_idx] = child
         end
 
         if tabpage == vim.api.nvim_get_current_tabpage() then
           child.is_active   = true
-          self.active_child = child_index
+          self.active_child = child_idx
         else
           child.is_active = false
         end
 
-        child_index = child_index + 1
+        child_idx = child_idx + 1
 
         -- This is basically the main difference, LOL
-        if i < #tabpages then
-          local delimiter = self[child_index]
+        if i < tabs_count then
+          local delimiter = self[child_idx]
 
-          if not delimiter or not delimiter.is_delimiter then
-            self[child_index] = self:new(Delimiter)
-            self[child_index].is_delimiter = true
+          if not (delimiter and delimiter.is_delimiter) then
+            self[child_idx] = self:new(Delimiter)
           end
 
-          child_index = child_index + 1
+          child_idx = child_idx + 1
         end
       end
 
       -- Clean up any remaining children
-      if #self > child_index - 1 then
-        for i = child_index, #self do
+      local self_count = #self
+      if self_count > child_idx - 1 then
+        for i = child_idx, self_count do
           self[i] = nil
         end
       end

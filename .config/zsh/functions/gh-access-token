@@ -1,17 +1,7 @@
 # vim: ft=zsh
 
-_fnox() {
-  set -e
-  fnox --config "${XDG_CONFIG_HOME}/fnox/config.toml" "$@"
-}
-
-_set_token() {
-  _fnox set GITHUB_TOKEN "$1"
-}
-
-_get_token() {
-  _fnox get GITHUB_TOKEN
-}
+local profile="${2:-default}"
+local attributes=("service" "github" "scope" "${profile}")
 
 case "${1:-}" in
   update)
@@ -20,34 +10,25 @@ case "${1:-}" in
     "${BROWSER:-xdg-open}" "https://github.com/settings/tokens"
 
     print "Please create new token and paste it here..."
+    secret-tool store --label="Github Access Token (${profile})" "${attributes[@]}"
 
-    read -p "GH Token: " GITHUB_TOKEN
-
-    if [[ -z "${GITHUB_TOKEN}" ]]; then
-      print -u2 "You've provided no token, interrupting..."
-      return 1
-    fi
-
-    _set_token "${GITHUB_TOKEN}"
-
-    return 0
+    gh-access-token setup
     ;;
 
   setup)
-    typeset -gx BUNDLE_RUBYGEMS__PKG__GITHUB__COM="x-api-token:$(_get_token)"
+    typeset -xg GITHUB_TOKEN="$(secret-tool lookup "${attributes[@]}")"
 
-    return 0
+    if [[ "default" == "${profile}" ]]; then
+      typeset -gx BUNDLE_RUBYGEMS__PKG__GITHUB__COM="x-api-token:${GITHUB_TOKEN}"
+    fi
     ;;
 
   show)
-    _get_token
-
-    return 0
+    secret-tool lookup "${attributes[@]}"
     ;;
 
   *)
-    print -u2 "USAGE: gh-access-token {update|setup|show}"
-
+    print -u2 "USAGE: gh-access-token {update|setup|show} [profile]"
     return 1
     ;;
 esac

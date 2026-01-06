@@ -1,10 +1,16 @@
 # vim: ft=zsh
 
-local attr="github"
-local name="token"
+_fnox() {
+  set -e
+  fnox --config "${XDG_CONFIG_HOME}/fnox/config.toml" "$@"
+}
 
-_show_token() {
-  secret-tool lookup "${attr}" "${name}"
+_set_token() {
+  _fnox set GITHUB_TOKEN "$1"
+}
+
+_get_token() {
+  _fnox get GITHUB_TOKEN
 }
 
 case "${1:-}" in
@@ -15,21 +21,26 @@ case "${1:-}" in
 
     print "Please create new token and paste it here..."
 
-    secret-tool store --label="Github Private Registries Access Token" "${attr}" "${name}"
+    read -p "GH Token: " GITHUB_TOKEN
 
-    gh-access-token setup
+    if [[ -z "${GITHUB_TOKEN}" ]]; then
+      print -u2 "You've provided no token, interrupting..."
+      return 1
+    fi
+
+    _set_token "${GITHUB_TOKEN}"
 
     return 0
     ;;
 
   setup)
-    typeset -gx BUNDLE_RUBYGEMS__PKG__GITHUB__COM="x-api-token:$(_show_token)"
+    typeset -gx BUNDLE_RUBYGEMS__PKG__GITHUB__COM="x-api-token:$(_get_token)"
 
     return 0
     ;;
 
   show)
-    _show_token
+    _get_token
 
     return 0
     ;;

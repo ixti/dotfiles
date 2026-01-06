@@ -1,5 +1,6 @@
 local conditions         = require("heirline.conditions")
 
+local Aerial             = require("plugins.ui.heirline.winbar.aerial")
 local FileInfo           = require("plugins.ui.heirline.winbar.file_info")
 local GitHunks           = require("plugins.ui.heirline.winbar.git_hunks")
 local Diagnostics        = require("plugins.ui.heirline.winbar.diagnostics")
@@ -39,14 +40,16 @@ return {
 
     Space,
     FileInfo,
-    Filler,
+
     {
-      flexible = 1,
-      { UnsavedChangesMark, Diagnostics, GitHunks, WeirdEncoding, WeirdFormat, ReadOnlyFileMark },
-      { UnsavedChangesMark, Diagnostics, GitHunks, WeirdEncoding, ReadOnlyFileMark },
-      { UnsavedChangesMark, Diagnostics, GitHunks, ReadOnlyFileMark },
-      { UnsavedChangesMark, Diagnostics, ReadOnlyFileMark },
-      { UnsavedChangesMark, ReadOnlyFileMark },
+      flexible = 42,
+      { Aerial, Filler, UnsavedChangesMark, Diagnostics, GitHunks, WeirdEncoding, WeirdFormat, ReadOnlyFileMark },
+      { Filler, UnsavedChangesMark, Diagnostics, GitHunks, WeirdEncoding, WeirdFormat, ReadOnlyFileMark },
+      { Filler, UnsavedChangesMark, Diagnostics, GitHunks, WeirdEncoding, WeirdFormat, ReadOnlyFileMark },
+      { Filler, UnsavedChangesMark, Diagnostics, GitHunks, WeirdEncoding, ReadOnlyFileMark },
+      { Filler, UnsavedChangesMark, Diagnostics, GitHunks, ReadOnlyFileMark },
+      { Filler, UnsavedChangesMark, Diagnostics, ReadOnlyFileMark },
+      { Filler, UnsavedChangesMark, ReadOnlyFileMark },
     },
     Space,
   },

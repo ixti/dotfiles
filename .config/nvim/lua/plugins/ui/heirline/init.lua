@@ -4,6 +4,7 @@ return {
   dependencies = {
     "lewis6991/gitsigns.nvim",
     "nvim-mini/mini.icons",
+    "stevearc/aerial.nvim",
   },
 
   event = "UiEnter",

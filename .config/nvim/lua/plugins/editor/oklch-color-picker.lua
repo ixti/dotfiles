@@ -4,6 +4,10 @@ return {
   event   = "VeryLazy",
   version = "*",
 
+  dependencies = {
+    "folke/snacks.nvim",
+  },
+
   opts = {
     highlight = {
       enabled       = true,
@@ -13,20 +17,31 @@ return {
   },
 
   config = function(_, opts)
-    local oklch = require("oklch-color-picker")
+    local oklch     = require("oklch-color-picker")
+    local highlight = oklch.highlight
 
     oklch.setup(opts)
 
+    -- https://github.com/eero-lehtinen/oklch-color-picker.nvim/pull/70
+    -- Snacks.toggle.new({
+    --   id   = "oklch-highlight",
+    --   name = "OKLCH Highlight",
+    --   get  = highlight.is_enabled,
+    --   set  = function(state)
+    --     if state then highlight.disable() else highlight.enable() end
+    --   end,
+    -- }):map("<leader>to")
+
     vim.api.nvim_create_user_command("OklchToggle", function()
-      oklch.highlight.toggle()
+      highlight.toggle()
     end, {})
 
     vim.api.nvim_create_user_command("OklchEnable", function()
-      oklch.highlight.enable()
+      highlight.enable()
     end, {})
 
     vim.api.nvim_create_user_command("OklchDisable", function()
-      oklch.highlight.disable()
+      highlight.disable()
     end, {})
 
     vim.api.nvim_create_user_command("OklchEdit", function()

@@ -5,7 +5,11 @@ return {
      "nvim-treesitter/nvim-treesitter",
   },
 
-  opts = {},
+  opts = {
+    keymaps = {
+      ["<leader>a"] = "actions.close",
+    },
+  },
 
   keys = {
     {
@@ -17,8 +21,8 @@ return {
     },
     {
       "<leader>a",
-      "<CMD>AerialToggle<CR>",
-      desc = "Aerial window (aerial.nvim)",
+      "<CMD>AerialOpen<CR>",
+      desc = "Open or jump to Aerial window (aerial.nvim)",
     },
   },
 }

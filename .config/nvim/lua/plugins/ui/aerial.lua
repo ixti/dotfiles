@@ -6,6 +6,8 @@ return {
   },
 
   opts = {
+    manage_folds = false,
+
     keymaps = {
       ["<leader>a"] = "actions.close",
     },

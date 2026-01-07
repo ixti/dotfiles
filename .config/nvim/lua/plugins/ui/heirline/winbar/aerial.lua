@@ -9,8 +9,7 @@ local MAX_BREADCRUMBS = 5
 local INACTIVE_HL            = { fg = "inactive_fg" }
 local BREADCRUMB_ACTIVE_HL   = { italic = true }
 local BREADCRUMB_INACTIVE_HL = vim.tbl_extend("force", { italic = true }, INACTIVE_HL)
-
-local TRUNCATIONS = { "…", "…2…", "…3…", "…4…", "…5…", "…6…", "…7…", "…8…", "…9…", "…9+…" }
+local TRUNCATIONS            = { "…", "…2…", "…3…", "…4…", "…5…", "…6…", "…7…", "…8…", "…9…", "…9+…" }
 
 local FullyCollapsed = { provider = "" }
 local TrailDelimiter = { provider = " › ", hl = INACTIVE_HL }
@@ -28,18 +27,18 @@ end
 local function new_breadcrumb(location, aerial_highlight)
   return {
     static = {
-      symbol  = location.name:gsub("%%", "%%%%"):gsub("%s*->%s*", ""),
-      icon    = location.icon,
-      icon_hl = utils.get_highlight(aerial_highlight(location, true, false)),
+      symbol_name    = location.name:gsub("%%", "%%%%"):gsub("%s*->%s*", ""),
+      symbol_icon    = location.icon,
+      symbol_icon_hl = utils.get_highlight(aerial_highlight(location, true, false)),
     },
 
     TrailDelimiter,
 
     {
-      provider = function(self) return (self.icon .. " ") end,
+      provider = function(self) return self.symbol_icon .. " " end,
       hl = function(self)
         if self.is_active then
-          return self.icon_hl
+          return self.symbol_icon_hl
         else
           return INACTIVE_HL
         end
@@ -47,7 +46,7 @@ local function new_breadcrumb(location, aerial_highlight)
     },
 
     {
-      provider = function(self) return self.symbol end,
+      provider = function(self) return self.symbol_name end,
       hl       = if_active(BREADCRUMB_ACTIVE_HL, BREADCRUMB_INACTIVE_HL),
     },
   }
@@ -77,6 +76,10 @@ return {
           table.insert(trail, new_breadcrumb(loc, aerial_highlight))
         end
       else
+        -- If locations count exceeds MAX_BREADCRUMBS, we will take first
+        -- location, and as many last MAX_BREADCRUMBS - 2 slots (first slot
+        -- is occupied by the first element, and second by the truncation
+        -- placeholder.
         local offset  = locations_count - (MAX_BREADCRUMBS - 2) + 1
 
         -- Bump omitted_count because the truncation marker occupies a slot in

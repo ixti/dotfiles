@@ -34,7 +34,7 @@ return {
         git_hunks_removed_fg    = utils.get_highlight("GitSignsDelete").fg,
         git_hunks_changed_fg    = utils.get_highlight("GitSignsChange").fg,
 
-        read_only_file_mark     = utils.get_highlight("Error").fg,
+        read_only_file_mark_fg  = utils.get_highlight("Error").fg,
         unsaved_changes_mark_fg = utils.get_highlight("Changed").fg,
 
         vimode_fg               = utils.get_highlight("Normal").bg,

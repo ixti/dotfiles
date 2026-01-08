@@ -66,9 +66,22 @@ return {
   config = function(_, opts)
     require("snacks").setup(opts)
 
-    vim.api.nvim_create_user_command("Notifications", function()
-      Snacks.notifier.show_history()
-    end, {})
+    vim.api.nvim_create_user_command(
+      "Notifications",
+      Snacks.notifier.show_history,
+      { desc = "Show notifications (snacks.nvim)" }
+    )
+
+    vim.api.nvim_create_user_command(
+      "GitBrowse",
+      function(args)
+        Snacks.gitbrowse({ line_start = args.line1, line_end = args.line2 })
+      end,
+      {
+        desc  = "Open the repo of the active file in the browser (snacks.nvim)",
+        range = true,
+      }
+    )
 
     Snacks.toggle.zen():map("<leader>tz")
     Snacks.toggle.dim():map("<leader>td")

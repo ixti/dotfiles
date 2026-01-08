@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cwd="${1:-.}"
+out="$(pulumi stack ls --json --cwd "${cwd}" 2>/dev/null || true)"
+jq 'reduce .[].resourceCount as $c (0; . + $c)' <<< "$out"

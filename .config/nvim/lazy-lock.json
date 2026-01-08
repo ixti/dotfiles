@@ -12,7 +12,7 @@
   "mini.files": { "branch": "main", "commit": "22c64f010eef047ed270e29e7cc266cd4740787e" },
   "mini.icons": { "branch": "main", "commit": "efc85e42262cd0c9e1fdbf806c25cb0be6de115c" },
   "nightfox.nvim": { "branch": "main", "commit": "ba47d4b4c5ec308718641ba7402c143836f35aa9" },
-  "nvim-lspconfig": { "branch": "master", "commit": "0b38bc74487e73489624d61396af7805af9cc75f" },
+  "nvim-lspconfig": { "branch": "master", "commit": "5a82e10b2df0ed31bec642c1c0344baee7c458b6" },
   "nvim-origami": { "branch": "main", "commit": "c660a3d7e3db602faa5fb6b5ff19ba7a1d9e71fe" },
   "nvim-treesitter": { "branch": "main", "commit": "de878155ca66c49b027b1380e4e60a6c665b2630" },
   "nvim-treesitter-endwise": { "branch": "nvim-0-11-compat", "commit": "68313c47f6db3e5cfc76779b92620ae40985620f" },

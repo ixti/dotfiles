@@ -24,7 +24,7 @@ return {
 
     Snacks.toggle.new({
       id   = "oklch_highlighting",
-      name = " OKLCH highlighting",
+      name = "OKLCH highlighting",
       get  = highlight.is_enabled,
       set  = function(state)
         highlight[state and "enable" or "disable"]()

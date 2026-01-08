@@ -9,3 +9,34 @@ installing new commands / functions), you can reset it with:
 ----
 run-compinit -f
 ----
+
+== Helper Functions
+
+=== `gh-access-token`
+
+Manage GitHub Personal Access Token (PAT).
+
+USAGE::
+  `gh-access-token ACTION IDENTIFIER`
+ACTION::
+  * `update`
+     -- Update `TOKEN_NAME` personal access token
+  * `setup`
+     -- Export `TOKEN_NAME` personal access token value as `GITHUB_TOKEN`
+  * `show`
+     -- Show `TOKEN_NAME` personal access token
+IDENTIFIER::
+  Personal Access Token (PAT) short identifier, e.g. `package-registry`.
+
+==== Well-Known PAT identifiers
+
+===== package-registry
+
+Used to expose package registry authentication environment variables like
+Rubygem Bundler's auth token.
+
+[NOTE]
+====
+When you update the token with `gh-access-token update package-registry`
+make sure it only has `packages:read` scope.
+====

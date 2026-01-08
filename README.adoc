@@ -35,3 +35,7 @@ yadm clone --branch main --single-branch "https://codeberg.org/ixti/dotfiles.git
 ----
 yadm pull
 ----
+
+== See Also
+
+* link:.config/zsh/README.adoc[]

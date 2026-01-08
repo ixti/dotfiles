@@ -70,7 +70,11 @@ unsetopt hup               # Don't kill jobs on shell exit.
 ################################################################################
 
 # Make URL pasting safer by automatically escaping it
-source "${ZDOTDIR}/zshrc/safer-copy-pasta.zsh"
+autoload -Uz bracketed-paste-url-magic
+zle -N bracketed-paste bracketed-paste-url-magic
+
+autoload -Uz url-quote-magic
+zle -N self-insert url-quote-magic
 
 # Plugins
 ################################################################################
@@ -130,6 +134,7 @@ autoload -Uz zz
 
 source "${ZDOTDIR}/zshrc/aliases.zsh"
 source "${ZDOTDIR}/zshrc/bindkeys.zsh"
+source "${ZDOTDIR}/zshrc/secrets.zsh"
 source "${ZDOTDIR}/zshrc/ssh-and-gnupg.zsh"
 
 # Local Overrides

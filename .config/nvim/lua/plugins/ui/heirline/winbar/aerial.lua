@@ -7,6 +7,8 @@ local MAX_BREADCRUMBS = 5
 local INACTIVE_HL      = { fg = "inactive_fg" }
 local BREADCRUMB_HL    = { italic = true }
 local TRUNCATION_MARKS = { "…", "…2…", "…3…", "…4…", "…5…", "…6…", "…7…", "…8…", "…9…", "…9+…" }
+local SIG_SEPARATOR    = "\n"
+local SIG_UNKNOWN      = "\0"
 
 local FullyCollapsed = { provider = "" }
 local TrailDelimiter = { provider = " › ", hl = INACTIVE_HL }
@@ -28,6 +30,17 @@ local function get_locations()
   )
 
   return locations or {}
+end
+
+local function get_locations_signature(locations)
+  local parts = {}
+
+  for _, loc in ipairs(locations) do
+    table.insert(parts, loc.kind or SIG_UNKNOWN)
+    table.insert(parts, loc.name or SIG_UNKNOWN)
+  end
+
+  return table.concat(parts, SIG_SEPARATOR)
 end
 
 local function get_icon_highlight(location)
@@ -94,7 +107,15 @@ return {
   update = "CursorMoved",
 
   init = function(self)
-    local locations        = get_locations()
+    local locations = get_locations()
+    local signature = get_locations_signature(locations)
+
+    if self.last_signature == signature then
+      return
+    end
+
+    self.last_signature    = signature
+
     local locations_count  = #locations
     local childs_count     = 0
 

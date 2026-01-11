@@ -8,105 +8,77 @@ local MAX_BREADCRUMBS = 5
 
 local INACTIVE_HL            = { fg = "inactive_fg" }
 local BREADCRUMB_ACTIVE_HL   = { italic = true }
-local BREADCRUMB_INACTIVE_HL = vim.tbl_extend("force", { italic = true }, INACTIVE_HL)
-local TRUNCATIONS            = { "…", "…2…", "…3…", "…4…", "…5…", "…6…", "…7…", "…8…", "…9…", "…9+…" }
+local BREADCRUMB_INACTIVE_HL = { italic = true, fg = "inactive_fg" }
+local TRUNCATION_MARKS       = { "…", "…2…", "…3…", "…4…", "…5…", "…6…", "…7…", "…8…", "…9…", "…9+…" }
 
 local FullyCollapsed = { provider = "" }
 local TrailDelimiter = { provider = " › ", hl = INACTIVE_HL }
 
-local aerial_get_location = nil
 local function get_locations()
   local locations = nil
 
-  if not aerial_get_location then
-    xpcall(
-      function() aerial_get_location = require("aerial").get_location end,
-      function(err)
-        vim.notify(
-          "Failed to load aerial module: " .. tostring(err),
-          vim.log.levels.WARN,
-          { once = true }
-        )
-      end
-    )
-  end
-
-  if aerial_get_location then
-    xpcall(
-      function() locations = aerial_get_location(true) end,
-      function(err)
-        vim.notify(
-          "Aerial get locations failed: " .. tostring(err),
-          vim.log.levels.WARN,
-          { once = true }
-        )
-      end
-    )
-  end
+  xpcall(
+    function()
+      locations = require("aerial").get_location(true)
+    end,
+    function(err)
+      vim.notify(
+        "Failed to get Aerial locations: " .. tostring(err),
+        vim.log.levels.WARN,
+        { once = true }
+      )
+    end
+  )
 
   return locations or {}
 end
 
-local aerial_get_highlight = nil
 local function get_icon_highlight(location)
-  local highlight = {}
+  local highlight = nil
 
-  if not aerial_get_highlight then
-    xpcall(
-      function() aerial_get_highlight = require("aerial.highlight").get_highlight end,
-      function(err)
-        vim.notify(
-          "Failed to load aerial.highlight module: " .. tostring(err),
-          vim.log.levels.WARN,
-          { once = true }
-        )
-      end
-    )
-  end
-
-  if aerial_get_highlight then
-    xpcall(
-      function()
-        highlight = utils.get_highlight(aerial_get_highlight(location, true, false))
-      end,
-      function(err)
-        vim.notify(
-          "Aerial get icon highlight failed: " .. tostring(err),
-          vim.log.levels.WARN,
-          { once = true }
-        )
-      end
-    )
-  end
+  xpcall(
+    function()
+      highlight = utils.get_highlight(
+        require("aerial.highlight").get_highlight(location, true, false)
+      )
+    end,
+    function(err)
+      vim.notify(
+        "Failed to get Aerial icon highlight: " .. tostring(err),
+        vim.log.levels.WARN,
+        { once = true }
+      )
+    end
+  )
 
   return highlight or {}
 end
 
 local function new_truncation(omitted_count)
+  local index = math.max(1, math.min(omitted_count, #TRUNCATION_MARKS))
+
   return {
     TrailDelimiter,
     {
-      provider = TRUNCATIONS[math.max(1, math.min(omitted_count, 10))],
+      provider = TRUNCATION_MARKS[index],
       hl       = INACTIVE_HL,
     },
   }
 end
 
 local function new_breadcrumb(location)
-  return {
-    static = {
-      symbol_name    = location.name:gsub("%%", "%%%%"):gsub("%s*->%s*", ""),
-      symbol_icon    = location.icon,
-      symbol_icon_hl = get_icon_highlight(location)
-    },
+  local symbol_name    = location.name:gsub("%%", "%%%%"):gsub("%s*->%s*", "")
+  local symbol_icon    = location.icon
+  local symbol_icon_hl = get_icon_highlight(location)
 
+  return {
     TrailDelimiter,
 
     {
-      provider = function(self) return self.symbol_icon .. " " end,
+      provider = symbol_icon .. " ",
       hl = function(self)
         if self.is_active then
-          return self.symbol_icon_hl
+          return symbol_icon_hl
         else
           return INACTIVE_HL
         end
@@ -114,7 +86,7 @@ local function new_breadcrumb(location)
     },
 
     {
-      provider = function(self) return self.symbol_name end,
+      provider = symbol_name,
       hl       = if_active(BREADCRUMB_ACTIVE_HL, BREADCRUMB_INACTIVE_HL),
     },
   }

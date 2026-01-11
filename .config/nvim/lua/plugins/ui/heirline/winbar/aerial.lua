@@ -1,15 +1,12 @@
 local utils = require("heirline.utils")
 
-local if_active = require("plugins.ui.heirline.shared").if_active
-
 local unpack = table.unpack or unpack
 
 local MAX_BREADCRUMBS = 5
 
-local INACTIVE_HL            = { fg = "inactive_fg" }
-local BREADCRUMB_ACTIVE_HL   = { italic = true }
-local BREADCRUMB_INACTIVE_HL = { italic = true, fg = "inactive_fg" }
-local TRUNCATION_MARKS       = { "…", "…2…", "…3…", "…4…", "…5…", "…6…", "…7…", "…8…", "…9…", "…9+…" }
+local INACTIVE_HL      = { fg = "inactive_fg" }
+local BREADCRUMB_HL    = { italic = true }
+local TRUNCATION_MARKS = { "…", "…2…", "…3…", "…4…", "…5…", "…6…", "…7…", "…8…", "…9…", "…9+…" }
 
 local FullyCollapsed = { provider = "" }
 local TrailDelimiter = { provider = " › ", hl = INACTIVE_HL }
@@ -76,18 +73,12 @@ local function new_breadcrumb(location)
 
     {
       provider = symbol_icon .. " ",
-      hl = function(self)
-        if self.is_active then
-          return symbol_icon_hl
-        else
-          return INACTIVE_HL
-        end
-      end,
+      hl       = symbol_icon_hl,
     },
 
     {
       provider = symbol_name,
-      hl       = if_active(BREADCRUMB_ACTIVE_HL, BREADCRUMB_INACTIVE_HL),
+      hl       = BREADCRUMB_HL,
     },
   }
 end
@@ -100,6 +91,8 @@ return {
     return self.is_active and package.loaded["aerial"]
   end,
 
+  update = "CursorMoved",
+
   init = function(self)
     local locations        = get_locations()
     local locations_count  = #locations
@@ -110,14 +103,13 @@ return {
       self[childs_count] = self:new(child, childs_count)
     end
 
-
     if locations_count > 0 then
       local omitted_count = math.max(0, locations_count - MAX_BREADCRUMBS)
       local trail         = { new_breadcrumb(locations[1]) }
 
       if omitted_count == 0 then
-        for _, loc in ipairs({ unpack(locations, 2) }) do
-          table.insert(trail, new_breadcrumb(loc))
+        for i = 2, locations_count do
+          table.insert(trail, new_breadcrumb(locations[i]))
         end
       else
         -- If locations count exceeds MAX_BREADCRUMBS, we will take first
@@ -133,8 +125,8 @@ return {
 
         table.insert(trail, new_truncation(omitted_count))
 
-        for _, loc in ipairs({ unpack(locations, offset) }) do
-          table.insert(trail, new_breadcrumb(loc))
+        for i = offset, locations_count do
+          table.insert(trail, new_breadcrumb(locations[i]))
         end
       end
 

@@ -31,6 +31,11 @@ return {
     -- Lua LSP: `sudo emerge dev-util/lua-language-server` (::GURU)
     vim.lsp.enable("lua_ls")
 
+    -- BASH LSP:
+    -- * `bun i -g bash-language-server`
+    -- * `npm i -g bash-language-server`
+    vim.lsp.enable("bashls")
+
     -- *** Key Mappings ********************************************************
 
     vim.api.nvim_create_autocmd("LspAttach", {

@@ -14,6 +14,74 @@ local TRUNCATIONS            = { "…", "…2…", "…3…", "…4…", "…5�
 local FullyCollapsed = { provider = "" }
 local TrailDelimiter = { provider = " › ", hl = INACTIVE_HL }
 
+local aerial_get_location = nil
+local function get_locations()
+  local locations = nil
+
+  if not aerial_get_location then
+    xpcall(
+      function() aerial_get_location = require("aerial").get_location end,
+      function(err)
+        vim.notify(
+          "Failed to load aerial module: " .. tostring(err),
+          vim.log.levels.WARN,
+          { once = true }
+        )
+      end
+    )
+  end
+
+  if aerial_get_location then
+    xpcall(
+      function() locations = aerial_get_location(true) end,
+      function(err)
+        vim.notify(
+          "Aerial get locations failed: " .. tostring(err),
+          vim.log.levels.WARN,
+          { once = true }
+        )
+      end
+    )
+  end
+
+  return locations or {}
+end
+
+local aerial_get_highlight = nil
+local function get_icon_highlight(location)
+  local highlight = {}
+
+  if not aerial_get_highlight then
+    xpcall(
+      function() aerial_get_highlight = require("aerial.highlight").get_highlight end,
+      function(err)
+        vim.notify(
+          "Failed to load aerial.highlight module: " .. tostring(err),
+          vim.log.levels.WARN,
+          { once = true }
+        )
+      end
+    )
+  end
+
+  if aerial_get_highlight then
+    xpcall(
+      function()
+        highlight = utils.get_highlight(aerial_get_highlight(location, true, false))
+      end,
+      function(err)
+        vim.notify(
+          "Aerial get icon highlight failed: " .. tostring(err),
+          vim.log.levels.WARN,
+          { once = true }
+        )
+      end
+    )
+  end
+
+  return highlight or {}
+end
+
 local function new_truncation(omitted_count)
   return {
     TrailDelimiter,
@@ -24,12 +92,12 @@ local function new_truncation(omitted_count)
   }
 end
 
-local function new_breadcrumb(location, aerial_highlight)
+local function new_breadcrumb(location)
   return {
     static = {
       symbol_name    = location.name:gsub("%%", "%%%%"):gsub("%s*->%s*", ""),
       symbol_icon    = location.icon,
-      symbol_icon_hl = utils.get_highlight(aerial_highlight(location, true, false)),
+      symbol_icon_hl = get_icon_highlight(location)
     },
 
     TrailDelimiter,
@@ -61,19 +129,23 @@ return {
   end,
 
   init = function(self)
-    local locations        = require("aerial").get_location(true) or {}
+    local locations        = get_locations()
     local locations_count  = #locations
     local childs_count     = 0
 
-    local aerial_highlight = require("aerial.highlight").get_highlight
+    local function add_child(child)
+      childs_count       = childs_count + 1
+      self[childs_count] = self:new(child, childs_count)
+    end
+
 
     if locations_count > 0 then
       local omitted_count = math.max(0, locations_count - MAX_BREADCRUMBS)
-      local trail         = { new_breadcrumb(locations[1], aerial_highlight) }
+      local trail         = { new_breadcrumb(locations[1]) }
 
       if omitted_count == 0 then
         for _, loc in ipairs({ unpack(locations, 2) }) do
-          table.insert(trail, new_breadcrumb(loc, aerial_highlight))
+          table.insert(trail, new_breadcrumb(loc))
         end
       else
         -- If locations count exceeds MAX_BREADCRUMBS, we will take first
@@ -90,7 +162,7 @@ return {
         table.insert(trail, new_truncation(omitted_count))
 
         for _, loc in ipairs({ unpack(locations, offset) }) do
-          table.insert(trail, new_breadcrumb(loc, aerial_highlight))
+          table.insert(trail, new_breadcrumb(loc))
         end
       end
 
@@ -98,8 +170,7 @@ return {
       -- [a, b, c, d, e]       ==> [a, b, c, d, e]
       -- [a, b, c, d, e, f]    ==> [a, (2), d, e, f]
       -- [a, b, c, d, e, f, g] ==> [a, (3), e, f, g]
-      childs_count       = childs_count + 1
-      self[childs_count] = self:new(trail, childs_count)
+      add_child(trail)
 
       local trail_size = #trail
 
@@ -113,35 +184,19 @@ return {
       -- ==> [a, (3), e, f]
       -- ==> [a, (4), f]
       for i = 3, (trail_size - 1) do
-        childs_count  = childs_count + 1
         omitted_count = omitted_count + 1
 
-        self[childs_count] = self:new(
-          {
-            trail[1],
-            new_truncation(omitted_count),
-            unpack(trail, i),
-          },
-          childs_count
-        )
+        add_child({ trail[1], new_truncation(omitted_count), unpack(trail, i) })
       end
 
       -- similar to the previous, BUT, instead leaves `truncation, last`
       -- [a, b, c, d, e]    ==> [(4), e]
       -- [a, b, c, d, e, f] ==> [(5), f]
-      if #trail > 1 then
-        childs_count       = childs_count + 1
-        self[childs_count] = self:new(
-          {
-            new_truncation(locations_count - 1),
-            trail[#trail]
-          },
-          childs_count
-        )
+      if trail_size > 1 then
+        add_child({ new_truncation(locations_count - 1), trail[trail_size] })
       end
 
-      childs_count = childs_count + 1
-      self[childs_count] = self:new(FullyCollapsed, childs_count)
+      add_child(FullyCollapsed)
     end
 
     local self_count = #self

@@ -1,6 +1,6 @@
 local conditions         = require("heirline.conditions")
 
-local Aerial             = require("plugins.ui.heirline.winbar.aerial")
+local Breadcrumbs        = require("plugins.ui.heirline.winbar.aerial_v2")
 local FileInfo           = require("plugins.ui.heirline.winbar.file_info")
 local GitHunks           = require("plugins.ui.heirline.winbar.git_hunks")
 local Diagnostics        = require("plugins.ui.heirline.winbar.diagnostics")
@@ -40,7 +40,7 @@ return {
 
     Space,
     FileInfo,
-    Aerial,
+    Breadcrumbs.new(5),
     Filler,
 
     {

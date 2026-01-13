@@ -25,10 +25,3 @@ keymap("n", "<C-n>", "<Cmd>tabnext<CR>", { silent = true })
 
 keymap("v", ">", ">gv", { silent = true })
 keymap("v", "<", "<gv", { silent = true })
-
--- **** Disable arrow keys in normal and insert modes **************************
-
-keymap({ "n", "i" }, "<Up>",    "<Nop>", { silent = true })
-keymap({ "n", "i" }, "<Down>",  "<Nop>", { silent = true })
-keymap({ "n", "i" }, "<Left>",  "<Nop>", { silent = true })
-keymap({ "n", "i" }, "<Right>", "<Nop>", { silent = true })

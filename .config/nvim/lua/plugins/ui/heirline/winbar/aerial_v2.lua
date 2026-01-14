@@ -19,7 +19,7 @@ local Slot = {
     if slot_data.is_location then
       self.is_visible      = true
       self.symbol_name     = slot_data.symbol_name
-      self.symbol_icon     = slot_data.symbol_icon
+      self.symbol_icon     = slot_data.symbol_icon .. " "
       self.symbol_icon_hl  = slot_data.symbol_icon_hl
     elseif slot_data.is_truncation then
       self.is_visible      = true

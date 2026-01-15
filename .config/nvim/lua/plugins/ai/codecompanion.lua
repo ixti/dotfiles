@@ -4,6 +4,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
+    "j-hui/fidget.nvim",
   },
 
   opts = {
@@ -26,4 +27,9 @@ return {
       },
     },
   },
+
+  config = function(_, opts)
+    require("codecompanion").setup(opts)
+    require("util.codecompanion.fidget").init()
+  end,
 }

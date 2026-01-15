@@ -34,6 +34,20 @@ return {
     Space,
   },
 
+  -- CodeCompanion
+  {
+    condition = function()
+      return conditions.buffer_matches({ filetype = { "codecompanion" } })
+    end,
+
+    init = WinbarInit,
+
+    Space,
+    { provider = "CodeCompanion" },
+    Filler,
+    Space,
+  },
+
   -- Regular files
   {
     init = WinbarInit,

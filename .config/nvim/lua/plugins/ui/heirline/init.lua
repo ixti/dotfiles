@@ -53,6 +53,16 @@ return {
         -- the args parameter corresponds to the table argument passed to autocommand callbacks.
         -- See: `:help nvim_lua_create_autocmd()`
         disable_winbar_cb = function (args)
+          local buf = args.buf
+          local ft  = vim.bo[buf].filetype
+
+          -- Edge case until I figure out real conditions I want to disable
+          -- winbar for. ATM, only codecompanion is the edge case I want to
+          -- exclude from `buffer_matches` as it's buftype is "nofile".
+          if ft == "codecompanion" then
+            return false
+          end
+
           return conditions.buffer_matches({
             buftype  = { "nofile", "prompt", "help", "quickfix" },
             filetype = { "fugitive", "Trouble", "dashboard" },

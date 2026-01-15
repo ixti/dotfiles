@@ -64,3 +64,13 @@ vim.api.nvim_create_autocmd("BufNewFile", {
     end
   end,
 })
+
+-- *** Go **********************************************************************
+
+vim.api.nvim_create_autocmd("BufNewFile", {
+  group    = augroup,
+  pattern  = "main.go",
+  callback = function(ev)
+    load_template(ev.buf, "main.go")
+  end,
+})

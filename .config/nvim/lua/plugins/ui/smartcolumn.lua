@@ -3,6 +3,13 @@ return {
 
   opts = {
     colorcolumn        = { "80", "120" },
-    disabled_filetypes = { "help", "lazy", "checkhealth", "lspinfo", "vim" },
+    disabled_filetypes = {
+      "checkhealth",
+      "codecompanion",
+      "help",
+      "lazy",
+      "lspinfo",
+      "vim",
+    },
   },
 }

@@ -43,7 +43,7 @@ return {
     init = WinbarInit,
 
     Space,
-    { provider = "CodeCompanion" },
+    { provider = "󱄕 CodeCompanion" },
     Filler,
     Space,
   },

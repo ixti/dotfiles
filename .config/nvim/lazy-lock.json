@@ -1,7 +1,7 @@
 {
   "aerial.nvim": { "branch": "master", "commit": "7a6a42791eb2b54a7115c7db4488981f93471770" },
   "blink.cmp": { "branch": "main", "commit": "b19413d214068f316c78978b08264ed1c41830ec" },
-  "codecompanion.nvim": { "branch": "main", "commit": "c9d74dd667cf609b4f2064ae7f5471285b5356cb" },
+  "codecompanion.nvim": { "branch": "main", "commit": "e22c04336b5c56e3839bfebd6d88944f014f4b30" },
   "fidget.nvim": { "branch": "main", "commit": "b61e8af9b8b68ee0ec7da5fb7a8c203aae854f2e" },
   "gitsigns.nvim": { "branch": "main", "commit": "abf82a65f185bd54adc0679f74b7d6e1ada690c9" },
   "guttermarks.nvim": { "branch": "main", "commit": "aaa67cdd90500a9073ee083bd090788d3ecd88e4" },
@@ -15,7 +15,7 @@
   "nightfox.nvim": { "branch": "main", "commit": "ba47d4b4c5ec308718641ba7402c143836f35aa9" },
   "nvim-lspconfig": { "branch": "master", "commit": "419b082102fa813739588dd82e19a8b6b2442855" },
   "nvim-origami": { "branch": "main", "commit": "c660a3d7e3db602faa5fb6b5ff19ba7a1d9e71fe" },
-  "nvim-treesitter": { "branch": "main", "commit": "511e5ccf404f8a96ee31866b079fca033a8a7c4e" },
+  "nvim-treesitter": { "branch": "main", "commit": "88f1dfc211c3a2fb47f1451fd5edc972ec697e58" },
   "nvim-treesitter-endwise": { "branch": "nvim-0-11-compat", "commit": "68313c47f6db3e5cfc76779b92620ae40985620f" },
   "nvim-treesitter-textobjects": { "branch": "main", "commit": "4d55f63252e04c5212daed958e4e940915ff16ce" },
   "oklch-color-picker.nvim": { "branch": "master", "commit": "46c70c300db2cbc9421a5ef89702554e0342879e" },

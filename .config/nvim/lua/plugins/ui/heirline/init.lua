@@ -4,7 +4,12 @@ return {
   dependencies = {
     "lewis6991/gitsigns.nvim",
     "nvim-mini/mini.icons",
-    "stevearc/aerial.nvim",
+    {
+      url          = "https://codeberg.org/ixti/heraldry.nvim",
+      dependencies = {
+        "stevearc/aerial.nvim",
+      },
+    },
   },
 
   event = "UiEnter",

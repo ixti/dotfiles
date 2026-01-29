@@ -1,6 +1,5 @@
 local conditions         = require("heirline.conditions")
 
-local Breadcrumbs        = require("plugins.ui.heirline.winbar.aerial_v2")
 local FileInfo           = require("plugins.ui.heirline.winbar.file_info")
 local GitHunks           = require("plugins.ui.heirline.winbar.git_hunks")
 local Diagnostics        = require("plugins.ui.heirline.winbar.diagnostics")
@@ -12,10 +11,16 @@ local WeirdEncoding      = require("plugins.ui.heirline.winbar.weird_encoding")
 local Space              = require("plugins.ui.heirline.shared").Space
 local Filler             = require("plugins.ui.heirline.shared").Filler
 
-local function WinbarInit(self)
+local function init(self)
   self.is_active  = conditions.is_active()
   self.is_special = vim.bo.filetype == "" or vim.bo.buftype ~= ""
 end
+
+local Breadcrumbs = require("heraldry.whereami").new({
+  condition     = function(self) return self.is_active end,
+  delimiter_hl  = { fg = "inactive_fg" },
+  truncation_hl = { fg = "inactive_fg" },
+})
 
 return {
   fallthrough = false,
@@ -26,7 +31,7 @@ return {
       return conditions.buffer_matches({ buftype = { "terminal" } })
     end,
 
-    init = WinbarInit,
+    init = init,
 
     Space,
     TerminalInfo,
@@ -40,7 +45,7 @@ return {
       return conditions.buffer_matches({ filetype = { "codecompanion" } })
     end,
 
-    init = WinbarInit,
+    init = init,
 
     Space,
     { provider = "󱄕 CodeCompanion" },
@@ -50,11 +55,11 @@ return {
 
   -- Regular files
   {
-    init = WinbarInit,
+    init = init,
 
     Space,
     FileInfo,
-    Breadcrumbs.new(5),
+    Breadcrumbs,
     Filler,
 
     {

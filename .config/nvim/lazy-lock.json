@@ -6,7 +6,7 @@
   "gitsigns.nvim": { "branch": "main", "commit": "abf82a65f185bd54adc0679f74b7d6e1ada690c9" },
   "guttermarks.nvim": { "branch": "main", "commit": "aaa67cdd90500a9073ee083bd090788d3ecd88e4" },
   "heirline.nvim": { "branch": "master", "commit": "fae936abb5e0345b85c3a03ecf38525b0828b992" },
-  "heraldry.nvim": { "branch": "main", "commit": "1754ff416d288e730adae54170618c818a725e39" },
+  "heraldry.nvim": { "branch": "main", "commit": "5d97ceb4054e92bf1ddc122c035fae21fa8ea25f" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "mini.ai": { "branch": "main", "commit": "9eae720f2b20f6ad28cbfa0ddc524e10dc2c3201" },
   "mini.align": { "branch": "main", "commit": "6d8a6ca3a0fd313938374abccb50cad026229db3" },

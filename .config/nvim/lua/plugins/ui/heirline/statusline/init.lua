@@ -15,11 +15,11 @@ return {
 
   flexible = 42,
 
-  { Vimode.Long, MacroRecording, GitBranch, Filler, SelectionStats, SearchStats, Tabs, Ruler },
-  { Vimode.Long, MacroRecording, Filler, SelectionStats, SearchStats, Tabs, Ruler },
-  { Vimode.Long, Filler, SelectionStats, SearchStats, Tabs, Ruler },
-  { Vimode.Long, Filler, SearchStats, Tabs, Ruler },
-  { Vimode.Long, Filler, Tabs, Ruler },
+  { Vimode.Short, MacroRecording, GitBranch, Filler, SelectionStats, SearchStats, Tabs, Ruler },
+  { Vimode.Short, MacroRecording, Filler, SelectionStats, SearchStats, Tabs, Ruler },
+  { Vimode.Short, Filler, SelectionStats, SearchStats, Tabs, Ruler },
+  { Vimode.Short, Filler, SearchStats, Tabs, Ruler },
+  { Vimode.Short, Filler, Tabs, Ruler },
   { Vimode.Short, Filler, Tabs },
   { Vimode.Shortest, Filler, Tabs },
 }

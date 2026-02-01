@@ -36,7 +36,7 @@ local function build(kind, color, short_name, long_name)
   self.is_replace         = kind == KIND.REPLACE
   self.is_command         = kind == KIND.COMMAND
   self.is_other           = kind == KIND.OTHER
-  self.is_unkown          = kind == KIND.UNKNOWN
+  self.is_unknown         = kind == KIND.UNKNOWN
 
   self.color              = color
   self.short_name         = short_name
@@ -46,57 +46,57 @@ local function build(kind, color, short_name, long_name)
 end
 
 local SPECS = {
-  -- Normal mode
-  n         = build(KIND.NORMAL, "vimode_normal_bg",    "N",   "NORMAL"),
-  no        = build(KIND.NORMAL, "vimode_normal_bg",    "N?",  "NORMAL (OPERATOR)"),
-  nov       = build(KIND.NORMAL, "vimode_normal_bg",    "N?",  "NORMAL (OPERATOR)"),
-  noV       = build(KIND.NORMAL, "vimode_normal_bg",    "N?",  "NORMAL (OPERATOR)"),
-  ["no\22"] = build(KIND.NORMAL, "vimode_normal_bg",    "N?",  "NORMAL (OPERATOR)"),
+  -- Normal
+  n         = build(KIND.NORMAL,          "vimode_normal_bg",     "(N)",  "NORMAL"),
+  no        = build(KIND.NORMAL,          "vimode_normal_bg",     "N-?",  "NORMAL (OPERATOR)"),
+  nov       = build(KIND.NORMAL,          "vimode_normal_bg",     "N-?",  "NORMAL (OPERATOR)"),
+  noV       = build(KIND.NORMAL,          "vimode_normal_bg",     "N-?",  "NORMAL (OPERATOR)"),
+  ["no\22"] = build(KIND.NORMAL,          "vimode_normal_bg",     "N-?",  "NORMAL (OPERATOR)"),
 
-  -- Normal mode with temporary Insert via <C-o>
-  niI       = build(KIND.NORMAL, "vimode_normal_bg",    "Ni",  "NORMAL (INSERT)"),
-  niR       = build(KIND.NORMAL, "vimode_normal_bg",    "Nr",  "NORMAL (REPLACE)"),
-  niV       = build(KIND.NORMAL, "vimode_normal_bg",    "Nv",  "NORMAL (VISUAL)"),
+  -- Normal with temporary Insert via <C-o>
+  niI       = build(KIND.NORMAL,          "vimode_normal_bg",     "N-I",  "NORMAL (INSERT)"),
+  niR       = build(KIND.NORMAL,          "vimode_normal_bg",     "N-R",  "NORMAL (REPLACE)"),
+  niV       = build(KIND.NORMAL,          "vimode_normal_bg",     "N-V",  "NORMAL (VISUAL)"),
 
   -- Normal in terminal
-  nt        = build(KIND.NORMAL, "vimode_normal_bg",    "Nt",  "NORMAL (TERMINAL)"),
+  nt        = build(KIND.NORMAL,          "vimode_normal_bg",     "N-T",  "NORMAL (TERMINAL)"),
 
-  -- Insert mode
-  i         = build(KIND.INSERT, "vimode_insert_bg",    "I",   "INSERT"),
-  ic        = build(KIND.INSERT, "vimode_insert_bg",    "Ic",  "INSERT (COMPLETION)"),
-  ix        = build(KIND.INSERT, "vimode_insert_bg",    "Ix",  "INSERT (COMPLETION)"),
+  -- Insert
+  i         = build(KIND.INSERT,          "vimode_insert_bg",     "(I)",  "INSERT"),
+  ic        = build(KIND.INSERT,          "vimode_insert_bg",     "I-C",  "INSERT (COMPLETION)"),
+  ix        = build(KIND.INSERT,          "vimode_insert_bg",     "I-X",  "INSERT (COMPLETION)"),
 
-  -- Visual mode
-  v         = build(KIND.VISUAL_CHAR,  "vimode_visual_bg",    "V",   "VISUAL"),
-  vs        = build(KIND.VISUAL_CHAR,  "vimode_visual_bg",    "Vs",  "VISUAL"),
-  V         = build(KIND.VISUAL_LINE,  "vimode_visual_bg",    "V_",  "VISUAL (LINE)"),
-  Vs        = build(KIND.VISUAL_LINE,  "vimode_visual_bg",    "Vs",  "VISUAL (LINE)"),
-  ["\22"]   = build(KIND.VISUAL_BLOCK, "vimode_visual_bg",    "^V",  "VISUAL (BLOCK)"),
-  ["\22s"]  = build(KIND.VISUAL_BLOCK, "vimode_visual_bg",    "^V",  "VISUAL (BLOCK)"),
+  -- Visual
+  v         = build(KIND.VISUAL_CHAR,     "vimode_visual_bg",     "(V)",  "VISUAL"),
+  vs        = build(KIND.VISUAL_CHAR,     "vimode_visual_bg",     "(V)",  "VISUAL"),
+  V         = build(KIND.VISUAL_LINE,     "vimode_visual_bg",     "V-L",  "VISUAL (LINE)"),
+  Vs        = build(KIND.VISUAL_LINE,     "vimode_visual_bg",     "V-L",  "VISUAL (LINE)"),
+  ["\22"]   = build(KIND.VISUAL_BLOCK,    "vimode_visual_bg",     "V-B",  "VISUAL (BLOCK)"),
+  ["\22s"]  = build(KIND.VISUAL_BLOCK,    "vimode_visual_bg",     "V-B",  "VISUAL (BLOCK)"),
 
-  -- Select mode
-  s         = build(KIND.SELECTION_CHAR,  "vimode_selection_bg", "S",   "SELECT"),
-  S         = build(KIND.SELECTION_LINE,  "vimode_selection_bg", "S_",  "SELECT (LINE)"),
-  ["\19"]   = build(KIND.SELECTION_BLOCK, "vimode_selection_bg", "^S",  "SELECT (BLOCK)"),
+  -- Select
+  s         = build(KIND.SELECTION_CHAR,  "vimode_selection_bg",  "(S)",  "SELECT"),
+  S         = build(KIND.SELECTION_LINE,  "vimode_selection_bg",  "S-L",  "SELECT (LINE)"),
+  ["\19"]   = build(KIND.SELECTION_BLOCK, "vimode_selection_bg",  "S-B",  "SELECT (BLOCK)"),
 
-  -- Replace mode
-  R         = build(KIND.REPLACE, "vimode_replace_bg",   "R",   "REPLACE"),
-  Rc        = build(KIND.REPLACE, "vimode_replace_bg",   "Rc",  "REPLACE (COMPLETION)"),
-  Rx        = build(KIND.REPLACE, "vimode_replace_bg",   "Rx",  "REPLACE (COMPLETION)"),
-  Rv        = build(KIND.REPLACE, "vimode_replace_bg",   "Rv",  "REPLACE (VIRTUAL)"),
-  Rvc       = build(KIND.REPLACE, "vimode_replace_bg",   "Rv",  "REPLACE (VIRTUAL)"),
-  Rvx       = build(KIND.REPLACE, "vimode_replace_bg",   "Rv",  "REPLACE (VIRTUAL)"),
+  -- Replace
+  R         = build(KIND.REPLACE,         "vimode_replace_bg",    "(R)",  "REPLACE"),
+  Rc        = build(KIND.REPLACE,         "vimode_replace_bg",    "R-C",  "REPLACE (COMPLETION)"),
+  Rx        = build(KIND.REPLACE,         "vimode_replace_bg",    "R-X",  "REPLACE (COMPLETION)"),
+  Rv        = build(KIND.REPLACE,         "vimode_replace_bg",    "R-V",  "REPLACE (VIRTUAL)"),
+  Rvc       = build(KIND.REPLACE,         "vimode_replace_bg",    "R-V",  "REPLACE (VIRTUAL)"),
+  Rvx       = build(KIND.REPLACE,         "vimode_replace_bg",    "R-V",  "REPLACE (VIRTUAL)"),
 
-  -- Command-line mode
-  c         = build(KIND.COMMAND, "vimode_special_bg",   "C",   "COMMAND"),
-  cv        = build(KIND.COMMAND, "vimode_special_bg",   "Ex",  "EX"),
+  -- Command-line
+  c         = build(KIND.COMMAND,         "vimode_special_bg",    "(C)",  "COMMAND"),
+  cv        = build(KIND.COMMAND,         "vimode_special_bg",    "(X)",  "EX"),
 
-  -- Other modes
-  r         = build(KIND.OTHER, "vimode_special_bg",   "...", "PROMPT"),
-  rm        = build(KIND.OTHER, "vimode_special_bg",   "M",   "MORE"),
-  ["r?"]    = build(KIND.OTHER, "vimode_special_bg",   "?",   "CONFIRM"),
-  ["!"]     = build(KIND.OTHER, "vimode_special_bg",   "!",   "SHELL"),
-  t         = build(KIND.OTHER, "vimode_special_bg",   "T",   "TERMINAL"),
+  -- Other
+  r         = build(KIND.OTHER,           "vimode_special_bg",    "(>)",  "PROMPT"),
+  rm        = build(KIND.OTHER,           "vimode_special_bg",    "(M)",  "MORE"),
+  ["r?"]    = build(KIND.OTHER,           "vimode_special_bg",    "(?)",  "CONFIRM"),
+  ["!"]     = build(KIND.OTHER,           "vimode_special_bg",    "(!)",  "SHELL"),
+  t         = build(KIND.OTHER,           "vimode_special_bg",    "(T)",  "TERMINAL"),
 }
 
 return {

@@ -26,6 +26,14 @@ return {
         end,
       },
     },
+    display = {
+      chat = {
+        show_header_separator = true,
+        show_settings         = true,
+        show_token_count      = true,
+        show_tools_processing = true,
+      }
+    },
   },
 
   config = function(_, opts)

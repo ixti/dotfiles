@@ -18,7 +18,7 @@ end
 
 local Breadcrumbs = require("heraldry.whereami").new({
   condition     = function(self) return self.is_active end,
-  delimiter_hl  = { fg = "inactive_fg" },
+  delimiter_hl  = { fg = "inactive_fg", bold = true },
   truncation_hl = { fg = "inactive_fg" },
 })
 

@@ -6,16 +6,26 @@ return {
       },
     },
 
-    excludedGems = {
-      "rubocop",
-    },
+    indexing = {
+      excludedGems = {
+        "rubocop",
+        "rubocop-ast",
+        "rubocop-factory_bot",
+        "rubocop-performance",
+        "rubocop-rails",
+        "rubocop-rspec",
+        "rubocop-rspec_rails",
+        "sorbet-runtime",
+      },
 
-    excludedPatterns = {
-      "tmp/**",
-      "log/**",
-      "spec/**",
-      "**/node_modules/**",
-      "**/vendor/**",
+      excludedPatterns = {
+        "tmp/**",
+        "log/**",
+        "spec/**",
+        "**/node_modules/**",
+        "**/vendor/**",
+      },
     },
   },
 }
+

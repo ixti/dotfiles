@@ -1,0 +1,55 @@
+[colors]
+background = '#100f0f'
+foreground = '#cecdc3'
+
+# Cursor
+cursor    = '#cecdc3'
+vi-cursor = '#cecdc3'
+
+# Navigation
+tabs                   = '#12B5E5'
+tabs-foreground        = '#7d7d7d'
+tabs-active            = '#303030'
+tabs-active-highlight  = '#ffa133'
+tabs-active-foreground = '#FFFFFF'
+bar                    = '#1b1a1a'
+split                  = '#292527'
+
+# Search
+search-match-background         = '#44C9F0'
+search-match-foreground         = '#FFFFFF'
+search-focused-match-background = '#E6A003'
+search-focused-match-foreground = '#FFFFFF'
+
+# Selection
+selection-foreground = '#ddf1e4'
+selection-background = '#164f4a'
+
+dim-black        = '#1C191A'
+dim-blue         = '#0E91B7'
+dim-cyan         = '#93D4E7'
+dim-foreground   = '#ECDC8A'
+dim-green        = '#098749'
+dim-magenta      = '#624A87'
+dim-red          = '#C7102A'
+dim-white        = '#C1C1C1'
+dim-yellow       = '#E6A003'
+
+black            = '#343331'
+red              = '#d14d41'
+green            = '#879a39'
+yellow           = '#d0a215'
+blue             = '#4385be'
+magenta          = '#8b7ec8'
+cyan             = '#3aa99f'
+white            = '#cecdc3'
+
+light-black      = '#ADA8A0'
+light-blue       = '#44C9F0'
+light-cyan       = '#7BE1FF'
+light-foreground = '#F2EFE2'
+light-green      = '#0ED372'
+light-magenta    = '#9E88BE'
+light-red        = '#F25E73'
+light-white      = '#FFFFFF'
+light-yellow     = '#FDF170'

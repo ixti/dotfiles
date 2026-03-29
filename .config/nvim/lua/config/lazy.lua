@@ -31,4 +31,9 @@ require("lazy").setup({
   },
   ui      = { border = "rounded" },
   checker = { enabled = true, notify = false },
+
+  -- Seriously??? If NeoVim will move towards requiring LuaRocks - I'll move
+  -- back to Vim, as less than anything I want package manager on top of package
+  -- manager on top of package manager... It's waaaay tooo fucking meta!!!
+  rocks   = { enabled = false },
 })

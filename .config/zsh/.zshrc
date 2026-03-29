@@ -134,8 +134,8 @@ autoload -Uz zz
 
 source "${ZDOTDIR}/zshrc/aliases.zsh"
 source "${ZDOTDIR}/zshrc/bindkeys.zsh"
-source "${ZDOTDIR}/zshrc/secrets.zsh"
-source "${ZDOTDIR}/zshrc/ssh-and-gnupg.zsh"
+source "${ZDOTDIR}/zshrc/chruby.zsh"
+source "${ZDOTDIR}/zshrc/gnupg.zsh"
 
 # Local Overrides
 ################################################################################

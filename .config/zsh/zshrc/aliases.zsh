@@ -1,12 +1,3 @@
-# Location Aliases
-################################################################################
-
-hash -d guru-overlay=/var/db/repos/guru
-hash -d gentoo-overlay=/var/db/repos/gentoo
-
-# Command Aliases
-################################################################################
-
 # Ask for confirmation when trying to modify existing files
 alias cp="cp -i"
 alias mv="mv -i"
@@ -35,9 +26,6 @@ alias be="bundle exec"
 alias bi="bundle install"
 alias bu="bundle update"
 alias bo="bundle open"
-alias ror="bundle exec rails"
 
 # Other tools
 alias om="overmind"
-alias av="aws-vault"
-alias ave="aws-vault exec"

@@ -146,6 +146,7 @@ fi
 ################################################################################
 
 typeset -gx GNUPGHOME="${GNUPGHOME:-"${HOME}/.gnupg"}"
+[[ -d "${GNUPGHOME}" ]] || mkdir -p -m 0700 "${GNUPGHOME}"
 
 ## Less is more
 ################################################################################
@@ -172,6 +173,7 @@ typeset -gx MISE_ENV=development
 
 ## PNPM -- https://pnpm.io/
 ## https://pnpm.io/
+################################################################################
 
 if [[ -z "${PNPM_HOME:-}" ]]; then
   typeset -gx PNPM_HOME="${XDG_DATA_HOME}/pnpm"

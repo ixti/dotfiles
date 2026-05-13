@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eEuo pipefail
+
+echo "=== Initializing submodules"
+
+yadm submodule update --init --recursive

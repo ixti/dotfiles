@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
+set -eEuo pipefail
+
 if command -v vim >/dev/null 2>&1; then
-  echo "Bootstraping Vim"
+  echo "=== Bootstraping Vim"
   vim '+PlugInstall' '+PlugClean!' '+qall'
 fi

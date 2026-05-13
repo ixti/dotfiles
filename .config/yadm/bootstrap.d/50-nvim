@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
+set -eEuo pipefail
+
 if command -v nvim >/dev/null 2>&1; then
-  echo "Bootstraping NeoVim"
+  echo "=== Bootstraping NeoVim"
   nvim --headless '+Lazy! restore' '+qa'
 fi

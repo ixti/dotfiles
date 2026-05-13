@@ -26,7 +26,7 @@ NOTE: Most dependencies are optional, but highly recommended.
 
 [source,bash]
 ----
-yadm clone --branch main --single-branch "https://codeberg.org/ixti/dotfiles.git"
+yadm clone --recurse-submodules --single-branch --branch main "https://codeberg.org/ixti/dotfiles.git"
 ----
 
 == Update

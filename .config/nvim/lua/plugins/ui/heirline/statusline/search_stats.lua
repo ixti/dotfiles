@@ -4,7 +4,13 @@ local searchcount = vim.fn.searchcount
 
 return {
   condition = function()
-    return vim.v.hlsearch == 1 and searchcount({ recompute = 0 }).total > 0
+    if vim.v.hlsearch ~= 1 then
+      return false
+    end
+
+    local count = searchcount({ recompute = 0 }).total
+
+    return count and count > 0
   end,
 
   update = {

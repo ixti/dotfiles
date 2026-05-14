@@ -6,7 +6,8 @@ input {
         xkb {
             //If you want to overwrite your keyboard layout,
             // uncomment the line below and change the layout accordingly.
-            layout "us" // Use the American keyboard layout
+            layout "us,ru" // Use the American keyboard layout
+            options "caps:ctrl_modifier,grp:shifts_toggle"
         }
         numlock // Enable numlock on startup
     }

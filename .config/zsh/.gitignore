@@ -1,16 +1,16 @@
-local/
-!local/.keep
+/local/*
+!/local/.keep
 
 # YADM-managed aliases
-.zshenv
-.zshrc
+/.zshenv
+/.zshrc
 
 # Antidote compiled bundle
-.zsh_plugins.zsh
+/.zsh_plugins.zsh
 
 # compinit cache (should not even be here)
-.zcompdump
+/.zcompdump
 
 # Bytecode cache
-**/*.zwc
-**/*.zwc.old
+/**/*.zwc
+/**/*.zwc.old

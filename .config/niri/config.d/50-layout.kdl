@@ -1,0 +1,62 @@
+layout {
+  gaps 10 // Gap between windows
+
+  center-focused-column "never" // Don’t auto-center focused column
+
+  background-color "transparent" // <- needed for noctalia-shell to set wallpaper
+
+  preset-column-widths {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66667
+  }
+
+  struts {}
+
+  // ╭───────────────────────────────────────────────────────────────────────╌┄┈
+  // │ https://github.com/niri-wm/niri/wiki/Configuration:-Layout#focus-ring-and-border
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
+  focus-ring { off; }
+
+  border {
+    on
+
+    width 2
+
+    active-gradient from="#4385bedd" to="#879a39dd" angle=25 in="oklch shorter hue"
+    inactive-color "#1c1b1aee"
+    urgent-color   "#d14d41ee"
+  }
+
+  // ╭───────────────────────────────────────────────────────────────────────╌┄┈
+  // │ https://github.com/niri-wm/niri/wiki/Configuration:-Layout#shadow
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
+  shadow {
+    on
+    color "#100f0fff"
+    inactive-color "#100f0f99"
+    spread 5
+    softness 13
+    offset x=0 y=0
+  }
+
+  // ╭───────────────────────────────────────────────────────────────────────╌┄┈
+  // │ https://github.com/niri-wm/niri/wiki/Configuration:-Layout#tab-indicator
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
+  tab-indicator {
+    active-color   "#87d3c3"
+    inactive-color "#24837b"
+    urgent-color   "#d14d41"
+  }
+
+  // ╭───────────────────────────────────────────────────────────────────────╌┄┈
+  // │ https://github.com/niri-wm/niri/wiki/Configuration:-Layout#insert-hint
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
+  insert-hint {
+    gradient from="#66800B77" to="#BEC97E77" angle=45 in="oklch" relative-to="workspace-view"
+  }
+}

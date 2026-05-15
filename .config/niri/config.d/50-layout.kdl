@@ -24,9 +24,10 @@ layout {
 
     width 2
 
-    active-gradient from="#4385bedd" to="#879a39dd" angle=25 in="oklch shorter hue"
-    inactive-color "#1c1b1aee"
-    urgent-color   "#d14d41ee"
+    active-gradient from="#4385bedd" to="#879a39dd" angle=30 in="oklch shorter hue" relative-to="workspace-view"
+    urgent-gradient from="#d14d41ee" to="#CE5D97ee" angle=30 in="oklch shorter hue" relative-to="workspace-view"
+
+    inactive-color "#403e3cdd"
   }
 
   // ╭───────────────────────────────────────────────────────────────────────╌┄┈
@@ -57,6 +58,6 @@ layout {
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
 
   insert-hint {
-    gradient from="#66800B77" to="#BEC97E77" angle=45 in="oklch" relative-to="workspace-view"
+    gradient from="#66800B99" to="#BEC97E99" angle=30 in="oklch" relative-to="workspace-view"
   }
 }

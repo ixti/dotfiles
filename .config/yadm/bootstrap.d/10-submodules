@@ -2,6 +2,8 @@
 
 set -eEuo pipefail
 
-echo "=== Initializing submodules"
+echo "╭────────────────────────────────────────────────────────────────────────────╌┄┈"
+echo "│ Initializing submodules..."
+echo "╰────────────────────────────────────────────────────────────────────────────╌┄┈"
 
 yadm submodule update --init --recursive

@@ -3,6 +3,9 @@
 set -eEuo pipefail
 
 if command -v vim >/dev/null 2>&1; then
-  echo "=== Bootstraping Vim"
+  echo "╭────────────────────────────────────────────────────────────────────────────╌┄┈"
+  echo "│ Bootstrapping Vim..."
+  echo "╰────────────────────────────────────────────────────────────────────────────╌┄┈"
+
   vim '+PlugInstall' '+PlugClean!' '+qall'
 fi

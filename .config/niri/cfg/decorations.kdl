@@ -1,0 +1,46 @@
+layout {
+  // ╭─── Decorations ───────────────────────────────────────────────────────╌┄┈
+  // │ https://github.com/niri-wm/niri/wiki/Configuration:-Layout#focus-ring-and-border
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
+
+    focus-ring {
+        width 1
+        // active-color   "#76946a"
+        // inactive-color "#1f1f28"
+        // urgent-color   "#c34043"
+        // urgent-color   "#c34043"
+
+        active-gradient from="#3AA99F" to="#8B7EC8" angle=45 relative-to="workspace-view"
+    }
+
+    border {
+      on
+      width 1
+        active-color   "#76946a"
+        inactive-color "#1f1f28"
+        urgent-color   "#c34043"
+    }
+
+    shadow {
+      on
+        color "#1f1f2870"
+    }
+
+    tab-indicator {
+        active-color   "#76946a"
+        inactive-color "#21321a"
+        urgent-color   "#c34043"
+    }
+
+    insert-hint {
+        color "#76946a80"
+    }
+}
+
+recent-windows {
+  highlight {
+      active-color "#76946a"
+      urgent-color "#c34043"
+  }
+}

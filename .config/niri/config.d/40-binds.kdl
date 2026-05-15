@@ -1,0 +1,31 @@
+// ╭─── Key bindings ────────────────────────────────────────────────────────╌┄┈
+// │ https://github.com/niri-wm/niri/wiki/Configuration:-Key-Bindings
+// │ https://docs.noctalia.dev/getting-started/keybinds/
+// ╰─────────────────────────────────────────────────────────────────────────╌┄┈
+
+binds {
+  Mod+Shift+ESCAPE { show-hotkey-overlay; }
+
+  // ╭─── System ────────────────────────────────────────────────────────────╌┄┈
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
+  Mod+CTRL+Q hotkey-overlay-title="Session Menu"     { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+  Mod+CTRL+L hotkey-overlay-title="Lock Screen"      { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+  Mod+CTRL+R hotkey-overlay-title="Restart Noctalia" { spawn-sh "pkill qs; qs -c noctalia-shell"; }
+
+  // ╭─── Applications ──────────────────────────────────────────────────────╌┄┈
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+  Mod+Return  hotkey-overlay-title="Open Terminal"     { spawn "ghostty"; }
+  Mod+R       hotkey-overlay-title="Open App Launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+
+  // ╭─── Window Management ─────────────────────────────────────────────────╌┄┈
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+  Mod+Space                           repeat=false { toggle-overview; }
+  Mod+Shift+C                         { close-window; }
+
+  // ╭─── Modes ─────────────────────────────────────────────────────────────╌┄┈
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+  Mod+T                               { toggle-window-floating; }
+  Mod+F                               { maximize-window-to-edges; }
+  Mod+M                               { maximize-column; }
+}

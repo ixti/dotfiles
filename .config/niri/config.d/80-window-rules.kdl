@@ -1,0 +1,13 @@
+// ╭─── Window Rules ────────────────────────────────────────────────────────╌┄┈
+// │ https://github.com/niri-wm/niri/wiki/Configuration:-Window-Rules
+// ╰─────────────────────────────────────────────────────────────────────────╌┄┈
+
+window-rule {
+  geometry-corner-radius 8
+
+  // Clips window contents to the rounded corner boundaries.
+  clip-to-geometry true
+}
+
+include "./window-rules/steam.kdl"
+include "./window-rules/zoom.kdl"

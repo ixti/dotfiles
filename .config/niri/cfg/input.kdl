@@ -1,5 +1,6 @@
-// ────────────── Input Configuration ──────────────
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+// ╭─── Input Configuration ─────────────────────────────────────────────────╌┄┈
+// │ https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+// ╰─────────────────────────────────────────────────────────────────────────╌┄┈
 
 input {
     keyboard {
@@ -29,6 +30,6 @@ input {
       scroll-button 279 // BTN_TASK
     }
 
-    focus-follows-mouse // Automatically focus windows under the mouse pointer
+    focus-follows-mouse           // Automatically focus windows under the mouse pointer
     workspace-auto-back-and-forth // Enable workspace back & forth switching
 }

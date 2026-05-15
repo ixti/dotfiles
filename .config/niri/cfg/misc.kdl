@@ -1,6 +1,3 @@
-prefer-no-csd
-screenshot-path null
-
 cursor {
     xcursor-theme "capitaine-cursors"
     xcursor-size 24

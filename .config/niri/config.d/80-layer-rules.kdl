@@ -1,0 +1,14 @@
+// ╭─── Layer Rules ─────────────────────────────────────────────────────────╌┄┈
+// │ https://github.com/niri-wm/niri/wiki/Configuration:-Layer-Rules
+// ╰─────────────────────────────────────────────────────────────────────────╌┄┈
+
+layer-rule {
+  match namespace="^noctalia-wallpaper"
+  place-within-backdrop true
+}
+
+layer-rule {
+  match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
+
+  background-effect { xray false; }
+}

@@ -2,17 +2,19 @@
 
 set -eEuo pipefail
 
-WORKTREE_ROOT="$(yadm rev-parse --show-toplevel)"
+# Add files that should not track changes, e.g. ".config/niri/noctalia.kdl"
+SKIP_WORKTREE_FILES=()
 
 # Skip tracking changes to auto-generated files that need to be present with
 # some defaults, beforehand, e.g. `noctalia.kdl` include in `niri`.
-skip_worktree() {
-  echo "* $1"
-  yadm update-index --skip-worktree "${WORKTREE_ROOT}/$1"
-}
+if [[ ${#SKIP_WORKTREE_FILES[@]} -ne 0 ]]; then
+  home="$(yadm rev-parse --show-toplevel)"
 
-echo "╭────────────────────────────────────────────────────────────────────────────╌┄┈"
-echo "│ Masking some config files to ignore local modifications..."
-echo "╰────────────────────────────────────────────────────────────────────────────╌┄┈"
+  echo "╭────────────────────────────────────────────────────────────────────────────╌┄┈"
+  echo "│ Masking some config files to ignore local modifications..."
+  echo "╰────────────────────────────────────────────────────────────────────────────╌┄┈"
 
-skip_worktree ".config/niri/noctalia.kdl"
+  for f in "${SKIP_WORKTREE_FILES[@]}"; do
+    yadm update-index --skip-worktree "${home}/${f}"
+  done
+fi

@@ -1,0 +1,93 @@
+// ╭─── Zoom Workspace ──────────────────────────────────────────────────────╌┄┈
+// │ Make alternatively gifted app suck less
+// │
+// │ Apparently Zoom devs don't know about native notifications at all,
+// │ or XDG in general, and clearly banned from Google to RTFM...
+// ╰─────────────────────────────────────────────────────────────────────────╌┄┈
+
+// Super screensharing toolbar that blocks 10% of a screen
+window-rule {
+  match app-id="(?i)^Zoom$" title="^as_toolbar$"
+
+  open-floating true
+  open-focused  false
+
+  default-floating-position x=0 y=10 relative-to="top"
+
+  opacity 0.6
+
+  background-effect { blur false; xray false; }
+  focus-ring        { off; }
+  border            { off; }
+  shadow            { off; }
+
+  draw-border-with-background false
+}
+
+// Super annoying circle with pencil during screensharing
+window-rule {
+  match app-id="(?i)^Zoom$" title="^annotate_toolbar$"
+
+  open-floating true
+  open-focused  false
+
+  default-floating-position x=10 y=10 relative-to="bottom-right"
+
+  opacity 0.2
+
+  background-effect { blur false; xray false; }
+  focus-ring        { off; }
+  border            { off; }
+  shadow            { off; }
+
+  draw-border-with-background false
+}
+
+// Super annoying video participants pane during screensharing
+window-rule {
+  match app-id="(?i)^Zoom$" title="^zoom_linux_float_video_window$"
+
+  open-floating true
+  open-focused  false
+
+  default-floating-position x=10 y=10 relative-to="top-right"
+
+  opacity 0.2
+
+  background-effect { blur false; xray false; }
+  focus-ring        { off; }
+  border            { off; }
+  shadow            { off; }
+
+  draw-border-with-background false
+}
+
+// Native notifications? Nah! They never heard of these!
+window-rule {
+  match app-id="(?i)^Zoom$" title="^zoom_linux_float_message_reminder$"
+
+  open-floating true
+  open-focused  false
+
+  default-floating-position x=10 y=10 relative-to="bottom-right"
+
+  background-effect { blur false; xray false; }
+  focus-ring        { off; }
+  shadow            { off; }
+
+  draw-border-with-background false
+}
+
+// Why not put EVERY UI element in a separate window? Great idea...
+window-rule {
+  match app-id="(?i)^Zoom$" title="^Leave meeting panel$"
+
+  open-floating true
+  open-focused  true
+
+  background-effect { blur false; xray false; }
+  focus-ring        { off; }
+  shadow            { off; }
+
+  draw-border-with-background false
+}

@@ -1,0 +1,8 @@
+overview {
+  // Make workspaces smaller or larger (value between 0 and 0.75)
+  zoom 0.4
+
+  // Disable workspace shadows to make it more appealing (with shadows it has
+  // weird ghost spacing), and as a nice side-effect save resources.
+  workspace-shadow { off; }
+}

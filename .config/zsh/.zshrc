@@ -97,8 +97,17 @@ zstyle ':antidote:*'          'zcompile'   'yes'
 zstyle ':plugin:ez-compinit'  'compstyle'  'zshzoo'
 zstyle ':plugin:ez-compinit'  'use-cache'  'yes'
 
-source "${ZDOTDIR}/.antidote/antidote.zsh"
-antidote load
+autoload -Uz antidote
+
+zsh_plugins="${ZDOTDIR}/.zsh_plugins"
+
+if [[ ! -f "${zsh_plugins}.txt" || ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
+  [[ -f "${zsh_plugins}.txt" ]] || touch "${zsh_plugins}.txt"
+
+  antidote bundle < "${zsh_plugins}.txt" >| "${zsh_plugins}.zsh"
+fi
+
+source "${zsh_plugins}.zsh"
 
 # Integrations
 ################################################################################

@@ -172,6 +172,7 @@ typeset -gU path=(
 typeset -gU fpath=(
   "${ZDOTDIR}/local/functions"
   "${ZDOTDIR}/functions"
+  "${ZDOTDIR}/.antidote/functions"
   $fpath
 )
 

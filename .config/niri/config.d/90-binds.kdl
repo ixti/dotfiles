@@ -27,5 +27,6 @@ binds {
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
   Mod+T                               { toggle-window-floating; }
   Mod+F                               { maximize-window-to-edges; }
+  Mod+Shift+M                         { switch-preset-column-width; }
   Mod+M                               { maximize-column; }
 }

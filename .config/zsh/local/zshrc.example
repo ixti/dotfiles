@@ -1,0 +1,7 @@
+# For those who can't figure out how to exit Vim
+alias vim=nano
+alias nvim=micro
+
+# Enable chruby
+source /usr/share/chruby/chruby.sh
+source /usr/share/chruby/auto.sh

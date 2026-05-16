@@ -1,5 +1,6 @@
 /local/*
 !/local/.keep
+!/local/*.example
 
 # YADM-managed aliases
 /.zshenv

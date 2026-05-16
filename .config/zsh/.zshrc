@@ -66,6 +66,13 @@ unsetopt hup               # Don't kill jobs on shell exit.
 # Debugging
 # setopt sourcetrace         # Print the name of each file as it is sourced.
 
+# Setup ZSH History
+################################################################################
+
+typeset -rgx HISTFILE="${ZSTATEDIR}/history"
+typeset -rgx HISTSIZE=10000
+typeset -rgx SAVEHIST=10000
+
 # Preconfigure ZLE
 ################################################################################
 
@@ -116,26 +123,110 @@ if (( ${+commands[fzf]} )); then
   source <(command fzf --zsh)
 fi
 
-# A smarter cd command.
+# A smarter cd command
 # NOTE: Must be last thing in the config, if used with `--cmd cd`
 # https://github.com/ajeetdsouza/zoxide
 if (( ${+commands[zoxide]} )); then
   source <(command zoxide init zsh)
 fi
 
-# Functions
+# GPG/SSH Agents
+if [[ -o interactive ]] && (( $+commands[gpgconf] )); then
+  () {
+    local gpg_ssh_socket
+    gpg_ssh_socket="$(gpgconf --list-dirs agent-ssh-socket 2>/dev/null)"
+
+    # Proceed only if GPG successfully reports a valid socket path
+    if [[ -n "${gpg_ssh_socket}" ]]; then
+      # Bind the SSH auth mechanism globally to GPG Agent
+      export SSH_AUTH_SOCK="${gpg_ssh_socket}"
+      
+      # Zsh natively populates the $TTY variable for interactive shells. 
+      # Fall back to the tty command only if $TTY is missing.
+      export GPG_TTY="${TTY:-$(tty 2>/dev/null)}"
+
+      # Ensure gpg-agent is awake. If systemd socket activation is handling 
+      # it, gpg-connect-agent will automatically ping it to life.
+      if ! gpg-connect-agent /bye >/dev/null 2>&1; then
+        gpgconf --launch gpg-agent >/dev/null 2>&1
+      fi
+
+      # Validates that the TTY is a valid character device.
+      if [[ -n "$GPG_TTY" && -c "$GPG_TTY" ]]; then
+        gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
+      fi
+    fi
+  }
+fi
+
+# Aliases
 ################################################################################
 
-autoload -Uz gh-access-token
-autoload -Uz zz
+# Ask for confirmation when trying to modify existing files
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
 
-# Location and Command Aliases
+## EZA -- Modern replacement for the file-listing command-line program `ls`.
+# https://eza.rocks
+if (( ${+commands[eza]} )); then
+  alias eza="eza --time-style='+%F %R' --git --icons=auto --group --group-directories-first"
+  alias ls="eza"
+  alias la="eza --all"
+  alias ll="eza --all --long"
+else
+  alias ls="ls --color=auto"
+  alias la="ls --almost-all"
+  alias ll="ls --almost-all -l"
+fi
+
+# Git
+alias gbv="git branch --verbose --verbose"
+alias gfp="git fetch --prune"
+alias gri="git rebase --interactive"
+
+# Ruby
+alias be="bundle exec"
+alias bi="bundle install"
+alias bu="bundle update"
+alias bo="bundle open"
+
+# Other tools
+alias om="overmind"
+
+# VI-mode bindkeys
 ################################################################################
 
-source "${ZDOTDIR}/zshrc/aliases.zsh"
-source "${ZDOTDIR}/zshrc/bindkeys.zsh"
-source "${ZDOTDIR}/zshrc/chruby.zsh"
-source "${ZDOTDIR}/zshrc/gnupg.zsh"
+# https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#lazy-keybindings
+function zvm_after_lazy_keybindings() {
+  bindkey -M vicmd 'k' history-substring-search-up
+  bindkey -M vicmd 'j' history-substring-search-down
+}
+
+# Completions navigation
+################################################################################
+
+zmodload zsh/complist
+zstyle ':completion:*:*:*:*:*' menu select
+
+# Add Shift+Tab reverse completion
+if [[ -n "${terminfo[kcbt]}" ]]; then
+  bindkey "${terminfo[kcbt]}" reverse-menu-complete
+else
+  bindkey '^[[Z' reverse-menu-complete
+fi
+
+# Register autoloadable function
+################################################################################
+
+() {
+  local funs=(
+    "${ZDOTDIR}/local/functions"/*(N:t)
+    "${ZDOTDIR}/functions"/*(N:t)
+  )
+
+  (( $#funs )) && autoload -Uz "${funs[@]}"
+}
 
 # Local Overrides
 ################################################################################

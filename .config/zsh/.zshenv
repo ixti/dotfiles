@@ -8,10 +8,10 @@ local default_xdg_config_home="${HOME}/.config"
 local default_xdg_data_home="${HOME}/.local/share"
 local default_xdg_state_home="${HOME}/.local/state"
 
-typeset -gx XDG_CACHE_HOME="${XDG_CACHE_HOME:-${default_xdg_cache_home}}"
-typeset -gx XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${default_xdg_config_home}}"
-typeset -gx XDG_DATA_HOME="${XDG_DATA_HOME:-${default_xdg_data_home}}"
-typeset -gx XDG_STATE_HOME="${XDG_STATE_HOME:-${default_xdg_state_home}}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-${default_xdg_cache_home}}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${default_xdg_config_home}}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-${default_xdg_data_home}}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-${default_xdg_state_home}}"
 
 # Ensure XDG paths are not relative (as per the spec's "absolute path" rule)
 # If those are incorrect, warn and set to default one
@@ -70,43 +70,17 @@ typeset -rgx ZSTATEDIR="${ZSTATEDIR:-${XDG_STATE_HOME}/zsh}"
 [[ -d "${ZCACHEDIR}" ]] || mkdir -p -m 0700 "${ZCACHEDIR}"
 [[ -d "${ZSTATEDIR}" ]] || mkdir -p -m 0700 "${ZSTATEDIR}"
 
-# Setup ZSH History
-################################################################################
-
-typeset -rgx HISTFILE="${ZSTATEDIR}/history"
-typeset -rgx HISTSIZE=10000
-typeset -rgx SAVEHIST=10000
-
-# Setup $PATH, and ensure it contains UNIQUE values only
-################################################################################
-
-typeset -gU path=(
-  "${HOME}/.local/bin"
-  "${HOME}/bin"
-  "${HOME}/go/bin"
-  "${HOME}/.cargo/bin"
-  "${XDG_CACHE_HOME}/.bun/bin"
-  "${PNPM_HOME}"
-  $path
-)
-
-# Setup ZSH Functions lookup paths, and ensure it contains UNIQUE values only
-################################################################################
-
-typeset -gU fpath=(
-  "${ZDOTDIR}/local/functions"
-  "${ZDOTDIR}/functions"
-  $fpath
-)
-
 # System ENV vars
 ################################################################################
 
-typeset -gx MANPATH="$HOME/.local/share/man:$MANPATH"
+# NOTE: Trailing comma is important, as it instruct manpath not to use it
+#       explicitly, but to resolve paths in accordance with it's DB and
+#       include $MANPATH into the equation.
+export MANPATH="${HOME}/.local/share/man:"
 
-typeset -gx EDITOR="vim"
-typeset -gx VISUAL="${VISUAL:-$EDITOR}"
-typeset -gx PAGER=${PAGER:-/usr/bin/less}
+export EDITOR="vim"
+export VISUAL="${VISUAL:-$EDITOR}"
+export PAGER=${PAGER:-/usr/bin/less}
 
 # Reset system-defined LS_COLORS.
 unset LS_COLORS
@@ -118,40 +92,38 @@ unset LS_COLORS
 ## https://github.com/sharkdp/bat/
 ################################################################################
 
-typeset -gx BAT_CONFIG_DIR="${XDG_CONFIG_HOME}/bat"
-typeset -gx BAT_CONFIG_PATH="${BAT_CONFIG_DIR}/config"
+export BAT_CONFIG_DIR="${XDG_CONFIG_HOME}/bat"
+export BAT_CONFIG_PATH="${BAT_CONFIG_DIR}/config"
 
 ## CRYFS -- Cryptographic filesystem for the cloud
 ## https://www.cryfs.org
 ################################################################################
 
-typeset -gx CRYFS_NO_UPDATE_CHECK=true
-typeset -gx CRYFS_LOCAL_STATE_DIR="${XDG_DATA_HOME}/cryfs"
+export CRYFS_NO_UPDATE_CHECK="true"
+export CRYFS_LOCAL_STATE_DIR="${XDG_DATA_HOME}/cryfs"
 
 ## EZA -- Modern replacement for the file-listing command-line program `ls`.
 ## https://eza.rocks
 ################################################################################
 
-typeset -gx EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
+export EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
 
 ## FZF -- A command-line fuzzy finder.
 ## https://github.com/junegunn/fzf/
 ################################################################################
 
-if (( ${+commands[fd]} )); then
-  typeset -gx FZF_DEFAULT_COMMAND="fd --hidden --type l --type f --type d --exclude .git --exclude .cache";
-fi
+export FZF_DEFAULT_COMMAND="fd --hidden --type l --type f --type d --exclude .git --exclude .cache";
 
 ## GnuPG
 ################################################################################
 
-typeset -gx GNUPGHOME="${GNUPGHOME:-"${HOME}/.gnupg"}"
+export GNUPGHOME="${GNUPGHOME:-"${HOME}/.gnupg"}"
 [[ -d "${GNUPGHOME}" ]] || mkdir -p -m 0700 "${GNUPGHOME}"
 
 ## Less is more
 ################################################################################
 
-typeset -gx LESSHISTFILE="${XDG_CACHE_HOME}/lesshst"
+export LESSHISTFILE="${XDG_CACHE_HOME}/lesshst"
 
 # -F or --quit-if-one-screen : Auto-exit if file fits the screen,
 # -g or --hilite-search      : (perf) Highlight one match at a time.
@@ -163,26 +135,45 @@ typeset -gx LESSHISTFILE="${XDG_CACHE_HOME}/lesshst"
 # -X or --no-init            : Disables sending the termcap initialization and deinitialization strings to the terminal.
 #                              NOTE: This means it also disables mousewheel scrolling.
 # -zn or --window=n or -n    : Changes the default scrolling window size to n lines.
-typeset -gx LESS="-F -g -i -M -R -S -w -X -z-4"
+export LESS="-F -g -i -M -R -S -w -X -z-4"
 
 ## Mise-en-place -- Development environment setup tool
 ## https://mise.jdx.dev/
 ################################################################################
 
-typeset -gx MISE_ENV=development
+export MISE_ENV=development
 
 ## PNPM -- https://pnpm.io/
 ## https://pnpm.io/
 ################################################################################
 
-if [[ -z "${PNPM_HOME:-}" ]]; then
-  typeset -gx PNPM_HOME="${XDG_DATA_HOME}/pnpm"
+export PNPM_HOME="${PNPM_HOME:-"${XDG_DATA_HOME}/pnpm"}"
 
-  if [[ ! -d "$PNPM_HOME" ]]; then
-    print -u2 "Creating missing PNPM directory: $PNPM_HOME"
-    mkdir -p -m 0700 "$PNPM_HOME"
-  fi
+if [[ ! -d "$PNPM_HOME" ]]; then
+  print -u2 "Creating missing PNPM directory: $PNPM_HOME"
+  mkdir -p -m 0700 "$PNPM_HOME"
 fi
+
+# Setup $PATH, and ensure it contains UNIQUE values only
+################################################################################
+
+typeset -gU path=(
+  "${HOME}/.local/bin"
+  "${HOME}/go/bin"
+  "${HOME}/.cargo/bin"
+  "${XDG_CACHE_HOME}/.bun/bin"
+  "${PNPM_HOME}/bin"
+  $path
+)
+
+# Setup ZSH Functions lookup paths, and ensure it contains UNIQUE values only
+################################################################################
+
+typeset -gU fpath=(
+  "${ZDOTDIR}/local/functions"
+  "${ZDOTDIR}/functions"
+  $fpath
+)
 
 # Local overrides
 ################################################################################

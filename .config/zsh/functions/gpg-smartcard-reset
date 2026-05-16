@@ -1,7 +1,3 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
 # https://github.com/drduh/YubiKey-Guide?tab=readme-ov-file#using-multiple-yubikeys
 gpg-connect-agent "killagent" "/bye"
 gpg-connect-agent "scd serialno" "learn --force" "/bye"

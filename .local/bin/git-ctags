@@ -1,7 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# git hooks this should be run with:
-# post-checkout | post-commit | post-merge | post-rewrite
+# Execute this manually, and/or with git hooks:
+#
+# - post-checkout
+# - post-commit
+# - post-merge
+# - post-rewrite
 
 set -euo pipefail
 
@@ -10,8 +14,8 @@ tmp_file="${worktree}/$$.tags"
 
 trap 'rm -f "${tmp_file}"' EXIT
 
-# Why not?: `fd --type f --base-directory "${worktree}" | ctags ...`
-# Because: https://cj.rs/blog/git-ls-files-is-faster-than-fd-and-find/
+# Why not? `fd --type f --base-directory "${worktree}" | ctags ...`
+# Because https://cj.rs/blog/git-ls-files-is-faster-than-fd-and-find/
 git ls-files --cached --modified --others --exclude-standard \
   | ctags --quiet=yes --tag-relative=yes --extras=+f -L - -f "${tmp_file}"
 

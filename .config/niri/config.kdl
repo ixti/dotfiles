@@ -1,6 +1,8 @@
+spawn-sh-at-startup "qs -c noctalia-shell"
+
 prefer-no-csd
 
-screenshot-path null
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
 
 environment {
   ELECTRON_OZONE_PLATFORM_HINT        "wayland"
@@ -11,17 +13,24 @@ environment {
   XDG_SESSION_TYPE                    "wayland"
 }
 
-// TODO: Refactor
-include "./cfg/overview.kdl"
-include "./cfg/animation.kdl"
-include "./cfg/autostart.kdl"
-include "./cfg/keybinds.kdl"
-include "./cfg/input.kdl"
-include "./cfg/display.kdl"
-include "./cfg/misc.kdl"
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
 
-// Finalized variant
+hotkey-overlay {
+  skip-at-startup
+}
+
+// TODO: Refactor
+include "./legacy/keybinds.kdl"
+
+include "./config.d/10-input.kdl"
+include "./config.d/10-output.kdl"
+include "./config.d/40-animations.kdl"
+include "./config.d/40-cursor.kdl"
 include "./config.d/50-layout.kdl"
+include "./config.d/50-overview.kdl"
 include "./config.d/50-recent-windows.kdl"
 include "./config.d/80-layer-rules.kdl"
 include "./config.d/80-window-rules.kdl"

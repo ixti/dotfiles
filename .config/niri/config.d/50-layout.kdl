@@ -1,6 +1,4 @@
 layout {
-  gaps 10 // Gap between windows
-
   center-focused-column "never" // Don’t auto-center focused column
   always-center-single-column   // But auto-center sole column
 
@@ -11,6 +9,8 @@ layout {
     proportion 0.5
     proportion 0.66667
   }
+
+  gaps 10
 
   struts {}
 
@@ -50,9 +50,13 @@ layout {
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
 
   tab-indicator {
-    active-color   "#879a39"
-    inactive-color "#4385be"
-    urgent-color   "#d14d41"
+    hide-when-single-tab
+
+    corner-radius 10
+
+    active-gradient   from="#879a39" to="#66800b"
+    inactive-gradient from="#4385be" to="#205ea6"
+    urgent-gradient   from="#d14d41" to="#af3029"
   }
 
   // ╭───────────────────────────────────────────────────────────────────────╌┄┈

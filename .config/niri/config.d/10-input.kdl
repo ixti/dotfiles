@@ -1,0 +1,20 @@
+input {
+  keyboard {
+    xkb {
+      layout  "us,ru"
+      options "caps:ctrl_modifier,grp:shifts_toggle"
+    }
+  }
+
+  touchpad {
+    tap // Enable tap-to-click
+  }
+
+  trackball {
+    scroll-method "on-button-down"
+    scroll-button 279 // BTN_TASK
+  }
+
+  focus-follows-mouse           // Automatically focus windows under the mouse pointer
+  workspace-auto-back-and-forth // Enable workspace back & forth switching
+}

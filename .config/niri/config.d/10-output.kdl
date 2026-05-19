@@ -1,0 +1,14 @@
+// ╭─── Output Configuration ────────────────────────────────────────────────╌┄┈
+// │ You can run `niri msg outputs` to get the correct name for your displays.
+// │
+// │ https://github.com/niri-wm/niri/wiki/Configuration:-Outputs
+// ╰─────────────────────────────────────────────────────────────────────────╌┄┈
+
+output "Dell Inc. DELL U2720Q FDX4T83" {
+  scale 2
+}
+
+// Lenovo
+output "Lenovo Group Limited 0x4146 Unknown" {
+  scale 2.1
+}

@@ -3,7 +3,7 @@
 // ╰─────────────────────────────────────────────────────────────────────────╌┄┈
 
 window-rule {
-  geometry-corner-radius 8
+  geometry-corner-radius 5
 
   // Clips window contents to the rounded corner boundaries.
   clip-to-geometry true

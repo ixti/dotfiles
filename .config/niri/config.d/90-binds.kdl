@@ -29,4 +29,11 @@ binds {
   Mod+F                               { maximize-window-to-edges; }
   Mod+Shift+M                         { switch-preset-column-width; }
   Mod+M                               { maximize-column; }
+  Mod+W { toggle-column-tabbed-display; }
+
+  // ╭─── Screenshots ───────────────────────────────────────────────────────╌┄┈
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+  Print                               { screenshot; }
+  Ctrl+Print                          { screenshot-screen; }
+  Alt+Print                           { screenshot-window; }
 }

@@ -26,12 +26,12 @@ dark:
   mShadow:            "#100f0f" # black       (bg)
 
   terminal:
-    background:          "#100f0f"
-    foreground:          "#cecdc3"
-    cursor:              "#cecdc3"
-    cursorText:          "#100f0f"
-    selectionBackground: "#164f4a"
-    selectionForeground: "#ddf1e4"
+    background:  "#100f0f"
+    foreground:  "#cecdc3"
+    cursor:      "#cecdc3"
+    cursorText:  "#100f0f"
+    selectionBg: "#164f4a"
+    selectionFg: "#ddf1e4"
 
     normal:
       black:   "#343331"
@@ -72,12 +72,12 @@ light:
   mShadow:            "#100f0f" # black       (tx)
 
   terminal:
-    background:          "#fffcf0"
-    foreground:          "#100f0f"
-    cursor:              "#100f0f"
-    cursorText:          "#fffcf0"
-    selectionBackground: "#a2dece"
-    selectionForeground: "#101f1d"
+    background:  "#fffcf0"
+    foreground:  "#100f0f"
+    cursor:      "#100f0f"
+    cursorText:  "#fffcf0"
+    selectionBg: "#a2dece"
+    selectionFg: "#101f1d"
 
     normal:
       black:   "#343331"

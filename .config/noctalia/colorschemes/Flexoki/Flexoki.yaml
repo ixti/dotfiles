@@ -41,7 +41,7 @@ dark:
       blue:    "#4385be"
       magenta: "#8b7ec8"
       cyan:    "#3aa99f"
-      white:   "#cecdc3"
+      white:   "#e6e4d9"
 
     bright:
       black:   "#575653"
@@ -51,7 +51,7 @@ dark:
       blue:    "#92bfdb"
       magenta: "#c4b9e0"
       cyan:    "#87d3c3"
-      white:   "#f2f0e5"
+      white:   "#fffcf0"
 
 light:
   mSurface:           "#fffcf0" # paper       (bg)

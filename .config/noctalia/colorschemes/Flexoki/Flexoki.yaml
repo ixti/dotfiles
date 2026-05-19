@@ -1,0 +1,100 @@
+# ==============================================================================
+# Noctalia Theme - Flexoki Variant
+# Based on Steph Ango's Flexoki (https://stephango.com/flexoki)
+# ==============================================================================
+#
+# Convert to JSON:
+#   ruby -ryaml -rjson -e 'puts JSON.pretty_generate YAML.safe_load STDIN' \
+#     < Flexoki.yaml > Flexoki.json
+---
+dark:
+  mSurface:           "#100f0f" # black       (bg)
+  mOnSurface:         "#cecdc3" # base-200    (tx)
+  mSurfaceVariant:    "#1c1b1a" # base-950    (bg-2)
+  mOnSurfaceVariant:  "#878580" # base-500    (tx-2)
+  mPrimary:           "#879a39" # green-400
+  mOnPrimary:         "#1a1e0c" # green-950
+  mSecondary:         "#4385be" # blue-400
+  mOnSecondary:       "#101a24" # blue-950
+  mTertiary:          "#8b7ec8" # purple-400
+  mOnTertiary:        "#1a1623" # purple-950
+  mError:             "#d14d41" # red-400
+  mOnError:           "#261312" # red-950
+  mHover:             "#403e3c" # base-800    (ui-3)
+  mOnHover:           "#cecdc3" # base-200    (tx)
+  mOutline:           "#282726" # base-900    (ui)
+  mShadow:            "#100f0f" # black       (bg)
+
+  terminal:
+    background:          "#100f0f"
+    foreground:          "#cecdc3"
+    cursor:              "#cecdc3"
+    cursorText:          "#100f0f"
+    selectionBackground: "#164f4a"
+    selectionForeground: "#ddf1e4"
+
+    normal:
+      black:   "#343331"
+      red:     "#d14d41"
+      green:   "#879a39"
+      yellow:  "#d0a215"
+      blue:    "#4385be"
+      magenta: "#8b7ec8"
+      cyan:    "#3aa99f"
+      white:   "#cecdc3"
+
+    bright:
+      black:   "#575653"
+      red:     "#f89a8a"
+      green:   "#bec97e"
+      yellow:  "#eccb60"
+      blue:    "#92bfdb"
+      magenta: "#c4b9e0"
+      cyan:    "#87d3c3"
+      white:   "#f2f0e5"
+
+light:
+  mSurface:           "#fffcf0" # paper       (bg)
+  mOnSurface:         "#100f0f" # black       (tx)
+  mSurfaceVariant:    "#f2f0e5" # base-50     (bg-2)
+  mOnSurfaceVariant:  "#6f6e69" # base-600    (tx-2)
+  mPrimary:           "#879a39" # green-400
+  mOnPrimary:         "#1a1e0c" # green-950
+  mSecondary:         "#4385be" # blue-400
+  mOnSecondary:       "#101a24" # blue-950
+  mTertiary:          "#8b7ec8" # purple-400
+  mOnTertiary:        "#1a1623" # purple-950
+  mError:             "#d14d41" # red-400
+  mOnError:           "#261312" # red-950
+  mHover:             "#cecdc3" # base-200    (ui-3)
+  mOnHover:           "#100f0f" # black       (tx)
+  mOutline:           "#e6e4d9" # base-100    (ui)
+  mShadow:            "#100f0f" # black       (tx)
+
+  terminal:
+    background:          "#fffcf0"
+    foreground:          "#100f0f"
+    cursor:              "#100f0f"
+    cursorText:          "#fffcf0"
+    selectionBackground: "#a2dece"
+    selectionForeground: "#101f1d"
+
+    normal:
+      black:   "#343331"
+      red:     "#af3029"
+      green:   "#66800b"
+      yellow:  "#ad8301"
+      blue:    "#205ea6"
+      magenta: "#5e409d"
+      cyan:    "#24837b"
+      white:   "#cecdc3"
+
+    bright:
+      black:   "#6f6e69"
+      red:     "#d14d41"
+      green:   "#879a39"
+      yellow:  "#d0a215"
+      blue:    "#4385be"
+      magenta: "#8b7ec8"
+      cyan:    "#3aa99f"
+      white:   "#f2f0e5"

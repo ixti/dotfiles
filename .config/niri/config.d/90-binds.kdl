@@ -6,8 +6,14 @@
 binds {
   Mod+Shift+ESCAPE { show-hotkey-overlay; }
 
+  // Use this when a fullscreen app blocks your keybinds.
+  // It disables any active keyboard shortcut inhibitor, restoring control.
+  Mod+ESCAPE allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
   // ╭─── System ────────────────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
+  CTRL+ALT+Delete                                    { quit; } // Also quits Niri
 
   Mod+CTRL+Q hotkey-overlay-title="Session Menu"     { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
   Mod+CTRL+L hotkey-overlay-title="Lock Screen"      { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
@@ -20,20 +26,106 @@ binds {
 
   // ╭─── Window Management ─────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
-  Mod+Space                           repeat=false { toggle-overview; }
+  Mod+O                               repeat=false { toggle-overview; }
   Mod+Shift+C                         { close-window; }
 
-  // ╭─── Modes ─────────────────────────────────────────────────────────────╌┄┈
+  Mod+Up                              { focus-window-or-workspace-up; }
+  Mod+Down                            { focus-window-or-workspace-down; }
+  Mod+Left                            { focus-column-left; }
+  Mod+Right                           { focus-column-right; }
+
+  Mod+Shift+Up                        { move-window-up-or-to-workspace-up; }
+  Mod+Shift+Down                      { move-window-down-or-to-workspace-down; }
+  Mod+Shift+Left                      { move-column-left; }
+  Mod+Shift+Right                     { move-column-right; }
+
+  Mod+Home                            { focus-column-first; }
+  Mod+End                             { focus-column-last; }
+
+  Mod+Shift+Home                      { move-column-to-first; }
+  Mod+Shift+End                       { move-column-to-last; }
+
+  Mod+CTRL+UP                         { focus-monitor-up; }
+  Mod+CTRL+Down                       { focus-monitor-down; }
+  Mod+CTRL+Left                       { focus-monitor-left; }
+  Mod+CTRL+Right                      { focus-monitor-right; }
+
+  Mod+Shift+CTRL+UP                   { move-column-to-monitor-up; }
+  Mod+Shift+CTRL+Down                 { move-column-to-monitor-down; }
+  Mod+Shift+CTRL+Left                 { move-column-to-monitor-left; }
+  Mod+Shift+CTRL+Right                { move-column-to-monitor-right; }
+
+  Mod+WheelScrollUp                   cooldown-ms=150 { focus-workspace-up; }
+  Mod+WheelScrollDown                 cooldown-ms=150 { focus-workspace-down; }
+  Mod+WheelScrollLeft                 { focus-column-left; }
+  Mod+WheelScrollRight                { focus-column-right; }
+
+  Mod+Shift+WheelScrollUp             cooldown-ms=150 { move-column-to-workspace-up; }
+  Mod+Shift+WheelScrollDown           cooldown-ms=150 { move-column-to-workspace-down; }
+  Mod+Shift+WheelScrollLeft           { move-column-left; }
+  Mod+Shift+WheelScrollRight          { move-column-right; }
+
+  // ╭─── Workspace Switching ───────────────────────────────────────────────╌┄┈
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
+  Mod+1                               { focus-workspace 1; }
+  Mod+2                               { focus-workspace 2; }
+  Mod+3                               { focus-workspace 3; }
+  Mod+4                               { focus-workspace 4; }
+  Mod+5                               { focus-workspace 5; }
+  Mod+6                               { focus-workspace 6; }
+  Mod+7                               { focus-workspace 7; }
+  Mod+8                               { focus-workspace 8; }
+  Mod+9                               { focus-workspace 9; }
+
+  Mod+Shift+1                         { move-column-to-workspace 1; }
+  Mod+Shift+2                         { move-column-to-workspace 2; }
+  Mod+Shift+3                         { move-column-to-workspace 3; }
+  Mod+Shift+4                         { move-column-to-workspace 4; }
+  Mod+Shift+5                         { move-column-to-workspace 5; }
+  Mod+Shift+6                         { move-column-to-workspace 6; }
+  Mod+Shift+7                         { move-column-to-workspace 7; }
+  Mod+Shift+8                         { move-column-to-workspace 8; }
+  Mod+Shift+9                         { move-column-to-workspace 9; }
+
+  Mod+TAB                             { focus-workspace-previous; }
+
+  // ╭─── Layout Management ─────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
   Mod+T                               { toggle-window-floating; }
   Mod+F                               { maximize-window-to-edges; }
-  Mod+Shift+M                         { switch-preset-column-width; }
   Mod+M                               { maximize-column; }
-  Mod+W { toggle-column-tabbed-display; }
+
+  Mod+Backslash                       { expand-column-to-available-width; }
+  Mod+Shift+Backslash                 { switch-preset-column-width; }
+
+  Mod+Minus                           { set-column-width "-10%"; }
+  Mod+Equal                           { set-column-width "+10%"; }
+  Mod+Shift+Minus                     { set-window-height "-10%"; }
+  Mod+Shift+Equal                     { set-window-height "+10%"; }
+
+  Mod+Space                           { center-column; }
+  Mod+Shift+Space                     { center-visible-columns; }
 
   // ╭─── Screenshots ───────────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
   Print                               { screenshot; }
   Ctrl+Print                          { screenshot-screen; }
   Alt+Print                           { screenshot-window; }
+
+  // ╭─── Media Controls ────────────────────────────────────────────────────╌┄┈
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+  XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase"; }
+  XF86AudioLowerVolume                allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume decrease"; }
+  XF86AudioMute                       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteOutput"; }
+  XF86AudioMicMute                    allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteInput"; }
+  XF86AudioNext                       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media next"; }
+  XF86AudioPrev                       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media previous"; }
+  XF86AudioPlay                       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
+  XF86AudioPause                      allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
+
+  // ╭─── Brighness Controls ────────────────────────────────────────────────╌┄┈
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+  XF86MonBrightnessUp                 allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness increase"; }
+  XF86MonBrightnessDown               allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness decrease"; }
 }

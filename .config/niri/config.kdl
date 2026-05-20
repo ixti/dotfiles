@@ -22,9 +22,6 @@ hotkey-overlay {
   skip-at-startup
 }
 
-// TODO: Refactor
-include "./legacy/keybinds.kdl"
-
 include "./config.d/10-input.kdl"
 include "./config.d/10-output.kdl"
 include "./config.d/40-animations.kdl"

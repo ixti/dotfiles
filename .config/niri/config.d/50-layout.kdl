@@ -10,7 +10,7 @@ layout {
     proportion 0.66667
   }
 
-  gaps 10
+  gaps 6
 
   struts {}
 
@@ -39,10 +39,9 @@ layout {
     on
     color          "#100f0fdd"
     inactive-color "#1c1b1acc"
-    spread 3
-    softness 8
 
-    offset x=0 y=0
+    spread   3
+    softness 8
   }
 
   // ╭───────────────────────────────────────────────────────────────────────╌┄┈

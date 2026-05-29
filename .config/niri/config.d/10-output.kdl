@@ -10,5 +10,5 @@ output "Dell Inc. DELL U2720Q FDX4T83" {
 
 // Lenovo
 output "Lenovo Group Limited 0x4146 Unknown" {
-  scale 2.1
+  scale 2.25
 }

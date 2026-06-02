@@ -2,7 +2,7 @@ input {
   keyboard {
     xkb {
       layout  "us,ru"
-      options "caps:ctrl_modifier,grp:shifts_toggle"
+      options "caps:ctrl_modifier,grp:shifts_toggle,compose:menu"
     }
   }
 

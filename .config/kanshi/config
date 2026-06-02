@@ -1,0 +1,31 @@
+output "Lenovo Group Limited 0x4146 Unknown" {
+  mode  3840x2400@60.000
+  scale 2
+  alias $INTERNAL_LENOVO_Z16
+}
+
+output "Dell Inc. DELL U2720Q FDX4T83" {
+  mode 3840x2160@59.997
+  scale 2
+  alias $EXTERNAL_DELL_U2720Q
+}
+
+profile lenovo_z16 {
+  output $INTERNAL_LENOVO_Z16 {
+    enable
+    position 0,0
+  }
+}
+
+profile lenovo_z16_home {
+  output $INTERNAL_LENOVO_Z16 {
+    enable
+    scale 2.4
+    position 0,0
+  }
+
+  output $EXTERNAL_DELL_U2720Q {
+    enable
+    position 1600,0
+  }
+}

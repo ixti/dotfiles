@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -eEuo pipefail
+
+echo "╭────────────────────────────────────────────────────────────────────────────╌┄┈"
+echo "│ Dotfiles deployed."
+
+if command -v systemctl >/dev/null 2>&1; then
+  echo "├╌┄┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈"
+  echo "│ [Systemd Detected]"
+  echo "│ To activate display profiles, run:"
+  echo "│     systemctl --user daemon-reload"
+  echo "│     systemctl --user enable --now kanshi.service"
+fi
+
+echo "╰────────────────────────────────────────────────────────────────────────────╌┄┈"

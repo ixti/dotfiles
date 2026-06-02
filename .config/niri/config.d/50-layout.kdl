@@ -26,7 +26,7 @@ layout {
     width 2
 
     active-gradient from="#3aa99fdd" to="#205ea6dd" angle=35 in="oklch shorter hue" relative-to="workspace-view"
-    urgent-gradient from="#da702cdd" to="#af3029dd" angle=35 in="oklch shorter hue" relative-to="workspace-view"
+    urgent-gradient from="#af3029ff" to="#af3029dd" angle=35 in="oklch shorter hue" relative-to="workspace-view"
 
     inactive-color "#403e3ccc"
   }

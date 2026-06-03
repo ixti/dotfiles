@@ -33,15 +33,22 @@ layout {
 
   // ╭───────────────────────────────────────────────────────────────────────╌┄┈
   // │ https://github.com/niri-wm/niri/wiki/Configuration:-Layout#shadow
+  // │
+  // │ Keep shadows off by default, but configure their defaul styling.
+  // │
+  // │ > Shadows default to off because they are a fairly performance-intensive
+  // │ > shader, and because many clientside-decorated windows already
+  // │ > draw their own shadows.
+  // │ > -- https://github.com/niri-wm/niri/wiki/Development:-Design-Principles
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
-
   shadow {
-    on
-    color          "#100f0fdd"
-    inactive-color "#1c1b1acc"
+    off
+
+    color          "#100f0fee"
+    inactive-color "#100f0f99"
 
     spread   3
-    softness 8
+    softness 21
   }
 
   // ╭───────────────────────────────────────────────────────────────────────╌┄┈

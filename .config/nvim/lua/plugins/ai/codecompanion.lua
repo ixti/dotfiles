@@ -11,10 +11,11 @@ return {
     strategies = {
       chat = {
         -- Install with:
-        -- bun i -g @zed-industries/claude-code-acp @anthropic-ai/claude-code
+        -- bun i -g @agentclientprotocol/claude-agent-acp
         adapter = "claude_code",
       }
     },
+
     adapters = {
       acp = {
         claude_code = function()
@@ -26,6 +27,7 @@ return {
         end,
       },
     },
+
     display = {
       chat = {
         show_header_separator = true,
@@ -33,6 +35,27 @@ return {
         show_token_count      = true,
         show_tools_processing = true,
       }
+    },
+
+    interactions = {
+      cli = {
+        agent = "claude_code",
+
+        agents = {
+          claude_code = {
+            cmd         = "claude",
+            args        = {},
+            description = "Claude Code CLI",
+            provider    = "terminal",
+          },
+          opencode = {
+            cmd         = "opencode",
+            args        = {},
+            description = "OpenCode",
+            provider    = "terminal",
+          },
+        },
+      },
     },
   },
 
@@ -42,6 +65,11 @@ return {
     local progress = require("fidget.progress")
     local handles  = {}
     local group    = vim.api.nvim_create_augroup("CodeCompanionFidget", { clear = true })
+
+    local status = {
+      success   = "󰗡 Completed",
+      error     = " Error",
+    }
 
     vim.api.nvim_create_autocmd("User", {
       pattern  = "CodeCompanionRequestStarted",
@@ -72,11 +100,6 @@ return {
         handles[args.data.id] = handle
       end,
     })
-
-    local status = {
-      success   = "󰗡 Completed",
-      error     = " Error",
-    }
 
     vim.api.nvim_create_autocmd("User", {
       pattern  = "CodeCompanionRequestFinished",

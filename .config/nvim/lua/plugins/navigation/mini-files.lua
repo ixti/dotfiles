@@ -86,6 +86,11 @@ return {
           MiniFiles.go_out()
           MiniFiles.trim_right()
         end, { buffer = buffer, desc = "Go out plus (alias)" })
+
+        -- idea for when I will move to colemak + splitkb
+        -- keymap("n", "<C-Right>", function()
+        --   MiniFiles.go_in()
+        -- end, { buffer = buffer, desc = "Go in entry plus (alias)" })
       end,
     })
   end,

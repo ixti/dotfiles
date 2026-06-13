@@ -1,0 +1,33 @@
+spawn-sh-at-startup "noctalia"
+
+binds {
+  // ╭─── System ────────────────────────────────────────────────────────────╌┄┈
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
+  Mod+CTRL+Q hotkey-overlay-title="Session Menu"     { spawn-sh "noctalia msg panel-toggle session"; }
+  Mod+CTRL+L hotkey-overlay-title="Lock Screen"      { spawn-sh "noctalia msg session lock"; }
+  Mod+CTRL+R hotkey-overlay-title="Restart Noctalia" { spawn-sh "pkill noctalia; noctalia"; }
+
+  // ╭─── Applications ──────────────────────────────────────────────────────╌┄┈
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
+  Mod+R hotkey-overlay-title="Open App Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+
+  // ╭─── Media Controls ────────────────────────────────────────────────────╌┄┈
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
+  XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+  XF86AudioLowerVolume                allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+  XF86AudioMute                       allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+  XF86AudioMicMute                    allow-when-locked=true { spawn-sh "noctalia msg mic-mute"; }
+  XF86AudioNext                       allow-when-locked=true { spawn-sh "noctalia msg media next"; }
+  XF86AudioPrev                       allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
+  XF86AudioPlay                       allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
+  XF86AudioPause                      allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
+
+  // ╭─── Brighness Controls ────────────────────────────────────────────────╌┄┈
+  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
+  XF86MonBrightnessUp                 allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
+  XF86MonBrightnessDown               allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
+}

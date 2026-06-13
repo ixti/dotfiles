@@ -13,19 +13,16 @@ binds {
   // ╭─── System ────────────────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
 
-  CTRL+ALT+Delete                                    { quit; } // Also quits Niri
-
-  Mod+CTRL+Q hotkey-overlay-title="Session Menu"     { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
-  Mod+CTRL+L hotkey-overlay-title="Lock Screen"      { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
-  Mod+CTRL+R hotkey-overlay-title="Restart Noctalia" { spawn-sh "pkill qs; qs -c noctalia-shell"; }
+  CTRL+ALT+Delete { quit; } // Also quits Niri
 
   // ╭─── Applications ──────────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
-  Mod+Return  hotkey-overlay-title="Open Terminal"     { spawn "ghostty"; }
-  Mod+R       hotkey-overlay-title="Open App Launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+
+  Mod+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
 
   // ╭─── Window Management ─────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
   Mod+O                               repeat=false { toggle-overview; }
   Mod+Shift+C                         { close-window; }
 
@@ -92,6 +89,7 @@ binds {
 
   // ╭─── Layout Management ─────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
   Mod+T                               { toggle-window-floating; }
   Mod+F                               { maximize-window-to-edges; }
   Mod+M                               { maximize-column; }
@@ -109,23 +107,8 @@ binds {
 
   // ╭─── Screenshots ───────────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
+
   Print                               { screenshot; }
   Ctrl+Print                          { screenshot-screen; }
   Alt+Print                           { screenshot-window; }
-
-  // ╭─── Media Controls ────────────────────────────────────────────────────╌┄┈
-  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
-  XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase"; }
-  XF86AudioLowerVolume                allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume decrease"; }
-  XF86AudioMute                       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteOutput"; }
-  XF86AudioMicMute                    allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteInput"; }
-  XF86AudioNext                       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media next"; }
-  XF86AudioPrev                       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media previous"; }
-  XF86AudioPlay                       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
-  XF86AudioPause                      allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
-
-  // ╭─── Brighness Controls ────────────────────────────────────────────────╌┄┈
-  // ╰───────────────────────────────────────────────────────────────────────╌┄┈
-  XF86MonBrightnessUp                 allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness increase"; }
-  XF86MonBrightnessDown               allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness decrease"; }
 }

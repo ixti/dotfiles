@@ -10,7 +10,7 @@ layout {
     proportion 0.66667
   }
 
-  gaps 6
+  gaps 4
 
   struts {}
 

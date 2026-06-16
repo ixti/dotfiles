@@ -92,10 +92,11 @@ binds {
 
   Mod+T                               { toggle-window-floating; }
   Mod+F                               { maximize-window-to-edges; }
+  Mod+Shift+F                         { fullscreen-window; }
   Mod+M                               { maximize-column; }
+  Mod+Shift+M                         { expand-column-to-available-width; }
 
-  Mod+Backslash                       { expand-column-to-available-width; }
-  Mod+Shift+Backslash                 { switch-preset-column-width; }
+  Mod+Backslash                       { switch-preset-column-width; }
 
   Mod+Minus                           { set-column-width "-10%"; }
   Mod+Equal                           { set-column-width "+10%"; }

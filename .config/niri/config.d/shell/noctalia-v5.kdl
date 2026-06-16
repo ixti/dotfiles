@@ -4,9 +4,10 @@ binds {
   // ╭─── System ────────────────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
 
-  Mod+CTRL+Q hotkey-overlay-title="Session Menu"     { spawn-sh "noctalia msg panel-toggle session"; }
-  Mod+CTRL+L hotkey-overlay-title="Lock Screen"      { spawn-sh "noctalia msg session lock"; }
-  Mod+CTRL+R hotkey-overlay-title="Restart Noctalia" { spawn-sh "pkill noctalia; noctalia"; }
+  Mod+CTRL+R hotkey-overlay-title="Restart Noctalia" { spawn-sh "pkill noctalia; sleep 1; noctalia"; }
+
+  Mod+Q      hotkey-overlay-title="Session Menu"     { spawn-sh "noctalia msg panel-toggle session"; }
+  Mod+L      hotkey-overlay-title="Lock Screen"      { spawn-sh "noctalia msg session lock"; }
 
   // ╭─── Applications ──────────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈

@@ -1,0 +1,37 @@
+[theme]
+mode           = "dark"
+custom_palette = "Flexoki"
+source         = "custom"
+
+[bar.default]
+start               = [ "workspaces", "active_window" ]
+center              = [ "clock" ]
+end                 = [ "tray", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery" ]
+auto_hide           = false
+background_opacity  = 1.0
+border              = "outline"
+border_width        = 0.0
+capsule             = false
+capsule_fill        = "surface_variant"
+capsule_group       = []
+capsule_opacity     = 1.0
+capsule_padding     = 6.0
+contact_shadow      = false
+enabled             = true
+font_weight         = 500
+layer               = "top"
+margin_edge         = 0
+margin_ends         = 0
+padding             = 14
+panel_overlap       = 0
+position            = "top"
+radius              = 0
+radius_bottom_left  = 0
+radius_bottom_right = 0
+radius_top_left     = 0
+radius_top_right    = 0
+reserve_space       = true
+scale               = 1.0
+shadow              = false
+thickness           = 34
+widget_spacing      = 6

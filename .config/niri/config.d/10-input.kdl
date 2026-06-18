@@ -15,6 +15,9 @@ input {
     scroll-button 279 // BTN_TASK
   }
 
-  focus-follows-mouse           // Automatically focus windows under the mouse pointer
-  workspace-auto-back-and-forth // Enable workspace back & forth switching
+  // Automatically focus windows under the mouse pointer
+  focus-follows-mouse max-scroll-amount="0%"
+
+  // Enable workspace back & forth switching
+  workspace-auto-back-and-forth
 }

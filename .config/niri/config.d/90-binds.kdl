@@ -4,16 +4,16 @@
 // ╰─────────────────────────────────────────────────────────────────────────╌┄┈
 
 binds {
-  Mod+Shift+ESCAPE { show-hotkey-overlay; }
+  Mod+Shift+Escape { show-hotkey-overlay; }
 
   // Use this when a fullscreen app blocks your keybinds.
   // It disables any active keyboard shortcut inhibitor, restoring control.
-  Mod+ESCAPE allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
   // ╭─── System ────────────────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
 
-  CTRL+ALT+Delete { quit; } // Also quits Niri
+  Ctrl+Alt+Delete { quit; } // Also quits Niri
 
   // ╭─── Applications ──────────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
@@ -23,7 +23,7 @@ binds {
   // ╭─── Window Management ─────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
 
-  Mod+O                               repeat=false { toggle-overview; }
+  Mod+Space                           repeat=false { toggle-overview; }
   Mod+Shift+C                         { close-window; }
 
   Mod+Up                              { focus-window-or-workspace-up; }
@@ -42,15 +42,15 @@ binds {
   Mod+Shift+Home                      { move-column-to-first; }
   Mod+Shift+End                       { move-column-to-last; }
 
-  Mod+CTRL+UP                         { focus-monitor-up; }
-  Mod+CTRL+Down                       { focus-monitor-down; }
-  Mod+CTRL+Left                       { focus-monitor-left; }
-  Mod+CTRL+Right                      { focus-monitor-right; }
+  Mod+Ctrl+UP                         { focus-monitor-up; }
+  Mod+Ctrl+Down                       { focus-monitor-down; }
+  Mod+Ctrl+Left                       { focus-monitor-left; }
+  Mod+Ctrl+Right                      { focus-monitor-right; }
 
-  Mod+Shift+CTRL+UP                   { move-column-to-monitor-up; }
-  Mod+Shift+CTRL+Down                 { move-column-to-monitor-down; }
-  Mod+Shift+CTRL+Left                 { move-column-to-monitor-left; }
-  Mod+Shift+CTRL+Right                { move-column-to-monitor-right; }
+  Mod+Shift+Ctrl+UP                   { move-column-to-monitor-up; }
+  Mod+Shift+Ctrl+Down                 { move-column-to-monitor-down; }
+  Mod+Shift+Ctrl+Left                 { move-column-to-monitor-left; }
+  Mod+Shift+Ctrl+Right                { move-column-to-monitor-right; }
 
   Mod+WheelScrollUp                   cooldown-ms=150 { focus-workspace-up; }
   Mod+WheelScrollDown                 cooldown-ms=150 { focus-workspace-down; }
@@ -103,8 +103,8 @@ binds {
   Mod+Shift+Minus                     { set-window-height "-10%"; }
   Mod+Shift+Equal                     { set-window-height "+10%"; }
 
-  Mod+Space                           { center-column; }
-  Mod+Shift+Space                     { center-visible-columns; }
+  Mod+N                               { center-column; }
+  Mod+Shift+N                         { center-visible-columns; }
 
   // ╭─── Screenshots ───────────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈

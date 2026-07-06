@@ -2,11 +2,13 @@
 
 set -eEuo pipefail
 
-# Add files that should not track changes, e.g. ".config/niri/noctalia.kdl"
-SKIP_WORKTREE_FILES=()
+# Add files that should not track changes, e.g. ".config/vicinae/settings.json"
+SKIP_WORKTREE_FILES=(
+  ".config/vicinae/settings.json"
+)
 
 # Skip tracking changes to auto-generated files that need to be present with
-# some defaults, beforehand, e.g. `noctalia.kdl` include in `niri`.
+# some defaults, beforehand, e.g. vicinae settings
 if [[ ${#SKIP_WORKTREE_FILES[@]} -ne 0 ]]; then
   home="$(yadm rev-parse --show-toplevel)"
 
@@ -15,6 +17,7 @@ if [[ ${#SKIP_WORKTREE_FILES[@]} -ne 0 ]]; then
   echo "╰────────────────────────────────────────────────────────────────────────────╌┄┈"
 
   for f in "${SKIP_WORKTREE_FILES[@]}"; do
+    echo "* ${f}"
     yadm update-index --skip-worktree "${home}/${f}"
   done
 fi

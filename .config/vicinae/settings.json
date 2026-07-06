@@ -1,0 +1,6 @@
+{
+  "$schema": "https://vicinae.com/schemas/config.json",
+  "imports": [
+    "settings.defaults.json"
+  ]
+}

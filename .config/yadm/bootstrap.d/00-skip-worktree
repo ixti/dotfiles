@@ -3,9 +3,7 @@
 set -eEuo pipefail
 
 # Add files that should not track changes, e.g. ".config/vicinae/settings.json"
-SKIP_WORKTREE_FILES=(
-  ".config/vicinae/settings.json"
-)
+SKIP_WORKTREE_FILES=()
 
 # Skip tracking changes to auto-generated files that need to be present with
 # some defaults, beforehand, e.g. vicinae settings

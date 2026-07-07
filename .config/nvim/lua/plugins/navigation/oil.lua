@@ -1,5 +1,3 @@
-local TOGGLE = "<Leader>o"
-
 return {
   "stevearc/oil.nvim",
 
@@ -15,12 +13,25 @@ return {
   ---@module 'oil'
   ---@type oil.SetupOpts
   opts = {
+    columns = {
+      "icon",
+    },
+
+    win_options = {
+      signcolumn = "yes",
+    },
+
     keymaps = {
       ["<CR>"]      = "actions.select",
       ["<BS>"]      = "actions.parent",
       ["<C-s>"]     = { "actions.select", opts = { horizontal = true }, desc = "Open split below" },
       ["<C-v>"]     = { "actions.select", opts = { vertical = true }, desc = "Open split right" },
       ["<Leader>o"] = { "actions.close", desc = "Close Oil" },
+      ["q"]         = { "actions.close", desc = "Close Oil" },
+    },
+
+    view_options = {
+      show_hidden = true,
     },
   },
 
@@ -31,9 +42,9 @@ return {
         local current_file = vim.api.nvim_buf_get_name(0)
 
         if current_file ~= "" and vim.uv.fs_stat(current_file) then
-          require("oil").open(vim.fs.dirname(current_file))
+          require("oil").open_float(vim.fs.dirname(current_file))
         else
-          require("oil").open()
+          require("oil").open_float()
         end
       end,
       desc = "Open File Explorer (Oil)",

@@ -3,7 +3,7 @@ return {
 
   -- Optional dependencies
   dependencies = {
-    { "nvim-mini/mini.icons", opts = {} },
+    "nvim-mini/mini.icons",
   },
 
   -- Lazy loading is not recommended because it is very tricky to make it work
@@ -48,6 +48,6 @@ return {
         end
       end,
       desc = "Open File Explorer (Oil)",
-    }
+    },
   },
 }

@@ -19,7 +19,13 @@ return {
 
     win_options = {
       signcolumn = "yes",
+      -- winbar = "tada",
     },
+
+    -- float = {
+    --   -- Stick float's title to CWD
+    --   get_win_title = vim.uv.cwd,
+    -- },
 
     keymaps = {
       ["<CR>"]      = "actions.select",
@@ -27,7 +33,6 @@ return {
       ["<C-s>"]     = { "actions.select", opts = { horizontal = true }, desc = "Open split below" },
       ["<C-v>"]     = { "actions.select", opts = { vertical = true }, desc = "Open split right" },
       ["<Leader>o"] = { "actions.close", desc = "Close Oil" },
-      ["q"]         = { "actions.close", desc = "Close Oil" },
     },
 
     view_options = {

@@ -15,5 +15,10 @@ window-rule {
   shadow { on; }
 }
 
+
+include "./window-rules/bitwarden.kdl"
+include "./window-rules/firefox.kdl"
+include "./window-rules/slack.kdl"
 include "./window-rules/steam.kdl"
+include "./window-rules/telegram.kdl"
 include "./window-rules/zoom.kdl"

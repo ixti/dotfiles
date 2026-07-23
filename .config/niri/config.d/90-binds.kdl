@@ -97,6 +97,7 @@ binds {
   Mod+Shift+M                         { expand-column-to-available-width; }
 
   Mod+Backslash                       { switch-preset-column-width; }
+  Mod+Shift+Backslash                 { switch-preset-column-width-back; }
 
   Mod+Minus                           { set-column-width "-10%"; }
   Mod+Equal                           { set-column-width "+10%"; }

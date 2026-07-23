@@ -1,0 +1,11 @@
+// ╭─── Firefox ─────────────────────────────────────────────────────────────╌┄┈
+// ╰─────────────────────────────────────────────────────────────────────────╌┄┈
+
+window-rule {
+  match app-id="firefox"
+
+  default-column-width { proportion 0.7; }
+
+  open-maximized true
+  open-maximized-to-edges true
+}

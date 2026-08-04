@@ -1,8 +1,8 @@
 recent-windows {
   highlight {
-      active-color  "#92BFDBff"
-      urgent-color  "#ff9999ff"
-      padding       10
-      corner-radius 8
+    active-color  "#4385beff"
+    urgent-color  "#d14d41ff"
+    padding       10
+    corner-radius 8
   }
 }

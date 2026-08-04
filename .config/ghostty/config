@@ -39,3 +39,7 @@ window-save-state = never
 #       under 100ms even without single instance. But keeping the config
 #       for now until I get disappointed to the same level as with FiSH.
 gtk-single-instance = true
+
+# Disable the ability to move the cursor at prompts by clicking on a
+# location in the prompt text.
+cursor-click-to-move = false

@@ -18,6 +18,8 @@ window-rule {
 
 include "./window-rules/bitwarden.kdl"
 include "./window-rules/firefox.kdl"
+include "./window-rules/gimp.kdl"
+include "./window-rules/halloy.kdl"
 include "./window-rules/slack.kdl"
 include "./window-rules/steam.kdl"
 include "./window-rules/telegram.kdl"

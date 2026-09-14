@@ -1,0 +1,31 @@
+theme = "flexoki-dark"
+
+[font]
+size = 16
+
+[actions.buffer]
+click_channel_name = "replace-pane"
+click_highlight    = "replace-pane"
+click_nickname     = "replace-pane"
+join_channel       = "replace-pane"
+local              = "replace-pane"
+message_channel    = "replace-pane"
+message_user       = "replace-pane"
+
+[actions.sidebar]
+buffer = "replace-pane"
+
+[buffer.channel.nicklist]
+enabled = false
+
+[buffer.channel.topic_banner]
+enabled = false
+
+[servers.liberachat]
+server    = "irc.libera.chat"
+use_tls   = true
+channels  = ["#gentoo", "#gentoo-chat", "#gentoo-guru"]
+nickname  = "ixti"
+
+sasl.plain.username         = "ixti"
+sasl.plain.password_keyring = true

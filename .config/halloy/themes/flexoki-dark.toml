@@ -1,0 +1,74 @@
+[general]
+background           = "#1C1B1A" # bg-2
+border               = "#343331" # ui-2
+horizontal_rule      = "#403E3C" # ui-3
+horizontal_rule_text = "#575653" # tx-3
+scrollbar            = "#403E3C" # ui-3
+unread_indicator     = "#DA702C" # orange-400
+highlight_indicator  = "#D14D41" # red-400
+
+[text]
+primary   = { color = "#CECDC3", font_style = "normal" } # tx
+secondary = { color = "#878580", font_style = "normal" } # tx-2
+tertiary  = { color = "#575653", font_style = "normal" } # tx-3
+success   = { color = "#879A39", font_style = "normal" } # green-400
+error     = { color = "#D14D41", font_style = "bold"   } # red-400
+warning   = { color = "#DA702C", font_style = "bold"   } # orange-400
+info      = { color = "#4385BE", font_style = "normal" } # blue-400
+debug     = { color = "#3AA99F", font_style = "normal" } # cyan-400
+trace     = { color = "#8B7EC8", font_style = "normal" } # purple-400
+
+[buttons.primary]
+background                = "#00000000" # transparent
+background_hover          = "#282726"   # ui
+background_selected       = "#343331"   # ui-2
+background_selected_hover = "#403E3C"   # ui-3
+border_active             = "#879A39"   # green-400
+
+[buttons.secondary]
+background                = "#1C1B1A" # bg-2
+background_hover          = "#282726" # ui
+background_selected       = "#343331" # ui-2
+background_selected_hover = "#403E3C" # ui-3
+border_active             = "#879A39" # green-400
+
+[buffer]
+action                = { color = "#3AA99F", font_style = "italic" } # cyan-400
+background            = "#100F0F" # bg
+background_text_input = "#282726" # ui
+background_title_bar  = "#1C1B1A" # bg-2
+border                = "#282726" # ui
+border_selected       = "#879A39" # green-400
+code                  = { color = "#8B7EC8", font_style = "normal" } # purple-400
+highlight             = "#343331" # ui-2
+nickname              = { color = "#879A39", font_style = "bold"   } # green-400
+nickname_offline      = { color = "#575653", font_style = "normal" } # tx-3
+selection             = "#403E3C" # ui-3
+timestamp             = { color = "#575653", font_style = "normal" } # tx-3
+topic                 = "#3AA99F" # cyan-400
+url                   = { color = "#4385BE", font_style = "normal" } # blue-400
+backlog_rule          = "#343331" # ui-2
+backlog_rule_text     = "#878580" # tx-2
+date_rule             = "#343331" # ui-2
+date_rule_text        = "#878580" # tx-2
+
+[buffer.server_messages]
+default = { color = "#CE5D97", font_style = "normal" } # magenta-400
+
+[formatting]
+white      = "#FFFCF0" # paper
+black      = "#100F0F" # black
+blue       = "#4385BE" # blue-400
+green      = "#879A39" # green-400
+red        = "#D14D41" # red-400
+brown      = "#DA702C" # orange-400
+magenta    = "#CE5D97" # magenta-400
+orange     = "#DA702C" # orange-400
+yellow     = "#D0A215" # yellow-400
+lightgreen = "#BEC97E" # green-200
+cyan       = "#3AA99F" # cyan-400
+lightcyan  = "#87D3C3" # cyan-200
+lightblue  = "#92BFDB" # blue-200
+pink       = "#F4A4C2" # magenta-200
+grey       = "#6F6E69" # base-600
+lightgrey  = "#B7B5AC" # base-300

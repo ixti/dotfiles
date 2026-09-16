@@ -89,7 +89,7 @@ binds {
   Mod+Ctrl+X    { toggle-window-floating; }
 
   Mod+M         { maximize-column; }
-  Mod+Ctrl+M    { maximize-window-to-edges; }
+  Mod+F         { maximize-window-to-edges; }
   Mod+Ctrl+F    { fullscreen-window; }
 
   Mod+Period    { switch-preset-column-width; }

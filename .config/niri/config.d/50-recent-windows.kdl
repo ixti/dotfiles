@@ -5,4 +5,9 @@ recent-windows {
     padding       10
     corner-radius 8
   }
+
+  binds {
+    Mod+Shift+Tab { previous-window; }
+    Mod+Tab       { next-window; }
+  }
 }

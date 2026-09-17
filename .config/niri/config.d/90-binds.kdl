@@ -28,6 +28,10 @@ binds {
 
   Mod+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
 
+  XF86Tools     hotkey-overlay-title="Open Media Player"  { spawn "flatpak" "run" "io.github.lullabyX.sone"; }
+  XF86Explorer  hotkey-overlay-title="Open Files"         { spawn "nautilus"; }
+  XF86Open      hotkey-overlay-title="Open Terminal"      { spawn "ghostty"; }
+
   // ╭─── Window Management ─────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
 

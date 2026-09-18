@@ -8,8 +8,7 @@ binds {
 
   Ctrl+Alt+Delete { quit; }
 
-  Mod+Space       repeat=false { toggle-overview; }
-  Mod+Ctrl+Space  repeat=false { show-hotkey-overlay; }
+  Mod+Space repeat=false { toggle-overview; }
 
   Mod+Ctrl+I repeat=false \
     hotkey-overlay-title="Debug window info" {
@@ -35,32 +34,41 @@ binds {
   // ╭─── Window Management ─────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
 
-  Mod+Ctrl+C             { close-window; }
+  Mod+C                  repeat=false { close-window; }
 
   Mod+Up                 { focus-window-or-workspace-up; }
   Mod+Down               { focus-window-or-workspace-down; }
   Mod+Left               { focus-column-left; }
   Mod+Right              { focus-column-right; }
 
-  Mod+Ctrl+Up            { move-window-up-or-to-workspace-up; }
-  Mod+Ctrl+Down          { move-window-down-or-to-workspace-down; }
+  Mod+Home               { focus-column-first; }
+  Mod+End                { focus-column-last; }
+
+  Mod+Ctrl+Up            { move-column-to-workspace-up; }
+  Mod+Ctrl+Down          { move-column-to-workspace-down; }
   Mod+Ctrl+Left          { move-column-left; }
   Mod+Ctrl+Right         { move-column-right; }
 
-  Mod+Alt+UP             { focus-monitor-up; }
-  Mod+Alt+Down           { focus-monitor-down; }
-  Mod+Alt+Left           { focus-monitor-left; }
-  Mod+Alt+Right          { focus-monitor-right; }
+  Mod+Ctrl+Home          { move-column-to-first; }
+  Mod+Ctrl+End           { move-column-to-last; }
 
-  Mod+Alt+Ctrl+UP        { move-column-to-monitor-up; }
-  Mod+Alt+Ctrl+Down      { move-column-to-monitor-down; }
-  Mod+Alt+Ctrl+Left      { move-column-to-monitor-left; }
-  Mod+Alt+Ctrl+Right     { move-column-to-monitor-right; }
+  Mod+Shift+UP           { focus-monitor-up; }
+  Mod+Shift+Down         { focus-monitor-down; }
+  Mod+Shift+Left         { focus-monitor-left; }
+  Mod+Shift+Right        { focus-monitor-right; }
+
+  Mod+Shift+Ctrl+UP      { move-column-to-monitor-up; }
+  Mod+Shift+Ctrl+Down    { move-column-to-monitor-down; }
+  Mod+Shift+Ctrl+Left    { move-column-to-monitor-left; }
+  Mod+Shift+Ctrl+Right   { move-column-to-monitor-right; }
 
   Mod+WheelScrollUp      cooldown-ms=150 { focus-workspace-up; }
   Mod+WheelScrollDown    cooldown-ms=150 { focus-workspace-down; }
   Mod+WheelScrollLeft    cooldown-ms=150 { focus-column-left; }
   Mod+WheelScrollRight   cooldown-ms=150 { focus-column-right; }
+
+  Mod+BracketLeft  { consume-or-expel-window-left; }
+  Mod+BracketRight { consume-or-expel-window-right; }
 
   // ╭─── Workspace Switching ───────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
@@ -90,22 +98,24 @@ binds {
   // ╭─── Layout Management ─────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
 
-  Mod+Ctrl+X    { toggle-window-floating; }
-
-  Mod+M         { maximize-column; }
-  Mod+F         { maximize-window-to-edges; }
-  Mod+Ctrl+F    { fullscreen-window; }
+  Mod+V         { toggle-window-floating; }
+  Mod+Ctrl+V    { switch-focus-between-floating-and-tiling; }
 
   Mod+Period    { switch-preset-column-width; }
   Mod+Comma     { switch-preset-column-width-back; }
 
-  Mod+N         { center-column; }
-  Mod+Shift+N   { center-visible-columns; }
+  Mod+M         { maximize-column; }
+  Mod+N         { maximize-window-to-edges; }
+  Mod+F         { fullscreen-window; }
+  Mod+Ctrl+F    { toggle-windowed-fullscreen; }
+
+  Mod+X         { center-visible-columns; }
+  Mod+Ctrl+X    { center-column; }
 
   // ╭─── Screenshots ───────────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
 
-  Print          { screenshot show-pointer=false; }
-  Ctrl+Print     { screenshot-screen show-pointer=false write-to-disk=false; }
-  Ctrl+Mod+Print { screenshot-window show-pointer=false write-to-disk=false; }
+  Print      { screenshot show-pointer=false; }
+  Mod+Print  { screenshot-screen show-pointer=false write-to-disk=false; }
+  Ctrl+Print { screenshot-window show-pointer=false write-to-disk=false; }
 }

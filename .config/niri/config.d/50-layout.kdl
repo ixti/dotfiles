@@ -57,12 +57,20 @@ layout {
 
   tab-indicator {
     hide-when-single-tab
+    place-within-column
 
     corner-radius 10
+    width 6
 
-    active-gradient   from="#879a39" to="#66800b"
-    inactive-gradient from="#4385be" to="#205ea6"
-    urgent-gradient   from="#d14d41" to="#af3029"
+    gaps-between-tabs 8
+
+    position "left"
+
+    length total-proportion=1.0
+
+    active-gradient   from="#879A39" to="#3D4C07" angle=135 in="oklch shorter hue" relative-to="workspace-view"
+    inactive-gradient from="#4385BE" to="#163B66" angle=135 in="oklch shorter hue" relative-to="workspace-view"
+    urgent-gradient   from="#D14D41" to="#6C201C" angle=135 in="oklch shorter hue" relative-to="workspace-view"
   }
 
   // ╭───────────────────────────────────────────────────────────────────────╌┄┈

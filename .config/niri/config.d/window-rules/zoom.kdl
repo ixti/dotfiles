@@ -5,6 +5,13 @@
 // │ or XDG in general, and clearly banned from Google to RTFM...
 // ╰─────────────────────────────────────────────────────────────────────────╌┄┈
 
+window-rule {
+  match app-id=r#"(?i)^zoom$"# title=r#" popup$"#
+
+  open-floating true
+  open-focused  true
+}
+
 // Disable any decorations on damn Zoom windows
 window-rule {
   match app-id="(?i)^Zoom$"
@@ -17,7 +24,7 @@ window-rule {
   draw-border-with-background false
 }
 
-// Super screensharing toolbar that blocks 10% of a screen
+// Super annoying screensharing toolbar that blocks 10% of a screen
 window-rule {
   match app-id="(?i)^Zoom$" title="^as_toolbar$"
 

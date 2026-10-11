@@ -2,6 +2,7 @@ input {
   keyboard {
     xkb {
       layout  "us,ru"
+
       options "caps:ctrl_modifier,compose:menu"
     }
   }

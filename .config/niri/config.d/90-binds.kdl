@@ -21,6 +21,7 @@ binds {
 
   Mod+F1 repeat=false { switch-layout "0"; }
   Mod+F2 repeat=false { switch-layout "1"; }
+  Mod+F3 repeat=false { switch-layout "2"; }
 
   // ╭─── Applications ──────────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
@@ -98,19 +99,19 @@ binds {
   // ╭─── Layout Management ─────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈
 
-  Mod+V         { toggle-window-floating; }
-  Mod+Ctrl+V    { switch-focus-between-floating-and-tiling; }
+  Mod+T           { switch-focus-between-floating-and-tiling; }
+  Mod+Ctrl+T      { toggle-window-floating; }
 
-  Mod+Period    { switch-preset-column-width; }
-  Mod+Comma     { switch-preset-column-width-back; }
+  Mod+Period      { switch-preset-column-width; }
+  Mod+Comma       { switch-preset-column-width-back; }
 
-  Mod+M         { maximize-column; }
-  Mod+N         { maximize-window-to-edges; }
-  Mod+F         { fullscreen-window; }
-  Mod+Ctrl+F    { toggle-windowed-fullscreen; }
+  Mod+M           { maximize-column; }
+  Mod+Ctrl+M      { maximize-window-to-edges; }
+  Mod+F           { fullscreen-window; }
+  Mod+Ctrl+F      { toggle-windowed-fullscreen; }
 
-  Mod+X         { center-visible-columns; }
-  Mod+Ctrl+X    { center-column; }
+  Mod+N           { center-visible-columns; }
+  Mod+Ctrl+N      { center-column; }
 
   // ╭─── Screenshots ───────────────────────────────────────────────────────╌┄┈
   // ╰───────────────────────────────────────────────────────────────────────╌┄┈

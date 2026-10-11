@@ -1,7 +1,22 @@
 theme = "flexoki-dark"
 
 [font]
-size = 16
+family = "Victor Mono"
+size   = 14
+weight = "extra-light"
+
+[platform_specific]
+linux.decorations = false
+
+[notifications.direct_message]
+show_toast = true
+exclude    = { users = ["NickServ", "ChanServ", "SaslServ"] }
+
+[notifications.highlight]
+show_toast = true
+
+[notifications.monitored_online]
+show_toast = true
 
 [actions.buffer]
 click_channel_name = "replace-pane"
@@ -21,10 +36,14 @@ enabled = false
 [buffer.channel.topic_banner]
 enabled = false
 
-[servers.liberachat]
+[buffer.nickname]
+brackets = { left = "<", right = ">" }
+
+[servers.Libera]
 server    = "irc.libera.chat"
 use_tls   = true
-channels  = ["#gentoo", "#gentoo-chat", "#gentoo-guru"]
+port      = 6697
+channels  = ["#gentoo", "#gentoo-chat", "#gentoo-guru", "#ruby"]
 nickname  = "ixti"
 
 sasl.plain.username         = "ixti"
